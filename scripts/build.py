@@ -32,6 +32,7 @@ def contact(selected=''):
 def closing(title,text,cta,key='industrial',b='',home=False):
  words=title.rsplit(' ',3)
  heading='Decisiones claras.<br><em>Soluciones con criterio.</em>' if home else esc(words[0])+' <em>'+esc(' '.join(words[1:]))+'</em>'
+ heading=heading.replace('por ruido', 'por&nbsp;ruido')
  return '<section class="closing closing-editorial">'+image(key,'Ingeniería aplicada al diagnóstico y la definición de soluciones',b)+'<div class="closing-content">'+label('SIGUIENTE PASO','INGENIERÍA CON CRITERIO')+f'<h2>{heading}</h2><p>{esc(text)}</p><div class="closing-actions">'+btn(cta)+'<a class="text-button" href="https://wa.me/541133227832" target="_blank" rel="noopener noreferrer"><span class="closing-social-icon">'+social_icon('whatsapp')+'</span><span>Escribinos por WhatsApp</span></a></div></div></section>'
 
 def page(body,title,desc,b='',active='',hero='home'):
