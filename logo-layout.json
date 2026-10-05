@@ -9,7 +9,8 @@
       0,
       800,
       159
-    ]
+    ],
+    "display_width": 154
   },
   "client-37-hd.webp": {
     "size": [
@@ -21,7 +22,8 @@
       5,
       419,
       192
-    ]
+    ],
+    "display_width": 126
   },
   "client-38-hd.webp": {
     "size": [
@@ -33,7 +35,8 @@
       13,
       147,
       43
-    ]
+    ],
+    "display_width": 140
   },
   "client-39-hd.webp": {
     "size": [
@@ -45,7 +48,8 @@
       0,
       140,
       37
-    ]
+    ],
+    "display_width": 146
   },
   "client-40-hd.webp": {
     "size": [
@@ -57,7 +61,8 @@
       16,
       370,
       376
-    ]
+    ],
+    "display_width": 55
   },
   "client-41-hd.webp": {
     "size": [
@@ -69,7 +74,8 @@
       67,
       468,
       240
-    ]
+    ],
+    "display_width": 142
   },
   "client-42-hd.webp": {
     "size": [
@@ -81,7 +87,8 @@
       0,
       199,
       80
-    ]
+    ],
+    "display_width": 120
   },
   "client-43-hd.webp": {
     "size": [
@@ -93,7 +100,8 @@
       7,
       148,
       52
-    ]
+    ],
+    "display_width": 136
   },
   "client-44-hd.webp": {
     "size": [
@@ -105,7 +113,8 @@
       0,
       268,
       102
-    ]
+    ],
+    "display_width": 120
   },
   "client-45-hd.webp": {
     "size": [
@@ -117,7 +126,8 @@
       0,
       799,
       126
-    ]
+    ],
+    "display_width": 148
   },
   "client-46-hd.webp": {
     "size": [
@@ -129,7 +139,8 @@
       0,
       800,
       294
-    ]
+    ],
+    "display_width": 120
   },
   "client-47-hd.webp": {
     "size": [
@@ -141,7 +152,8 @@
       0,
       360,
       326
-    ]
+    ],
+    "display_width": 63
   },
   "client-48-hd.webp": {
     "size": [
@@ -165,7 +177,8 @@
       118,
       528,
       378
-    ]
+    ],
+    "display_width": 85
   },
   "client-50-hd.webp": {
     "size": [
@@ -177,7 +190,8 @@
       10,
       778,
       325
-    ]
+    ],
+    "display_width": 116
   },
   "client-51-hd.webp": {
     "size": [
@@ -189,7 +203,8 @@
       0,
       470,
       235
-    ]
+    ],
+    "display_width": 116
   },
   "client-52-hd.webp": {
     "size": [
@@ -201,7 +216,8 @@
       0,
       332,
       60
-    ]
+    ],
+    "display_width": 150
   },
   "client-53-hd.webp": {
     "size": [
@@ -213,7 +229,8 @@
       12,
       400,
       388
-    ]
+    ],
+    "display_width": 58
   },
   "client-54-hd.webp": {
     "size": [
@@ -225,7 +242,8 @@
       163,
       569,
       238
-    ]
+    ],
+    "display_width": 170
   },
   "client-55-hd.webp": {
     "size": [
@@ -237,7 +255,8 @@
       0,
       800,
       109
-    ]
+    ],
+    "display_width": 152
   },
   "client-56-hd.webp": {
     "size": [
@@ -249,7 +268,8 @@
       0,
       141,
       78
-    ]
+    ],
+    "display_width": 102
   },
   "client-57-hd.webp": {
     "size": [
@@ -261,7 +281,8 @@
       0,
       271,
       101
-    ]
+    ],
+    "display_width": 114
   },
   "client-58-hd.webp": {
     "size": [
@@ -273,7 +294,8 @@
       0,
       188,
       72
-    ]
+    ],
+    "display_width": 138
   },
   "client-59-hd.webp": {
     "size": [
@@ -285,7 +307,8 @@
       0,
       200,
       200
-    ]
+    ],
+    "display_width": 58
   },
   "client-60-hd.webp": {
     "size": [
@@ -297,6 +320,7 @@
       74,
       388,
       219
-    ]
+    ],
+    "display_width": 138
   }
 }
