@@ -12,3 +12,5 @@
 WhatsApp y llamada directa utilizan el número entregado. LinkedIn continúa mostrando un aviso de dato pendiente.
 
 - [ ] Para pantallas de muy alta densidad: solicitar fotografías de mayor resolución y logos vectoriales. Las fotos entregadas miden 2048 × 768 px; algunos logos originales son pequeños. La demo utiliza ahora los originales completos, sin ampliación artificial de archivos.
+
+- [ ] URL oficial de Instagram. Ícono incorporado; el botón informa que el perfil está pendiente.
