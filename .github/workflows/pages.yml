@@ -26,7 +26,7 @@ jobs:
       - name: Prepare public files
         run: |
           mkdir _site
-          cp index.html styles.css app.js robots.txt _site/
+          cp index.html styles.css app.js premium.css premium.js robots.txt _site/
           cp -r assets acustica-industrial acustica-arquitectonica acustica-legal mantenimiento-predictivo _site/
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
