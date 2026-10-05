@@ -77,3 +77,8 @@ body.motion-paused *,body.motion-paused *:before,body.motion-paused *:after{anim
 
 .logos .logo-item{mix-blend-mode:multiply}.logo-mark{mix-blend-mode:normal}
 
+
+/* Distribute the footer signature across its actual container without stretching glyphs. */
+.editorial-footer .footer-signature{container-type:inline-size;display:flex;justify-content:space-between;align-items:baseline;gap:0;letter-spacing:0;padding-left:0;padding-right:0}
+.editorial-footer .footer-signature>span{display:block;flex:0 0 auto;font-size:21.6cqw;line-height:1.05;font-weight:inherit;letter-spacing:-.045em;margin:0;color:inherit}
+.editorial-footer .footer-signature>span:last-child{padding-right:.035em}
