@@ -88,11 +88,11 @@ body.motion-paused *,body.motion-paused *:before,body.motion-paused *:after{anim
 .services-toggle{gap:9px}.nav-chevron{display:block;flex:0 0 14px;color:var(--sky);transform-origin:center;transition:transform .28s cubic-bezier(.22,1,.36,1),color .2s}.services-toggle:hover .nav-chevron{color:var(--paper)}.services-toggle[aria-expanded="true"] .nav-chevron{transform:rotate(180deg)}
 @media(prefers-reduced-motion:reduce){.nav-chevron{transition:none}}
 
-/* KRK reference pairing: Geist, Geist Mono and upright Georgia accents. */
+/* KRK reference pairing: Geist, Geist Mono and italic Georgia accents. */
 :root{--display:'Geist',Arial,sans-serif;--technical:'Geist Mono',monospace}
 body{font-family:var(--display)}h1,h2,h3,.section h2,.hero h1,.footer-invitation{font-family:var(--display);font-weight:520;letter-spacing:-.055em}
 .hero h1{font-size:clamp(54px,5.8vw,92px);line-height:1.04;letter-spacing:-.062em}
-.hero h1 em,h2 em,.visual-interlude h2 em,.footer-invitation em{font-family:Georgia,'Times New Roman',serif;font-style:normal;font-weight:400;letter-spacing:-.045em;font-size:1em}
+.hero h1 em,h2 em,.visual-interlude h2 em,.footer-invitation em{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;letter-spacing:-.045em;font-size:1em}
 .eyebrow,.hero-bottom,.small-number,.card-number,.knowledge-grid>a>span:first-child,.footer-kicker,.footer-column h3{font-family:var(--technical)}
 .card-copy h3,.why-grid h3,.steps h3,.knowledge-grid h3,.problem-grid h3{font-weight:520;letter-spacing:-.045em}
 @media(max-width:760px){.hero h1,.detail-hero h1{font-size:clamp(36px,10.3vw,65px);line-height:1.08;letter-spacing:-.055em}.hero .eyebrow{letter-spacing:.08em}.footer-kicker{letter-spacing:.04em;font-size:7px}}
