@@ -17,9 +17,8 @@ GitHub Actions publica únicamente HTML, CSS, JS y assets en GitHub Pages. La de
 
 ## Límites de demo
 
-El formulario valida datos pero no transmite ni guarda información. WhatsApp y LinkedIn muestran un aviso de dato pendiente. Ver `PENDIENTES.md`. Las fotografías ilustrativas provienen del banco aportado por el cliente, incluidos sus recursos IA; no se presentan como casos de obra reales. Los logos indican trayectoria profesional, no contratos vigentes.
+El formulario valida datos pero no transmite ni guarda información. WhatsApp y teléfono utilizan +54 11 3322-7832. LinkedIn muestra un aviso de dato pendiente. Ver `PENDIENTES.md`. Las fotografías ilustrativas provienen del banco aportado por el cliente, incluidos sus recursos IA; no se presentan como casos de obra reales. Los logos indican trayectoria profesional, no contratos vigentes.
 
 ## Diseño y movimiento
 
 La capa premium.css/premium.js incorpora entrada tipográfica, parallax de portada, revelado progresivo, tarjetas con profundidad, barra de lectura y respuesta sutil al puntero. Respeta prefers-reduced-motion y conserva el scroll nativo. La demo sigue siendo estática: la integración con WordPress y blog administrable corresponde a una segunda etapa.
-
