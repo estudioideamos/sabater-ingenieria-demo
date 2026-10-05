@@ -1,0 +1,9 @@
+const menu=document.querySelector('.menu-toggle');const nav=document.querySelector('nav');
+function closeMenu(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menú');}
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();}});
+const dialog=document.querySelector('#pending-dialog');document.querySelectorAll('[data-pending]').forEach(b=>b.addEventListener('click',()=>{document.querySelector('#pending-title').textContent=b.dataset.pending;dialog.showModal();}));
+dialog.querySelectorAll('.dialog-close,.dialog-done').forEach(b=>b.addEventListener('click',()=>dialog.close()));dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
+const form=document.querySelector('#contact-form');form.addEventListener('submit',e=>{e.preventDefault();document.querySelector('#form-status').textContent='La consulta está completa. Esta es una demostración: no se ha enviado ningún mensaje. El envío se habilitará al conectar el formulario definitivo.';});
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.remove('waiting');observer.unobserve(e.target);}}),{threshold:.08});document.querySelectorAll('.section-heading,.service-card,.why-grid article,.steps article,.about-layout,.knowledge-grid a,.sequence figure').forEach(el=>{el.classList.add('reveal','waiting');observer.observe(el);});}

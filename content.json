@@ -1,0 +1,485 @@
+{
+  "intro": [
+    "En SABATER Ingeniería combinamos mediciones de ruido y vibraciones, análisis, modelado y experiencia técnica para comprender cada situación y definir soluciones con criterio.",
+    "Transformamos esos datos en información útil para resolver problemas acústicos, evaluar alternativas de diseño, cumplir exigencias normativas o conocer la condición de maquinaria y equipos.",
+    "Trabajamos desde el diagnóstico hasta la definición técnica de la solución, priorizando intervenciones viables y justificadas."
+  ],
+  "why": [
+    [
+      "Especialización técnica",
+      "Trabajamos específicamente sobre problemas de acústica, ruido y vibraciones, aplicando conocimiento especializado a contextos industriales, arquitectónicos, normativos y de mantenimiento."
+    ],
+    [
+      "Criterio independiente",
+      "Nuestra recomendación parte del diagnóstico y de las necesidades reales del proyecto. La ingeniería define qué conviene hacer antes de decidir una inversión o una solución."
+    ],
+    [
+      "Método y trazabilidad",
+      "Integramos mediciones, análisis, modelado y documentación dentro de un proceso ordenado y replicable que permite validar técnicamente cada decisión."
+    ],
+    [
+      "Compromiso con el resultado",
+      "Entendemos que nuestro trabajo forma parte de una decisión mayor. Por eso priorizamos claridad, cumplimiento y soluciones que puedan llevarse efectivamente a la práctica."
+    ]
+  ],
+  "steps": [
+    [
+      "Entendemos el problema",
+      "Relevamos la necesidad, los objetivos, la información disponible y las condiciones del proyecto para definir correctamente el alcance."
+    ],
+    [
+      "Medimos y analizamos",
+      "Realizamos las mediciones, cálculos, simulaciones o evaluaciones necesarias para caracterizar técnicamente la situación."
+    ],
+    [
+      "Definimos la solución",
+      "Evaluamos alternativas y desarrollamos una recomendación técnica viable, priorizando eficacia, criterio y relación entre inversión y resultado esperado."
+    ],
+    [
+      "Acompañamos la decisión",
+      "Presentamos las conclusiones, validamos el alcance con el cliente y brindamos el soporte necesario para implementar o continuar con la siguiente etapa."
+    ]
+  ],
+  "about": [
+    "SABATER Ingeniería es una firma de consultoría especializada en acústica y vibraciones, respaldada por más de 15 años de experiencia en el campo de la ingeniería acústica.",
+    "Nos especializamos en el análisis y control de ruido y vibraciones, aplicando mediciones, modelado, diagnóstico y criterio técnico para ayudar a empresas y profesionales a resolver problemas, evaluar alternativas y tomar decisiones con información confiable.",
+    "Nuestra forma de trabajo combina especialización, independencia técnica y metodología, con una mirada orientada a desarrollar soluciones viables, justificadas y adecuadas a cada necesidad.",
+    "Buscamos construir relaciones de largo plazo basadas en la confianza, la claridad y la calidad profesional, acompañando a nuestros clientes desde la comprensión del problema hasta la definición de la solución."
+  ],
+  "services": [
+    {
+      "slug": "acustica-industrial",
+      "key": "industrial",
+      "name": "Acústica Industrial",
+      "lead": "Diagnóstico, análisis y control de ruido y vibraciones para plantas industriales.",
+      "intro": [
+        "En entornos industriales, los problemas de ruido y vibraciones rara vez tienen una causa única. Analizamos cada situación para identificar fuentes, evaluar alternativas y definir planes de mitigación técnicamente viables antes de invertir en una solución."
+      ],
+      "cta": "Hablemos de tu planta",
+      "problemIntro": [
+        "En una planta industrial, el ruido rara vez depende de una única fuente. Equipos, procesos, ventilación, estructuras y condiciones de operación pueden intervenir simultáneamente. Antes de definir una medida de control, es necesario entender qué genera el problema y dónde conviene actuar."
+      ],
+      "problems": [
+        [
+          "Reclamos de vecinos",
+          "Ruido generado por la operación que afecta el entorno, genera conflictos o compromete el cumplimiento normativo."
+        ],
+        [
+          "Exposición dentro de planta",
+          "Sectores o trabajadores expuestos a niveles elevados de ruido que requieren identificar las fuentes dominantes y reducir su incidencia."
+        ],
+        [
+          "Nuevos equipos o ampliaciones",
+          "Cambios de proceso o incorporación de maquinaria que pueden modificar las condiciones acústicas y conviene evaluar antes de su puesta en marcha."
+        ],
+        [
+          "Múltiples fuentes de ruido",
+          "Procesos donde intervienen varios equipos simultáneamente y no resulta evidente qué fuente tiene mayor impacto."
+        ],
+        [
+          "Soluciones que no funcionaron",
+          "Encapsulados, barreras, silenciadores u otras medidas implementadas que no alcanzaron la reducción esperada."
+        ],
+        [
+          "Priorización de inversiones",
+          "Necesidad de comparar alternativas y definir dónde intervenir primero para obtener el mayor impacto técnico."
+        ]
+      ],
+      "problemEnd": "El primer paso no es elegir una solución: es entender correctamente el problema.",
+      "whatTitle": "Ingeniería para el control de ruido industrial",
+      "what": [
+        "Abordamos cada problema a partir del diagnóstico de las fuentes y los caminos de transmisión, combinando mediciones de ruido y vibraciones, análisis, modelado acústico y diseño de soluciones de mitigación.",
+        "A partir de esa información definimos medidas de aislamiento acústico, encapsulado, barreras acústicas, silenciadores y tratamientos específicos, priorizando aquellas alternativas que permitan alcanzar el objetivo técnico con una inversión justificada."
+      ],
+      "sequence": [
+        "Diagnóstico en planta",
+        "Análisis y modelado",
+        "Ingeniería de mitigación"
+      ],
+      "steps": [
+        [
+          "Relevamos la situación",
+          "Entendemos el proceso, las fuentes involucradas, las condiciones operativas y el objetivo que se busca alcanzar."
+        ],
+        [
+          "Medimos y analizamos",
+          "Realizamos las mediciones necesarias y caracterizamos las fuentes, los niveles y los principales caminos de transmisión."
+        ],
+        [
+          "Evaluamos alternativas",
+          "Modelamos escenarios y comparamos posibles medidas de control para identificar las soluciones técnicamente más adecuadas."
+        ],
+        [
+          "Definimos el plan de mitigación",
+          "Establecemos prioridades, criterios técnicos y recomendaciones para avanzar con una solución viable y justificada."
+        ]
+      ],
+      "stepEnd": "Cada proyecto se aborda con un proceso claro, trazable y adaptable a la complejidad de cada planta.",
+      "experience": [
+        "Más de 15 años de experiencia en ingeniería acústica, especialización en ruido y vibraciones, criterio técnico independiente y una metodología clara para abordar cada problema antes de definir una solución.",
+        "A lo largo de nuestra trayectoria profesional hemos participado en proyectos de ingeniería acústica para empresas y plantas de distintas industrias, abordando problemáticas de ruido ambiental, exposición ocupacional, procesos productivos, nuevas instalaciones y sistemas de mitigación."
+      ],
+      "sectors": "Oil & Gas · Minería · Automotriz · Farmacéutica · Papel y Packaging · Telecomunicaciones · Energía · Industria general",
+      "faq": [
+        [
+          "¿Es necesario realizar mediciones antes de definir una solución acústica?",
+          "Cuando el problema ya existe, las mediciones suelen ser necesarias para caracterizar la situación real, identificar las fuentes dominantes y definir con mayor precisión dónde conviene intervenir. Cuando se trabaja de forma preventiva, por ejemplo ante una ampliación, incorporación de equipos o un proyecto nuevo, es posible estimar niveles y evaluar escenarios mediante simulaciones y modelado acústico por software antes de ejecutar la intervención."
+        ],
+        [
+          "¿Dónde operan?",
+          "Nuestra base operativa se encuentra en Buenos Aires, pero trabajamos en plantas y proyectos de toda la región, adaptando cada intervención a las necesidades del proyecto y contemplando los traslados y actividades en sitio cuando son necesarios."
+        ],
+        [
+          "¿Pueden evaluar una solución propuesta por otro proveedor?",
+          "Sí. Podemos analizar técnicamente soluciones existentes o propuestas por terceros para estimar su desempeño, detectar posibles limitaciones y evaluar si resultan adecuadas para el problema que se busca resolver."
+        ]
+      ],
+      "closing": [
+        "¿Tenés un problema de ruido en planta o necesitás evaluar una solución antes de invertir?",
+        "Contanos brevemente qué está pasando. Podemos ayudarte a entender el problema, evaluar alternativas y definir cuál debería ser el próximo paso."
+      ],
+      "logos": [
+        47,
+        49,
+        51,
+        37,
+        59,
+        58,
+        38,
+        60,
+        52,
+        46,
+        39
+      ],
+      "short": "Acústica Industrial",
+      "card": [
+        "Diagnóstico y control de ruido y vibraciones en plantas industriales.",
+        "Realizamos mediciones, análisis y modelado para identificar fuentes de ruido, evaluar su impacto y definir planes de mitigación técnica ante problemas con vecinos, exposición ocupacional, procesos productivos o nuevos equipos."
+      ]
+    },
+    {
+      "slug": "acustica-arquitectonica",
+      "key": "arquitectonica",
+      "name": "Acústica Arquitectónica",
+      "lead": "Consultoría e ingeniería acústica para integrar el confort y el aislamiento acústico desde el diseño.",
+      "intro": [
+        "Acompañamos a estudios de arquitectura, desarrolladores y empresas en la definición de criterios acústicos, evaluación de alternativas constructivas y modelado de espacios, para anticipar problemas y alcanzar los resultados esperados antes de ejecutar la obra."
+      ],
+      "cta": "Hablemos de tu proyecto",
+      "problemIntro": [
+        "En arquitectura, los problemas acústicos muchas veces aparecen cuando las decisiones principales del proyecto ya fueron tomadas. Aislamiento entre ambientes, reverberación, privacidad, ruido de instalaciones y condiciones de uso pueden afectar directamente la calidad final del espacio.",
+        "Incorporar la acústica desde etapas tempranas permite anticipar conflictos, evaluar alternativas y evitar correcciones costosas una vez ejecutada la obra."
+      ],
+      "problems": [
+        [
+          "Falta de privacidad entre ambientes",
+          "Conversaciones, reuniones o actividades que se transmiten entre espacios y afectan la confidencialidad o el confort."
+        ],
+        [
+          "Exceso de reverberación",
+          "Espacios donde el sonido persiste demasiado tiempo, generando ruido, fatiga y dificultades para comprender la palabra."
+        ],
+        [
+          "Aislamiento insuficiente",
+          "Tabiques, fachadas, entrepisos o cerramientos que no alcanzan el nivel de aislación requerido para el uso previsto."
+        ],
+        [
+          "Ruido de instalaciones",
+          "Sistemas de climatización, sanitarios, equipos y otras instalaciones que afectan el confort acústico del espacio."
+        ],
+        [
+          "Definiciones constructivas sin validación acústica",
+          "Alternativas de materiales o sistemas constructivos que necesitan ser evaluadas antes de incorporarse al proyecto."
+        ],
+        [
+          "Problemas detectados después de obra",
+          "Espacios terminados que no alcanzan los objetivos esperados y requieren diagnóstico y corrección."
+        ]
+      ],
+      "problemEnd": "La acústica es más fácil de resolver cuando forma parte del proyecto desde el principio.",
+      "whatTitle": "Ingeniería acústica integrada al proyecto",
+      "what": [
+        "Acompañamos el diseño arquitectónico mediante análisis, modelado acústico y evaluación de soluciones constructivas, con el objetivo de incorporar correctamente el confort y el aislamiento acústico desde las primeras etapas del proyecto.",
+        "Trabajamos sobre criterios de aislamiento entre ambientes, acondicionamiento acústico, control de reverberación, privacidad y ruido de instalaciones, evaluando alternativas antes de ejecutar la obra y ajustando cada solución a las necesidades reales del espacio."
+      ],
+      "sequence": [
+        "Proyecto y análisis",
+        "Modelado acústico",
+        "Solución construida"
+      ],
+      "steps": [
+        [
+          "Entendemos el proyecto",
+          "Relevamos objetivos, usos, planos, criterios de diseño y requerimientos acústicos para definir correctamente el alcance."
+        ],
+        [
+          "Analizamos y modelamos",
+          "Evaluamos las condiciones acústicas mediante cálculos, simulaciones y, cuando corresponde, mediciones sobre espacios existentes."
+        ],
+        [
+          "Definimos criterios y soluciones",
+          "Comparamos alternativas constructivas y establecemos recomendaciones de aislamiento, acondicionamiento y control de instalaciones."
+        ],
+        [
+          "Acompañamos el desarrollo",
+          "Integramos las definiciones acústicas al proyecto y brindamos soporte técnico durante las distintas etapas para mantener coherencia entre diseño y resultado."
+        ]
+      ],
+      "stepEnd": "Cada proyecto se aborda con un proceso claro, trazable y adaptable a su escala, complejidad y etapa de desarrollo.",
+      "experience": [
+        "Más de 15 años de experiencia en ingeniería acústica aplicada a proyectos arquitectónicos, acompañando equipos de diseño en la definición de criterios de aislamiento, acondicionamiento y confort acústico.",
+        "A lo largo de nuestra trayectoria profesional hemos participado en proyectos corporativos, hoteleros, institucionales y de grandes espacios, trabajando junto a estudios de arquitectura, desarrolladores y empresas para integrar la acústica desde el diseño y validar soluciones antes de su ejecución."
+      ],
+      "sectors": "Oficinas corporativas · Hotelería · Auditorios y espacios culturales · Edificios institucionales · Espacios de uso público · Desarrollos de gran escala",
+      "faq": [
+        [
+          "¿En qué etapa del proyecto conviene incorporar el asesoramiento acústico?",
+          "Cuanto antes, mejor. Incorporar la acústica desde las primeras etapas permite evaluar alternativas de diseño y soluciones constructivas antes de que las decisiones queden condicionadas por la obra. También podemos intervenir en etapas avanzadas o sobre espacios existentes cuando es necesario diagnosticar y corregir un problema."
+        ],
+        [
+          "¿Pueden trabajar sobre soluciones o sistemas constructivos ya definidos por el estudio?",
+          "Sí. Podemos evaluar alternativas ya propuestas, comparar su comportamiento acústico y determinar si resultan adecuadas para los objetivos del proyecto, proponiendo ajustes cuando sea necesario."
+        ],
+        [
+          "¿Dónde operan?",
+          "Nuestra base operativa se encuentra en Buenos Aires, pero trabajamos en proyectos de toda la región, combinando análisis y desarrollo remoto con visitas a obra, relevamientos y mediciones cuando el proyecto lo requiere."
+        ]
+      ],
+      "closing": [
+        "¿Tenés un proyecto o un espacio donde la acústica necesita una mirada especializada?",
+        "Ya sea en etapa de diseño, durante la obra o en un espacio existente, podemos ayudarte a evaluar la situación, definir criterios y encontrar la solución acústica adecuada para cada necesidad."
+      ],
+      "logos": [
+        42,
+        40,
+        44,
+        57,
+        56,
+        53,
+        45,
+        41,
+        52,
+        60
+      ],
+      "short": "Acústica Arquitectónica",
+      "card": [
+        "Ingeniería acústica para proyectos de arquitectura.",
+        "Acompañamos a estudios, desarrolladores y empresas desde las etapas de diseño para definir criterios de aislamiento y acondicionamiento acústico, evaluar alternativas constructivas y alcanzar el desempeño esperado antes de ejecutar la obra."
+      ]
+    },
+    {
+      "slug": "acustica-legal",
+      "key": "legal",
+      "name": "Acústica Legal",
+      "lead": "Mediciones, evaluaciones e informes acústicos con respaldo técnico y normativo.",
+      "intro": [
+        "Realizamos pericias en acústica, evaluaciones por ruidos molestos, Inscripciones RAC y Evaluaciones de Impacto Acústico, brindando mediciones, análisis y documentación técnica para respaldar trámites, reclamos, conflictos o decisiones profesionales.",
+        "Trabajamos sobre requerimientos vinculados a la Ley 1540 en la Ciudad de Buenos Aires y evaluaciones de ruido según IRAM 4062, entre otras condiciones normativas aplicables a cada caso."
+      ],
+      "cta": "Contanos tu caso",
+      "problemIntro": [
+        "En acústica legal, una medición aislada no siempre alcanza. Cada caso puede involucrar normativa específica, condiciones de medición, antecedentes, documentación técnica y la necesidad de que los resultados sean defendibles frente a terceros.",
+        "Por eso, antes de emitir una conclusión, es necesario comprender el contexto, definir correctamente qué evaluar y aplicar el criterio técnico y normativo correspondiente."
+      ],
+      "problems": [
+        [
+          "Reclamos por ruidos molestos",
+          "Conflictos entre actividades, comercios, industrias o viviendas donde es necesario evaluar objetivamente los niveles de ruido y su impacto."
+        ],
+        [
+          "Pericias en acústica",
+          "Casos judiciales o extrajudiciales que requieren mediciones, análisis e informes técnicos para respaldar una posición o esclarecer una situación."
+        ],
+        [
+          "Inscripción RAC",
+          "Actividades alcanzadas por requerimientos de la Ciudad de Buenos Aires que necesitan evaluación acústica y documentación técnica para avanzar con su inscripción."
+        ],
+        [
+          "Evaluación de Impacto Acústico",
+          "Proyectos o actividades que requieren analizar su incidencia sonora y documentar técnicamente las condiciones existentes o proyectadas."
+        ],
+        [
+          "Evaluaciones según IRAM 4062",
+          "Situaciones en las que es necesario determinar la existencia de ruidos molestos mediante criterios normalizados de medición y evaluación."
+        ],
+        [
+          "Observaciones, intimaciones o requerimientos técnicos",
+          "Casos donde una autoridad, un profesional o una contraparte solicita documentación, mediciones o una respuesta técnica frente a una situación acústica."
+        ]
+      ],
+      "problemEnd": "Cuando una medición puede respaldar un trámite, un reclamo o una decisión legal, el rigor técnico deja de ser un detalle.",
+      "whatTitle": "Evaluación acústica con respaldo técnico y normativo",
+      "what": [
+        "Abordamos cada caso a partir del análisis de la situación, la normativa aplicable y las condiciones reales de medición, combinando relevamiento, mediciones acústicas, evaluación técnica e interpretación normativa.",
+        "A partir de esa información elaboramos pericias en acústica, evaluaciones por ruidos molestos, Inscripciones RAC, Evaluaciones de Impacto Acústico e informes según IRAM 4062, con documentación técnica orientada a respaldar trámites, reclamos, presentaciones o decisiones profesionales.",
+        "Trabajamos con profesionales matriculados e instrumental homologado y con certificados de calibración vigentes, asegurando trazabilidad y validez técnica en cada intervención."
+      ],
+      "sequence": [
+        "Medición y relevamiento",
+        "Análisis y normativa",
+        "Informe y documentación"
+      ],
+      "steps": [
+        [
+          "Entendemos el caso",
+          "Relevamos el contexto, los antecedentes, el tipo de conflicto o trámite y la normativa aplicable para definir correctamente qué debe evaluarse."
+        ],
+        [
+          "Medimos y documentamos",
+          "Realizamos las mediciones necesarias con instrumental homologado y calibración vigente, registrando las condiciones relevantes para asegurar trazabilidad técnica."
+        ],
+        [
+          "Analizamos e interpretamos",
+          "Evaluamos los resultados según el marco normativo y técnico correspondiente, considerando las particularidades de cada situación."
+        ],
+        [
+          "Elaboramos el respaldo técnico",
+          "Preparamos el informe, pericia o documentación necesaria para acompañar el trámite, reclamo, presentación o decisión profesional."
+        ]
+      ],
+      "stepEnd": "Cada intervención se desarrolla con criterios técnicos verificables, trazabilidad documental y aplicación del marco normativo correspondiente.",
+      "experience": [
+        "Más de 15 años de experiencia en ingeniería acústica aplicada a evaluaciones normativas, conflictos por ruidos molestos, habilitaciones y pericias técnicas.",
+        "A lo largo de nuestra trayectoria profesional hemos intervenido como peritos de oficio, peritos de parte, asesores técnicos y profesionales responsables, en situaciones vinculadas a actividades comerciales e industriales, edificios, viviendas, habilitaciones, reclamos, intimaciones y conflictos por ruido.",
+        "Esa experiencia nos permite abordar cada caso entendiendo no sólo la medición, sino también el contexto técnico, normativo y documental que la rodea, y reconocer rápidamente situaciones que ya hemos encontrado en otros proyectos.",
+        "Cada caso tiene particularidades, pero muchos de los problemas que llegan a nosotros ya los hemos visto antes."
+      ],
+      "sectors": "Ruidos molestos · Pericias en acústica · Inscripción RAC · Evaluación de Impacto Acústico · IRAM 4062 · Habilitaciones · Reclamos e intimaciones · Asesoramiento técnico",
+      "faq": [
+        [
+          "¿Qué tipo de situaciones pueden evaluar?",
+          "Intervenimos en conflictos por ruidos molestos, pericias técnicas, Inscripciones RAC, Evaluaciones de Impacto Acústico, habilitaciones, reclamos e intimaciones, entre otros casos donde sea necesario contar con una evaluación acústica y documentación técnica con respaldo profesional."
+        ],
+        [
+          "¿La medición por sí sola alcanza para resolver un conflicto?",
+          "No siempre. Una medición debe interpretarse dentro del contexto técnico y normativo correspondiente. Por eso analizamos cada caso considerando las condiciones de medición, la normativa aplicable, los antecedentes y el objetivo de la intervención."
+        ],
+        [
+          "¿Dónde operan?",
+          "Nuestra base operativa se encuentra en Buenos Aires, pero trabajamos en casos y proyectos de toda la región, contemplando traslados, relevamientos y actividades en sitio cuando son necesarios."
+        ]
+      ],
+      "closing": [
+        "¿Necesitás respaldo técnico para un trámite, reclamo o conflicto por ruido?",
+        "Contanos brevemente la situación. Podemos ayudarte a definir qué evaluar, qué documentación necesitás y cuál debería ser el próximo paso técnico."
+      ],
+      "logos": [],
+      "short": "Acústica Legal",
+      "card": [
+        "Mediciones, evaluaciones e informes acústicos con respaldo técnico y normativo.",
+        "Realizamos estudios vinculados a habilitaciones, Evaluaciones de Impacto Acústico, Inscripciones RAC, evaluaciones de ruido según IRAM 4062, conflictos por ruidos molestos y pericias, brindando la documentación técnica necesaria para respaldar trámites, reclamos o decisiones legales."
+      ]
+    },
+    {
+      "slug": "mantenimiento-predictivo",
+      "key": "predictivo",
+      "name": "Mantenimiento Predictivo por Análisis de Vibraciones",
+      "lead": "Conocé la condición de tus equipos rotativos y detectá señales tempranas de falla antes de que se conviertan en una parada imprevista.",
+      "intro": [
+        "Realizamos mediciones y análisis de vibraciones en equipos rotativos para identificar cambios en su comportamiento, detectar posibles anomalías y aportar información confiable para la planificación del mantenimiento.",
+        "A través del seguimiento de condición ayudamos a priorizar intervenciones, reducir fallas inesperadas y tomar decisiones de mantenimiento con mayor criterio técnico."
+      ],
+      "cta": "Evaluemos tus equipos",
+      "problemIntro": [
+        "En los equipos rotativos, muchas fallas dan señales antes de producir una avería. Detectar esos cambios a tiempo permite anticipar intervenciones y evitar que un problema evolucione hasta una parada no programada.",
+        "El análisis de vibraciones aporta información sobre la condición de la máquina para reducir la dependencia del mantenimiento al fallo, priorizar recursos y planificar acciones antes de que el costo del problema aumente."
+      ],
+      "problems": [
+        [
+          "Desbalanceo",
+          "Cambios en la distribución de masa de un componente rotativo que generan vibraciones anormales y pueden acelerar el desgaste del equipo."
+        ],
+        [
+          "Desalineación",
+          "Problemas de alineación entre ejes o componentes acoplados que producen esfuerzos adicionales y aumentan el riesgo de falla."
+        ],
+        [
+          "Problemas en rodamientos",
+          "Indicadores asociados a desgaste, deterioro o defectos en rodamientos que pueden detectarse antes de una falla crítica."
+        ],
+        [
+          "Holguras mecánicas",
+          "Movimientos o juegos excesivos en componentes, soportes o fijaciones que alteran el comportamiento vibratorio del equipo."
+        ],
+        [
+          "Resonancias o vibraciones anormales",
+          "Condiciones de funcionamiento donde determinados componentes o estructuras presentan niveles de vibración superiores a los esperados."
+        ],
+        [
+          "Cambios de condición del equipo",
+          "Variaciones respecto de mediciones anteriores que permiten identificar una evolución desfavorable y priorizar una intervención."
+        ]
+      ],
+      "problemEnd": "El objetivo no es esperar a que la máquina falle, sino detectar cuándo su condición empieza a cambiar.",
+      "whatTitle": "Diagnóstico de condición mediante análisis de vibraciones",
+      "what": [
+        "Realizamos mediciones y análisis de vibraciones sobre equipos rotativos para conocer su condición, identificar comportamientos anómalos y detectar indicadores tempranos de falla.",
+        "Evaluamos niveles globales, espectros y tendencias de vibración aplicando criterios de análisis según ISO 10816, complementados con metodologías específicas de diagnóstico según el tipo de equipo y la situación encontrada.",
+        "Las evaluaciones son realizadas por profesionales certificados Nivel II según ISO 18436, utilizando instrumental con certificados de calibración vigentes, asegurando trazabilidad y confiabilidad técnica en cada intervención.",
+        "A partir de los resultados elaboramos conclusiones y recomendaciones orientadas a definir prioridades de mantenimiento, necesidad de seguimiento o conveniencia de una intervención."
+      ],
+      "sequence": [
+        "Medición en campo",
+        "Análisis de vibraciones",
+        "Decisión de mantenimiento"
+      ],
+      "steps": [
+        [
+          "Identificamos los equipos y condiciones de operación",
+          "Definimos qué equipos evaluar, relevamos sus características, condiciones de funcionamiento, criticidad y antecedentes de mantenimiento para establecer correctamente el alcance del análisis."
+        ],
+        [
+          "Medimos la condición vibratoria",
+          "Realizamos mediciones sobre los puntos definidos utilizando instrumental calibrado, registrando niveles y señales de vibración en condiciones representativas de operación."
+        ],
+        [
+          "Analizamos e interpretamos",
+          "Evaluamos niveles globales, espectros y tendencias, aplicando criterios según ISO 10816 y metodologías de diagnóstico para identificar comportamientos anómalos y posibles modos de falla."
+        ],
+        [
+          "Definimos prioridades y próximos pasos",
+          "Presentamos conclusiones y recomendaciones para determinar qué equipos requieren seguimiento, intervención, una evaluación complementaria o una acción de mantenimiento."
+        ]
+      ],
+      "stepEnd": "El objetivo es transformar la medición en información útil para anticipar problemas y planificar el mantenimiento con mayor criterio.",
+      "experience": [
+        "El análisis de vibraciones permite conocer la condición de una máquina sin necesidad de esperar a que aparezca una falla evidente.",
+        "A partir de mediciones periódicas y del seguimiento de tendencias es posible detectar cambios en el comportamiento de los equipos, identificar patrones asociados a distintas anomalías mecánicas y determinar qué activos requieren mayor atención.",
+        "Esta información permite priorizar intervenciones, planificar mantenimientos, reducir paradas no programadas y evitar reparaciones o reemplazos innecesarios.",
+        "Más que medir vibraciones, el objetivo es transformar los datos de funcionamiento de los equipos en información útil para tomar mejores decisiones de mantenimiento."
+      ],
+      "sectors": "",
+      "benefits": [
+        "Detección temprana: Identificar cambios antes de que evolucionen hacia una falla más costosa.",
+        "Seguimiento de condición: Comparar mediciones en el tiempo y reconocer tendencias desfavorables.",
+        "Priorización de mantenimiento: Definir qué equipos requieren atención primero según su condición real.",
+        "Reducción de paradas imprevistas: Disminuir la probabilidad de interrupciones repentinas por fallas mecánicas.",
+        "Mejor planificación de intervenciones: Coordinar acciones de mantenimiento con mayor anticipación y criterio."
+      ],
+      "faq": [
+        [
+          "¿Qué tipo de equipos pueden evaluarse?",
+          "El análisis de vibraciones se aplica principalmente a equipos rotativos, como motores, bombas, ventiladores, reductores, compresores y otros conjuntos mecánicos donde la condición vibratoria puede aportar información sobre su estado de funcionamiento."
+        ],
+        [
+          "¿Es necesario realizar mediciones periódicas?",
+          "Para obtener el mayor valor del mantenimiento predictivo, lo ideal es contar con mediciones repetidas en el tiempo que permitan comparar tendencias y detectar cambios de condición. También pueden realizarse evaluaciones puntuales cuando existe una anomalía, una duda sobre un equipo específico o la necesidad de establecer una condición inicial de referencia."
+        ],
+        [
+          "¿Dónde operan?",
+          "Nuestra base operativa se encuentra en Buenos Aires, pero trabajamos en plantas y proyectos de toda la región, contemplando traslados y actividades en sitio cuando son necesarios."
+        ]
+      ],
+      "closing": [
+        "¿Querés conocer la condición de tus equipos antes de que aparezca una falla?",
+        "Contanos qué equipos necesitás evaluar y cómo es actualmente tu estrategia de mantenimiento. Podemos ayudarte a definir un primer diagnóstico, establecer una condición de referencia y determinar los próximos pasos."
+      ],
+      "logos": [],
+      "short": "Mantenimiento Predictivo",
+      "card": [
+        "Análisis de vibraciones para conocer la condición de maquinaria y anticipar fallas.",
+        "Evaluamos equipos rotativos mediante mediciones y análisis de vibraciones para detectar indicadores tempranos de falla, planificar intervenciones y reducir el riesgo de paradas no programadas o mantenimientos innecesarios."
+      ]
+    }
+  ]
+}
