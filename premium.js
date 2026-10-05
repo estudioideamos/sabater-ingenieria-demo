@@ -65,3 +65,10 @@
  function shiftScene(){frameId=0;if(!scene||reduced.matches||innerWidth<761)return;const r=scene.getBoundingClientRect();if(r.bottom>0&&r.top<innerHeight)scene.style.setProperty('--interlude-y',`${-30+(innerHeight-r.top)*.02}px`);}
  if(scene){addEventListener('scroll',()=>{if(!frameId)frameId=requestAnimationFrame(shiftScene);},{passive:true});shiftScene();}
 })();
+
+// Interactive explanatory diagram; never presented as a live measurement.
+document.querySelectorAll('.signal-explorer').forEach(panel=>{
+ const copy=['Registramos las señales para conocer el comportamiento real del entorno o equipo.','Interpretamos los datos en contexto para identificar causas y evaluar alternativas.','Definimos una recomendación técnica viable y fundamentada para el próximo paso.'];
+ panel.querySelectorAll('[data-signal-stage]').forEach(button=>button.addEventListener('click',()=>{const stage=Number(button.dataset.signalStage);panel.querySelector('.signal-display').dataset.stage=String(stage);panel.querySelectorAll('[data-signal-stage]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));panel.querySelector('.signal-explanation').textContent=copy[stage];}));
+});
+if('IntersectionObserver' in window){const techVisibility=new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('tech-in-view',e.isIntersecting)),{threshold:.2});document.querySelectorAll('.signal-explorer,.contact-directory,.steps').forEach(e=>techVisibility.observe(e));}
