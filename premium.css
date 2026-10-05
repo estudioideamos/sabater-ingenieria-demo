@@ -84,3 +84,6 @@ body.motion-paused *,body.motion-paused *:before,body.motion-paused *:after{anim
 .editorial-footer .footer-signature>span:last-child{padding-right:.035em}
 
 .social-icon{display:inline-block;flex-shrink:0;vertical-align:middle}.contact-links{flex-wrap:wrap}.contact-links a,.contact-links button,.closing .text-button{display:inline-flex;align-items:center;justify-content:center;gap:9px}.floating-contact .social-icon{width:25px;height:25px}
+
+.services-toggle{gap:9px}.nav-chevron{display:block;flex:0 0 14px;color:var(--sky);transform-origin:center;transition:transform .28s cubic-bezier(.22,1,.36,1),color .2s}.services-toggle:hover .nav-chevron{color:var(--paper)}.services-toggle[aria-expanded="true"] .nav-chevron{transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){.nav-chevron{transition:none}}
