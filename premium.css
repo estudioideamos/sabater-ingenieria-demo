@@ -75,5 +75,5 @@ body.motion-paused *,body.motion-paused *:before,body.motion-paused *:after{anim
 @media(max-width:760px){.editorial-footer{padding:45px 6% 90px}.footer-kicker{font-size:8px;letter-spacing:.1em;gap:12px}.footer-up{width:42px;height:42px;flex-shrink:0;font-size:20px}.footer-invitation{font-size:clamp(36px,9vw,65px);gap:10px;padding:35px 0 45px;line-height:1.08}.footer-invitation-arrow{font-size:1.1em}.footer-directory{gap:35px 20px;padding:32px 0 40px;grid-template-columns:1fr 1fr}.footer-statement{grid-column:1/-1;display:flex;flex-direction:column;gap:18px}.footer-statement img{width:220px}.footer-statement p{margin:0;font-size:12px}.footer-column a{font-size:12px}.footer-column h3{font-size:9px}.footer-direct{grid-column:1/-1}.footer-direct p{margin-top:4px}.editorial-footer .footer-signature{font-size:19.3vw;padding:14px 0 22px}.editorial-footer .footer-bottom{font-size:10px;gap:7px;padding-top:20px}}
 @media(prefers-reduced-motion:reduce){.footer-up,.footer-invitation-arrow,.footer-column a:after{transition:none}.footer-up:hover,.footer-invitation:hover .footer-invitation-arrow{transform:none}}
 
-.logo-mark{mix-blend-mode:multiply}
+.logos .logo-item{mix-blend-mode:multiply}.logo-mark{mix-blend-mode:normal}
 
