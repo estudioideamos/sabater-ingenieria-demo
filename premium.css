@@ -96,3 +96,6 @@ body{font-family:var(--display)}h1,h2,h3,.section h2,.hero h1,.footer-invitation
 .eyebrow,.hero-bottom,.small-number,.card-number,.knowledge-grid>a>span:first-child,.footer-kicker,.footer-column h3{font-family:var(--technical)}
 .card-copy h3,.why-grid h3,.steps h3,.knowledge-grid h3,.problem-grid h3{font-weight:520;letter-spacing:-.045em}
 @media(max-width:760px){.hero h1,.detail-hero h1{font-size:clamp(36px,10.3vw,65px);line-height:1.08;letter-spacing:-.055em}.hero .eyebrow{letter-spacing:.08em}.footer-kicker{letter-spacing:.04em;font-size:7px}}
+
+.editorial-footer .footer-bottom{align-items:center}.studio-credit{display:inline-flex;align-items:center;gap:12px;min-height:32px;color:#c5cfd2;white-space:nowrap}.studio-credit img{width:88px;height:auto;object-fit:contain;transition:opacity .25s}.studio-credit .credit-arrow{color:var(--sky);font-size:15px;transition:transform .25s}.studio-credit:hover .credit-arrow{transform:translate(2px,-2px)}.studio-credit:hover img{opacity:.8}
+@media(max-width:760px){.editorial-footer .footer-bottom{align-items:flex-start}.studio-credit{margin-top:8px;gap:10px;font-size:11px}.studio-credit img{width:85px}}
