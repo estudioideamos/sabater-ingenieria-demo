@@ -156,3 +156,13 @@ nav .nav-contact{border-radius:999px;min-height:46px;padding:5px 5px 5px 19px;ga
 /* A compact mineral-blue band separates the moving statement from the ivory content. */
 .precision-band{--marquee-bg:#dce5e7;background:var(--marquee-bg);padding:20px 0 22px;border-top:1px solid #315a731a;border-bottom:1px solid #315a7329}.precision-track{font-size:clamp(30px,3.2vw,46px);color:#253d49}.precision-track .precision-serif{color:#446b7e}.precision-band .marquee-group{gap:32px;padding-right:32px}.precision-band:before{background:linear-gradient(90deg,var(--marquee-bg),transparent)}.precision-band:after{background:linear-gradient(-90deg,var(--marquee-bg),transparent)}
 @media(max-width:760px){.precision-band{padding:18px 0 20px}.precision-track{font-size:29px}.precision-band .marquee-group{gap:22px;padding-right:22px}}
+
+/* Brand and acoustic watermarks remain decorative and behind readable content. */
+.intro,.about,.process,.why{position:relative;isolation:isolate;overflow:hidden}
+.intro:before,.about:before,.process:after,.why:after{content:'';position:absolute;pointer-events:none;z-index:0;background-repeat:no-repeat;background-position:center;background-size:contain}
+.intro>*,.about>*,.process>*,.why>*{position:relative;z-index:1}
+.intro:before{background-image:url('assets/favicon.webp');width:340px;aspect-ratio:733/700;left:-70px;bottom:-75px;opacity:.045;transform:rotate(-12deg)}
+.about:before{background-image:url('assets/favicon.webp');width:460px;aspect-ratio:733/700;right:-125px;top:-115px;opacity:.035;transform:rotate(10deg)}
+.process:after{background-image:url('assets/acoustic-watermark.svg');width:850px;height:385px;right:-180px;bottom:-135px;opacity:.13;transform:rotate(-10deg)}
+.why:after{background-image:url('assets/acoustic-watermark.svg');width:760px;height:342px;left:-140px;bottom:-135px;filter:brightness(0) invert(1);opacity:.085;transform:rotate(-14deg)}
+@media(max-width:760px){.intro:before{width:240px;left:-105px;bottom:-35px;opacity:.035}.about:before{width:270px;right:-125px;top:-30px;opacity:.03}.process:after{width:570px;height:255px;right:-290px;bottom:-75px;opacity:.1}.why:after{width:540px;height:243px;left:-245px;bottom:-65px;opacity:.07}}
