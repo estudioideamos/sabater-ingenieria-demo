@@ -469,3 +469,12 @@ header,body.has-scrolled header{box-shadow:inset 0 1px 0 #e2f3fa12,0 7px 20px #0
 .approach-flow{margin-top:32px}
 .approach-stage-heading{margin:15px 0 0}
 @media(max-width:600px){.approach-stage{display:flex;flex-direction:column;align-items:stretch;gap:0}.approach-visual{height:clamp(170px,54vw,240px);aspect-ratio:auto}.approach-stage-heading{margin:13px 0 0}.approach-stage-heading h3{font-size:22px}.approach-stage-heading p{font-size:14px}}
+
+/* Integrated image-and-caption cards keep the process distinct from the closing copy. */
+.approach-stage,.approach-stage:first-child,.approach-stage:last-child{overflow:hidden;border:1px solid #315a7324;border-radius:12px;background:#e6edef;display:flex;flex-direction:column;padding:0}
+.approach-stage .approach-visual{border-radius:0;box-shadow:none;flex-shrink:0}
+.approach-stage .approach-stage-heading{margin:0;padding:19px 21px 21px;flex:1}
+.approach-stage-heading h3{color:#1c3541}
+.approach-stage-heading p{color:#4b626e}
+.approach-close{margin-top:32px;gap:36px}
+@media(max-width:600px){.approach-stage,.approach-stage:first-child,.approach-stage:last-child{padding:0!important;border:1px solid #315a7324!important}.approach-stage .approach-stage-heading{padding:17px 18px 19px}.approach-close{margin-top:28px;gap:14px}}
