@@ -295,3 +295,31 @@ header .services-submenu li[data-specialty="legal"]{background-image:linear-grad
 header .services-submenu li[data-specialty="predictivo"]{background-image:linear-gradient(0deg,#101c23f5,#101c2320),url('assets/predictivo-card-hd.webp')}
 }
 header nav.open{background:#142129}
+
+/* Bespoke instrument scenes for predictive maintenance benefits. */
+.predictive-benefit:not(.benefit-1){grid-template-columns:1fr;gap:20px;padding:22px;background:#f0f1eb;border-color:#315a7338;border-radius:14px}
+.predictive-benefit:not(.benefit-1) .benefit-top{grid-column:1;font-size:11px}
+.predictive-benefit .premium-instrument{max-width:none;width:100%;height:auto;margin:0;border-radius:12px;overflow:hidden;box-shadow:0 8px 18px #0d2e3d14}
+.predictive-benefit:not(.benefit-1) .benefit-copy{display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:start}
+.predictive-benefit:not(.benefit-1) .benefit-copy h3{font-size:25px;max-width:none;line-height:1.12}
+.predictive-benefit:not(.benefit-1) .benefit-copy p{font-size:14px;line-height:1.7;margin:0;max-width:none}
+.predictive-benefit .premium-instrument .instrument-label{font:19px 'Geist Mono',monospace;letter-spacing:.02em;fill:#d2e5ed}
+.predictive-benefit .premium-instrument .instrument-note{font:19px 'Geist',sans-serif;fill:#abc8d6}
+.premium-instrument .instrument-sweep{animation:instrument-scan 7s linear infinite;animation-play-state:paused}
+.premium-instrument .instrument-beacon{transform-origin:391px 105px;animation:instrument-beacon 3s ease-in-out infinite;animation-play-state:paused}
+.premium-instrument .instrument-led{animation:instrument-led 3.2s ease-in-out infinite;animation-play-state:paused}
+.premium-instrument .instrument-level{stroke-dasharray:300;animation:instrument-level 6s ease-in-out infinite;animation-play-state:paused}
+.premium-instrument .instrument-flow{animation:instrument-flow 3s linear infinite;animation-play-state:paused}
+.premium-instrument .instrument-rotor{animation:instrument-rotate 6s linear infinite;animation-play-state:paused}
+.premium-instrument .instrument-task{animation:instrument-task 6s ease-in-out infinite;animation-play-state:paused}
+.benefits-running .premium-instrument *{animation-play-state:running}
+@keyframes instrument-scan{from{transform:translateX(0)}to{transform:translateX(424px)}}
+@keyframes instrument-beacon{0%,100%{opacity:.3;transform:scale(.75)}50%{opacity:1;transform:scale(1.35)}}
+@keyframes instrument-led{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes instrument-level{0%,100%{stroke-dashoffset:0}50%{stroke-dashoffset:28}}
+@keyframes instrument-flow{to{stroke-dashoffset:-60}}
+@keyframes instrument-rotate{to{transform:rotate(360deg)}}
+@keyframes instrument-task{0%,12%,85%,100%{opacity:.12}35%,60%{opacity:.75}}
+@media(max-width:1100px){.predictive-benefit:not(.benefit-1) .benefit-copy{display:block}.predictive-benefit:not(.benefit-1) .benefit-copy p{margin-top:12px}}
+@media(max-width:600px){.predictive-benefit:not(.benefit-1){padding:18px;gap:18px}.predictive-benefit .premium-instrument{margin:18px 0}.predictive-benefit:not(.benefit-1) .benefit-copy h3{font-size:26px}.predictive-benefit .premium-instrument .instrument-label,.predictive-benefit .premium-instrument .instrument-note{font-size:24px}}
+@media(prefers-reduced-motion:reduce){.premium-instrument *{animation:none!important}}
