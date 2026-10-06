@@ -365,3 +365,11 @@ header .services-submenu .all-services a:hover>span,header .services-submenu .al
 .floating-contact:active{transform:scale(.96)}
 @media(max-width:760px){.floating-contact{width:52px;height:52px}.floating-contact .social-icon{width:27px;height:27px}}
 @media(prefers-reduced-motion:reduce){.floating-contact{transition:none}.floating-contact:hover,.floating-contact:active{transform:none}}
+
+/* A more compact headline leaves the instruments and operator visible. */
+.home-hero .hero-content{max-width:900px}
+.home-hero h1{font-size:clamp(48px,4.65vw,76px);line-height:1.06;letter-spacing:-.055em}
+.home-hero .hero-image img{transform:translate3d(0,var(--hero-drift,0px),0);filter:none;object-position:70% center}
+.home-hero:after{background:linear-gradient(90deg,#10171be8 0%,#10171ba8 35%,#10171b20 66%,transparent 100%),linear-gradient(0deg,#10171b80,transparent 35%)}
+@media(min-width:761px){.home-hero{min-height:680px}.home-hero .hero-content{padding-bottom:110px}.home-hero .hero-content>p{margin-top:25px;max-width:490px}}
+@media(max-width:760px){.home-hero h1{font-size:clamp(30px,8vw,54px);line-height:1.1}.home-hero .hero-image img{object-position:77% center}.home-hero:after{background:linear-gradient(180deg,#181a1b 0%,#181a1b 18%,#181a1be8 35%,#181a1b55 65%,#181a1b20 82%,#181a1bba 100%)}}

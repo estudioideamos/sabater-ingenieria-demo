@@ -376,5 +376,27 @@
         "predictivo-medir-1600w.webp"
       ]
     ]
+  },
+  "home-cinematic": {
+    "width": 1672,
+    "height": 941,
+    "variants": [
+      [
+        640,
+        "home-cinematic-640.webp"
+      ],
+      [
+        960,
+        "home-cinematic-960.webp"
+      ],
+      [
+        1440,
+        "home-cinematic-1440.webp"
+      ],
+      [
+        1672,
+        "home-cinematic-1672.webp"
+      ]
+    ]
   }
 }
