@@ -439,3 +439,25 @@ header .services-submenu .all-services a:hover>span,header .services-submenu .al
 @keyframes approach-photo-in{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media(max-width:600px){.approach-flow{grid-template-columns:1fr;gap:22px;margin-top:26px}.approach-visual{aspect-ratio:1.5;max-height:260px}.approach-stage h3{font-size:23px;margin-top:12px;padding-bottom:13px}}
 @media(prefers-reduced-motion:reduce){.approach-flow.flow-entered .approach-visual{animation:none}}
+
+/* Final hierarchy and spacing refinements for the two light sections. */
+header,body.has-scrolled header{box-shadow:inset 0 1px 0 #e2f3fa12,0 7px 20px #0002}
+.approach-copy{margin-top:20px}.approach-flow{margin-top:25px;gap:24px}
+.approach-stage-heading{margin-bottom:14px}
+.approach-stage-heading h3{margin:0;padding:0;border:0;font-size:24px}
+.approach-stage-heading p{font-size:14px;line-height:1.5;color:#51616a;margin-top:6px}
+.approach-visual{height:clamp(165px,16vw,220px);aspect-ratio:auto;background:#101925}
+.approach-visual img{object-fit:cover;transform:none}
+.approach-stage:first-child .approach-visual img{transform:none;object-position:center top}
+.services{padding-top:54px;padding-bottom:66px}
+.services>.section-heading{margin-bottom:28px}
+.services>.section-heading>p{max-width:780px;margin-top:16px}
+.services .service-grid{gap:36px 32px}
+.services .service-card-heading{font-size:clamp(24px,2.15vw,31px);line-height:1.15;letter-spacing:-.045em;margin:0 0 16px;padding-top:17px;border-top:1px solid #315a7335}
+.services .card-image{aspect-ratio:2}
+.services .card-copy{padding-top:16px}
+.services .card-copy p{margin-top:0;margin-bottom:14px;max-width:520px}
+.services .card-link{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding-bottom:10px}
+.services .service-card:focus-visible .card-link{color:#315a73}
+@media(max-width:760px){.services{padding-top:42px;padding-bottom:48px}.services .service-grid{gap:28px}.services .service-card-heading{font-size:25px;margin-bottom:13px;padding-top:15px}.services .card-image{aspect-ratio:1.8}.services .card-copy{padding-top:13px}.approach-stage-heading h3{font-size:22px}}
+@media(max-width:600px){.approach-flow{gap:20px}.approach-stage{display:grid;grid-template-columns:1fr 1.4fr;align-items:center;gap:16px;padding-bottom:18px!important;border-bottom:1px solid #315a7326!important}.approach-stage-heading{margin:0}.approach-stage-heading p{font-size:13px}.approach-visual{height:auto;aspect-ratio:1.5}.approach-stage-heading h3{font-size:21px}}
