@@ -425,3 +425,17 @@ header .services-submenu .all-services a:hover>span,header .services-submenu .al
 @media(prefers-reduced-motion:reduce){.approach-flow.flow-entered .approach-stage svg{animation:none}.approach-close a span{transition:none}.approach-close a:hover span{transform:none}}
 
 .approach-editorial:before,.approach-editorial:after{content:none}
+
+/* Detailed studio visuals give each stage a tangible subject. */
+.approach-copy{margin-top:24px}.approach-copy strong{font-weight:600;color:#243e4b}
+.approach-flow{gap:24px;border:0;padding:0;margin-top:32px}
+.approach-stage,.approach-stage:first-child,.approach-stage:last-child{padding:0;border:0;min-width:0}
+.approach-visual{overflow:hidden;border-radius:10px;background:#101b27;aspect-ratio:1.5;box-shadow:0 8px 22px #132b3912}
+.approach-visual img{display:block;width:100%;height:100%;object-fit:cover}
+.approach-stage h3{font-size:25px;margin-top:16px;padding-bottom:17px;border-bottom:1px solid #315a7330}
+.approach-close{margin-top:22px}
+.approach-flow.flow-entered .approach-visual{animation:approach-photo-in .65s cubic-bezier(.2,.75,.25,1) both}
+.approach-flow.flow-entered .approach-stage:nth-child(2) .approach-visual{animation-delay:.1s}.approach-flow.flow-entered .approach-stage:nth-child(3) .approach-visual{animation-delay:.2s}
+@keyframes approach-photo-in{from{opacity:.35;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:600px){.approach-flow{grid-template-columns:1fr;gap:22px;margin-top:26px}.approach-visual{aspect-ratio:1.5;max-height:260px}.approach-stage h3{font-size:23px;margin-top:12px;padding-bottom:13px}}
+@media(prefers-reduced-motion:reduce){.approach-flow.flow-entered .approach-visual{animation:none}}
