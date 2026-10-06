@@ -43,3 +43,12 @@
  new ResizeObserver(place).observe(section);place();
  const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){section.classList.add('sensor-entered');observer.disconnect();}},{threshold:.45});observer.observe(section);
 })();
+
+// Manual method navigation, with native keyboard focus and readable HTML fallback.
+document.querySelectorAll('.method-composition').forEach(root=>{
+ const stages=[...root.querySelectorAll('.method-stage')],buttons=stages.map(s=>s.querySelector('button')),photos=[...root.querySelectorAll('.method-photo')];
+ let active=0;
+ function select(index){active=index;stages.forEach((stage,i)=>{const selected=i===index;stage.classList.toggle('is-active',selected);buttons[i].setAttribute('aria-expanded',String(selected));stage.querySelector('.method-copy').hidden=!selected;photos[i].classList.toggle('is-active',selected);photos[i].setAttribute('aria-hidden',String(!selected));});}
+ root.classList.add('method-enhanced');select(0);
+ buttons.forEach((button,i)=>{button.addEventListener('click',()=>select(i));button.addEventListener('keydown',e=>{let next;if(e.key==='ArrowDown')next=(i+1)%buttons.length;else if(e.key==='ArrowUp')next=(i+buttons.length-1)%buttons.length;else if(e.key==='Home')next=0;else if(e.key==='End')next=buttons.length-1;else return;e.preventDefault();buttons[next].focus();select(next);});});
+});

@@ -561,3 +561,27 @@ header,body.has-scrolled header{box-shadow:inset 0 1px 0 #e2f3fa12,0 7px 20px #0
 .process .steps article p{padding:0 24px;max-width:560px;font-size:15px}
 .process .steps article{padding-bottom:26px}
 @media(max-width:600px){.process .steps{grid-template-columns:1fr}.process .steps .step-visual{aspect-ratio:1.75}.process .steps h3{font-size:23px;padding:0 20px}.process .steps article p{padding:0 20px;font-size:14px}}
+
+/* One photographic narrative replaces the instrument demo and repeated cards. */
+.method-editorial{padding-top:64px;padding-bottom:58px}
+.method-editorial .section-heading{margin-bottom:32px}
+.method-composition{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:clamp(32px,4vw,62px);align-items:center}
+.method-gallery{position:relative;aspect-ratio:1.22;overflow:hidden;border-radius:12px;background:#11212b;isolation:isolate}
+.method-gallery .method-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .38s ease}
+.method-gallery .method-photo.is-active{opacity:1}
+.method-stages{min-width:0}
+.method-stage{position:relative;border-top:1px solid #315a7330;padding:0 0 0 22px}
+.method-stage:last-child{border-bottom:1px solid #315a7330}
+.method-stage:before{content:'';position:absolute;left:0;top:20px;bottom:20px;width:2px;background:#759fb4;opacity:0;transition:opacity .25s}
+.method-stage.is-active:before{opacity:1}
+.method-stage h3{font-size:clamp(22px,2vw,29px);line-height:1.2;margin:0;letter-spacing:-.04em}
+.method-stage button{display:block;width:100%;padding:22px 0;background:none;color:#526770;text-align:left;font:inherit;letter-spacing:inherit;line-height:inherit;border-radius:0;transition:color .2s}
+.method-stage.is-active button,.method-stage button:hover{color:#172b35}
+.method-stage button:focus-visible{outline-offset:3px;border-radius:3px}
+.method-copy{padding:0 8px 25px 0}
+.method-copy[hidden]{display:none}
+.method-copy p{font-size:15px;line-height:1.8;color:#4b626d;margin:0;max-width:490px}
+.method-editorial .section-note{margin-top:25px;border:0;padding:0;max-width:850px;font-size:13px;color:#536773}
+@media(max-width:1000px){.method-composition{gap:28px;grid-template-columns:1fr 1fr}.method-gallery{aspect-ratio:1}.method-stage button{padding:19px 0}.method-copy p{font-size:14px}.method-stage{padding-left:17px}}
+@media(max-width:760px){.method-editorial{padding-top:44px;padding-bottom:44px}.method-composition{grid-template-columns:1fr;gap:23px}.method-gallery{aspect-ratio:1.5}.method-stage h3{font-size:23px}.method-stage button{padding:19px 0}.method-copy{padding-bottom:21px}.method-copy p{font-size:15px}.method-editorial .section-heading{margin-bottom:25px}.method-stage:before{top:18px;bottom:18px}}
+@media(prefers-reduced-motion:reduce){.method-photo,.method-stage:before,.method-stage button{transition:none!important}}
