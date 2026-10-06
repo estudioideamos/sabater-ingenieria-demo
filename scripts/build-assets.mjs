@@ -9,3 +9,6 @@ let css=(await readFile('assets/fonts/fonts.css','utf8')).replaceAll("url('geist
 for(const name of ['styles.css','premium.css','assets/vibration-lab.css'])css+='\n'+(await readFile(name,'utf8')).replaceAll("url('assets/","url('");
 await writeFile('assets/site.min.css',(await transform(css,{loader:'css',minify:true,target:['chrome110','safari16','firefox115'],legalComments:'none'})).code);
 console.log('Built local CSS and pinned Three.js modules.');
+
+await build({entryPoints:['scripts/lab-postprocessing.mjs'],bundle:true,minify:true,format:'esm',external:['three'],outfile:'assets/vendor/lab-postprocessing.js',banner:{js:banner}});
+const post=await readFile('assets/vendor/lab-postprocessing.js','utf8');await writeFile('assets/vendor/lab-postprocessing.js',post.replaceAll('from"three"','from"./three.module.min.js?v=186"'));
