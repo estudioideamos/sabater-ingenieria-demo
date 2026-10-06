@@ -204,3 +204,6 @@ nav .nav-contact{border-radius:999px;min-height:46px;padding:5px 5px 5px 19px;ga
 .predictive-benefit:not(.benefit-1) .benefit-diagram text{font-size:17px}.predictive-benefit:not(.benefit-1) .benefit-diagram .benefit-caption{font-size:16px}@media(prefers-reduced-motion:reduce){.steps .technical-illustration *{animation:none!important}}
 
 .scope-header,.scope-footer{font-size:10px;letter-spacing:.02em}.process .signal-explorer .signal-control-label{font-size:10px}@media(max-width:760px){.scope-header,.scope-footer{font-size:10px}.scope-header{flex-wrap:wrap;row-gap:8px}.scope-header>span:first-child{font-size:12px}}
+
+/* Studio-lit, real-time instrument scenes, with SVG fallback. */
+.steps .step-visual{aspect-ratio:1.45;background:radial-gradient(ellipse at 50% 25%,#263b48,#0c1922 78%);border-color:#78929f38}.method-canvas{position:absolute;inset:0;display:block;width:100%;height:100%;opacity:0;transition:opacity .5s}.method-ready .method-canvas{opacity:1}.method-ready>.technical-illustration{opacity:0}.steps .step-number{z-index:2;right:16px;top:14px;color:#b7cbd5}.steps .step-visual>.technical-illustration{height:100%;object-fit:contain}@media(max-width:760px){.steps .step-visual{aspect-ratio:1.65}}
