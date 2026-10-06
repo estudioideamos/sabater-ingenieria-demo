@@ -3,18 +3,18 @@ const root=document.querySelector('.vibration-lab');
 if(root){
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');let mode=0,api=null;
  const copy=[['Todo empieza en la fuente.','Las fuerzas dinámicas de una máquina pueden viajar a través de sus apoyos y excitar la estructura que la sostiene.'],['Intervenir en el camino.','Los apoyos elásticos pueden reducir la transmisión cuando se seleccionan según la masa, las frecuencias de excitación y las condiciones de instalación.'],['Cada parte tiene una función.','Separá visualmente el conjunto: máquina, bancada, apoyos y estructura. El diagnóstico permite decidir dónde y cómo intervenir.']];
- root.querySelectorAll('[data-lab-mode]').forEach(b=>b.addEventListener('click',()=>{mode=Number(b.dataset.labMode);root.querySelector('.lab-stage').dataset.mode=mode;root.querySelectorAll('[data-lab-mode]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));root.querySelector('.lab-explanation h3').textContent=copy[mode][0];root.querySelector('.lab-explanation p').textContent=copy[mode][1];root.querySelector('[data-anchor="mount"] b').textContent=mode?'Apoyos elásticos':'Camino de transmisión';api?.refresh();}));
+ root.querySelectorAll('[data-lab-mode]').forEach(b=>b.addEventListener('click',()=>{mode=Number(b.dataset.labMode);root.querySelector('.lab-stage').dataset.mode=mode;root.querySelectorAll('[data-lab-mode]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));root.querySelector('.lab-explanation h3').textContent=copy[mode][0];root.querySelector('.lab-explanation p').textContent=copy[mode][1];root.querySelector('[data-anchor="mount"] b').textContent=mode?'Apoyos elásticos':'Camino de transmisión';api?.refresh(true);}));
  const observer=new IntersectionObserver(async entries=>{if(!entries.some(e=>e.isIntersecting))return;observer.disconnect();try{const T=await import('./vendor/three.module.min.js');api=buildScene(T);root.classList.add('lab-ready');}catch(e){root.classList.add('lab-unavailable');root.querySelector('.lab-instruction').textContent='EXPLORÁ LOS TRES PRINCIPIOS';}},{rootMargin:'300px'});observer.observe(root);
  function buildScene(T){
  const host=root.querySelector('.lab-viewport'),stage=root.querySelector('.lab-stage');
- const renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;host.append(renderer.domElement);
+ const renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.25));renderer.shadowMap.enabled=true;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;renderer.shadowMap.type=T.PCFShadowMap;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;host.append(renderer.domElement);
  const scene=new T.Scene(),camera=new T.PerspectiveCamera(34,1,.1,80);scene.fog=new T.FogExp2(0x0b1720,.018);
  // Large softbox panels create real reflections on the machined metal surfaces.
  const envScene=new T.Scene();envScene.background=new T.Color(0x354753);
  for(const [x,y,z,w,h,c] of [[0,6,1,7,3,0xffffff],[-5,2,0,3,5,0x7cb9db],[4,2,-3,3,5,0xffd7ae]]){const p=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color:c,side:T.DoubleSide}));p.position.set(x,y,z);p.lookAt(0,1,0);envScene.add(p);}
  const pmrem=new T.PMREMGenerator(renderer),env=pmrem.fromScene(envScene,.02);scene.environment=env.texture;pmrem.dispose();
  scene.add(new T.HemisphereLight(0xd9edf8,0x0d1720,2));
- const key=new T.DirectionalLight(0xdbefff,5);key.position.set(-3,7,5);key.castShadow=true;key.shadow.mapSize.set(innerWidth>760?2048:1024,innerWidth>760?2048:1024);key.shadow.normalBias=.025;key.shadow.radius=3;Object.assign(key.shadow.camera,{left:-6,right:6,top:6,bottom:-6});key.shadow.bias=-.001;scene.add(key);
+ const key=new T.DirectionalLight(0xdbefff,5);key.position.set(-3,7,5);key.castShadow=true;key.shadow.mapSize.set(1024,1024);key.shadow.normalBias=.025;key.shadow.radius=3;Object.assign(key.shadow.camera,{left:-6,right:6,top:6,bottom:-6});key.shadow.bias=-.001;scene.add(key);
  const rim=new T.DirectionalLight(0x92c7e7,4);rim.position.set(2,3,-5);scene.add(rim);const warm=new T.PointLight(0xf2c69b,35,15);warm.position.set(5,3,2);scene.add(warm);
  const steel=new T.MeshStandardMaterial({color:0x71818c,metalness:.94,roughness:.28}),paint=new T.MeshStandardMaterial({color:0x243a46,metalness:.7,roughness:.37}),dark=new T.MeshStandardMaterial({color:0x101b24,metalness:.6,roughness:.44}),rubber=new T.MeshStandardMaterial({color:0x10161a,metalness:.05,roughness:.8}),copper=new T.MeshStandardMaterial({color:0xb78a60,metalness:.85,roughness:.26}),blue=new T.MeshStandardMaterial({color:0x86cbdc,metalness:.55,roughness:.22,emissive:0x416a7b,emissiveIntensity:.4});
  // Subtle procedural cast-metal grain; no downloaded texture or enlarged image.
@@ -61,23 +61,30 @@ if(root){
  const floor=mesh(new T.PlaneGeometry(200,200),new T.ShadowMaterial({opacity:.28}),scene,0,-.1,0);floor.rotation.x=-Math.PI/2;
  const waves=[];for(let i=0;i<5;i++){const m=mesh(new T.RingGeometry(.99,1.007,100),new T.MeshBasicMaterial({color:0xc9956c,transparent:true,opacity:.2,side:T.DoubleSide,depthWrite:false}),scene,0,-.06,0);m.rotation.x=-Math.PI/2;waves.push(m);}
  const grid=new T.GridHelper(16,32,0x335366,0x203645);grid.position.y=-.08;grid.material.transparent=true;grid.material.opacity=.28;scene.add(grid);
- let yaw=.7,targetYaw=.7,pitch=.38,targetPitch=.38,active=false,raf=0,last=0,time=0,explode=0,isolate=0,drag=null;
+ let yaw=.7,targetYaw=.7,pitch=.38,targetPitch=.38,active=false,raf=0,last=0,time=0,explode=0,isolate=0,drag=null,lastShadow=0;
  const labels=[...root.querySelectorAll('[data-anchor]')],v=new T.Vector3();
  function size(){const w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();refresh();}
- function render(dt=0){time+=dt;const smooth=1-Math.exp(-dt*6);yaw+=(targetYaw-yaw)*(dt?smooth:1);pitch+=(targetPitch-pitch)*(dt?smooth:1);explode+=((mode===2?1:0)-explode)*(reduced.matches?1:smooth);isolate+=((mode===1?1:0)-isolate)*(reduced.matches?1:smooth);
- const radius=(host.clientWidth<700?12.5:9.7)+explode*1.2;camera.position.set(Math.sin(yaw)*radius,2.2+Math.sin(pitch)*radius,Math.cos(yaw)*radius);camera.lookAt(0,1.15+explode*.55,0);
+ function render(dt=0){const priorExplode=explode;time+=dt;const smooth=1-Math.exp(-dt*6);yaw+=(targetYaw-yaw)*(dt?smooth:1);pitch+=(targetPitch-pitch)*(dt?smooth:1);explode+=((mode===2?1:0)-explode)*(reduced.matches?1:smooth);isolate+=((mode===1?1:0)-isolate)*(reduced.matches?1:smooth);
+ const radius=(host.clientWidth<700?12.5:9.7)+explode*1.2;camera.position.set(Math.sin(yaw)*radius,2.2+Math.sin(pitch)*radius,Math.cos(yaw)*radius);camera.lookAt(0,1.15+explode*.55,0);camera.updateMatrixWorld();
  motor.position.y=1.02+explode*1.65;bed.position.y=explode*.5;mounts.position.y=explode*.2;
  if(!reduced.matches){motor.position.x=Math.sin(time*32)*.009*(1-explode);rotor.rotation.x=time*2.5;foundation.position.y=Math.sin(time*32)*.008*(1-isolate*.86)*(1-explode);}else{motor.position.x=0;foundation.position.y=0;}
  rigidMounts.forEach(m=>m.visible=mode===0);mounts.children.forEach(m=>{if(m.geometry.type==='TubeGeometry'){m.material=mode>0?blue:steel;m.visible=mode>0;}});
  waves.forEach((m,i)=>{const f=((time*.22+i/5)%1);m.scale.setScalar(1+f*4);m.material.opacity=(1-f)*.25*(1-isolate*.85)*(1-explode);m.material.color.set(isolate>.5?0x92cddd:0xc9956c);});
  const anchors=[[-.4,3.1+explode*1.65,0],[1.7,.95+explode*.2,1],[-2.6,.3,1.3]];
  anchors.forEach((a,i)=>{v.set(...a).project(camera);labels[i].style.left=`${Math.max(9,Math.min(91,(v.x*.5+.5)*100))}%`;labels[i].style.top=`${Math.max(17,Math.min(80,(-v.y*.5+.5)*100))}%`;});
- camera.updateMatrixWorld();renderer.render(scene,camera);stage.dataset.renderedMode=String(mode);
+ if((Math.abs(explode-priorExplode)>.0005&&time-lastShadow>.12)||stage.dataset.renderedMode!==String(mode)){renderer.shadowMap.needsUpdate=true;lastShadow=time;}renderer.render(scene,camera);stage.dataset.renderedMode=String(mode);
  }
- function loop(now){raf=0;if(!active||document.hidden)return;const dt=Math.min((now-last)/1000||.016,.05);last=now;render(dt);if(!reduced.matches)raf=requestAnimationFrame(loop);}
- function refresh(){if(reduced.matches){explode=mode===2?1:0;isolate=mode===1?1:0;render(0);}else if(active&&!raf){last=performance.now();raf=requestAnimationFrame(loop);}}
- const visibility=new IntersectionObserver(es=>{active=es[0].isIntersecting;if(active)refresh();else{cancelAnimationFrame(raf);raf=0;}},{threshold:.01});visibility.observe(stage);document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);raf=0;}else refresh();});reduced.addEventListener('change',()=>{cancelAnimationFrame(raf);raf=0;refresh();});new ResizeObserver(size).observe(host);
- host.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY,yaw:targetYaw,pitch:targetPitch};host.setPointerCapture(e.pointerId);});host.addEventListener('pointermove',e=>{if(!drag)return;targetYaw=drag.yaw+(e.clientX-drag.x)*.008;if(e.pointerType==='mouse')targetPitch=Math.max(.15,Math.min(.85,drag.pitch+(e.clientY-drag.y)*.003));refresh();});host.addEventListener('pointerup',()=>drag=null);host.addEventListener('pointercancel',()=>drag=null);
- root.querySelectorAll('[data-orbit]').forEach(b=>b.addEventListener('click',()=>{targetYaw+=Number(b.dataset.orbit)*.4;refresh();}));root.querySelector('[data-reset]').addEventListener('click',()=>{targetYaw=.7;targetPitch=.38;refresh();});renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();cancelAnimationFrame(raf);active=false;root.classList.remove('lab-ready');root.classList.add('lab-unavailable');});size();render(0);return{refresh};
+ function loop(now){raf=0;if(!active||document.hidden)return;const elapsed=(now-last)/1000;if(elapsed>=1/30){last=now;render(Math.min(elapsed,.5));}if(!reduced.matches)raf=requestAnimationFrame(loop);}
+ function refresh(force=false){
+  if(reduced.matches||force){
+   // A direct action always updates the actual scene, even between visibility callbacks.
+   if(reduced.matches||!active){explode=mode===2?1:0;isolate=mode===1?1:0;}
+   render(reduced.matches||!active?0:1/30);
+  }
+  if(!reduced.matches&&active&&!document.hidden&&!raf){last=performance.now();raf=requestAnimationFrame(loop);}
+ }
+ const visibility=new IntersectionObserver(es=>{active=es[0].isIntersecting;if(active)refresh();else{cancelAnimationFrame(raf);raf=0;}},{threshold:.01});visibility.observe(root);document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(raf);raf=0;}else refresh();});reduced.addEventListener('change',()=>{cancelAnimationFrame(raf);raf=0;refresh();});new ResizeObserver(size).observe(host);
+ host.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;drag={x:e.clientX,y:e.clientY,yaw:targetYaw,pitch:targetPitch};host.setPointerCapture(e.pointerId);});host.addEventListener('pointermove',e=>{if(!drag)return;targetYaw=drag.yaw+(e.clientX-drag.x)*.008;if(e.pointerType==='mouse')targetPitch=Math.max(.15,Math.min(.85,drag.pitch+(e.clientY-drag.y)*.003));refresh(true);});host.addEventListener('pointerup',()=>drag=null);host.addEventListener('pointercancel',()=>drag=null);host.addEventListener('lostpointercapture',()=>drag=null);
+ root.querySelectorAll('[data-orbit]').forEach(b=>b.addEventListener('click',()=>{targetYaw+=Number(b.dataset.orbit)*.4;refresh(true);}));root.querySelector('[data-reset]').addEventListener('click',()=>{targetYaw=.7;targetPitch=.38;refresh(true);});renderer.domElement.addEventListener('webglcontextrestored',()=>{renderer.shadowMap.needsUpdate=true;root.classList.remove('lab-unavailable');root.classList.add('lab-ready');active=true;refresh(true);});renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();cancelAnimationFrame(raf);active=false;root.classList.remove('lab-ready');root.classList.add('lab-unavailable');});size();render(0);return{refresh};
  }
 }
