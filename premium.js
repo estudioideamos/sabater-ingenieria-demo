@@ -1,4 +1,4 @@
-/* Progressive enhancement: native scroll, no animation library or wheel interception. */
+/* Progressive visual enhancements; wheel easing is isolated in assets/smooth-wheel.js. */
 (()=>{
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const finePointer=matchMedia('(hover: hover) and (pointer: fine)');
