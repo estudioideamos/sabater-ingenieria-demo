@@ -65,13 +65,18 @@ if(root){
  const labels=[...root.querySelectorAll('[data-anchor]')],v=new T.Vector3();
  function size(){const w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();refresh();}
  function render(dt=0){const priorExplode=explode;time+=dt;const smooth=1-Math.exp(-dt*6);yaw+=(targetYaw-yaw)*(dt?smooth:1);pitch+=(targetPitch-pitch)*(dt?smooth:1);explode+=((mode===2?1:0)-explode)*(reduced.matches?1:smooth);isolate+=((mode===1?1:0)-isolate)*(reduced.matches?1:smooth);
- const radius=(host.clientWidth<700?10.7:8.7)+explode*1.7;camera.position.set(Math.sin(yaw)*radius,2.2+Math.sin(pitch)*radius,Math.cos(yaw)*radius);camera.lookAt(0,1.15+explode*.55,0);camera.updateMatrixWorld();
+ const radius=(host.clientWidth<700?9.8:8)+explode*2.1;camera.position.set(Math.sin(yaw)*radius,2.2+Math.sin(pitch)*radius,Math.cos(yaw)*radius);camera.lookAt(0,1.4+explode*.7,0);camera.updateMatrixWorld();
  motor.position.y=1.02+explode*1.65;bed.position.y=explode*.5;mounts.position.y=explode*.2;
  if(!reduced.matches){motor.position.x=Math.sin(time*32)*.009*(1-explode);rotor.rotation.x=time*2.5;foundation.position.y=Math.sin(time*32)*.008*(1-isolate*.86)*(1-explode);}else{motor.position.x=0;foundation.position.y=0;}
  rigidMounts.forEach(m=>m.visible=mode===0);mounts.children.forEach(m=>{if(m.geometry.type==='TubeGeometry'){m.material=mode>0?blue:steel;m.visible=mode>0;}});
  waves.forEach((m,i)=>{const f=((time*.22+i/5)%1);m.scale.setScalar(1+f*4);m.material.opacity=(1-f)*.25*(1-isolate*.85)*(1-explode);m.material.color.set(isolate>.5?0x92cddd:0xc9956c);});
  const anchors=[[-.4,3.1+explode*1.65,0],[1.7,.95+explode*.2,1],[-2.6,.3,1.3]];
- anchors.forEach((a,i)=>{v.set(...a).project(camera);labels[i].style.left=`${Math.max(9,Math.min(91,(v.x*.5+.5)*100))}%`;labels[i].style.top=`${Math.max(17,Math.min(80,(-v.y*.5+.5)*100))}%`;});
+ const W=host.clientWidth,H=host.clientHeight,placed=[];
+ anchors.forEach((a,i)=>{v.set(...a).project(camera);const label=labels[i],w=label.offsetWidth,h=label.offsetHeight,ax=(v.x*.5+.5)*W,ay=(-v.y*.5+.5)*H;
+ let x=Math.max(w/2+12,Math.min(W-w/2-12,ax+(i===1?48:i===2?-48:0))),y=Math.max(h+40,Math.min(H-10,ay));
+ for(let attempt=0;attempt<8;attempt++){const hit=placed.find(p=>Math.abs(x-p.x)<(w+p.w)/2+12&&Math.abs((y-h/2)-(p.y-p.h/2))<(h+p.h)/2+12);if(!hit)break;y=hit.y+ h+12;if(y>H-10)y=hit.y-hit.h-12;}
+ placed.push({x,y,w,h});label.style.left=`${x}px`;label.style.top=`${y}px`;
+ });
  if((Math.abs(explode-priorExplode)>.0005&&time-lastShadow>.12)||stage.dataset.renderedMode!==String(mode)){renderer.shadowMap.needsUpdate=true;lastShadow=time;}renderer.render(scene,camera);stage.dataset.renderedMode=String(mode);
  }
  function loop(now){raf=0;if(!active||document.hidden)return;const elapsed=(now-last)/1000;if(elapsed>=1/30){last=now;render(Math.min(elapsed,.5));}if(!reduced.matches)raf=requestAnimationFrame(loop);}
