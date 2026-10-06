@@ -232,3 +232,26 @@ nav .nav-contact{border-radius:999px;min-height:46px;padding:5px 5px 5px 19px;ga
 /* Brand galleries: centered marks without redundant captions. */
 .experience-gallery .logos figure{grid-template-rows:105px;align-content:center;min-height:160px;padding:26px 24px;gap:0}
 @media(max-width:600px){.experience-gallery .logos figure{grid-template-rows:80px;min-height:126px;padding:22px 12px}}
+
+/* Detailed bearing diagnostic: steel races, rotating rolling elements and live traces. */
+.predictive-benefit.benefit-1{grid-template-columns:.85fr 1.3fr;gap:16px 32px;background:radial-gradient(ellipse at 75% 40%,#294453,#0c202c 78%)}
+.benefit-1 .bearing-premium{max-width:660px;overflow:hidden}
+.predictive-benefit .bearing-premium .bearing-label{font:12px 'Geist Mono',monospace;letter-spacing:.06em;fill:#d4e5eb}
+.predictive-benefit .bearing-premium .bearing-small{font:12px 'Geist',sans-serif;fill:#a9c3d0;letter-spacing:.015em}
+.predictive-benefit .bearing-premium .bearing-amber{fill:#e2b487}
+.bearing-cage{transform-origin:152px 151px}
+.benefits-running .bearing-cage{animation:bearing-rotation 18s linear infinite}
+.benefits-running .bearing-data{animation:bearing-data-flow 3s linear infinite}
+.benefits-running .bearing-signal{animation:bearing-signal-flow 8s linear infinite}
+.benefits-running .bearing-sweep{animation:bearing-scan-pass 8s linear infinite}
+.benefits-running .bearing-impact,.benefits-running .bearing-led{animation:bearing-sensor-pulse 2s ease-in-out infinite}
+@keyframes bearing-rotation{to{transform:rotate(360deg)}}
+@keyframes bearing-data-flow{to{stroke-dashoffset:-96}}
+@keyframes bearing-signal-flow{to{transform:translateX(-240px)}}
+@keyframes bearing-scan-pass{from{transform:translateX(-35px)}to{transform:translateX(290px)}}
+@keyframes bearing-sensor-pulse{50%{opacity:.4}}
+@media(max-width:900px){.predictive-benefit.benefit-1{grid-template-columns:1fr;gap:20px}.benefit-1 .benefit-copy{grid-column:1;grid-row:2}.benefit-1 .bearing-premium{grid-column:1;grid-row:3;max-width:660px;justify-self:center}}
+@media(max-width:600px){.benefit-1 .bearing-premium{order:3;margin:24px -10px 0;width:calc(100% + 20px)}.predictive-benefit .bearing-premium .bearing-label,.predictive-benefit .bearing-premium .bearing-small{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.benefits-running .bearing-cage,.benefits-running .bearing-data,.benefits-running .bearing-signal,.benefits-running .bearing-sweep,.benefits-running .bearing-impact,.benefits-running .bearing-led{animation:none}}
+
+@media(max-width:600px){.predictive-benefit .bearing-premium .bearing-label{font-size:22px}.predictive-benefit .bearing-premium .bearing-small{font-size:24px}.bearing-premium text[y="310"]{display:none}}
