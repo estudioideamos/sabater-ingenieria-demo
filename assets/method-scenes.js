@@ -1,6 +1,6 @@
-// Four small, real-time product scenes. SVGs remain the reduced-motion/WebGL fallback.
+// Four real-time product scenes, with matching rendered previews as the loading/WebGL fallback.
 const hosts=[...document.querySelectorAll('.steps .step-visual')];
-if(hosts.length){let loaded;const io=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){io.unobserve(e.target);loaded??=import('./vendor/three.module.min.js');loaded.then(T=>createInstrument(T,e.target,hosts.indexOf(e.target))).catch(()=>{});}},{rootMargin:'180px'});hosts.forEach(h=>io.observe(h));}
+if(hosts.length){let loaded;const io=new IntersectionObserver(es=>{for(const e of es)if(e.isIntersecting){io.unobserve(e.target);loaded??=import('./vendor/three.module.min.js');loaded.then(T=>createInstrument(T,e.target,hosts.indexOf(e.target))).catch(()=>{});}},{rootMargin:'500px'});hosts.forEach(h=>io.observe(h));}
 function createInstrument(T,host,index){
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');let renderer;
  try{renderer=new T.WebGLRenderer({alpha:true,antialias:true,powerPreference:'low-power'});}catch{return;}
