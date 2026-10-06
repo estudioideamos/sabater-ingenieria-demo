@@ -13,3 +13,11 @@
 .lab-stage[data-mode="2"] .lab-spectrum{opacity:1}
 
 .lab-spectrum>span,.lab-spectrum small{display:block;line-height:1.35}.lab-spectrum>span{font-size:11px}
+
+/* Studio presentation: quiet field, closer mechanical subject, readable controls. */
+.lab-stage{background:radial-gradient(ellipse at 52% 45%,#2d43504d,transparent 64%),linear-gradient(180deg,#081117,#10212b 86%,#0b1922)}
+.lab-annotations>span{background:#0c1c25ed;border-color:#b6d5e54a;box-shadow:0 5px 20px #0003;border-radius:6px}
+.lab-annotations b{font-weight:450}
+.lab-stage .lab-modes{box-shadow:0 12px 32px #0005,inset 0 1px #ffffff0a}
+
+@media(max-width:760px){.lab-annotations{display:none}}
