@@ -585,3 +585,29 @@ header,body.has-scrolled header{box-shadow:inset 0 1px 0 #e2f3fa12,0 7px 20px #0
 @media(max-width:1000px){.method-composition{gap:28px;grid-template-columns:1fr 1fr}.method-gallery{aspect-ratio:1}.method-stage button{padding:19px 0}.method-copy p{font-size:14px}.method-stage{padding-left:17px}}
 @media(max-width:760px){.method-editorial{padding-top:44px;padding-bottom:44px}.method-composition{grid-template-columns:1fr;gap:23px}.method-gallery{aspect-ratio:1.5}.method-stage h3{font-size:23px}.method-stage button{padding:19px 0}.method-copy{padding-bottom:21px}.method-copy p{font-size:15px}.method-editorial .section-heading{margin-bottom:25px}.method-stage:before{top:18px;bottom:18px}}
 @media(prefers-reduced-motion:reduce){.method-photo,.method-stage:before,.method-stage button{transition:none!important}}
+
+/* Home reading rhythm: warm reading surfaces, cool evidence, dark visual chapters. */
+body:has(.home-hero) .services{background:#f5f2eb}
+body:has(.home-hero) .experience-gallery{background:#e3ebee;border-top:1px solid #315a731b}
+body:has(.home-hero) .experience-gallery .logos figure{background:#edf2f2}
+body:has(.home-hero) .experience-gallery .logos figure:hover{background:#e0e9ec}
+body:has(.home-hero) .approach-editorial,body:has(.home-hero) .method-editorial,body:has(.home-hero) .about{background:#f5f2eb}
+body:has(.home-hero) .knowledge{background:#e3ebee;border-top:1px solid #315a731b}
+body:has(.home-hero) .knowledge:before,body:has(.home-hero) .knowledge:after{display:none}
+body:has(.home-hero) .knowledge .section-heading>p,body:has(.home-hero) .knowledge-grid>a>span:first-child{color:#465f6c}
+body:has(.home-hero) .knowledge-grid>a{border-top-color:#315a7340}
+body:has(.home-hero) .contact{background:#f5f2eb;color:#1c303a;border-top:1px solid #315a7320}
+body:has(.home-hero) .contact>div>.eyebrow,body:has(.home-hero) .contact>div>.eyebrow>span{color:#315a73}
+body:has(.home-hero) .contact>div>h2{color:#1c303a}
+body:has(.home-hero) .contact>div>h2 em{color:#315a73}
+body:has(.home-hero) .contact>div>p{color:#4c626c}
+body:has(.home-hero) .contact .contact-directory,body:has(.home-hero) .contact .contact-channel{border-color:#315a7330}
+body:has(.home-hero) .contact .channel-copy strong{color:#1c303a}
+body:has(.home-hero) .contact .channel-copy small,body:has(.home-hero) .contact .channel-icon,body:has(.home-hero) .contact .channel-arrow,body:has(.home-hero) .contact .reach-icon .tech-icon{color:#315a73}
+body:has(.home-hero) .contact .channel-arrow{border-color:#315a7340}
+body:has(.home-hero) .contact-channel:hover .channel-arrow{color:#f5f2eb}
+body:has(.home-hero) .contact .contact-reach{color:#314f5e}
+body:has(.home-hero) .contact .contact-reach p{color:#536b77}
+body:has(.home-hero) .contact .contact-links a,body:has(.home-hero) .contact .contact-links button{color:#315a73;border-color:#315a7335;background:transparent}
+body:has(.home-hero) .contact .contact-links a:hover,body:has(.home-hero) .contact .contact-links button:hover{background:#e3ebee;border-color:#315a7380}
+body:has(.home-hero) .contact form{background:#172c37;color:#f5f2eb;border-color:#315a7340;box-shadow:0 14px 35px #172c3712}
