@@ -322,5 +322,57 @@
       219
     ],
     "display_width": 138
+  },
+  "client-47-official.webp": {
+    "size": [
+      268,
+      68
+    ],
+    "box": [
+      0,
+      0,
+      268,
+      68
+    ],
+    "display_width": 155
+  },
+  "client-60-official.png": {
+    "size": [
+      150,
+      60
+    ],
+    "box": [
+      4,
+      3,
+      147,
+      56
+    ],
+    "display_width": 150
+  },
+  "client-39-official.png": {
+    "size": [
+      140,
+      37
+    ],
+    "box": [
+      0,
+      0,
+      140,
+      37
+    ],
+    "display_width": 148
+  },
+  "client-40-official.svg": {
+    "size": [
+      1000,
+      1000
+    ],
+    "box": [
+      0,
+      0,
+      1000,
+      1000
+    ],
+    "display_width": 57
   }
 }
