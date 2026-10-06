@@ -32,3 +32,14 @@
  const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){flow.classList.add('flow-entered');observer.disconnect();}},{threshold:.25});
  observer.observe(flow);
 })();
+
+/* A brief sensor cue, positioned against the actual cover crop. */
+(()=>{
+ const section=document.querySelector('.visual-interlude');
+ if(!section||!('IntersectionObserver' in window))return;
+ const pulse=section.querySelector('.sensor-pulse'),img=section.querySelector('img');
+ if(!pulse||!img)return;
+ function place(){const scale=Math.max(section.clientWidth/1983,section.clientHeight/793);pulse.style.left=(section.clientWidth-1983*scale+1983*.625*scale)+'px';pulse.style.top=((section.clientHeight-793*scale)/2+793*.245*scale)+'px';}
+ new ResizeObserver(place).observe(section);place();
+ const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){section.classList.add('sensor-entered');observer.disconnect();}},{threshold:.45});observer.observe(section);
+})();
