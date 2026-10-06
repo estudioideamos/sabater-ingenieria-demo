@@ -379,3 +379,25 @@ header .services-submenu .all-services a:hover>span,header .services-submenu .al
 .home-hero .hero-content>p{font-size:16px;line-height:1.7;max-width:510px;margin-top:24px;color:#e0e7e9}
 .home-hero .hero-actions{margin-top:24px}
 @media(max-width:760px){.home-hero .hero-content>p{font-size:15px;line-height:1.7;margin-top:22px}.home-hero .hero-actions{margin-top:22px}.home-hero:after{background:linear-gradient(180deg,#181a1b 0%,#181a1b 18%,#181a1be8 35%,#181a1b55 65%,#181a1b20 82%,#181a1bba 100%)}}
+
+/* Aligned editorial service directory. */
+.services{padding-top:76px;padding-bottom:80px}
+.services>.eyebrow{margin-bottom:22px}
+.services>.section-heading{display:block;margin-bottom:38px}
+.services>.section-heading h2{font-size:clamp(36px,3.6vw,56px);line-height:1.08;max-width:1000px}
+.services>.section-heading>p{max-width:650px;margin-top:20px;padding:0;font-size:16px;line-height:1.65}
+.services .service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:44px 32px;align-items:stretch}
+.services .service-card:nth-child(n){margin:0;min-width:0;display:flex;flex-direction:column;perspective:none}
+.services .card-image{aspect-ratio:1.8;transform:none;border-radius:10px;clip-path:inset(0 round 10px);overflow:hidden}
+.services .card-image img{width:100%;height:100%;object-fit:cover;filter:none;transition:transform .65s cubic-bezier(.2,.75,.25,1)}
+.services .card-copy{padding-top:20px;flex:1;display:flex;flex-direction:column;translate:none}
+.services .card-copy h3{font-size:clamp(24px,2.2vw,32px);line-height:1.15}
+.services .card-copy p{font-size:15px;line-height:1.7;max-width:510px;margin-top:12px;margin-bottom:20px}
+.services .card-link{margin-top:auto;padding-top:0;padding-bottom:15px;font-size:13px;letter-spacing:0}
+.services .card-cursor{display:none}
+.services .card-image .card-arrow{opacity:1;transform:none;width:44px;height:44px;font-size:26px;right:18px;bottom:18px;background:#f4f1eaf5;color:#18303c;transition:transform .25s,background-color .25s}
+.services .service-card:hover .card-copy{translate:none}
+.services .service-card:focus-visible{outline-offset:7px;border-radius:10px}
+@media(hover:hover) and (pointer:fine){.services .service-card:hover img{transform:scale(1.035);filter:none}.services .service-card:hover .card-arrow{transform:translate(2px,-2px);background:#fff}}
+@media(max-width:760px){.services{padding-top:54px;padding-bottom:58px}.services>.section-heading{margin-bottom:28px}.services>.section-heading h2{font-size:clamp(30px,7.5vw,42px)}.services>.section-heading>p{font-size:15px;margin-top:16px}.services .service-grid{grid-template-columns:1fr;gap:34px}.services .card-image{aspect-ratio:1.65}.services .card-copy{padding-top:17px}.services .card-copy h3{font-size:26px}.services .card-copy p{font-size:14px;margin-bottom:17px}}
+@media(prefers-reduced-motion:reduce){.services .card-image img,.services .card-image .card-arrow{transition:none}.services .service-card:hover img,.services .service-card:hover .card-arrow{transform:none}}

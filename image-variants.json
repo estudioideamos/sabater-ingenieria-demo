@@ -398,5 +398,77 @@
         "home-cinematic-1672.webp"
       ]
     ]
+  },
+  "industrial-editorial-card": {
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      [
+        480,
+        "industrial-editorial-card-480.webp"
+      ],
+      [
+        800,
+        "industrial-editorial-card-800.webp"
+      ],
+      [
+        1200,
+        "industrial-editorial-card-1200.webp"
+      ]
+    ]
+  },
+  "arquitectonica-editorial-card": {
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      [
+        480,
+        "arquitectonica-editorial-card-480.webp"
+      ],
+      [
+        800,
+        "arquitectonica-editorial-card-800.webp"
+      ],
+      [
+        1200,
+        "arquitectonica-editorial-card-1200.webp"
+      ]
+    ]
+  },
+  "legal-editorial-card": {
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      [
+        480,
+        "legal-editorial-card-480.webp"
+      ],
+      [
+        800,
+        "legal-editorial-card-800.webp"
+      ],
+      [
+        1200,
+        "legal-editorial-card-1200.webp"
+      ]
+    ]
+  },
+  "predictivo-editorial-card": {
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      [
+        480,
+        "predictivo-editorial-card-480.webp"
+      ],
+      [
+        800,
+        "predictivo-editorial-card-800.webp"
+      ],
+      [
+        1200,
+        "predictivo-editorial-card-1200.webp"
+      ]
+    ]
   }
 }
