@@ -1,0 +1,21 @@
+# SABATER Ingeniería
+
+> Consultoría especializada en acústica y vibraciones. Buenos Aires, Argentina; proyectos en todo el país.
+
+Sitio de demostración, no indexable.
+
+## Especialidades
+
+- [Acústica Industrial](https://estudioideamos.github.io/sabater-ingenieria-demo/acustica-industrial/): Diagnóstico, análisis y control de ruido y vibraciones para plantas industriales.
+- [Acústica Arquitectónica](https://estudioideamos.github.io/sabater-ingenieria-demo/acustica-arquitectonica/): Consultoría e ingeniería acústica para integrar el confort y el aislamiento acústico desde el diseño.
+- [Acústica Legal](https://estudioideamos.github.io/sabater-ingenieria-demo/acustica-legal/): Mediciones, evaluaciones e informes acústicos con respaldo técnico y normativo.
+- [Mantenimiento Predictivo por Análisis de Vibraciones](https://estudioideamos.github.io/sabater-ingenieria-demo/mantenimiento-predictivo/): Conocé la condición de tus equipos rotativos y detectá señales tempranas de falla antes de que se conviertan en una parada imprevista.
+
+## Contacto y alcance
+
+- Teléfono y WhatsApp: +54 11 3322-7832.
+- Correo: hola@sabater.com.ar.
+- Más de 15 años de trayectoria profesional en ingeniería acústica.
+- Las visualizaciones son conceptuales, no resultados de mediciones ni predicciones de rendimiento.
+- Los logos reflejan trayectoria profesional, no contratos vigentes.
+- El formulario de demostración no envía ni almacena consultas.

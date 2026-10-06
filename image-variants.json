@@ -1,0 +1,380 @@
+{
+  "arquitectonica-analizar": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "arquitectonica-analizar-640w.webp"
+      ],
+      [
+        1024,
+        "arquitectonica-analizar-1024w.webp"
+      ],
+      [
+        1600,
+        "arquitectonica-analizar-1600w.webp"
+      ]
+    ]
+  },
+  "arquitectonica-card": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "arquitectonica-card-640w.webp"
+      ],
+      [
+        1024,
+        "arquitectonica-card-1024w.webp"
+      ],
+      [
+        1600,
+        "arquitectonica-card-1600w.webp"
+      ]
+    ]
+  },
+  "arquitectonica-decidir": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "arquitectonica-decidir-640w.webp"
+      ],
+      [
+        1024,
+        "arquitectonica-decidir-1024w.webp"
+      ],
+      [
+        1600,
+        "arquitectonica-decidir-1600w.webp"
+      ]
+    ]
+  },
+  "arquitectonica": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "arquitectonica-640w.webp"
+      ],
+      [
+        1024,
+        "arquitectonica-1024w.webp"
+      ],
+      [
+        1600,
+        "arquitectonica-1600w.webp"
+      ]
+    ]
+  },
+  "arquitectonica-medir": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "arquitectonica-medir-640w.webp"
+      ],
+      [
+        1024,
+        "arquitectonica-medir-1024w.webp"
+      ],
+      [
+        1600,
+        "arquitectonica-medir-1600w.webp"
+      ]
+    ]
+  },
+  "home": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "home-640w.webp"
+      ],
+      [
+        1024,
+        "home-1024w.webp"
+      ],
+      [
+        1600,
+        "home-1600w.webp"
+      ]
+    ]
+  },
+  "industrial-analizar": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "industrial-analizar-640w.webp"
+      ],
+      [
+        1024,
+        "industrial-analizar-1024w.webp"
+      ],
+      [
+        1600,
+        "industrial-analizar-1600w.webp"
+      ]
+    ]
+  },
+  "industrial-card": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "industrial-card-640w.webp"
+      ],
+      [
+        1024,
+        "industrial-card-1024w.webp"
+      ],
+      [
+        1600,
+        "industrial-card-1600w.webp"
+      ]
+    ]
+  },
+  "industrial-decidir": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "industrial-decidir-640w.webp"
+      ],
+      [
+        1024,
+        "industrial-decidir-1024w.webp"
+      ],
+      [
+        1600,
+        "industrial-decidir-1600w.webp"
+      ]
+    ]
+  },
+  "industrial": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "industrial-640w.webp"
+      ],
+      [
+        1024,
+        "industrial-1024w.webp"
+      ],
+      [
+        1600,
+        "industrial-1600w.webp"
+      ]
+    ]
+  },
+  "industrial-medir": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "industrial-medir-640w.webp"
+      ],
+      [
+        1024,
+        "industrial-medir-1024w.webp"
+      ],
+      [
+        1600,
+        "industrial-medir-1600w.webp"
+      ]
+    ]
+  },
+  "legal-analizar": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "legal-analizar-640w.webp"
+      ],
+      [
+        1024,
+        "legal-analizar-1024w.webp"
+      ],
+      [
+        1600,
+        "legal-analizar-1600w.webp"
+      ]
+    ]
+  },
+  "legal-card": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "legal-card-640w.webp"
+      ],
+      [
+        1024,
+        "legal-card-1024w.webp"
+      ],
+      [
+        1600,
+        "legal-card-1600w.webp"
+      ]
+    ]
+  },
+  "legal-decidir": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "legal-decidir-640w.webp"
+      ],
+      [
+        1024,
+        "legal-decidir-1024w.webp"
+      ],
+      [
+        1600,
+        "legal-decidir-1600w.webp"
+      ]
+    ]
+  },
+  "legal": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "legal-640w.webp"
+      ],
+      [
+        1024,
+        "legal-1024w.webp"
+      ],
+      [
+        1600,
+        "legal-1600w.webp"
+      ]
+    ]
+  },
+  "legal-medir": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "legal-medir-640w.webp"
+      ],
+      [
+        1024,
+        "legal-medir-1024w.webp"
+      ],
+      [
+        1600,
+        "legal-medir-1600w.webp"
+      ]
+    ]
+  },
+  "predictivo-analizar": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "predictivo-analizar-640w.webp"
+      ],
+      [
+        1024,
+        "predictivo-analizar-1024w.webp"
+      ],
+      [
+        1600,
+        "predictivo-analizar-1600w.webp"
+      ]
+    ]
+  },
+  "predictivo-card": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "predictivo-card-640w.webp"
+      ],
+      [
+        1024,
+        "predictivo-card-1024w.webp"
+      ],
+      [
+        1600,
+        "predictivo-card-1600w.webp"
+      ]
+    ]
+  },
+  "predictivo-decidir": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "predictivo-decidir-640w.webp"
+      ],
+      [
+        1024,
+        "predictivo-decidir-1024w.webp"
+      ],
+      [
+        1600,
+        "predictivo-decidir-1600w.webp"
+      ]
+    ]
+  },
+  "predictivo": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "predictivo-640w.webp"
+      ],
+      [
+        1024,
+        "predictivo-1024w.webp"
+      ],
+      [
+        1600,
+        "predictivo-1600w.webp"
+      ]
+    ]
+  },
+  "predictivo-medir": {
+    "width": 2048,
+    "height": 768,
+    "variants": [
+      [
+        640,
+        "predictivo-medir-640w.webp"
+      ],
+      [
+        1024,
+        "predictivo-medir-1024w.webp"
+      ],
+      [
+        1600,
+        "predictivo-medir-1600w.webp"
+      ]
+    ]
+  }
+}

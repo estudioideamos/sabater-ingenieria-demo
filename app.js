@@ -4,8 +4,8 @@ function closeServices(){servicesToggle.setAttribute('aria-expanded','false');se
 servicesToggle.addEventListener('click',()=>{const open=servicesToggle.getAttribute('aria-expanded')!=='true';servicesToggle.setAttribute('aria-expanded',String(open));servicesSubmenu.hidden=!open;});
 document.addEventListener('click',e=>{if(!servicesGroup.contains(e.target))closeServices();});
 servicesGroup.addEventListener('focusout',e=>{if(!servicesGroup.contains(e.relatedTarget))closeServices();});
-function closeMenu(){closeServices();nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Abrir menú');}
-menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');});
+function closeMenu(){closeServices();nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Menú: abrir navegación');}
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Menú: cerrar navegación':'Menú: abrir navegación');});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!servicesSubmenu.hidden){closeServices();servicesToggle.focus();}else if(nav.classList.contains('open')){closeMenu();menu.focus();}}});
 const dialog=document.querySelector('#pending-dialog');document.querySelectorAll('[data-pending]').forEach(b=>b.addEventListener('click',()=>{document.querySelector('#pending-title').textContent=b.dataset.pending;dialog.showModal();}));

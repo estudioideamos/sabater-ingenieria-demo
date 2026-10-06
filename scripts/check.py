@@ -29,3 +29,28 @@ for f,p in pages.items():
 assert len(pages)==5,f'Expected five pages, got {len(pages)}'
 assert not errors,'\n'.join(errors)
 print('PASS: 5 pages, all local assets/links/anchors, image alt text and one H1 per page.')
+
+# Deployment metadata and browser security must remain coherent with the build mode.
+import json,re,base64,hashlib
+from site_meta import BASE,INDEXABLE
+from xml.etree import ElementTree
+sitemap=ElementTree.parse(R/'sitemap.xml')
+assert len(sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc'))==5
+for f in pages:
+ source=f.read_text(encoding='utf8')
+ assert len(re.findall(r'<link rel="canonical"',source))==1,f
+ assert ('index,follow,max-image-preview:large' if INDEXABLE else 'noindex,nofollow') in source,f
+ assert 'Content-Security-Policy' in source and "form-action &#x27;none&#x27;" in source,f
+ schema=re.search(r'<script type="application/ld\+json">(.*?)</script>',source)[1]
+ graph=json.loads(schema)['@graph'];assert any(n['@type']=='Organization' for n in graph),f
+ assert all(not n.get('url') or n['url'].startswith(BASE) for n in graph),f
+ digest=base64.b64encode(hashlib.sha256(schema.encode()).digest()).decode()
+ assert 'sha256-'+digest in source,f
+ assert '<form id="contact-form" method="post">' in source,f
+ assert 'fonts.googleapis.com' not in source,f
+ for srcset in re.findall(r'srcset="([^"]+)"',source):
+  for item in srcset.split(','):
+   assert (f.parent/item.strip().split()[0]).exists(),item
+ assert not re.search(r'\son[a-z]+=',source),f
+ assert not re.search(r'(?:src|href)="http://',source),f
+print('PASS: canonical URLs, structured data, sitemap, CSP hashes, image variants and demo indexing policy.')

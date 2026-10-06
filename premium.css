@@ -255,3 +255,10 @@ nav .nav-contact{border-radius:999px;min-height:46px;padding:5px 5px 5px 19px;ga
 @media(prefers-reduced-motion:reduce){.benefits-running .bearing-cage,.benefits-running .bearing-data,.benefits-running .bearing-signal,.benefits-running .bearing-sweep,.benefits-running .bearing-impact,.benefits-running .bearing-led{animation:none}}
 
 @media(max-width:600px){.predictive-benefit .bearing-premium .bearing-label{font-size:22px}.predictive-benefit .bearing-premium .bearing-small{font-size:24px}.bearing-premium text[y="310"]{display:none}}
+
+/* Performance and accessibility: immediate readable content, clear keyboard focus. */
+.lab-heading .eyebrow>span{color:#a9cadb}
+:focus-visible{outline:2px solid #6f9eb6;outline-offset:5px}
+.motion-word>span{animation-duration:.65s;animation-delay:calc(var(--word-index)*25ms)}
+.motion-ready .hero-content>.eyebrow,.motion-ready .hero-content>p,.motion-ready .hero-actions,.motion-ready .detail-hero .hero-content>.button,.motion-ready .hero-bottom{animation-duration:.65s;animation-delay:.1s}
+@media(max-width:760px){.why-grid article{display:block}.lab-modes button{min-height:44px}.contact input,.contact select,.contact textarea{font-size:16px}}
