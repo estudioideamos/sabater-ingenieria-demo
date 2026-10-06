@@ -21,3 +21,7 @@
 .lab-stage .lab-modes{box-shadow:0 12px 32px #0005,inset 0 1px #ffffff0a}
 
 @media(max-width:760px){.lab-annotations{display:none}}
+
+@media(min-width:761px){.lab-stage{height:clamp(420px,67svh,520px)}}
+
+.lab-detail{position:absolute;z-index:4;right:6%;top:55px;display:flex;align-items:center;gap:18px;min-height:44px;padding:8px 16px;border:1px solid #acc7d34d;border-radius:24px;background:#10212ae6;color:#dbe8ee;font-size:12px;cursor:pointer}.lab-detail:hover,.lab-detail[aria-pressed="true"]{background:#dbe8ee;color:#10212a}.lab-detail span{font-size:19px}.lab-stage[data-detail="true"] .lab-annotations{opacity:0}@media(max-width:760px){.lab-detail{right:5%;top:8px;min-height:40px;padding:6px 12px;font-size:11px;gap:8px}.lab-detail span{font-size:16px}}
