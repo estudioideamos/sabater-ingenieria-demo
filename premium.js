@@ -69,10 +69,10 @@
 // Interactive explanatory diagram; never presented as a live measurement.
 document.querySelectorAll('.signal-explorer').forEach(panel=>{
  const copy=['Registramos las señales para conocer el comportamiento real del entorno o equipo.','Interpretamos los datos en contexto para identificar causas y evaluar alternativas.','Definimos una recomendación técnica viable y fundamentada para el próximo paso.'];
- panel.querySelectorAll('[data-signal-stage]').forEach(button=>button.addEventListener('click',()=>{const stage=Number(button.dataset.signalStage);panel.querySelector('.signal-display').dataset.stage=String(stage);panel.querySelectorAll('[data-signal-stage]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));panel.querySelector('.signal-explanation').textContent=copy[stage];}));
+ panel.querySelectorAll('[data-signal-stage]').forEach(button=>button.addEventListener('click',()=>{const stage=Number(button.dataset.signalStage);panel.querySelector('.signal-display').dataset.stage=String(stage);panel.querySelectorAll('[data-signal-stage]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));panel.querySelector('.signal-explanation').textContent=copy[stage];const label=panel.querySelector('.scope-stage-label');if(label)label.textContent=['Señal registrada','Patrones identificados','Control de transmisión'][stage];}));
 });
 if('IntersectionObserver' in window){const techVisibility=new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('tech-in-view',e.isIntersecting)),{threshold:.2});document.querySelectorAll('.signal-explorer,.contact-directory,.steps').forEach(e=>techVisibility.observe(e));}
-// Continuous conceptual signal animation: time trace, spectrum and isolation diagram.
+// Brief conceptual signal transition: time trace, spectrum and isolation diagram.
 // Only the visible panel renders. These are illustrative signals, never telemetry.
 (()=>{
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -80,7 +80,7 @@ if('IntersectionObserver' in window){const techVisibility=new IntersectionObserv
   const display=panel.querySelector('.signal-display'),wave=panel.querySelector('.scope-wave polyline');if(!wave)return;
   const originalWave=wave.getAttribute('points'),bars=[...panel.querySelectorAll('.scope-spectrum path')].filter(p=>/^M\d+ 108v-/.test(p.getAttribute('d'))),originalBars=bars.map(p=>p.getAttribute('d'));
   const scan=panel.querySelector('.scope-scan'),edge=panel.querySelector('.scope-scan-edge'),machine=panel.querySelector('.scope-machine'),springs=panel.querySelector('.scope-supports'),flowIn=panel.querySelector('.scope-flow-in'),flowOut=panel.querySelector('.scope-flow-out'),dot=panel.querySelector('.scope-wave circle:last-child');
-  const springOriginal=springs?.getAttribute('d');let visible=false,frame=0,last=0,time=0;
+  const springOriginal=springs?.getAttribute('d');let visible=false,frame=0,last=0,time=0,until=0,entered=false;
   function draw(){const stage=display.dataset.stage;const phase=time*1.5;
    if(stage==='0'){
     const points=[];for(let x=34;x<446;x+=2){const u=x-phase*26;const y=66+Math.sin(u*.21)*Math.sin(u*.061)*18+Math.sin(u*.71)*5;points.push(`${x},${y.toFixed(2)}`);}wave.setAttribute('points',points.join(' '));const u=246-phase*26;dot?.setAttribute('cy',(66+Math.sin(u*.21)*Math.sin(u*.061)*18+Math.sin(u*.71)*5).toFixed(2));
@@ -92,11 +92,11 @@ if('IntersectionObserver' in window){const techVisibility=new IntersectionObserv
    }
    const position=32+(time*.18%1)*414;scan?.setAttribute('transform',`translate(${position.toFixed(2)} 0)`);edge?.setAttribute('transform',`translate(${position.toFixed(2)} 0)`);
   }
-  function tick(now){frame=0;if(!visible||document.hidden||reduced.matches)return;const elapsed=(now-last)/1000;if(elapsed>=1/30){time+=Math.min(elapsed,.06);last=now;draw();}frame=requestAnimationFrame(tick);}
-  function sync(){cancelAnimationFrame(frame);frame=0;panel.classList.toggle('scope-running',visible&&!document.hidden&&!reduced.matches);if(reduced.matches){wave.setAttribute('points',originalWave);bars.forEach((p,i)=>p.setAttribute('d',originalBars[i]));machine?.removeAttribute('transform');if(springs)springs.setAttribute('d',springOriginal);dot?.setAttribute('cy','66');return;}if(visible&&!document.hidden){last=performance.now();frame=requestAnimationFrame(tick);}}
-  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync();},{threshold:.05}).observe(panel);
+  function tick(now){frame=0;if(!visible||document.hidden||reduced.matches||now>until){panel.classList.remove('scope-running');return;}const elapsed=(now-last)/1000;if(elapsed>=1/30){time+=Math.min(elapsed,.06);last=now;draw();}frame=requestAnimationFrame(tick);}
+  function sync(){cancelAnimationFrame(frame);frame=0;panel.classList.toggle('scope-running',visible&&!document.hidden&&!reduced.matches);if(reduced.matches){wave.setAttribute('points',originalWave);bars.forEach((p,i)=>p.setAttribute('d',originalBars[i]));machine?.removeAttribute('transform');if(springs)springs.setAttribute('d',springOriginal);dot?.setAttribute('cy','66');return;}if(visible&&!document.hidden){last=performance.now();until=last+1400;frame=requestAnimationFrame(tick);}}
+  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible&&!entered){entered=true;sync();}else if(!visible){cancelAnimationFrame(frame);panel.classList.remove('scope-running');}},{threshold:.05}).observe(panel);
   document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);
-  panel.querySelectorAll('[data-signal-stage]').forEach(b=>b.addEventListener('click',()=>{if(!reduced.matches)draw();}));
+  panel.querySelectorAll('[data-signal-stage]').forEach(b=>b.addEventListener('click',()=>{if(!reduced.matches){draw();sync();}}));
  });
 })();
 // Benefit illustrations animate independently while visible; no hover is required.

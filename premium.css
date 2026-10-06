@@ -515,3 +515,49 @@ header,body.has-scrolled header{box-shadow:inset 0 1px 0 #e2f3fa12,0 7px 20px #0
 @keyframes sensor-reading{0%{opacity:0;transform:scale(.65)}20%{opacity:.6}100%{opacity:0;transform:scale(2.4)}}
 @media(max-width:760px){.visual-interlude{padding:42px 6% 285px;min-height:0;align-items:flex-start}.visual-interlude>img{height:255px;inset:auto 0 0;object-position:100% 50%}.visual-interlude:after{inset:auto 0 0;height:285px;background:linear-gradient(180deg,#0c1820 0%,#0c182080 25%,transparent 48%)}.visual-interlude h2{font-size:clamp(32px,7.7vw,46px)}.visual-interlude h2 em{white-space:normal}.visual-interlude .eyebrow{margin-bottom:22px}.visual-interlude .interlude-description{font-size:14px;margin-top:20px;max-width:440px}.visual-interlude .button{margin-top:23px}.sensor-pulse{display:none}}
 @media(prefers-reduced-motion:reduce){.sensor-entered .sensor-pulse{animation:none}.visual-interlude .button .button-icon svg{transition:none;transform:none}}
+
+/* Method: one composed instrument panel followed by consistent process cards. */
+.process{padding-top:68px;padding-bottom:64px}
+.process>.eyebrow{margin-bottom:24px}
+.process>.section-heading{display:block;margin-bottom:30px}
+.process>.section-heading h2{font-size:clamp(36px,3.65vw,56px)}
+.process>.section-heading>p{max-width:none;padding:0;margin-top:14px;font-size:15px}
+.process>.section-heading>p br{display:none}
+.process .signal-explorer{grid-template-columns:1.15fr 1fr;gap:0;margin-bottom:28px;border:1px solid #9bbccc36;border-radius:16px;background:radial-gradient(ellipse at 20% 0%,#284653,#12232d 75%);box-shadow:0 14px 32px #10263212}
+.process .signal-display{background:none;border:0;padding:28px 26px;min-height:260px;display:flex;flex-direction:column;justify-content:center}
+.process .signal-display>svg{height:auto;width:100%;filter:drop-shadow(0 12px 12px #0005)}
+.process .scope-header{margin-bottom:16px;color:#a8c5d2;font:11px/1.5 'Geist',sans-serif;letter-spacing:.02em}
+.process .scope-header>span:first-child{font:500 12px/1.5 'Geist',sans-serif;letter-spacing:.01em;color:#dce8ed}
+.process .scope-stage-label{font-size:11px;color:#aac7d3}
+.process .signal-explorer .signal-controls{background:none;color:#e7eef0;padding:30px 32px;border-left:1px solid #a5c5d51c}
+.process .signal-explorer .signal-control-label{color:#adc7d2;font-size:10px;margin-bottom:20px;letter-spacing:.09em}
+.process .signal-explorer .signal-options{gap:18px;border-bottom:1px solid #b1cdd32b}
+.process .signal-explorer .signal-options button{display:block;text-align:left;min-height:48px;padding:10px 0 14px;border:0;border-radius:0;background:none;color:#b7c9d1;box-shadow:none}
+.process .signal-explorer .signal-options button:after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#a3cfdf;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.process .signal-explorer .signal-options button[aria-pressed="true"]{background:none;color:#f4f6f5;box-shadow:none;border:0}
+.process .signal-explorer .signal-options button[aria-pressed="true"]:after{transform:scaleX(1)}
+.process .signal-explorer .signal-options button:hover:not([aria-pressed="true"]){background:none;color:#f4f6f5}
+.process .signal-explorer .signal-name{font-size:18px;font-weight:500}
+.process .signal-explorer .signal-explanation{color:#c2d2d9;font-size:15px;line-height:1.75;min-height:79px;margin-top:22px}
+.signal-disclaimer{font-size:11px;color:#91acb9;margin-top:13px}
+.process .scope-wave{stroke-width:1.3}.process .scope-grid{opacity:.1}.process .scope-wave>circle{animation:none}.process .scope-crosshair{animation:none!important}
+.process .steps{padding-top:0;gap:24px;align-items:stretch}
+.process .steps article{display:flex;flex-direction:column;padding:0 0 22px;margin:0;border:1px solid #315a731e;border-radius:12px;background:#e8eeec;overflow:hidden}
+.process .steps article:before,.process .steps article:after{display:none}
+.process .steps .step-visual{margin:0 0 20px;min-height:0;width:100%;overflow:hidden;border-radius:0;aspect-ratio:1.6}
+.process .steps h3{font-size:23px;line-height:1.18;margin:0;padding:0 20px}
+.process .steps article p{font-size:14px;line-height:1.75;margin:13px 0 0;padding:0 20px;color:#4c626c}
+.process .section-note{margin-top:27px;padding-top:19px;font-size:13px;border-color:#315a7324}
+@media(max-width:1050px){.process .steps{grid-template-columns:repeat(2,minmax(0,1fr))}.process .signal-explorer{grid-template-columns:1fr 1fr}.process .signal-explorer .signal-controls{padding:24px}.process .signal-explorer .signal-name{font-size:16px}.process .signal-explorer .signal-options{gap:12px}}
+@media(max-width:760px){.process{padding-top:46px;padding-bottom:46px}.process .signal-explorer{grid-template-columns:1fr;border-radius:12px}.process .signal-display{min-height:0;padding:22px 20px 12px}.process .signal-explorer .signal-controls{border-left:0;padding:12px 22px 26px}.process .signal-explorer .signal-control-label{margin-bottom:9px}.process .signal-explorer .signal-explanation{min-height:0;font-size:14px;margin-top:18px}.process .signal-explorer .signal-name{font-size:17px}.process .steps{gap:18px}.process .steps h3{font-size:22px}.process>.section-heading>p br{display:initial}}
+@media(max-width:500px){.process .steps{grid-template-columns:1fr}.process .steps .step-visual{aspect-ratio:1.8}.process .steps h3,.process .steps article p{padding-left:20px;padding-right:20px}}
+@media(prefers-reduced-motion:reduce){.process .signal-explorer .signal-options button:after{transition:none}}
+
+/* Give the four scenes room to read as technical objects. */
+.process:before,.process:after{display:none;content:none}
+.process .steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.process .steps .step-visual{aspect-ratio:2.15;background:radial-gradient(ellipse at 48% 35%,#264350,#0e1c25 80%)}
+.process .steps h3{font-size:25px;padding:0 24px}
+.process .steps article p{padding:0 24px;max-width:560px;font-size:15px}
+.process .steps article{padding-bottom:26px}
+@media(max-width:600px){.process .steps{grid-template-columns:1fr}.process .steps .step-visual{aspect-ratio:1.75}.process .steps h3{font-size:23px;padding:0 20px}.process .steps article p{padding:0 20px;font-size:14px}}
