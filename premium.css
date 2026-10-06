@@ -356,3 +356,12 @@ header .services-submenu .all-services a:hover,header .services-submenu .all-ser
 header .services-submenu .all-services a>span{display:inline-grid;place-items:center;width:26px;height:26px;border:1px solid #b9d6e040;border-radius:50%;transition:transform .25s,border-color .25s,background-color .25s}
 header .services-submenu .all-services a:hover>span,header .services-submenu .all-services a:focus-visible>span{transform:translateX(3px);border-color:#b9d6e090;background:#b9d6e010}
 @media(prefers-reduced-motion:reduce){header .services-submenu .all-services a>span{transition:none}header .services-submenu .all-services a:hover>span,header .services-submenu .all-services a:focus-visible>span{transform:none}}
+
+/* WhatsApp: recognizable brand color with a quiet raised finish. */
+.floating-contact{width:56px;height:56px;background:#25d366;color:#fff;border:1px solid #ffffff70;box-shadow:0 6px 20px #075e5430,0 0 0 4px #25d36612;transition:transform .25s,background-color .25s,box-shadow .25s}
+.floating-contact .social-icon{width:28px;height:28px}
+.floating-contact:focus-visible{outline:3px solid #075e54;outline-offset:5px}
+@media(hover:hover) and (pointer:fine){.floating-contact:hover{background:#20c760;color:#fff;transform:translateY(-3px);box-shadow:0 9px 25px #075e5440,0 0 0 6px #25d36618}}
+.floating-contact:active{transform:scale(.96)}
+@media(max-width:760px){.floating-contact{width:52px;height:52px}.floating-contact .social-icon{width:27px;height:27px}}
+@media(prefers-reduced-motion:reduce){.floating-contact{transition:none}.floating-contact:hover,.floating-contact:active{transform:none}}
