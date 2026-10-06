@@ -373,3 +373,9 @@ header .services-submenu .all-services a:hover>span,header .services-submenu .al
 .home-hero:after{background:linear-gradient(90deg,#10171be8 0%,#10171ba8 35%,#10171b20 66%,transparent 100%),linear-gradient(0deg,#10171b80,transparent 35%)}
 @media(min-width:761px){.home-hero{min-height:680px}.home-hero .hero-content{padding-bottom:110px}.home-hero .hero-content>p{margin-top:25px;max-width:490px}}
 @media(max-width:760px){.home-hero h1{font-size:clamp(30px,8vw,54px);line-height:1.1}.home-hero .hero-image img{object-position:77% center}.home-hero:after{background:linear-gradient(180deg,#181a1b 0%,#181a1b 18%,#181a1be8 35%,#181a1b55 65%,#181a1b20 82%,#181a1bba 100%)}}
+
+/* Refine the reading area without dimming the industrial scene. */
+.home-hero:after{background:linear-gradient(90deg,#10171bf5 0%,#10171bc4 30%,#10171b68 47%,#10171b0d 66%,transparent 100%),linear-gradient(0deg,#10171b80,transparent 35%)}
+.home-hero .hero-content>p{font-size:16px;line-height:1.7;max-width:510px;margin-top:24px;color:#e0e7e9}
+.home-hero .hero-actions{margin-top:24px}
+@media(max-width:760px){.home-hero .hero-content>p{font-size:15px;line-height:1.7;margin-top:22px}.home-hero .hero-actions{margin-top:22px}.home-hero:after{background:linear-gradient(180deg,#181a1b 0%,#181a1b 18%,#181a1be8 35%,#181a1b55 65%,#181a1b20 82%,#181a1bba 100%)}}
