@@ -262,3 +262,36 @@ nav .nav-contact{border-radius:999px;min-height:46px;padding:5px 5px 5px 19px;ga
 .motion-word>span{animation-duration:.65s;animation-delay:calc(var(--word-index)*25ms)}
 .motion-ready .hero-content>.eyebrow,.motion-ready .hero-content>p,.motion-ready .hero-actions,.motion-ready .detail-hero .hero-content>.button,.motion-ready .hero-bottom{animation-duration:.65s;animation-delay:.1s}
 @media(max-width:760px){.why-grid article{display:block}.lab-modes button{min-height:44px}.contact input,.contact select,.contact textarea{font-size:16px}}
+
+/* Floating navigation: graphite, restrained highlights and tactile controls. */
+header{position:fixed;top:14px;left:24px;right:24px;height:78px;padding:0 24px;border:1px solid #b9d6e02c;border-radius:20px;background:linear-gradient(115deg,#24333beF,#151c20f5 65%);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 #e2f3fa15,0 12px 36px #0003;transition:background .3s,box-shadow .3s}
+header:before{content:'';position:absolute;top:-1px;left:8%;width:35%;height:1px;background:linear-gradient(90deg,transparent,#bddae599,transparent);pointer-events:none}
+body.has-scrolled header{background:linear-gradient(115deg,#1d2b32f7,#141b1ff7 65%);box-shadow:inset 0 1px 0 #e2f3fa12,0 12px 32px #0004}
+header .brand{flex-shrink:0}header .brand img{width:246px}
+header nav{gap:5px;font-size:13px}
+header nav>a:not(.nav-contact),header .services-toggle{padding:12px 14px;min-height:44px;border-radius:10px;line-height:20px;color:#e0e8eb;transition:background .25s,color .25s,box-shadow .25s}
+header nav>a:not(.nav-contact):after{display:none}
+header nav>a:not(.nav-contact):hover,header .services-toggle:hover,header .services-toggle[aria-expanded="true"]{background:#b7d6e512;color:#fff}
+header nav>a[data-active="true"]:not(.nav-contact){background:#a9d3e517;color:#d0eaf5;box-shadow:inset 0 -1px 0 #b3dae76b}
+header nav .nav-contact{margin-left:14px;padding:5px 5px 5px 20px;min-height:46px;gap:22px;background:#e5edef;color:#17282f;border:1px solid #fff7;box-shadow:0 2px 12px #b2d7e512;font-size:13px;transition:background .25s,box-shadow .25s}
+header nav .nav-contact .button-icon{background:#223b47;color:#e5f0f4;width:34px;height:34px;flex-basis:34px}
+header nav .nav-contact:hover{background:#fff;box-shadow:0 3px 20px #b2d7e530}
+header a:focus-visible,header button:focus-visible{outline:2px solid #c0e4f3;outline-offset:3px}
+main>.hero .hero-content{padding-top:150px}
+@media(min-width:1101px){header .nav-services{position:static}header .services-submenu{position:absolute;top:calc(100% + 12px);left:0;right:0;width:auto;min-width:0;padding:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;background:#16232bf7;backdrop-filter:blur(16px);border:1px solid #b9d6e030;border-radius:20px;box-shadow:0 24px 50px #0005}header .services-submenu[hidden]{display:none}header .services-submenu li:not(.all-services){border-radius:12px;min-height:210px;border:1px solid #d8eaf21c}header .services-submenu li:not(.all-services)>a{min-height:210px;padding:22px;font-size:19px}header .services-submenu .all-services{grid-column:1/-1}header .services-submenu .all-services a{padding:10px 8px;min-height:44px}header .services-submenu a:after{display:none}}
+@media(max-width:1100px){header{left:16px;right:16px;top:12px;height:72px;padding:0 20px;border-radius:18px}header .brand img{width:230px}header .menu-toggle{display:flex;align-items:center;gap:12px;padding:0 12px;min-height:44px;border:1px solid #b4d0dc38;border-radius:11px;background:#9bc5d810;color:#edf4f6;font-size:13px}header .menu-toggle span{display:flex;transition:transform .25s}header .menu-toggle[aria-expanded="true"] span{transform:rotate(45deg)}header nav{display:none;position:absolute;left:0;right:0;top:calc(100% + 10px);padding:14px;background:#142129fa;border:1px solid #b9d6e030;border-radius:18px;flex-direction:column;align-items:stretch;gap:3px;font-size:16px;max-height:calc(100dvh - 112px);overflow-y:auto;overscroll-behavior:contain;box-shadow:0 20px 35px #0005}header nav.open{display:flex}header nav>a:not(.nav-contact),header .services-toggle{font-size:16px;min-height:50px;padding:15px 16px;border-bottom:0}header .nav-services{position:relative;border:0}header .services-toggle{width:100%;justify-content:space-between}header .services-submenu{position:static;display:block;width:auto;min-width:0;padding:4px 0 4px 12px;margin:5px 15px 10px;border:0;border-left:1px solid #8baebd55;border-radius:0;box-shadow:none;background:transparent;backdrop-filter:none}header .services-submenu[hidden]{display:none}header .services-submenu li:not(.all-services){min-height:0;background:none;border:0}header .services-submenu li a{min-height:48px;padding:12px;font-size:14px;line-height:1.5;white-space:normal}header .services-submenu a:after{display:none}header nav .nav-contact{margin:10px 0 0;padding-left:16px;min-height:48px;font-size:15px}main>.hero .hero-content{padding-top:135px}}
+@media(max-width:480px){header{left:10px;right:10px;top:10px;height:68px;padding:0 12px;border-radius:16px}header .brand img{width:190px}header .menu-toggle{gap:7px;padding:0 10px;font-size:12px}main>.hero .hero-content{padding-top:118px}}
+@media(max-width:359px){header .brand img{width:162px}header .menu-toggle{padding:0 8px}}
+@media(prefers-reduced-motion:reduce){header,header *,header *:before,header *:after{animation:none!important;transition:none!important}}
+
+/* Let the cover keep its content and bottom rail clear of the floating bar. */
+main>.hero{height:auto;max-height:none}
+@media(max-width:1100px){header .services-submenu li:not(.all-services)>a{min-height:48px;padding:12px;font-size:14px}}
+
+@media(min-width:1101px){
+header .services-submenu li[data-specialty="industrial"]{background-image:linear-gradient(0deg,#101c23f5,#101c2320),url('assets/industrial-card-hd.webp')}
+header .services-submenu li[data-specialty="arquitectonica"]{background-image:linear-gradient(0deg,#101c23f5,#101c2320),url('assets/arquitectonica-card-hd.webp')}
+header .services-submenu li[data-specialty="legal"]{background-image:linear-gradient(0deg,#101c23f5,#101c2320),url('assets/legal-card-hd.webp')}
+header .services-submenu li[data-specialty="predictivo"]{background-image:linear-gradient(0deg,#101c23f5,#101c2320),url('assets/predictivo-card-hd.webp')}
+}
+header nav.open{background:#142129}
