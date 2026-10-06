@@ -25,3 +25,10 @@
  new ResizeObserver(schedule).observe(header);
  desktop.addEventListener('change',schedule);document.fonts.ready.then(schedule);schedule();
 })();
+
+(()=>{
+ const flow=document.querySelector('.approach-flow');
+ if(!flow||!('IntersectionObserver' in window))return;
+ const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){flow.classList.add('flow-entered');observer.disconnect();}},{threshold:.25});
+ observer.observe(flow);
+})();
