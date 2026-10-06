@@ -1,3 +1,4 @@
+import {refineFinishes} from './material-finishes.js';
 // SABATER — purpose-built mechanical study. Illustrative, not a numerical simulation.
 const root=document.querySelector('.vibration-lab');
 if(root){
@@ -7,7 +8,7 @@ if(root){
  const observer=new IntersectionObserver(async entries=>{if(!entries.some(e=>e.isIntersecting))return;observer.disconnect();try{const T=await import('./vendor/three.module.min.js?v=186');api=buildScene(T);root.classList.add('lab-ready');}catch(e){root.classList.add('lab-unavailable');root.querySelector('.lab-instruction').textContent='EXPLORÁ LOS TRES PRINCIPIOS';}},{rootMargin:'300px'});observer.observe(root);
  function buildScene(T){
  const host=root.querySelector('.lab-viewport'),stage=root.querySelector('.lab-stage');
- const renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.25));renderer.shadowMap.enabled=true;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;renderer.shadowMap.type=T.PCFShadowMap;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.02;host.append(renderer.domElement);
+ const renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio,1.25));renderer.shadowMap.enabled=true;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;renderer.shadowMap.type=T.PCFSoftShadowMap;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.02;host.append(renderer.domElement);
  const scene=new T.Scene(),camera=new T.PerspectiveCamera(34,1,.1,80);scene.fog=new T.FogExp2(0x0b1720,.018);
  // Large softbox panels create real reflections on the machined metal surfaces.
  const envScene=new T.Scene();envScene.background=new T.Color(0x354753);
@@ -21,6 +22,7 @@ if(root){
  const grainCanvas=document.createElement('canvas');grainCanvas.width=128;grainCanvas.height=128;const gc=grainCanvas.getContext('2d'),gd=gc.createImageData(128,128);let seed=17;for(let i=0;i<gd.data.length;i+=4){seed=(seed*16807)%2147483647;const n=105+seed%45;gd.data[i]=gd.data[i+1]=gd.data[i+2]=n;gd.data[i+3]=255;}gc.putImageData(gd,0,0);const grain=new T.CanvasTexture(grainCanvas);grain.wrapS=grain.wrapT=T.RepeatWrapping;grain.repeat.set(6,6);paint.bumpMap=grain;paint.bumpScale=.018;paint.roughnessMap=grain;paint.roughness=.85;
  // Distinct surfaces: milled steel, painted casting, rubber and mineral foundation.
  const finishCanvas=document.createElement('canvas');finishCanvas.width=256;finishCanvas.height=256;const fc=finishCanvas.getContext('2d');fc.fillStyle='#a9a9a9';fc.fillRect(0,0,256,256);for(let y=0;y<256;y++){seed=(seed*16807)%2147483647;fc.fillStyle=`rgba(255,255,255,${.04+(seed%20)/100})`;fc.fillRect(0,y,256,1);}const brushed=new T.CanvasTexture(finishCanvas);brushed.wrapS=brushed.wrapT=T.RepeatWrapping;brushed.repeat.set(1,5);steel.roughnessMap=brushed;steel.roughness=.65;steel.bumpMap=brushed;steel.bumpScale=.002;
+ refineFinishes(T,{steel,paint,rubber});
  const concreteCanvas=document.createElement('canvas');concreteCanvas.width=256;concreteCanvas.height=256;const cc=concreteCanvas.getContext('2d'),cd=cc.createImageData(256,256);for(let i=0;i<cd.data.length;i+=4){seed=(seed*16807)%2147483647;const v=88+seed%62;cd.data[i]=v;cd.data[i+1]=v+5;cd.data[i+2]=v+9;cd.data[i+3]=255;}cc.putImageData(cd,0,0);for(let i=0;i<180;i++){seed=(seed*16807)%2147483647;cc.fillStyle='rgba(35,45,50,.25)';cc.beginPath();cc.arc(seed%256,(seed>>8)%256,.3+(seed%9)/10,0,Math.PI*2);cc.fill();}const concreteMap=new T.CanvasTexture(concreteCanvas);concreteMap.wrapS=concreteMap.wrapT=T.RepeatWrapping;concreteMap.repeat.set(3,2);concreteMap.colorSpace=T.SRGBColorSpace;const concrete=new T.MeshStandardMaterial({color:0x899299,map:concreteMap,bumpMap:concreteMap,bumpScale:.025,roughness:.93,metalness:.02});
  function mesh(geo,mat,parent,x=0,y=0,z=0){const m=new T.Mesh(geo,mat);m.position.set(x,y,z);m.castShadow=true;m.receiveShadow=true;parent.add(m);return m;}
  function box(w,h,d,mat,parent,x,y,z){if(w<.4||h<.08||d<.25)return mesh(new T.BoxGeometry(w,h,d),mat,parent,x,y,z);const b=Math.min(.025,h*.14),shape=new T.Shape(),a=w/2-b,c=h/2-b;shape.moveTo(-a,-c);shape.lineTo(a,-c);shape.lineTo(a,c);shape.lineTo(-a,c);shape.closePath();const geo=new T.ExtrudeGeometry(shape,{depth:d-2*b,bevelEnabled:true,bevelThickness:b,bevelSize:b,bevelSegments:2,steps:1});geo.translate(0,0,-d/2+b);return mesh(geo,mat,parent,x,y,z);}
@@ -56,6 +58,12 @@ if(root){
  box(.64,.26,.56,paint,motor,-.3,1.68,0);box(.7,.045,.62,steel,motor,-.3,1.83,0);for(const x of [-.57,-.03])for(const z of [-.24,.24])cyl(.026,.022,dark,motor,x,1.865,z,'y',6);
  // Sensor, cable and inset identity plate.
  cyl(.095,.2,steel,motor,.44,1.67,.04,'y',6);cyl(.067,.08,blue,motor,.44,1.81,.04,'y');const cable=new T.CatmullRomCurve3([new T.Vector3(.44,1.85,.04),new T.Vector3(.7,2,.2),new T.Vector3(.9,1.7,.6),new T.Vector3(.5,.35,1)]);mesh(new T.TubeGeometry(cable,40,.019,6,false),rubber,motor);
+
+ // Threaded studs, ribbed gland and cooling guard details at the same physical scale.
+ for(const x of [-1.65,1.65])for(const z of [-.85,.85])for(let y=.27;y<.66;y+=.055){const thread=mesh(new T.TorusGeometry(.073,.008,5,16),steel,mounts,x,y,z);thread.rotation.x=Math.PI/2;}
+ for(let y=1.66;y<1.82;y+=.035){const groove=mesh(new T.TorusGeometry(.098,.006,5,24),dark,motor,.44,y,.04);groove.rotation.x=Math.PI/2;}
+ for(let i=0;i<16;i++){const a=i/16*Math.PI*2;cyl(.017,.025,dark,motor,-1.68,.9+Math.cos(a)*.48,Math.sin(a)*.48);}
+ for(const z of [-1.151,1.151])box(3.95,.018,.005,dark,bed,0,.84,z);
  const tagCanvas=document.createElement('canvas');tagCanvas.width=512;tagCanvas.height=128;const ctx=tagCanvas.getContext('2d');ctx.fillStyle='#9aabb4';ctx.fillRect(0,0,512,128);ctx.fillStyle='#182832';ctx.font='bold 34px sans-serif';ctx.fillText('SABATER / INGENIERÍA',22,51);ctx.font='18px monospace';ctx.fillText('ESTUDIO CONCEPTUAL · VIBRACIONES',22,94);const tagTex=new T.CanvasTexture(tagCanvas);tagTex.colorSpace=T.SRGBColorSpace;const tag=mesh(new T.PlaneGeometry(.94,.235),new T.MeshStandardMaterial({map:tagTex,metalness:.6,roughness:.4}),motor,-.3,1,.775);
  const shadowCanvas=document.createElement('canvas');shadowCanvas.width=128;shadowCanvas.height=128;const sc=shadowCanvas.getContext('2d'),sg=sc.createRadialGradient(64,64,15,64,64,64);sg.addColorStop(0,'rgba(0,0,0,.65)');sg.addColorStop(.5,'rgba(0,0,0,.3)');sg.addColorStop(1,'rgba(0,0,0,0)');sc.fillStyle=sg;sc.fillRect(0,0,128,128);const contactShadow=mesh(new T.PlaneGeometry(8,5),new T.MeshBasicMaterial({map:new T.CanvasTexture(shadowCanvas),transparent:true,depthWrite:false}),scene,0,-.087,0);contactShadow.rotation.x=-Math.PI/2;contactShadow.castShadow=false;
  const floor=mesh(new T.PlaneGeometry(200,200),new T.ShadowMaterial({opacity:.28}),scene,0,-.1,0);floor.rotation.x=-Math.PI/2;
