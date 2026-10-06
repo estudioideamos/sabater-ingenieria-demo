@@ -348,3 +348,11 @@ header .nav-contact:hover .button-icon,header .nav-contact:focus-visible .button
 @media(hover:hover) and (pointer:fine){.knowledge-grid>a{transition:background-color .25s,box-shadow .25s}.knowledge-grid>a:hover{background-color:#315a7305;box-shadow:0 2px 0 #315a7340}.footer-column a{transition:color .2s}.footer-column a:hover{color:#c5e2ed}}
 @media(max-width:1100px){header nav.open{animation:menu-in .22s ease-out}}
 @media(prefers-reduced-motion:reduce){.nav-motion-marker,header .services-submenu>li,.faq details[open]>p,header nav.open{animation:none!important;transition:none!important}.button:active,header .nav-contact:active,.menu-toggle:active,.services-toggle:active,.footer-up:active{scale:1}header .nav-contact:hover .button-icon,header .nav-contact:focus-visible .button-icon,.services-submenu a:hover>span,.services-submenu a:focus-visible>span{transform:none}}
+
+/* Compact service index link: no full-width hover fill. */
+header .services-submenu .all-services{padding-top:8px}
+header .services-submenu .all-services a{display:inline-flex;width:auto;justify-content:flex-start;gap:14px;min-height:44px;padding:10px 8px;background:transparent;border-radius:7px;color:#c4d5dc;transition:color .2s}
+header .services-submenu .all-services a:hover,header .services-submenu .all-services a:focus-visible{background:transparent;color:#fff}
+header .services-submenu .all-services a>span{display:inline-grid;place-items:center;width:26px;height:26px;border:1px solid #b9d6e040;border-radius:50%;transition:transform .25s,border-color .25s,background-color .25s}
+header .services-submenu .all-services a:hover>span,header .services-submenu .all-services a:focus-visible>span{transform:translateX(3px);border-color:#b9d6e090;background:#b9d6e010}
+@media(prefers-reduced-motion:reduce){header .services-submenu .all-services a>span{transition:none}header .services-submenu .all-services a:hover>span,header .services-submenu .all-services a:focus-visible>span{transform:none}}
