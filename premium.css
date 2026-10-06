@@ -228,3 +228,7 @@ nav .nav-contact{border-radius:999px;min-height:46px;padding:5px 5px 5px 19px;ga
 .process .signal-options .signal-name{grid-column:1;grid-row:1;margin:0}
 .process .signal-options .signal-choice{grid-column:2;grid-row:1}
 .process .signal-explorer .signal-options button{grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto;align-items:center;min-height:64px}
+
+/* Brand galleries: centered marks without redundant captions. */
+.experience-gallery .logos figure{grid-template-rows:105px;align-content:center;min-height:160px;padding:26px 24px;gap:0}
+@media(max-width:600px){.experience-gallery .logos figure{grid-template-rows:80px;min-height:126px;padding:22px 12px}}
