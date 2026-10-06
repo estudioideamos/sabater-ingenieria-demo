@@ -1,0 +1,5 @@
+Studio Small 09 — Poly Haven
+https://polyhaven.com/a/studio_small_09
+1K HDRI used for physical reflections only. CC0.
+https://polyhaven.com/license
+RGBELoader.js: Three.js r170, MIT; license in vendor/THREE-LICENSE.txt.
