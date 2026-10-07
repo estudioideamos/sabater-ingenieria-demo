@@ -50,3 +50,6 @@
 @media(prefers-reduced-motion:reduce){.diagnostic.in-view .plant-route,.diagnostic-readout article:not([hidden]),.method-annotation p{animation:none}.diagnostic-hotspots button,.method-gallery:after{transition:none}}
 
 .diagnostic-illustration{position:relative}.diagnostic-hotspots button{top:57%;left:25%}.diagnostic-hotspots button:nth-child(2){top:80%;left:50%}.diagnostic-hotspots button:nth-child(3){top:68%;left:80%}
+
+/* Realistic render with a lightweight interactive vector overlay. */
+.plant-render{display:block;width:100%;height:auto}.plant-overlay{position:absolute;inset:0;width:100%;height:100%;margin:0;pointer-events:none}.diagnostic-illustration{margin-top:12px;isolation:isolate}.plant-route{filter:drop-shadow(0 1px 2px #07131c);stroke:#e4f2f4}.plant-waves{filter:drop-shadow(0 1px 2px #07131c)}.diagnostic-hotspots button{background:#0a202de8;box-shadow:0 3px 14px #0005}.diagnostic-hotspots button[aria-pressed=true]{background:#e0edf1}.diagnostic-map{background:#0c1c27}

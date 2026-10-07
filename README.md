@@ -55,7 +55,9 @@ Ejecutar `npm run build`, `npm run check`, `npm run check:security`, `npm audit 
 
 ## Experiencias interactivas
 
-- La home incorpora una planta vectorial conceptual con tres puntos de lectura, botones de teclado y comparación ilustrativa de intervención. No muestra niveles medidos ni predicciones de atenuación. Sin JavaScript conserva las tres explicaciones.
+- La home incorpora un render industrial conceptual con controles vectoriales con tres puntos de lectura, botones de teclado y comparación ilustrativa de intervención. No muestra niveles medidos ni predicciones de atenuación. Sin JavaScript conserva las tres explicaciones.
 - Las cuatro tarjetas de servicios comparten nombre de transición con sus portadas; navegación nativa sin interceptar enlaces, con alternativa normal en navegadores sin soporte y movimiento reducido. La declaración crítica se incluye en head antes del CSS para estar disponible al primer render. Referencia: https://developer.chrome.com/docs/web-platform/view-transitions/cross-document
 - El método en home y los cuatro servicios sincroniza fotografía, anotación y progreso con la etapa seleccionada.
 - Fuentes: assets/diagnostic.inc, assets/experience.css y assets/experience.js. El JS se minifica en build y la animación del diagnóstico se detiene fuera de vista.
+
+El render de fábrica es una ilustración generada, no una fotografía de una instalación real. Se sirve como WebP responsive de 640/1280 px, con carga diferida; los puntos, ondas y la intervención siguen siendo capas interactivas independientes.
