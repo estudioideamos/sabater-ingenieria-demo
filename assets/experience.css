@@ -70,3 +70,16 @@
  .footer-direct a:active,.text-link:active{opacity:.75}
 }
 @media(prefers-reduced-motion:reduce){:where(.service-card,.scope-card,.contact-channel,.footer-fold summary,.faq summary,.method-stage button,.client-carousel-controls button){transition:none}}
+/* Instrument cursor: exact point, softly following ring, contextual vector controls. */
+.instrument-dot,.instrument-ring{position:fixed;left:0;top:0;pointer-events:none!important;z-index:2147483646;contain:layout style}
+.instrument-dot[hidden],.instrument-ring[hidden]{display:none!important}
+.instrument-dot:before{content:"";position:absolute;width:5px;height:5px;left:-2.5px;top:-2.5px;border-radius:50%;background:#e5f6ff;box-shadow:0 0 0 1px #183c50}.instrument-dot.has-label:before{opacity:0}
+.instrument-ring:before{content:"";position:absolute;width:32px;height:32px;left:-16px;top:-16px;border:1px solid #91b8cbbb;border-radius:50%;background:#1233440a;box-sizing:border-box;transition:width .2s,height .2s,left .2s,top .2s,background .2s,border-color .2s}
+.instrument-ring[data-mode=link]:before{width:46px;height:46px;left:-23px;top:-23px;background:#80b4cb24;border-color:#527c91}
+.instrument-ring[data-mode=rotate]:before,.instrument-ring[data-mode=explore]:before{width:76px;height:76px;left:-38px;top:-38px;background:#0b2533ed;border-color:#b6d9e8}
+.instrument-ring>span{position:absolute;left:0;top:0;transform:translate(-50%,-50%);font:500 12px/1.2 Arial,sans-serif;color:#eff8fc;white-space:nowrap}
+.instrument-ring.is-dragging:before{border-color:#fff;background:#234b60ed}
+.instrument-ring[data-mode=compare]:before{width:52px;height:36px;left:-26px;top:-18px;border-radius:20px;background:#0b2533ed;border-color:#b6d9e8}
+.instrument-ring[data-mode=compare]:after{content:"";position:absolute;left:-16px;top:-8px;width:32px;height:16px;background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 16' fill='none' stroke='%23e9f6fc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 3 6 8l5 5M6 8h20M21 3l5 5-5 5'/%3E%3C/svg%3E")}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){html.instrument-cursor,html.instrument-cursor *{cursor:none!important}html.instrument-cursor input:not([type=range]),html.instrument-cursor textarea,html.instrument-cursor select,html.instrument-cursor [contenteditable=true]{cursor:auto!important}}
+@media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.instrument-dot,.instrument-ring{display:none!important}}
