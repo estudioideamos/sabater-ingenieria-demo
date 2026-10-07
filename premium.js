@@ -131,3 +131,13 @@ if('IntersectionObserver' in window){const techVisibility=new IntersectionObserv
 
 // Keep article navigation anchored to the section being read.
 (()=>{const links=[...document.querySelectorAll('.article-toc a[href^="#"]')];if(!links.length)return;const sections=links.map(a=>document.querySelector(a.hash));let queued=false;function update(){queued=false;let current=-1;sections.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<=170)current=i});links.forEach((a,i)=>{if(i===current)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});update()})();
+
+// Play each technical accent on entry; replay deliberately on pointer hover.
+(()=>{const symbols=[...document.querySelectorAll('.problem-symbol')];if(!symbols.length)return;
+const reduced=matchMedia('(prefers-reduced-motion: reduce)');const seen=new WeakSet();const timers=new Map();
+const stop=el=>{clearTimeout(timers.get(el));timers.delete(el);el.classList.remove('glyph-playing');};
+const play=el=>{if(reduced.matches||document.hidden||el.classList.contains('glyph-playing'))return;el.classList.add('glyph-playing');timers.set(el,setTimeout(()=>stop(el),1900));};
+if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting&&!seen.has(e.target)&&!document.hidden){seen.add(e.target);play(e.target);}else if(!e.isIntersecting)stop(e.target);}),{threshold:.7});symbols.forEach(el=>observer.observe(el));}
+symbols.forEach(el=>el.closest('article').addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')play(el);}));
+const cancel=()=>symbols.forEach(stop);reduced.addEventListener('change',cancel);document.addEventListener('visibilitychange',()=>{if(document.hidden)cancel();});
+})();
