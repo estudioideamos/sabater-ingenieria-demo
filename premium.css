@@ -654,3 +654,27 @@ body:has(.home-hero) .experience-gallery .logos.motion-reveal.awaiting{translate
 /* Readable sector list, with the same restrained editorial finish. */
 body:has(.home-hero) .experience-gallery .section-note{font-size:14px;line-height:1.85;color:#405a68;margin-top:23px;max-width:1050px;text-wrap:pretty}
 @media(max-width:760px){body:has(.home-hero) .experience-gallery .section-note{font-size:13px;line-height:1.85;margin-top:22px;padding-right:38px}}
+
+/* Method as a single editorial object: generous image, precise selection rail. */
+.method-editorial>.section-heading{display:grid;grid-template-columns:1.1fr 1fr;align-items:end;gap:48px;margin-bottom:30px}
+.method-editorial>.section-heading>p{max-width:380px;margin:0 0 3px;justify-self:end}
+.method-composition{gap:0;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);align-items:stretch;background:#e7eceb;border:1px solid #315a7321;border-radius:18px;overflow:hidden;box-shadow:0 18px 42px #19344009}
+.method-gallery{aspect-ratio:auto;min-height:480px;border-radius:0;background:#11212b}
+.method-gallery .method-photo{object-position:center;transition:opacity .5s ease}
+.method-stages{display:flex;flex-direction:column;justify-content:center;padding:25px 34px;background:linear-gradient(130deg,#f0f2ee,#e3eaea)}
+.method-stage{padding:0 0 0 20px;border-top:1px solid #315a7325}
+.method-stage:first-child{border-top:0}
+.method-stage:last-child{border-bottom:0}
+.method-stage:before{top:24px;bottom:24px;background:#315a73;width:2px}
+.method-stage h3{font-size:clamp(21px,1.85vw,28px);line-height:1.18;letter-spacing:-.04em}
+.method-stage button{position:relative;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:24px 0;color:#536a75;min-height:74px}
+.method-stage button:after{content:'+';flex:none;display:grid;place-items:center;width:26px;height:26px;font-size:20px;line-height:1;font-weight:300;color:#527387;transition:transform .25s,color .25s}
+.method-stage.is-active button:after{content:'−';color:#244657}
+.method-stage.is-active button{color:#193440}
+.method-copy{padding:0 24px 25px 0}
+.method-copy p{font-size:15px;line-height:1.8;color:#48616d}
+.method-editorial .section-note{font-size:13px;max-width:860px;line-height:1.8;margin-top:22px}
+@media(hover:hover){.method-stage:not(.is-active) button:hover{color:#193440}.method-stage:not(.is-active) button:hover:after{transform:rotate(90deg)}}
+@media(max-width:1100px){.method-stages{padding:18px 24px}.method-stage{padding-left:15px}.method-gallery{min-height:460px}.method-stage h3{font-size:22px}.method-copy{padding-right:0}.method-copy p{font-size:14px}}
+@media(max-width:760px){.method-editorial>.section-heading{display:block;margin-bottom:25px}.method-editorial>.section-heading>p{max-width:440px;margin-top:14px}.method-composition{grid-template-columns:1fr;border-radius:14px}.method-gallery{min-height:0;aspect-ratio:1.5}.method-stages{padding:8px 20px 12px}.method-stage h3{font-size:21px}.method-stage button{padding:20px 0;min-height:67px}.method-copy{padding-bottom:22px}.method-copy p{font-size:14px}.method-stage:before{top:20px;bottom:22px}.method-editorial .section-note{margin-top:20px;padding-right:25px}}
+@media(prefers-reduced-motion:reduce){.method-stage button:after{transition:none;transform:none!important}}
