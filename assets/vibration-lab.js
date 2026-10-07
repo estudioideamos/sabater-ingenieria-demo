@@ -4,7 +4,7 @@ import {refineFinishes} from './material-finishes.js';
 const root=document.querySelector('.vibration-lab');
 if(root){
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');let mode=0,api=null;
- const copy=[['Todo empieza en la fuente.','Las fuerzas dinámicas de una máquina pueden viajar a través de sus apoyos y excitar la estructura que la sostiene.'],['Intervenir en el camino.','Los apoyos elásticos pueden reducir la transmisión cuando se seleccionan según la masa, las frecuencias de excitación y las condiciones de instalación.'],['Cada parte tiene una función.','Explorá el rodamiento, el bobinado y el acople del motor, además de sus apoyos y estructura. El diagnóstico permite identificar dónde se origina la vibración y cómo se transmite.']];
+ const copy=[['La vibración llega a la estructura.','Las fuerzas dinámicas de una máquina pueden viajar a través de sus apoyos y excitar la estructura que la sostiene.'],['El aislamiento puede reducir la transmisión.','Los apoyos elásticos pueden reducir la transmisión cuando se seleccionan según la masa, las frecuencias de excitación y las condiciones de instalación.'],['Cada parte tiene una función.','Explorá el rodamiento, el bobinado y el acople del motor, además de sus apoyos y estructura. El diagnóstico permite identificar dónde se origina la vibración y cómo se transmite.']];
  root.querySelectorAll('[data-lab-mode]').forEach(b=>b.addEventListener('click',()=>{mode=Number(b.dataset.labMode);root.querySelector('.lab-stage').dataset.mode=mode;root.querySelectorAll('[data-lab-mode]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));root.querySelector('.lab-explanation h3').textContent=copy[mode][0];root.querySelector('.lab-explanation p').textContent=copy[mode][1];root.querySelector('[data-anchor="mount"] b').textContent=mode?'Apoyos elásticos':'Camino de transmisión';api?.refresh(true);}));
  const observer=new IntersectionObserver(async entries=>{if(!entries.some(e=>e.isIntersecting))return;observer.disconnect();try{const T=await import('./vendor/three.module.min.js?v=186');api=buildScene(T);root.classList.add('lab-ready');}catch(e){root.classList.add('lab-unavailable');root.querySelector('.lab-instruction').textContent='EXPLORÁ LOS TRES PRINCIPIOS';}},{rootMargin:'300px'});observer.observe(root);
  function buildScene(T){
@@ -16,9 +16,9 @@ if(root){
  const envScene=new T.Scene();envScene.background=new T.Color(0x34434c);
  for(const [x,y,z,w,h,c] of [[0,6,1,6,1.8,0xffffff],[-4,2,3,1.3,5,0xc2ddf1],[3,2,-4,1.1,5,0xffffff],[4,1,3,.5,3,0xf2dac5]]){const p=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color:c,side:T.DoubleSide}));p.position.set(x,y,z);p.lookAt(0,1,0);envScene.add(p);}
  const pmrem=new T.PMREMGenerator(renderer),env=pmrem.fromScene(envScene,.05);scene.environment=env.texture;scene.environmentIntensity=.85;pmrem.dispose();
- scene.add(new T.HemisphereLight(0xd9edf8,0x0d1720,.45));
+ scene.add(new T.HemisphereLight(0xd9edf8,0x263b49,.65));
  const key=new T.DirectionalLight(0xf4f6f7,1.5);key.position.set(-3,5,6);key.castShadow=true;key.shadow.mapSize.set(innerWidth>760?2048:1024,innerWidth>760?2048:1024);key.shadow.normalBias=.025;key.shadow.radius=5;key.shadow.blurSamples=8;Object.assign(key.shadow.camera,{left:-6,right:6,top:6,bottom:-6});key.shadow.bias=-.001;scene.add(key);
- const rim=new T.DirectionalLight(0xc9e6f3,1.5);rim.position.set(2,3,-5);scene.add(rim);const warm=new T.PointLight(0xf2d4b6,5,15);warm.position.set(5,3,2);scene.add(warm);const fill=new T.DirectionalLight(0xb8d1df,1.1);fill.position.set(0,3,6);scene.add(fill);
+ const rim=new T.DirectionalLight(0xc9e6f3,1.5);rim.position.set(2,3,-5);scene.add(rim);const warm=new T.PointLight(0xf2d4b6,5,15);warm.position.set(5,3,2);scene.add(warm);const fill=new T.DirectionalLight(0xb8d1df,1.1);fill.position.set(0,3,6);scene.add(fill);const supportLight=new T.PointLight(0xc0d9e8,9,9,2);supportLight.position.set(-1,1.8,4);scene.add(supportLight);
  const steel=new T.MeshStandardMaterial({color:0xb0b5b6,metalness:.94,roughness:.28}),paint=new T.MeshStandardMaterial({color:0x34474f,metalness:.2,roughness:.37}),dark=new T.MeshStandardMaterial({color:0x101b24,metalness:.6,roughness:.44}),rubber=new T.MeshStandardMaterial({color:0x10161a,metalness:.05,roughness:.8}),copper=new T.MeshStandardMaterial({color:0xb78a60,metalness:.85,roughness:.26}),blue=new T.MeshStandardMaterial({color:0x86cbdc,metalness:.55,roughness:.22,emissive:0x416a7b,emissiveIntensity:.4});
  // Subtle procedural cast-metal grain; no downloaded texture or enlarged image.
  const grainCanvas=document.createElement('canvas');grainCanvas.width=128;grainCanvas.height=128;const gc=grainCanvas.getContext('2d'),gd=gc.createImageData(128,128);let seed=17;for(let i=0;i<gd.data.length;i+=4){seed=(seed*16807)%2147483647;const n=105+seed%45;gd.data[i]=gd.data[i+1]=gd.data[i+2]=n;gd.data[i+3]=255;}gc.putImageData(gd,0,0);const grain=new T.CanvasTexture(grainCanvas);grain.wrapS=grain.wrapT=T.RepeatWrapping;grain.repeat.set(6,6);paint.bumpMap=grain;paint.bumpScale=.018;paint.roughnessMap=grain;paint.roughness=.85;
@@ -63,14 +63,14 @@ if(root){
  if(!reduced.matches){motor.position.x=Math.sin(time*32)*.009*(1-explode);rotor.rotation.x=time*2.5;foundation.position.y=Math.sin(time*32)*.016*(1-isolate*.9)*(1-explode);}else{motor.position.x=0;foundation.position.y=0;}
  rigidMounts.forEach(m=>m.visible=mode===0);mounts.children.forEach(m=>{if(m.geometry.type==='TubeGeometry'){m.material=steel;m.visible=mode>0;}});
  waves.forEach((m,i)=>{const f=((time*.22+i/5)%1);m.scale.setScalar(1+f*4);m.material.opacity=(1-f)*.1*(1-isolate*.85)*(1-explode);m.material.color.set(isolate>.5?0x92cddd:0xc9956c);});
- const anchors=[[-.4,3.25+explode*1.35,0],[1.7,.95+explode*.2,1],[-2.6,.3,1.3]];
+ const anchors=[[-.4,2.4+explode*1.35,.52],[1.65,.48+explode*.2,.85],[-1.9,.12,1.25]];
  const W=host.clientWidth,H=host.clientHeight;
  const positions=[[.19,.27],[.81,.58],[.19,.79]],lines=root.querySelectorAll('.lab-leaders line');
  anchors.forEach((a,i)=>{v.set(...a).project(camera);const label=labels[i],line=lines[i],show=mode===2||(mode===0?i!==1:i!==0);
  label.hidden=!show;line.style.display=show?'':'none';
  const x=W*positions[i][0],y=H*positions[i][1];label.style.left=`${x}px`;label.style.top=`${y}px`;
  line.setAttribute('x1',x+(i===1?-1:1)*label.offsetWidth/2);line.setAttribute('y1',y-label.offsetHeight/2);
- line.setAttribute('x2',(v.x*.5+.5)*W);line.setAttribute('y2',(-v.y*.5+.5)*H);
+ line.setAttribute('x2',(v.x*.5+.5)*W);line.setAttribute('y2',(-v.y*.5+.5)*H);const dot=root.querySelectorAll('.lab-leaders circle')[i];dot.style.display=show?'':'none';dot.setAttribute('cx',(v.x*.5+.5)*W);dot.setAttribute('cy',(-v.y*.5+.5)*H);
  });
  if((Math.abs(explode-priorExplode)>.0005&&time-lastShadow>.12)||stage.dataset.renderedMode!==String(mode)){renderer.shadowMap.needsUpdate=true;lastShadow=time;}if(composer){const started=performance.now();composer.render();if(!reduced.matches&&performance.now()-started>50)expensiveFrames++;else expensiveFrames=Math.max(0,expensiveFrames-1);if(expensiveFrames>=8){for(const pass of composer.passes)pass.dispose?.();composer.dispose();composer=null;root.dataset.contactShading='basic';}}else renderer.render(scene,camera);stage.dataset.renderedMode=String(mode);
  }
