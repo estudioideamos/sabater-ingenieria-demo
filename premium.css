@@ -650,3 +650,7 @@ body:has(.home-hero) .experience-gallery .logos.motion-reveal.awaiting{translate
 @media(max-width:1000px){body:has(.home-hero) .experience-gallery .logos figure:nth-child(n+5){border-top:1px solid #315a731d}}
 @media(max-width:760px){body:has(.home-hero) #experiencia{scroll-margin-top:8px}body:has(.home-hero) .experience-gallery .logos figure:nth-child(n+4){border-top:1px solid #315a731d}}
 @media(prefers-reduced-motion:reduce){body:has(.home-hero) .experience-gallery .logos.motion-reveal{transition:none;translate:none}}
+
+/* Readable sector list, with the same restrained editorial finish. */
+body:has(.home-hero) .experience-gallery .section-note{font-size:14px;line-height:1.85;color:#405a68;margin-top:23px;max-width:1050px;text-wrap:pretty}
+@media(max-width:760px){body:has(.home-hero) .experience-gallery .section-note{font-size:13px;line-height:1.85;margin-top:22px;padding-right:38px}}
