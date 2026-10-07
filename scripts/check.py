@@ -26,16 +26,18 @@ for f,p in pages.items():
   if target.is_dir():target=target/'index.html'
   if not target.exists():errors.append(f'{f.name}: missing {link}')
   elif u.fragment and target in pages and u.fragment not in pages[target].ids:errors.append(f'{f.name}: missing anchor {link}')
-assert len(pages)==5,f'Expected five pages, got {len(pages)}'
+import json
+expected=6+len(json.loads((R/'blog-posts.json').read_text(encoding='utf8')))
+assert len(pages)==expected,f'Expected {expected} pages, got {len(pages)}'
 assert not errors,'\n'.join(errors)
-print('PASS: 5 pages, all local assets/links/anchors, image alt text and one H1 per page.')
+print('PASS: 8 pages, all local assets/links/anchors, image alt text and one H1 per page.')
 
 # Deployment metadata and browser security must remain coherent with the build mode.
 import json,re,base64,hashlib
 from site_meta import BASE,INDEXABLE
 from xml.etree import ElementTree
 sitemap=ElementTree.parse(R/'sitemap.xml')
-assert len(sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc'))==5
+assert len(sitemap.findall('.//{http://www.sitemaps.org/schemas/sitemap/0.9}loc'))==expected
 for f in pages:
  source=f.read_text(encoding='utf8')
  assert len(re.findall(r'<link rel="canonical"',source))==1,f
@@ -46,7 +48,8 @@ for f in pages:
  assert all(not n.get('url') or n['url'].startswith(BASE) for n in graph),f
  digest=base64.b64encode(hashlib.sha256(schema.encode()).digest()).decode()
  assert 'sha256-'+digest in source,f
- assert '<form id="contact-form" method="post">' in source,f
+ if 'blog' not in f.relative_to(R).parts:assert '<form id="contact-form" method="post">' in source,f
+ elif f.parent.name!='blog':assert any(n['@type']=='BlogPosting' for n in graph),f
  assert 'fonts.googleapis.com' not in source,f
  for srcset in re.findall(r'srcset="([^"]+)"',source):
   for item in srcset.split(','):

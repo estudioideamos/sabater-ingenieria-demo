@@ -1,0 +1,134 @@
+[
+  {
+    "slug": "ruido-industrial-medir-antes-de-elegir-una-solucion",
+    "title": "Ruido industrial: medir antes de elegir una solución",
+    "category": "Acústica industrial",
+    "date": "2026-10-07",
+    "image": "blog-ruido",
+    "alt": "Micrófono de medición frente a un sistema de ventilación industrial",
+    "excerpt": "Qué conviene conocer sobre la fuente, el recorrido del sonido y el entorno antes de definir una intervención.",
+    "service": "acustica-industrial",
+    "intro": "Un equipo hace ruido y aparece una propuesta inmediata: colocar una barrera, revestir una pared o encerrar la máquina. Pero una intervención útil empieza antes. Primero hay que entender qué genera el ruido, cómo se propaga y qué situación se necesita mejorar.",
+    "sections": [
+      {
+        "id": "definir-el-problema",
+        "title": "Primero, definir qué se necesita resolver",
+        "paragraphs": [
+          "Una consulta por ruido puede tener objetivos muy distintos: mejorar las condiciones de un puesto de trabajo, reducir una molestia en otro sector o estudiar el impacto sobre un entorno vecino. Aunque la fuente sea la misma, el punto de evaluación y el criterio de diseño pueden cambiar.",
+          "Por eso, el relevamiento inicial debería registrar dónde se percibe el problema, cuándo aparece, qué equipos están funcionando y en qué condiciones. También conviene reunir planos, horarios de operación y antecedentes de cambios en la instalación. Esa información permite preparar una medición que responda a una pregunta concreta."
+        ]
+      },
+      {
+        "id": "medicion-con-contexto",
+        "title": "Una medición necesita contexto",
+        "paragraphs": [
+          "Un número aislado no explica todo lo que ocurre. Es importante asociar cada registro con su ubicación, su duración y la condición de funcionamiento observada. Medir una máquina sin carga y compararla con otra trabajando a plena capacidad puede conducir a conclusiones poco útiles.",
+          "El análisis puede requerir estudiar cómo cambia el sonido en el tiempo y cómo se distribuye su energía entre distintas frecuencias. La elección del instrumental, los puntos de medición y el procedimiento debe responder al objetivo del estudio. No existe una única campaña de medición adecuada para cualquier problema."
+        ]
+      },
+      {
+        "id": "fuente-camino-receptor",
+        "title": "Fuente, camino y receptor",
+        "paragraphs": [
+          "Una forma de ordenar el diagnóstico es distinguir la fuente que produce el ruido, el camino por el que llega y el lugar donde se recibe. Puede haber varias fuentes simultáneas y más de una vía de transmisión. Esa lectura ayuda a identificar dónde una intervención puede resultar más efectiva.",
+          "Las medidas de control pueden actuar sobre el proceso o el equipo, sobre la transmisión o sobre la distribución de los espacios. El HSE incluye entre las alternativas el mantenimiento, el uso de procesos menos ruidosos, los cerramientos y el aislamiento de vibraciones. La selección depende del problema identificado; una solución habitual no es automáticamente la adecuada para cada instalación."
+        ],
+        "source": 0
+      },
+      {
+        "id": "absorber-no-es-aislar",
+        "title": "Absorber sonido y aislar no son lo mismo",
+        "paragraphs": [
+          "Los materiales absorbentes pueden ayudar a controlar las reflexiones dentro de un recinto. Eso no significa que bloqueen por sí solos la transmisión hacia otro espacio. El HSE distingue el sonido reflejado, sobre el que actúa la absorción, del sonido que llega directamente desde la fuente.",
+          "Antes de elegir un tratamiento conviene revisar qué componente domina en el lugar de interés. Un revestimiento absorbente, una barrera y un cerramiento tienen funciones diferentes. Además del desempeño acústico, el diseño debe contemplar ventilación, accesos, limpieza y mantenimiento."
+        ],
+        "source": 1
+      },
+      {
+        "id": "decidir-y-verificar",
+        "title": "Definir una intervención que se pueda verificar",
+        "paragraphs": [
+          "El resultado del estudio debería conectar el diagnóstico con una recomendación comprensible: qué se propone, sobre qué mecanismo actúa y qué condiciones deben respetarse para implementarla. También debería dejar claras las limitaciones y la necesidad de estudios complementarios cuando corresponda.",
+          "Después de la intervención, una verificación en condiciones comparables permite evaluar el cambio. Registrar qué se midió y cómo se hizo aporta continuidad al proyecto y evita que la decisión dependa únicamente de una impresión subjetiva."
+        ]
+      }
+    ],
+    "takeaway": "Antes de elegir un material o una barrera, definí el objetivo y caracterizá el problema. La solución empieza en el diagnóstico.",
+    "sources": [
+      {
+        "title": "HSE · How do I reduce noise?",
+        "url": "https://www.hse.gov.uk/noise/reducenoise.htm"
+      },
+      {
+        "title": "HSE · Workplace design",
+        "url": "https://www.hse.gov.uk/noise/goodpractice/workplacedesign.htm"
+      }
+    ]
+  },
+  {
+    "slug": "vibraciones-maquinaria-seguimiento-de-condicion",
+    "title": "Vibraciones en maquinaria: leer las señales antes de intervenir",
+    "category": "Mantenimiento predictivo",
+    "date": "2026-10-07",
+    "image": "blog-vibraciones",
+    "alt": "Detalle conceptual de un sensor y un equipo de análisis junto a un motor industrial",
+    "excerpt": "Por qué una medición aislada no cuenta toda la historia y cómo el seguimiento ayuda a orientar el mantenimiento.",
+    "service": "mantenimiento-predictivo",
+    "intro": "Una máquina puede seguir funcionando mientras su comportamiento cambia. El seguimiento de vibraciones permite registrar parte de esos cambios y aportar información al mantenimiento. Su valor está en interpretar las señales dentro del contexto del equipo y de su operación.",
+    "sections": [
+      {
+        "id": "que-aporta",
+        "title": "Qué aporta observar las vibraciones",
+        "paragraphs": [
+          "La vibración es una respuesta del sistema mecánico. Medirla permite describir cómo se mueve en determinados puntos y condiciones. El análisis busca reconocer cambios y patrones que merecen atención; no consiste simplemente en encontrar un valor alto y asignarle una causa.",
+          "En su explicación sobre monitoreo de condición, SKF señala que comparar valores registrados con una referencia permite detectar cambios de estado. Eso aporta una base para investigar lo que está ocurriendo y decidir si hace falta profundizar el diagnóstico."
+        ],
+        "source": 0
+      },
+      {
+        "id": "referencia-confiable",
+        "title": "Construir una referencia confiable",
+        "paragraphs": [
+          "Para seguir una evolución hace falta saber con qué se está comparando. Una referencia inicial debería acompañarse de información sobre el equipo, los puntos y direcciones de medición, el montaje del sensor y las condiciones operativas. La trazabilidad permite volver al mismo lugar con un criterio consistente.",
+          "El punto de partida no debe asumirse como una condición saludable solo por ser la primera medición disponible. Conviene contrastarlo con antecedentes, inspecciones y conocimiento de la máquina. Documentar las dudas también es parte del trabajo técnico."
+        ]
+      },
+      {
+        "id": "comparar-condiciones",
+        "title": "Comparar condiciones equivalentes",
+        "paragraphs": [
+          "La velocidad, la carga y el régimen de operación pueden modificar las señales. Una variación del registro puede acompañar un cambio de funcionamiento y no necesariamente un deterioro. Por eso, anotar las condiciones de cada medición resulta tan importante como conservar la señal.",
+          "SKF describe el uso de tendencias históricas y comparaciones bajo condiciones similares de operación para apoyar la evaluación de maquinaria. La frecuencia de seguimiento debe adaptarse a la criticidad del equipo y a lo que se busca observar; no hay un intervalo universal que resuelva todos los casos."
+        ],
+        "source": 1
+      },
+      {
+        "id": "del-dato-al-diagnostico",
+        "title": "Del dato al diagnóstico",
+        "paragraphs": [
+          "Un valor global puede servir como indicador de seguimiento, pero no reemplaza el análisis. Cuando aparece un cambio relevante, el profesional evalúa la información disponible y define qué mediciones o comprobaciones adicionales necesita para formular una hipótesis técnica.",
+          "La vibración también puede complementarse con temperatura, inspecciones y otros antecedentes de mantenimiento. El objetivo es reunir evidencia coherente. Una señal por sí sola no debería convertirse en una certeza sobre la causa ni en una promesa de cuánto tiempo seguirá funcionando una máquina."
+        ]
+      },
+      {
+        "id": "decision-de-mantenimiento",
+        "title": "Una recomendación útil para mantenimiento",
+        "paragraphs": [
+          "El informe debería explicar qué se observó, cómo se compara con los antecedentes y qué pasos se recomiendan. Puede corresponder repetir una medición, inspeccionar una parte del sistema, aumentar el seguimiento o planificar una intervención. La urgencia requiere evaluar el conjunto de evidencias y las consecuencias de una falla.",
+          "Una vez realizada una intervención, volver a medir en condiciones comparables ayuda a documentar el resultado. Así, el monitoreo deja de ser una colección de registros y se integra en un proceso de decisiones que puede revisarse y mejorarse."
+        ]
+      }
+    ],
+    "takeaway": "El valor del monitoreo no está en acumular mediciones: está en comparar, interpretar y convertir los cambios observados en decisiones justificadas.",
+    "sources": [
+      {
+        "title": "SKF Evolution · Parallel condition monitoring",
+        "url": "https://evolution.skf.com/us/parallel-condition-monitoring-3/"
+      },
+      {
+        "title": "SKF Evolution · Monitoring critical applications at sea",
+        "url": "https://evolution.skf.com/us/monitoring-critical-applications-at-sea-4/"
+      }
+    ]
+  }
+]

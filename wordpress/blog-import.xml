@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:wp="http://wordpress.org/export/1.2/" version="2.0">
+  <channel>
+    <title>SABATER Ingeniería · Blog</title>
+    <link>https://estudioideamos.github.io/sabater-ingenieria-demo/</link>
+    <description>Entradas editoriales para migración</description>
+    <language>es-AR</language>
+    <wp:wxr_version>1.2</wp:wxr_version>
+    <wp:base_site_url>https://estudioideamos.github.io/sabater-ingenieria-demo/</wp:base_site_url>
+    <wp:base_blog_url>https://estudioideamos.github.io/sabater-ingenieria-demo/</wp:base_blog_url>
+    <item>
+      <title>Micrófono de medición frente a un sistema de ventilación industrial</title>
+      <link>https://estudioideamos.github.io/sabater-ingenieria-demo/assets/blog-ruido-1200.webp</link>
+      <guid>https://estudioideamos.github.io/sabater-ingenieria-demo/assets/blog-ruido-1200.webp</guid>
+      <wp:post_id>100</wp:post_id>
+      <wp:post_type>attachment</wp:post_type>
+      <wp:status>inherit</wp:status>
+      <wp:attachment_url>https://estudioideamos.github.io/sabater-ingenieria-demo/assets/blog-ruido-1200.webp</wp:attachment_url>
+      <wp:post_parent>200</wp:post_parent>
+      <wp:postmeta>
+        <wp:meta_key>_wp_attachment_image_alt</wp:meta_key>
+        <wp:meta_value>Micrófono de medición frente a un sistema de ventilación industrial</wp:meta_value>
+      </wp:postmeta>
+    </item>
+    <item>
+      <title>Ruido industrial: medir antes de elegir una solución</title>
+      <link>https://estudioideamos.github.io/sabater-ingenieria-demo/blog/ruido-industrial-medir-antes-de-elegir-una-solucion/</link>
+      <guid>https://estudioideamos.github.io/sabater-ingenieria-demo/blog/ruido-industrial-medir-antes-de-elegir-una-solucion/</guid>
+      <dc:creator>sabater</dc:creator>
+      <content:encoded>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Un equipo hace ruido y aparece una propuesta inmediata: colocar una barrera, revestir una pared o encerrar la máquina. Pero una intervención útil empieza antes. Primero hay que entender qué genera el ruido, cómo se propaga y qué situación se necesita mejorar.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "definir-el-problema"} --&gt;
+&lt;h2 class="wp-block-heading" id="definir-el-problema"&gt;Primero, definir qué se necesita resolver&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Una consulta por ruido puede tener objetivos muy distintos: mejorar las condiciones de un puesto de trabajo, reducir una molestia en otro sector o estudiar el impacto sobre un entorno vecino. Aunque la fuente sea la misma, el punto de evaluación y el criterio de diseño pueden cambiar.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Por eso, el relevamiento inicial debería registrar dónde se percibe el problema, cuándo aparece, qué equipos están funcionando y en qué condiciones. También conviene reunir planos, horarios de operación y antecedentes de cambios en la instalación. Esa información permite preparar una medición que responda a una pregunta concreta.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "medicion-con-contexto"} --&gt;
+&lt;h2 class="wp-block-heading" id="medicion-con-contexto"&gt;Una medición necesita contexto&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Un número aislado no explica todo lo que ocurre. Es importante asociar cada registro con su ubicación, su duración y la condición de funcionamiento observada. Medir una máquina sin carga y compararla con otra trabajando a plena capacidad puede conducir a conclusiones poco útiles.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;El análisis puede requerir estudiar cómo cambia el sonido en el tiempo y cómo se distribuye su energía entre distintas frecuencias. La elección del instrumental, los puntos de medición y el procedimiento debe responder al objetivo del estudio. No existe una única campaña de medición adecuada para cualquier problema.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "fuente-camino-receptor"} --&gt;
+&lt;h2 class="wp-block-heading" id="fuente-camino-receptor"&gt;Fuente, camino y receptor&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Una forma de ordenar el diagnóstico es distinguir la fuente que produce el ruido, el camino por el que llega y el lugar donde se recibe. Puede haber varias fuentes simultáneas y más de una vía de transmisión. Esa lectura ayuda a identificar dónde una intervención puede resultar más efectiva.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Las medidas de control pueden actuar sobre el proceso o el equipo, sobre la transmisión o sobre la distribución de los espacios. El HSE incluye entre las alternativas el mantenimiento, el uso de procesos menos ruidosos, los cerramientos y el aislamiento de vibraciones. La selección depende del problema identificado; una solución habitual no es automáticamente la adecuada para cada instalación.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Referencia: &lt;a href="https://www.hse.gov.uk/noise/reducenoise.htm"&gt;HSE · How do I reduce noise?&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "absorber-no-es-aislar"} --&gt;
+&lt;h2 class="wp-block-heading" id="absorber-no-es-aislar"&gt;Absorber sonido y aislar no son lo mismo&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Los materiales absorbentes pueden ayudar a controlar las reflexiones dentro de un recinto. Eso no significa que bloqueen por sí solos la transmisión hacia otro espacio. El HSE distingue el sonido reflejado, sobre el que actúa la absorción, del sonido que llega directamente desde la fuente.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Antes de elegir un tratamiento conviene revisar qué componente domina en el lugar de interés. Un revestimiento absorbente, una barrera y un cerramiento tienen funciones diferentes. Además del desempeño acústico, el diseño debe contemplar ventilación, accesos, limpieza y mantenimiento.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Referencia: &lt;a href="https://www.hse.gov.uk/noise/goodpractice/workplacedesign.htm"&gt;HSE · Workplace design&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "decidir-y-verificar"} --&gt;
+&lt;h2 class="wp-block-heading" id="decidir-y-verificar"&gt;Definir una intervención que se pueda verificar&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;El resultado del estudio debería conectar el diagnóstico con una recomendación comprensible: qué se propone, sobre qué mecanismo actúa y qué condiciones deben respetarse para implementarla. También debería dejar claras las limitaciones y la necesidad de estudios complementarios cuando corresponda.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Después de la intervención, una verificación en condiciones comparables permite evaluar el cambio. Registrar qué se midió y cómo se hizo aporta continuidad al proyecto y evita que la decisión dependa únicamente de una impresión subjetiva.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "para-recordar"} --&gt;
+&lt;h2 class="wp-block-heading" id="para-recordar"&gt;Para recordar&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Antes de elegir un material o una barrera, definí el objetivo y caracterizá el problema. La solución empieza en el diagnóstico.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "fuentes"} --&gt;
+&lt;h2 class="wp-block-heading" id="fuentes"&gt;Fuentes y lectura complementaria&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://www.hse.gov.uk/noise/reducenoise.htm"&gt;HSE · How do I reduce noise?&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://www.hse.gov.uk/noise/goodpractice/workplacedesign.htm"&gt;HSE · Workplace design&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Contenido de divulgación. El diagnóstico y el diseño de una intervención requieren evaluar las condiciones de cada proyecto.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+</content:encoded>
+      <wp:post_id>200</wp:post_id>
+      <wp:post_date>2026-10-07 09:00:00</wp:post_date>
+      <wp:post_name>ruido-industrial-medir-antes-de-elegir-una-solucion</wp:post_name>
+      <wp:post_type>post</wp:post_type>
+      <wp:status>draft</wp:status>
+      <wp:comment_status>closed</wp:comment_status>
+      <wp:ping_status>closed</wp:ping_status>
+      <category domain="category" nicename="acustica-industrial">Acústica industrial</category>
+      <wp:postmeta>
+        <wp:meta_key>_thumbnail_id</wp:meta_key>
+        <wp:meta_value>100</wp:meta_value>
+      </wp:postmeta>
+      <excerpt:encoded>Qué conviene conocer sobre la fuente, el recorrido del sonido y el entorno antes de definir una intervención.</excerpt:encoded>
+    </item>
+    <item>
+      <title>Detalle conceptual de un sensor y un equipo de análisis junto a un motor industrial</title>
+      <link>https://estudioideamos.github.io/sabater-ingenieria-demo/assets/blog-vibraciones-1200.webp</link>
+      <guid>https://estudioideamos.github.io/sabater-ingenieria-demo/assets/blog-vibraciones-1200.webp</guid>
+      <wp:post_id>101</wp:post_id>
+      <wp:post_type>attachment</wp:post_type>
+      <wp:status>inherit</wp:status>
+      <wp:attachment_url>https://estudioideamos.github.io/sabater-ingenieria-demo/assets/blog-vibraciones-1200.webp</wp:attachment_url>
+      <wp:post_parent>201</wp:post_parent>
+      <wp:postmeta>
+        <wp:meta_key>_wp_attachment_image_alt</wp:meta_key>
+        <wp:meta_value>Detalle conceptual de un sensor y un equipo de análisis junto a un motor industrial</wp:meta_value>
+      </wp:postmeta>
+    </item>
+    <item>
+      <title>Vibraciones en maquinaria: leer las señales antes de intervenir</title>
+      <link>https://estudioideamos.github.io/sabater-ingenieria-demo/blog/vibraciones-maquinaria-seguimiento-de-condicion/</link>
+      <guid>https://estudioideamos.github.io/sabater-ingenieria-demo/blog/vibraciones-maquinaria-seguimiento-de-condicion/</guid>
+      <dc:creator>sabater</dc:creator>
+      <content:encoded>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Una máquina puede seguir funcionando mientras su comportamiento cambia. El seguimiento de vibraciones permite registrar parte de esos cambios y aportar información al mantenimiento. Su valor está en interpretar las señales dentro del contexto del equipo y de su operación.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "que-aporta"} --&gt;
+&lt;h2 class="wp-block-heading" id="que-aporta"&gt;Qué aporta observar las vibraciones&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;La vibración es una respuesta del sistema mecánico. Medirla permite describir cómo se mueve en determinados puntos y condiciones. El análisis busca reconocer cambios y patrones que merecen atención; no consiste simplemente en encontrar un valor alto y asignarle una causa.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;En su explicación sobre monitoreo de condición, SKF señala que comparar valores registrados con una referencia permite detectar cambios de estado. Eso aporta una base para investigar lo que está ocurriendo y decidir si hace falta profundizar el diagnóstico.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Referencia: &lt;a href="https://evolution.skf.com/us/parallel-condition-monitoring-3/"&gt;SKF Evolution · Parallel condition monitoring&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "referencia-confiable"} --&gt;
+&lt;h2 class="wp-block-heading" id="referencia-confiable"&gt;Construir una referencia confiable&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Para seguir una evolución hace falta saber con qué se está comparando. Una referencia inicial debería acompañarse de información sobre el equipo, los puntos y direcciones de medición, el montaje del sensor y las condiciones operativas. La trazabilidad permite volver al mismo lugar con un criterio consistente.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;El punto de partida no debe asumirse como una condición saludable solo por ser la primera medición disponible. Conviene contrastarlo con antecedentes, inspecciones y conocimiento de la máquina. Documentar las dudas también es parte del trabajo técnico.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "comparar-condiciones"} --&gt;
+&lt;h2 class="wp-block-heading" id="comparar-condiciones"&gt;Comparar condiciones equivalentes&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;La velocidad, la carga y el régimen de operación pueden modificar las señales. Una variación del registro puede acompañar un cambio de funcionamiento y no necesariamente un deterioro. Por eso, anotar las condiciones de cada medición resulta tan importante como conservar la señal.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;SKF describe el uso de tendencias históricas y comparaciones bajo condiciones similares de operación para apoyar la evaluación de maquinaria. La frecuencia de seguimiento debe adaptarse a la criticidad del equipo y a lo que se busca observar; no hay un intervalo universal que resuelva todos los casos.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Referencia: &lt;a href="https://evolution.skf.com/us/monitoring-critical-applications-at-sea-4/"&gt;SKF Evolution · Monitoring critical applications at sea&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "del-dato-al-diagnostico"} --&gt;
+&lt;h2 class="wp-block-heading" id="del-dato-al-diagnostico"&gt;Del dato al diagnóstico&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Un valor global puede servir como indicador de seguimiento, pero no reemplaza el análisis. Cuando aparece un cambio relevante, el profesional evalúa la información disponible y define qué mediciones o comprobaciones adicionales necesita para formular una hipótesis técnica.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;La vibración también puede complementarse con temperatura, inspecciones y otros antecedentes de mantenimiento. El objetivo es reunir evidencia coherente. Una señal por sí sola no debería convertirse en una certeza sobre la causa ni en una promesa de cuánto tiempo seguirá funcionando una máquina.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "decision-de-mantenimiento"} --&gt;
+&lt;h2 class="wp-block-heading" id="decision-de-mantenimiento"&gt;Una recomendación útil para mantenimiento&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;El informe debería explicar qué se observó, cómo se compara con los antecedentes y qué pasos se recomiendan. Puede corresponder repetir una medición, inspeccionar una parte del sistema, aumentar el seguimiento o planificar una intervención. La urgencia requiere evaluar el conjunto de evidencias y las consecuencias de una falla.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Una vez realizada una intervención, volver a medir en condiciones comparables ayuda a documentar el resultado. Así, el monitoreo deja de ser una colección de registros y se integra en un proceso de decisiones que puede revisarse y mejorarse.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "para-recordar"} --&gt;
+&lt;h2 class="wp-block-heading" id="para-recordar"&gt;Para recordar&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;El valor del monitoreo no está en acumular mediciones: está en comparar, interpretar y convertir los cambios observados en decisiones justificadas.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"anchor": "fuentes"} --&gt;
+&lt;h2 class="wp-block-heading" id="fuentes"&gt;Fuentes y lectura complementaria&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://evolution.skf.com/us/parallel-condition-monitoring-3/"&gt;SKF Evolution · Parallel condition monitoring&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://evolution.skf.com/us/monitoring-critical-applications-at-sea-4/"&gt;SKF Evolution · Monitoring critical applications at sea&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Contenido de divulgación. El diagnóstico y el diseño de una intervención requieren evaluar las condiciones de cada proyecto.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+</content:encoded>
+      <wp:post_id>201</wp:post_id>
+      <wp:post_date>2026-10-07 09:00:00</wp:post_date>
+      <wp:post_name>vibraciones-maquinaria-seguimiento-de-condicion</wp:post_name>
+      <wp:post_type>post</wp:post_type>
+      <wp:status>draft</wp:status>
+      <wp:comment_status>closed</wp:comment_status>
+      <wp:ping_status>closed</wp:ping_status>
+      <category domain="category" nicename="mantenimiento-predictivo">Mantenimiento predictivo</category>
+      <wp:postmeta>
+        <wp:meta_key>_thumbnail_id</wp:meta_key>
+        <wp:meta_value>101</wp:meta_value>
+      </wp:postmeta>
+      <excerpt:encoded>Por qué una medición aislada no cuenta toda la historia y cómo el seguimiento ayuda a orientar el mantenimiento.</excerpt:encoded>
+    </item>
+  </channel>
+</rss>
