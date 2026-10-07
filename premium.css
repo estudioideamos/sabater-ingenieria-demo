@@ -713,3 +713,8 @@ body:has(.home-hero) .experience-gallery .section-note{font-size:14px;line-heigh
 @media(max-width:1000px) and (min-width:761px){.about .experience-number{padding:24px}.about .experience-number p{font-size:20px}.about .experience-footnote{font-size:9px}}
 @media(max-width:760px){.section.about{padding-top:48px;padding-bottom:52px}.about>.eyebrow{margin-bottom:24px}.about .about-layout{grid-template-columns:1fr;gap:30px}.about .experience-number{padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:0 22px;align-items:center}.about .experience-overline{grid-column:1/-1;padding-bottom:14px}.about .experience-value{font-size:100px;padding:16px 0 8px}.about .experience-number p{font-size:18px;margin:16px 0 10px}.about .experience-rule{grid-column:1/-1;margin-top:8px}.about .experience-footnote{grid-column:1/-1;font-size:10px;margin-top:10px}.about .about-copy h2{font-size:clamp(30px,8.5vw,42px);margin-bottom:24px}.about .about-copy p{font-size:14px;line-height:1.85}.about-contact{font-size:13px;gap:16px;margin-top:20px;margin-right:44px}}
 @media(prefers-reduced-motion:reduce){.about-contact span{transition:none}}
+
+/* Keep the credential in view while its adjacent text is read. */
+@media(min-width:761px){.section.about{overflow:visible;padding-bottom:60px}.about .experience-number{position:sticky;top:110px;align-self:start}}
+@media(min-width:761px) and (max-height:620px){.about .experience-number{padding-top:22px;padding-bottom:22px}.about .experience-value{font-size:116px;padding-top:18px}.about .experience-number p{margin-bottom:18px}.about .experience-footnote{margin-top:12px}}
+@media(min-width:761px) and (max-height:530px){.about .experience-number{position:relative;top:auto}}
