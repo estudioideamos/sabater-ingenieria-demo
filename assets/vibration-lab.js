@@ -6,7 +6,7 @@ if(root){
  const mobileLayout=matchMedia('(max-width: 760px)'),viewControls=root.querySelector('.lab-view-controls');const syncControls=()=>viewControls.open=!mobileLayout.matches;syncControls();mobileLayout.addEventListener('change',syncControls);
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');let mode=0,api=null;
  const copy=[['La vibración llega a la estructura.','Las fuerzas dinámicas de una máquina pueden viajar a través de sus apoyos y excitar la estructura que la sostiene.'],['El aislamiento puede reducir la transmisión.','Los apoyos elásticos pueden reducir la transmisión cuando se seleccionan según la masa, las frecuencias de excitación y las condiciones de instalación.'],['Cada parte tiene una función.','Explorá el rodamiento, el bobinado y el acople del motor, además de sus apoyos y estructura. El diagnóstico permite identificar dónde se origina la vibración y cómo se transmite.']];
- root.querySelectorAll('[data-lab-mode]').forEach(b=>b.addEventListener('click',()=>{mode=Number(b.dataset.labMode);root.querySelector('.lab-stage').dataset.mode=mode;root.querySelectorAll('[data-lab-mode]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));root.querySelector('.lab-explanation h3').textContent=copy[mode][0];root.querySelector('.lab-explanation p').textContent=copy[mode][1];root.querySelector('.lab-spectrum>span').textContent=mode===1?'Transmisión reducida · esquema conceptual':'Transmisión a la estructura';root.querySelector('[data-anchor="mount"] b').textContent=mode?'Apoyos elásticos':'Camino de transmisión';api?.refresh(true);}));
+ root.querySelectorAll('[data-lab-mode]').forEach(b=>b.addEventListener('click',()=>{mode=Number(b.dataset.labMode);root.querySelector('.lab-stage').dataset.mode=mode;root.querySelector('.lab-state-caption').textContent=mode===1?'Apoyos elásticos · menor transmisión':mode===2?'Despiece · componentes del sistema':'Apoyos rígidos · transmisión a la base';root.querySelectorAll('[data-lab-mode]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));root.querySelector('.lab-explanation h3').textContent=copy[mode][0];root.querySelector('.lab-explanation p').textContent=copy[mode][1];root.querySelector('.lab-spectrum>span').textContent=mode===1?'Transmisión reducida · esquema conceptual':'Transmisión a la estructura';root.querySelector('[data-anchor="mount"] b').textContent=mode?'Apoyos elásticos':'Camino de transmisión';api?.refresh(true);}));
  const observer=new IntersectionObserver(async entries=>{if(!entries.some(e=>e.isIntersecting))return;observer.disconnect();try{const T=await import('./vendor/three.module.min.js?v=186');api=buildScene(T);root.classList.add('lab-ready');}catch(e){root.classList.add('lab-unavailable');root.querySelector('.lab-instruction').textContent='EXPLORÁ LOS TRES PRINCIPIOS';}},{rootMargin:'300px'});observer.observe(root);
  function buildScene(T){
  const host=root.querySelector('.lab-viewport'),stage=root.querySelector('.lab-stage');
@@ -16,10 +16,10 @@ if(root){
  // Large softbox panels create real reflections on the machined metal surfaces.
  const envScene=new T.Scene();envScene.background=new T.Color(0x34434c);
  for(const [x,y,z,w,h,c] of [[0,6,1,6,1.8,0xffffff],[-4,2,3,1.3,5,0xc2ddf1],[3,2,-4,1.1,5,0xffffff],[4,1,3,.5,3,0xf2dac5]]){const p=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color:c,side:T.DoubleSide}));p.position.set(x,y,z);p.lookAt(0,1,0);envScene.add(p);}
- const pmrem=new T.PMREMGenerator(renderer),env=pmrem.fromScene(envScene,.05);scene.environment=env.texture;scene.environmentIntensity=.85;pmrem.dispose();
+ const pmrem=new T.PMREMGenerator(renderer),env=pmrem.fromScene(envScene,.05);scene.environment=env.texture;scene.environmentIntensity=.95;pmrem.dispose();
  scene.add(new T.HemisphereLight(0xd9edf8,0x263b49,.65));
  const key=new T.DirectionalLight(0xf4f6f7,1.5);key.position.set(-3,5,6);key.castShadow=true;key.shadow.mapSize.set(innerWidth>760?2048:1024,innerWidth>760?2048:1024);key.shadow.normalBias=.025;key.shadow.radius=5;key.shadow.blurSamples=8;Object.assign(key.shadow.camera,{left:-6,right:6,top:6,bottom:-6});key.shadow.bias=-.001;scene.add(key);
- const rim=new T.DirectionalLight(0xc9e6f3,1.5);rim.position.set(2,3,-5);scene.add(rim);const warm=new T.PointLight(0xf2d4b6,5,15);warm.position.set(5,3,2);scene.add(warm);const fill=new T.DirectionalLight(0xb8d1df,1.1);fill.position.set(0,3,6);scene.add(fill);const supportLight=new T.PointLight(0xc0d9e8,13,9,2);supportLight.position.set(-1,.95,3.5);scene.add(supportLight);
+ const rim=new T.DirectionalLight(0xc9e6f3,1.8);rim.position.set(2,3,-5);scene.add(rim);const warm=new T.PointLight(0xf2d4b6,5,15);warm.position.set(5,3,2);scene.add(warm);const fill=new T.DirectionalLight(0xb8d1df,1.1);fill.position.set(0,3,6);scene.add(fill);const supportLight=new T.PointLight(0xc0d9e8,13,9,2);supportLight.position.set(-1,.95,3.5);scene.add(supportLight);
  const steel=new T.MeshStandardMaterial({color:0xb0b5b6,metalness:.94,roughness:.28}),paint=new T.MeshStandardMaterial({color:0x34474f,metalness:.2,roughness:.37}),dark=new T.MeshStandardMaterial({color:0x101b24,metalness:.6,roughness:.44}),rubber=new T.MeshStandardMaterial({color:0x10161a,metalness:.05,roughness:.8}),copper=new T.MeshStandardMaterial({color:0xb78a60,metalness:.85,roughness:.26}),blue=new T.MeshStandardMaterial({color:0x86cbdc,metalness:.55,roughness:.22,emissive:0x416a7b,emissiveIntensity:.4});
  // Subtle procedural cast-metal grain; no downloaded texture or enlarged image.
  const grainCanvas=document.createElement('canvas');grainCanvas.width=128;grainCanvas.height=128;const gc=grainCanvas.getContext('2d'),gd=gc.createImageData(128,128);let seed=17;for(let i=0;i<gd.data.length;i+=4){seed=(seed*16807)%2147483647;const n=105+seed%45;gd.data[i]=gd.data[i+1]=gd.data[i+2]=n;gd.data[i+3]=255;}gc.putImageData(gd,0,0);const grain=new T.CanvasTexture(grainCanvas);grain.wrapS=grain.wrapT=T.RepeatWrapping;grain.repeat.set(6,6);paint.bumpMap=grain;paint.bumpScale=.018;paint.roughnessMap=grain;paint.roughness=.85;
@@ -45,6 +45,13 @@ if(root){
   cyl(.28,.08,steel,mounts,x,.7,z,'y');cyl(.07,.64,copper,mounts,x,.5,z,'y',6);
   for(const dx of [-.24,.24])cyl(.045,.07,steel,mounts,x+dx,.28,z,'y',6);
  }
+ const rigidFinish=paint.clone();rigidFinish.transparent=true;rigidMounts.forEach(m=>m.material=rigidFinish);
+ const springFinish=steel.clone();springFinish.emissive=new T.Color(0x305969);springFinish.emissiveIntensity=0;
+ const transmissionMarkers=[];
+ for(const x of [-1.65,1.65])for(const z of [-.85,.85]){
+  const marker=mesh(new T.SphereGeometry(.035,10,8),new T.MeshBasicMaterial({color:0xd5a77d,transparent:true,opacity:.75,depthWrite:false}),assembly,x,.75,z);
+  marker.castShadow=false;transmissionMarkers.push(marker);
+ }
  const bed=new T.Group();assembly.add(bed);box(4.45,.18,2.3,paint,bed,0,.85,0);box(4.4,.025,2.28,paint,bed,0,.95,0);
  // Washers, recessed fasteners and anchor studs at the edges of the bed.
  for(const x of [-1.94,1.94])for(const z of [-.93,.93]){cyl(.12,.024,dark,bed,x,.98,z,'y');cyl(.085,.035,steel,bed,x,1.005,z,'y');cyl(.057,.075,steel,bed,x,1.045,z,'y',6);box(.05,.004,.01,dark,bed,x,1.085,z);}
@@ -62,8 +69,9 @@ if(root){
  detail+=(targetDetail-detail)*(reduced.matches?1:smooth);const radius=((host.clientWidth<500?10.4:8.8)+explode*2.4)*(1-detail*.25);camera.position.set(Math.sin(yaw)*radius,1.55+Math.sin(pitch)*radius,Math.cos(yaw)*radius);camera.lookAt(.25+explode*.25+detail*.15,1.18+explode*.7+detail*.58,0);camera.updateMatrixWorld();
  articulate(explode);motor.position.y=1.02+explode*1.35;bed.position.y=explode*.5;mounts.position.y=explode*.2;
  if(!reduced.matches){motor.position.x=Math.sin(time*32)*.009*(1-explode);rotor.rotation.x=time*2.5;foundation.position.y=Math.sin(time*32)*.016*(1-isolate*.9)*(1-explode);}else{motor.position.x=0;foundation.position.y=0;}
- rigidMounts.forEach(m=>m.visible=mode===0);mounts.children.forEach(m=>{if(m.geometry.type==='TubeGeometry'){m.material=steel;m.visible=mode>0;}});
- waves.forEach((m,i)=>{const f=((time*.22+i/5)%1);m.scale.setScalar(1+f*4);m.material.opacity=(1-f)*.1*(1-isolate*.85)*(1-explode);m.material.color.set(isolate>.5?0x92cddd:0xc9956c);});
+ rigidFinish.opacity=(1-isolate)*(1-explode);rigidMounts.forEach(m=>m.visible=rigidFinish.opacity>.02);springFinish.emissiveIntensity=isolate*.26;mounts.children.forEach(m=>{if(m.geometry.type==='TubeGeometry'){m.material=springFinish;m.visible=isolate>.02||mode===2;}});
+ transmissionMarkers.forEach((m,i)=>{const phase=reduced.matches?.5:(time*.8+i*.18)%1;m.position.y=.78-phase*.55;m.material.opacity=(.8-isolate*.64)*(1-explode);m.material.color.set(isolate>.5?0x9ed8e5:0xd5a77d);m.visible=explode<.1;});
+ waves.forEach((m,i)=>{const f=((time*.22+i/5)%1);m.scale.setScalar(1+f*4);m.material.opacity=(1-f)*.24*(1-isolate*.85)*(1-explode);m.material.color.set(isolate>.5?0x92cddd:0xc9956c);});
  const anchors=[[-.4,2.4+explode*1.35,.52],[1.65,.48+explode*.2,.85],[-1.9,.12,1.25]];
  const W=host.clientWidth,H=host.clientHeight;
  const positions=[[.18,.25],[.83,.58],[.18,.79]],lines=root.querySelectorAll('.lab-leaders line');

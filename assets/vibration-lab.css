@@ -25,3 +25,7 @@
 .lab-stage-top,.lab-instruction{font-size:11px;letter-spacing:.015em}.lab-annotations b{font-size:12px}.lab-detail,.lab-explore{font-size:13px}.lab-modes button{font-size:14px}.lab-spectrum small{font-size:12px}.lab-explanation p{font-size:14px}
 @media(max-width:1050px) and (min-width:761px){.lab-detail,.lab-explore{font-size:12px}.lab-annotations b{font-size:11px}}
 @media(max-width:760px){.lab-stage-top{font-size:10px}.lab-spectrum{margin-top:0}}
+
+/* Compare the mechanism, not a fabricated performance percentage. */
+.lab-workbench{box-shadow:0 20px 65px #0003;border-color:#8db4c642}.lab-console{background:radial-gradient(ellipse at 100% 0%,#426b7e30,transparent 70%),#132936}.lab-state-caption{font-size:12px;line-height:1.6;color:#d9b99b;display:flex;align-items:center;gap:8px;margin:-8px 0 0}.lab-state-caption:before{content:'';height:6px;width:6px;border-radius:50%;background:currentColor;flex-shrink:0}.vibration-lab:has(.lab-stage[data-mode="1"]) .lab-state-caption{color:#a5d6e2}.vibration-lab:has(.lab-stage[data-mode="2"]) .lab-state-caption{color:#c5dbe5}.lab-console .lab-explanation{min-height:130px}.lab-modes button{transition:background .3s,color .3s,box-shadow .3s}.lab-modes button[aria-pressed="true"]{box-shadow:0 3px 12px #0002}.lab-spectrum .lab-signal{stroke-width:1.8}.lab-stage{background:radial-gradient(ellipse at 50% 65%,#25455230,transparent 70%),#09141c}
+@media(max-width:760px){.lab-console .lab-explanation{min-height:0}.lab-state-caption{margin:-8px 0 0}.lab-console{gap:20px}}

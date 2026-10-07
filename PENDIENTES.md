@@ -14,3 +14,5 @@ WhatsApp y llamada directa utilizan el número entregado. LinkedIn continúa mos
 - [ ] Para pantallas de muy alta densidad: solicitar fotografías de mayor resolución y logos vectoriales. Las fotos entregadas miden 2048 × 768 px; algunos logos originales son pequeños. La demo utiliza ahora los originales completos, sin ampliación artificial de archivos.
 
 - [ ] URL oficial de Instagram. Ícono incorporado; el botón informa que el perfil está pendiente.
+
+- [ ] Entregar fotografía real del profesional o equipo para la sección Nosotros. No se sustituye por un retrato generado.

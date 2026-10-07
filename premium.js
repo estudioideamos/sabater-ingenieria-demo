@@ -39,11 +39,6 @@
  }
  function schedule(){if(!frame)frame=requestAnimationFrame(updateScroll);}
  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule,{passive:true});addEventListener('load',schedule,{once:true});reduced.addEventListener('change',()=>{configureMotion();schedule();});schedule();
- document.querySelectorAll('.service-card').forEach(card=>{
-  let pointerFrame=0;
-  card.addEventListener('pointermove',e=>{if((reduced.matches)||!finePointer.matches||pointerFrame)return;pointerFrame=requestAnimationFrame(()=>{pointerFrame=0;const r=card.getBoundingClientRect();card.style.setProperty('--tilt-x',`${-(e.clientY-r.top-r.height/2)/r.height*2.5}deg`);card.style.setProperty('--tilt-y',`${(e.clientX-r.left-r.width/2)/r.width*3}deg`);});});
-  card.addEventListener('pointerleave',()=>{cancelAnimationFrame(pointerFrame);pointerFrame=0;card.style.setProperty('--tilt-x','0deg');card.style.setProperty('--tilt-y','0deg');});
- });
  document.querySelectorAll('.button').forEach(button=>{button.addEventListener('pointermove',e=>{if((reduced.matches)||!finePointer.matches)return;const r=button.getBoundingClientRect();button.style.setProperty('--button-x',`${(e.clientX-r.left-r.width/2)*.035}px`);button.style.setProperty('--button-y',`${(e.clientY-r.top-r.height/2)*.07}px`);});button.addEventListener('pointerleave',()=>{button.style.removeProperty('--button-x');button.style.removeProperty('--button-y');});});
  if(closing)closing.addEventListener('pointermove',e=>{if((reduced.matches)||!finePointer.matches)return;const r=closing.getBoundingClientRect();closing.style.setProperty('--light-x',`${(e.clientX-r.left)/r.width*100}%`);closing.style.setProperty('--light-y',`${(e.clientY-r.top)/r.height*100}%`);});
  document.addEventListener('focusin',e=>{const target=e.target.closest('.motion-reveal');if(target){target.classList.remove('awaiting');target.classList.add('is-visible');}});
@@ -115,3 +110,24 @@ if('IntersectionObserver' in window){const techVisibility=new IntersectionObserv
 })();
 // Benefit illustrations animate independently while visible; no hover is required.
 (()=>{const cards=[...document.querySelectorAll('.predictive-benefit')];if(!cards.length)return;const visible=new Set();function update(){cards.forEach(card=>card.classList.toggle('benefits-running',visible.has(card)&&!document.hidden));}const observer=new IntersectionObserver(entries=>{entries.forEach(e=>e.isIntersecting?visible.add(e.target):visible.delete(e.target));update();},{threshold:.1});cards.forEach(c=>observer.observe(c));document.addEventListener('visibilitychange',update);})();
+
+// Decorative hero film is opt-in by device capability; still image is always present.
+(()=>{
+ const video=document.querySelector('.hero-film'),button=document.querySelector('.hero-film-toggle');if(!video||!button)return;
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)'),desktop=matchMedia('(min-width: 1000px)');
+ let visible=true,userPaused=false,loaded=false,ready=false;
+ const connection=navigator.connection;
+ const eligible=()=>desktop.matches&&!reduced.matches&&!connection?.saveData&&!['slow-2g','2g','3g'].includes(connection?.effectiveType);
+ function label(){button.textContent=video.paused?'Reproducir video ▷':'Pausar video Ⅱ';button.setAttribute('aria-label',video.paused?'Reproducir video de fondo':'Pausar video de fondo');}
+ function sync(){
+  if(!eligible()){video.pause();video.classList.remove('is-playing');button.hidden=true;return;}
+  if(!loaded&&visible){loaded=true;video.src=video.dataset.src;video.load();}
+  button.hidden=!ready;
+  if(ready&&visible&&!document.hidden&&!userPaused){video.play().then(()=>{video.classList.add('is-playing');label();}).catch(()=>{video.classList.remove('is-playing');label();});}
+  else{video.pause();label();}
+ }
+ video.addEventListener('canplay',()=>{ready=true;sync();});video.addEventListener('error',()=>{ready=false;button.hidden=true;video.classList.remove('is-playing');});
+ button.addEventListener('click',()=>{userPaused=!video.paused;sync();});
+ new IntersectionObserver(es=>{visible=es[0].isIntersecting;sync();},{threshold:.05}).observe(video.closest('.hero'));
+ reduced.addEventListener('change',sync);desktop.addEventListener('change',sync);connection?.addEventListener('change',sync);document.addEventListener('visibilitychange',sync);
+})();
