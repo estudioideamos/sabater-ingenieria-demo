@@ -841,3 +841,24 @@ body:has(.detail-hero) .detail-intro{grid-template-columns:minmax(0,2fr) minmax(
 .detail-intro .detail-intro-copy p:last-child{margin-bottom:0}
 .detail-intro-copy strong{font-weight:550;color:#213e4d}
 @media(max-width:760px){body:has(.detail-hero) .detail-intro{grid-template-columns:1fr;gap:26px;padding-top:44px;padding-bottom:44px}.detail-intro-heading .eyebrow{margin-bottom:20px}.detail-intro-heading h2{font-size:clamp(31px,8.5vw,40px)}.detail-intro .detail-intro-copy p{font-size:16px;line-height:1.8}}
+
+/* Problems: quiet technical symbols, readable evidence, one clear next step. */
+.problems>.eyebrow{margin-bottom:28px}
+.problems>.section-heading{align-items:start;margin-bottom:40px;gap:8%}
+.problems>.section-heading h2{font-size:clamp(34px,3.8vw,52px);line-height:1.12;margin:0;text-wrap:balance}
+.problems>.section-heading>p{max-width:480px;margin:4px 0 0;font-size:16px;line-height:1.75}
+.problems .problem-grid{gap:18px 36px;align-items:stretch}
+.problems .problem-grid article,.problems .problem-grid article:hover{padding:26px 0 24px;background:none;border-color:#8dacba40;box-shadow:none;cursor:default}
+.problem-symbol{color:#a8c9da;display:flex;align-items:center;height:34px;margin-bottom:19px}
+.problems .problem-grid h3{font-size:clamp(21px,1.8vw,25px);line-height:1.25;min-height:2.5em;max-width:none;margin:0 0 14px;text-wrap:balance}
+.problems .problem-grid p{margin:0;max-width:37ch;line-height:1.8}
+.problems .problem-grid strong{color:#e3edf1;font-weight:550}
+.problem-next{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-top:30px;padding:30px 0 0;border-top:1px solid #8dacba40}
+.problem-next h3{font-size:clamp(21px,2vw,27px);font-weight:500;letter-spacing:-.03em;margin:0 0 8px}
+.problem-next p{color:#bfd0d9;font-size:15px;margin:0}
+.problem-next>a{display:inline-flex;align-items:center;justify-content:space-between;gap:30px;min-height:48px;padding:0 0 6px;border-bottom:1px solid #a8c9da;color:#e7f0f3;font-size:15px;white-space:nowrap}
+.problem-next>a span{font-size:22px;transition:transform .2s}
+@media(hover:hover){.problem-next>a:hover span{transform:translate(2px,-2px)}}
+@media(min-width:761px) and (max-width:1050px){.problems .problem-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.problems>.section-heading{gap:22px;margin-bottom:30px}.problems>.section-heading>p{font-size:15px}.problems .problem-grid{gap:6px}.problems .problem-grid article,.problems .problem-grid article:hover{padding:24px 0}.problem-symbol{margin-bottom:14px}.problems .problem-grid h3{min-height:0;font-size:23px;margin-bottom:12px}.problems .problem-grid p{max-width:none}.problem-next{align-items:flex-start;flex-direction:column;gap:20px;margin-top:18px;padding-top:26px}.problem-next>a{min-width:190px}}
+@media(prefers-reduced-motion:reduce){.problem-next>a span{transition:none;transform:none}}

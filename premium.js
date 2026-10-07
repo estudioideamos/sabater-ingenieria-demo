@@ -8,7 +8,7 @@
  const about=document.querySelector('.about');
  const closing=document.querySelector('.closing');
  let observer,frame=0;
- const revealTargets=[...document.querySelectorAll('.intro h2,.intro-text,.section-heading,.service-card,.why h2,.why-grid article,.steps article,.about-layout,.service-gallery .logos figure,.home-hero~.experience-gallery .logos,.knowledge-grid a,.blog-card,.sequence figure,.faq-layout,.closing h2,.closing p,.contact>div,.contact form')];
+ const revealTargets=[...document.querySelectorAll('.intro h2,.intro-text,.section-heading,.service-card,.why h2,.why-grid article,.steps article,.about-layout,.service-gallery .logos figure,.home-hero~.experience-gallery .logos,.knowledge-grid a,.blog-card,.sequence figure,.problem-grid article,.problem-next,.faq-layout,.closing h2,.closing p,.contact>div,.contact form')];
  function revealAll(){revealTargets.forEach(el=>{el.classList.remove('awaiting');el.classList.add('is-visible');});}
  function configureMotion(){
   observer?.disconnect();
@@ -16,7 +16,7 @@
   document.body.classList.add('motion-ready');
   if(!('IntersectionObserver' in window)){revealAll();return;}
   observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.remove('awaiting');entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}},{threshold:.08,rootMargin:'0px 0px -25px 0px'});
-  revealTargets.forEach(el=>{if(!el.classList.contains('is-visible')){el.classList.add('motion-reveal','awaiting');if(el.matches('.logos figure,.why-grid article,.knowledge-grid a,.blog-card'))el.style.setProperty('--reveal-delay',`${[...el.parentNode.children].indexOf(el)%4*65}ms`);observer.observe(el);}});
+  revealTargets.forEach(el=>{if(!el.classList.contains('is-visible')){el.classList.add('motion-reveal','awaiting');if(el.matches('.logos figure,.why-grid article,.knowledge-grid a,.blog-card,.problem-grid article'))el.style.setProperty('--reveal-delay',`${[...el.parentNode.children].indexOf(el)%4*65}ms`);observer.observe(el);}});
  }
  if(!(reduced.matches)&&hero){
   const heading=document.querySelector('h1');
