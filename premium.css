@@ -1008,3 +1008,16 @@ body:has(.hero) .service-gallery>.section-note{font-size:14px;color:#496370;line
 
 .client-carousel-controls button{display:grid;place-items:center;padding:0;line-height:1}
 .client-carousel-controls button svg{display:block;width:20px;height:20px;flex-shrink:0}
+
+/* FAQ: a useful answer visible on arrival and a clear, quiet active state. */
+body:has(.detail-hero) .section.faq{padding-top:54px;padding-bottom:54px}
+.faq>.eyebrow{margin-bottom:30px}
+.faq summary{padding:22px 20px;gap:18px}
+.faq summary .faq-question{font-size:18px;font-weight:550;line-height:1.45}
+.faq details[open]{background:#e5edf080;box-shadow:inset 2px 0 #779eaf}
+.faq details>p{padding:0 76px 24px 20px;font-size:15px;line-height:1.8}
+.faq details[open] .faq-toggle svg{transform:none}
+.faq details[open] .faq-plus-stem{display:none}
+.faq-contact{font-size:14px;gap:15px;margin-top:20px}
+@media(prefers-reduced-motion:no-preference){.faq details[open]>p{animation:faq-answer-reveal .22s ease-out!important}@keyframes faq-answer-reveal{from{opacity:0;transform:translateY(-3px)}to{opacity:1;transform:none}}}
+@media(max-width:760px){body:has(.detail-hero) .section.faq{padding-top:44px;padding-bottom:44px}.faq-layout{gap:28px}.faq summary{padding:19px 14px;gap:12px;grid-template-columns:minmax(0,1fr) 32px}.faq summary .faq-question{font-size:16px}.faq details>p{padding:0 18px 23px 14px;font-size:14px}.faq-contact{font-size:14px}.faq-intro>p{margin-top:18px}}
