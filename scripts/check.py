@@ -8,7 +8,7 @@ class Page(HTMLParser):
   a=dict(attrs)
   if 'id'in a:self.ids.add(a['id'])
   if tag=='h1':self.h1+=1
-  if tag=='img':self.alts.append(a.get('alt',''))
+  if tag=='img':self.alts.append(bool(a.get('alt')) or ('alt' in a and a.get('aria-hidden')=='true'))
   for attr in ['href','src']:
    if a.get(attr):self.links.append(a[attr])
 pages={}
