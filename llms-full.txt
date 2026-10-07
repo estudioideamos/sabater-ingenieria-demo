@@ -1,0 +1,134 @@
+# SABATER Ingeniería
+
+> Consultoría especializada en acústica y vibraciones. Buenos Aires, Argentina; proyectos en todo el país.
+
+Sitio de demostración, no indexable.
+
+## Especialidades
+
+- [Acústica Industrial](https://estudioideamos.github.io/sabater-ingenieria-demo/acustica-industrial/): Diagnóstico, análisis y control de ruido y vibraciones para plantas industriales.
+- [Acústica Arquitectónica](https://estudioideamos.github.io/sabater-ingenieria-demo/acustica-arquitectonica/): Consultoría e ingeniería acústica para integrar el confort y el aislamiento acústico desde el diseño.
+- [Acústica Legal](https://estudioideamos.github.io/sabater-ingenieria-demo/acustica-legal/): Mediciones, evaluaciones e informes acústicos con respaldo técnico y normativo.
+- [Mantenimiento Predictivo por Análisis de Vibraciones](https://estudioideamos.github.io/sabater-ingenieria-demo/mantenimiento-predictivo/): Conocé la condición de tus equipos rotativos y detectá señales tempranas de falla antes de que se conviertan en una parada imprevista.
+
+## Blog
+
+- [Ruido industrial: medir antes de elegir una solución](https://estudioideamos.github.io/sabater-ingenieria-demo/blog/ruido-industrial-medir-antes-de-elegir-una-solucion/): Qué conviene conocer sobre la fuente, el recorrido del sonido y el entorno antes de definir una intervención.
+- [Vibraciones en maquinaria: leer las señales antes de intervenir](https://estudioideamos.github.io/sabater-ingenieria-demo/blog/vibraciones-maquinaria-seguimiento-de-condicion/): Por qué una medición aislada no cuenta toda la historia y cómo el seguimiento ayuda a orientar el mantenimiento.
+
+## Contenido completo
+
+- [Servicios y preguntas frecuentes](https://estudioideamos.github.io/sabater-ingenieria-demo/llms-full.txt): contenido textual del sitio, con enlaces canónicos.
+
+## Contacto y alcance
+
+- Teléfono y WhatsApp: +54 11 3322-7832.
+- Correo: hola@sabater.com.ar.
+- Más de 15 años de trayectoria profesional en ingeniería acústica.
+- Las visualizaciones son conceptuales, no resultados de mediciones ni predicciones de rendimiento.
+- Los logos reflejan trayectoria profesional, no contratos vigentes.
+- El formulario de demostración no envía ni almacena consultas.
+
+## Servicios en detalle
+
+### Acústica Industrial
+
+URL: https://estudioideamos.github.io/sabater-ingenieria-demo/acustica-industrial/
+
+Diagnóstico, análisis y control de ruido y vibraciones para plantas industriales.
+
+#### Qué hacemos
+
+Abordamos cada problema a partir del diagnóstico de las fuentes y los caminos de transmisión, combinando mediciones de ruido y vibraciones, análisis, modelado acústico y diseño de soluciones de mitigación.
+
+A partir de esa información definimos medidas de aislamiento acústico, encapsulado, barreras acústicas, silenciadores y tratamientos específicos, priorizando aquellas alternativas que permitan alcanzar el objetivo técnico con una inversión justificada.
+
+#### ¿Es necesario realizar mediciones antes de definir una solución acústica?
+
+Cuando el problema ya existe, las mediciones suelen ser necesarias para caracterizar la situación real, identificar las fuentes dominantes y definir con mayor precisión dónde conviene intervenir. Cuando se trabaja de forma preventiva, por ejemplo ante una ampliación, incorporación de equipos o un proyecto nuevo, es posible estimar niveles y evaluar escenarios mediante simulaciones y modelado acústico por software antes de ejecutar la intervención.
+
+#### ¿Dónde operan?
+
+Nuestra base operativa se encuentra en Buenos Aires, pero trabajamos en plantas y proyectos de toda la región, adaptando cada intervención a las necesidades del proyecto y contemplando los traslados y actividades en sitio cuando son necesarios.
+
+#### ¿Pueden evaluar una solución propuesta por otro proveedor?
+
+Sí. Podemos analizar técnicamente soluciones existentes o propuestas por terceros para estimar su desempeño, detectar posibles limitaciones y evaluar si resultan adecuadas para el problema que se busca resolver.
+
+### Acústica Arquitectónica
+
+URL: https://estudioideamos.github.io/sabater-ingenieria-demo/acustica-arquitectonica/
+
+Consultoría e ingeniería acústica para integrar el confort y el aislamiento acústico desde el diseño.
+
+#### Qué hacemos
+
+Acompañamos el diseño arquitectónico mediante análisis, modelado acústico y evaluación de soluciones constructivas, con el objetivo de incorporar correctamente el confort y el aislamiento acústico desde las primeras etapas del proyecto.
+
+Trabajamos sobre criterios de aislamiento entre ambientes, acondicionamiento acústico, control de reverberación, privacidad y ruido de instalaciones, evaluando alternativas antes de ejecutar la obra y ajustando cada solución a las necesidades reales del espacio.
+
+#### ¿En qué etapa del proyecto conviene incorporar el asesoramiento acústico?
+
+Cuanto antes, mejor. Incorporar la acústica desde las primeras etapas permite evaluar alternativas de diseño y soluciones constructivas antes de que las decisiones queden condicionadas por la obra. También podemos intervenir en etapas avanzadas o sobre espacios existentes cuando es necesario diagnosticar y corregir un problema.
+
+#### ¿Pueden trabajar sobre soluciones o sistemas constructivos ya definidos por el estudio?
+
+Sí. Podemos evaluar alternativas ya propuestas, comparar su comportamiento acústico y determinar si resultan adecuadas para los objetivos del proyecto, proponiendo ajustes cuando sea necesario.
+
+#### ¿Dónde operan?
+
+Nuestra base operativa se encuentra en Buenos Aires, pero trabajamos en proyectos de toda la región, combinando análisis y desarrollo remoto con visitas a obra, relevamientos y mediciones cuando el proyecto lo requiere.
+
+### Acústica Legal
+
+URL: https://estudioideamos.github.io/sabater-ingenieria-demo/acustica-legal/
+
+Mediciones, evaluaciones e informes acústicos con respaldo técnico y normativo.
+
+#### Qué hacemos
+
+Abordamos cada caso a partir del análisis de la situación, la normativa aplicable y las condiciones reales de medición, combinando relevamiento, mediciones acústicas, evaluación técnica e interpretación normativa.
+
+A partir de esa información elaboramos pericias en acústica, evaluaciones por ruidos molestos, Inscripciones RAC, Evaluaciones de Impacto Acústico e informes según IRAM 4062, con documentación técnica orientada a respaldar trámites, reclamos, presentaciones o decisiones profesionales.
+
+Trabajamos con profesionales matriculados e instrumental homologado y con certificados de calibración vigentes, asegurando trazabilidad y validez técnica en cada intervención.
+
+#### ¿Qué tipo de situaciones pueden evaluar?
+
+Intervenimos en conflictos por ruidos molestos, pericias técnicas, Inscripciones RAC, Evaluaciones de Impacto Acústico, habilitaciones, reclamos e intimaciones, entre otros casos donde sea necesario contar con una evaluación acústica y documentación técnica con respaldo profesional.
+
+#### ¿La medición por sí sola alcanza para resolver un conflicto?
+
+No siempre. Una medición debe interpretarse dentro del contexto técnico y normativo correspondiente. Por eso analizamos cada caso considerando las condiciones de medición, la normativa aplicable, los antecedentes y el objetivo de la intervención.
+
+#### ¿Dónde operan?
+
+Nuestra base operativa se encuentra en Buenos Aires, pero trabajamos en casos y proyectos de toda la región, contemplando traslados, relevamientos y actividades en sitio cuando son necesarios.
+
+### Mantenimiento Predictivo por Análisis de Vibraciones
+
+URL: https://estudioideamos.github.io/sabater-ingenieria-demo/mantenimiento-predictivo/
+
+Conocé la condición de tus equipos rotativos y detectá señales tempranas de falla antes de que se conviertan en una parada imprevista.
+
+#### Qué hacemos
+
+Realizamos mediciones y análisis de vibraciones sobre equipos rotativos para conocer su condición, identificar comportamientos anómalos y detectar indicadores tempranos de falla.
+
+Evaluamos niveles globales, espectros y tendencias de vibración aplicando criterios de análisis según ISO 10816, complementados con metodologías específicas de diagnóstico según el tipo de equipo y la situación encontrada.
+
+Las evaluaciones son realizadas por profesionales certificados Nivel II según ISO 18436, utilizando instrumental con certificados de calibración vigentes, asegurando trazabilidad y confiabilidad técnica en cada intervención.
+
+A partir de los resultados elaboramos conclusiones y recomendaciones orientadas a definir prioridades de mantenimiento, necesidad de seguimiento o conveniencia de una intervención.
+
+#### ¿Qué tipo de equipos pueden evaluarse?
+
+El análisis de vibraciones se aplica principalmente a equipos rotativos, como motores, bombas, ventiladores, reductores, compresores y otros conjuntos mecánicos donde la condición vibratoria puede aportar información sobre su estado de funcionamiento.
+
+#### ¿Es necesario realizar mediciones periódicas?
+
+Para obtener el mayor valor del mantenimiento predictivo, lo ideal es contar con mediciones repetidas en el tiempo que permitan comparar tendencias y detectar cambios de condición. También pueden realizarse evaluaciones puntuales cuando existe una anomalía, una duda sobre un equipo específico o la necesidad de establecer una condición inicial de referencia.
+
+#### ¿Dónde operan?
+
+Nuestra base operativa se encuentra en Buenos Aires, pero trabajamos en plantas y proyectos de toda la región, contemplando traslados y actividades en sitio cuando son necesarios.

@@ -16,6 +16,10 @@ Sitio de demostración, no indexable.
 - [Ruido industrial: medir antes de elegir una solución](https://estudioideamos.github.io/sabater-ingenieria-demo/blog/ruido-industrial-medir-antes-de-elegir-una-solucion/): Qué conviene conocer sobre la fuente, el recorrido del sonido y el entorno antes de definir una intervención.
 - [Vibraciones en maquinaria: leer las señales antes de intervenir](https://estudioideamos.github.io/sabater-ingenieria-demo/blog/vibraciones-maquinaria-seguimiento-de-condicion/): Por qué una medición aislada no cuenta toda la historia y cómo el seguimiento ayuda a orientar el mantenimiento.
 
+## Contenido completo
+
+- [Servicios y preguntas frecuentes](https://estudioideamos.github.io/sabater-ingenieria-demo/llms-full.txt): contenido textual del sitio, con enlaces canónicos.
+
 ## Contacto y alcance
 
 - Teléfono y WhatsApp: +54 11 3322-7832.

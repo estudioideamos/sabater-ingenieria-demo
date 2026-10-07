@@ -467,6 +467,24 @@
     "variants": [
       [
         640,
+        "home-cinematic-640-optimized.webp"
+      ],
+      [
+        960,
+        "home-cinematic-960-optimized.webp"
+      ],
+      [
+        1440,
+        "home-cinematic-1440-optimized.webp"
+      ],
+      [
+        1672,
+        "home-cinematic-1672-optimized.webp"
+      ]
+    ],
+    "source_variants": [
+      [
+        640,
         "home-cinematic-640.webp"
       ],
       [
@@ -484,9 +502,23 @@
     ]
   },
   "industrial-editorial-card": {
-    "width": 1536,
-    "height": 1024,
+    "width": 1200,
+    "height": 800,
     "variants": [
+      [
+        480,
+        "industrial-editorial-card-480-optimized.webp"
+      ],
+      [
+        800,
+        "industrial-editorial-card-800-optimized.webp"
+      ],
+      [
+        1200,
+        "industrial-editorial-card-1200-optimized.webp"
+      ]
+    ],
+    "source_variants": [
       [
         480,
         "industrial-editorial-card-480.webp"
@@ -502,9 +534,23 @@
     ]
   },
   "arquitectonica-editorial-card": {
-    "width": 1536,
-    "height": 1024,
+    "width": 1200,
+    "height": 800,
     "variants": [
+      [
+        480,
+        "arquitectonica-editorial-card-480-optimized.webp"
+      ],
+      [
+        800,
+        "arquitectonica-editorial-card-800-optimized.webp"
+      ],
+      [
+        1200,
+        "arquitectonica-editorial-card-1200-optimized.webp"
+      ]
+    ],
+    "source_variants": [
       [
         480,
         "arquitectonica-editorial-card-480.webp"
@@ -520,9 +566,23 @@
     ]
   },
   "legal-editorial-card": {
-    "width": 1536,
-    "height": 1024,
+    "width": 1200,
+    "height": 800,
     "variants": [
+      [
+        480,
+        "legal-editorial-card-480-optimized.webp"
+      ],
+      [
+        800,
+        "legal-editorial-card-800-optimized.webp"
+      ],
+      [
+        1200,
+        "legal-editorial-card-1200-optimized.webp"
+      ]
+    ],
+    "source_variants": [
       [
         480,
         "legal-editorial-card-480.webp"
@@ -538,9 +598,23 @@
     ]
   },
   "predictivo-editorial-card": {
-    "width": 1536,
-    "height": 1024,
+    "width": 1200,
+    "height": 800,
     "variants": [
+      [
+        480,
+        "predictivo-editorial-card-480-optimized.webp"
+      ],
+      [
+        800,
+        "predictivo-editorial-card-800-optimized.webp"
+      ],
+      [
+        1200,
+        "predictivo-editorial-card-1200-optimized.webp"
+      ]
+    ],
+    "source_variants": [
       [
         480,
         "predictivo-editorial-card-480.webp"

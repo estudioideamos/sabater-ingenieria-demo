@@ -29,3 +29,17 @@
 /* Compare the mechanism, not a fabricated performance percentage. */
 .lab-workbench{box-shadow:0 20px 65px #0003;border-color:#8db4c642}.lab-console{background:radial-gradient(ellipse at 100% 0%,#426b7e30,transparent 70%),#132936}.lab-state-caption{font-size:12px;line-height:1.6;color:#d9b99b;display:flex;align-items:center;gap:8px;margin:-8px 0 0}.lab-state-caption:before{content:'';height:6px;width:6px;border-radius:50%;background:currentColor;flex-shrink:0}.vibration-lab:has(.lab-stage[data-mode="1"]) .lab-state-caption{color:#a5d6e2}.vibration-lab:has(.lab-stage[data-mode="2"]) .lab-state-caption{color:#c5dbe5}.lab-console .lab-explanation{min-height:130px}.lab-modes button{transition:background .3s,color .3s,box-shadow .3s}.lab-modes button[aria-pressed="true"]{box-shadow:0 3px 12px #0002}.lab-spectrum .lab-signal{stroke-width:1.8}.lab-stage{background:radial-gradient(ellipse at 50% 65%,#25455230,transparent 70%),#09141c}
 @media(max-width:760px){.lab-console .lab-explanation{min-height:0}.lab-state-caption{margin:-8px 0 0}.lab-console{gap:20px}}
+
+/* The fallback is a capture of this scene, not an unrelated photograph. */
+.lab-fallback{z-index:2;pointer-events:none;opacity:1;transition:opacity .3s ease}
+.lab-fallback picture{display:block;width:100%;height:100%}
+.lab-fallback img{opacity:1;object-fit:cover;object-position:center}
+.vibration-lab:not(.lab-ready) .lab-viewport{visibility:hidden}
+.vibration-lab:not(.lab-ready) .lab-view-controls{visibility:hidden}
+.vibration-lab:not(.lab-ready) .lab-instruction{visibility:hidden}
+.lab-unavailable .lab-view-controls,.lab-unavailable .lab-modes{display:none}
+.lab-orbit button{display:inline-flex;align-items:center;justify-content:center;padding:0}
+.lab-orbit button .vector-arrow{width:18px;height:18px}
+@media(prefers-reduced-motion:reduce){.lab-fallback{transition:none}}
+
+.vibration-lab:not(.lab-ready) .lab-modes{visibility:hidden}

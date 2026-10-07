@@ -29,7 +29,7 @@ def metadata(title,description,hero,active,services,route="",post=None):
  social=BASE+'assets/'+(post['image']+'-1200.webp' if post else 'sabater-social-v1.jpg')
  schema=json.dumps({'@context':'https://schema.org','@graph':graph},ensure_ascii=False,separators=(',',':')).replace('<','\\u003c')
  digest=base64.b64encode(hashlib.sha256(schema.encode()).digest()).decode()
- csp=f"default-src 'self'; script-src 'self' 'sha256-{digest}'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+ csp=f"default-src 'self'; script-src 'self' 'sha256-{digest}'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; script-src-attr 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests"
  esc=html.escape
  return f'''<meta http-equiv="Content-Security-Policy" content="{esc(csp,quote=True)}"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="robots" content="{'index,follow,max-image-preview:large' if INDEXABLE else 'noindex,nofollow'}"><link rel="canonical" href="{esc(url)}"><meta property="og:type" content="{'article' if post else 'website'}"><meta property="og:locale" content="es_AR"><meta property="og:site_name" content="SABATER Ingeniería"><meta property="og:url" content="{esc(url)}"><meta property="og:image" content="{social}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="{686 if post else 630}"><meta property="og:image:type" content="{'image/webp' if post else 'image/jpeg'}"><meta property="og:image:alt" content="{esc(post['alt']) if post else 'Medición acústica y de vibraciones sobre maquinaria industrial'}"><meta name="twitter:image" content="{social}"><meta name="twitter:image:alt" content="{esc(post['alt']) if post else 'Medición acústica y de vibraciones sobre maquinaria industrial'}"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">{schema}</script>'''
 def discovery(services,posts=()):
@@ -39,6 +39,15 @@ def discovery(services,posts=()):
  text='# SABATER Ingeniería\n\n> Consultoría especializada en acústica y vibraciones. Buenos Aires, Argentina; proyectos en todo el país.\n\n'+('Sitio de demostración, no indexable.\n\n' if not INDEXABLE else '')+'## Especialidades\n\n'
  for s in services:text+=f"- [{s['name']}]({BASE}{s['slug']}/): {plain(s['lead'])}\n"
  text+='\n## Blog\n\n'+''.join(f"- [{p['title']}]({BASE}blog/{p['slug']}/): {p['excerpt']}\n" for p in posts)
+ text+='\n## Contenido completo\n\n- [Servicios y preguntas frecuentes]('+BASE+'llms-full.txt): contenido textual del sitio, con enlaces canónicos.\n'
  text+='\n## Contacto y alcance\n\n- Teléfono y WhatsApp: +54 11 3322-7832.\n- Correo: hola@sabater.com.ar.\n- Más de 15 años de trayectoria profesional en ingeniería acústica.\n- Las visualizaciones son conceptuales, no resultados de mediciones ni predicciones de rendimiento.\n- Los logos reflejan trayectoria profesional, no contratos vigentes.\n'
  if not INDEXABLE:text+='- El formulario de demostración no envía ni almacena consultas.\n'
  (R/'llms.txt').write_text(text,encoding='utf8')
+
+ # Supplementary plain text; never overrides crawl or indexing policy.
+ full=text+'\n## Servicios en detalle\n'
+ for service in services:
+  full+='\n### '+service['name']+'\n\nURL: '+BASE+service['slug']+'/\n\n'+plain(service['lead'])+'\n'
+  full+='\n#### Qué hacemos\n\n'+'\n\n'.join(plain(v) for v in service['what'])+'\n'
+  for q,a in service['faq']:full+='\n#### '+plain(q)+'\n\n'+plain(a)+'\n'
+ (R/'llms-full.txt').write_text(full,encoding='utf8')
