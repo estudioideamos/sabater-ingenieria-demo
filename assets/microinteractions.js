@@ -61,13 +61,19 @@ document.querySelectorAll('.method-composition').forEach(root=>{
  buttons.forEach((button,i)=>{button.addEventListener('click',()=>{if(active!==i)select(i);});button.addEventListener('keydown',e=>{let next;if(e.key==='ArrowDown')next=(i+1)%buttons.length;else if(e.key==='ArrowUp')next=(i+buttons.length-1)%buttons.length;else if(e.key==='Home')next=0;else if(e.key==='End')next=buttons.length-1;else return;e.preventDefault();buttons[next].focus();select(next);});});
 });
 
-// Client logos remain a native horizontal scroller, enhanced with manual controls.
+
+// Autoplay advances one logo at a time; interaction, hidden tabs and reduced motion pause it.
 document.querySelectorAll('.client-carousel').forEach(root=>{
- const track=root.querySelector('.logos'),controls=root.querySelector('.client-carousel-controls'),prev=controls.querySelector('[data-logo-direction="-1"]'),next=controls.querySelector('[data-logo-direction="1"]');
- const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- function sync(){const max=track.scrollWidth-track.clientWidth;controls.hidden=max<2;prev.disabled=track.scrollLeft<=2;next.disabled=track.scrollLeft>=max-2;}
- function move(direction){track.scrollBy({left:direction*track.clientWidth*.8,behavior:reduced.matches?'instant':'smooth'});}
- controls.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>move(Number(button.dataset.logoDirection))));
- track.addEventListener('keydown',event=>{if(event.altKey||event.ctrlKey||event.metaKey||event.shiftKey)return;if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();move(event.key==='ArrowRight'?1:-1);}else if(event.key==='Home'||event.key==='End'){event.preventDefault();track.scrollTo({left:event.key==='Home'?0:track.scrollWidth,behavior:reduced.matches?'instant':'smooth'});}});
- track.addEventListener('scroll',sync,{passive:true});new ResizeObserver(sync).observe(track);sync();
+ const track=root.querySelector('.logos'),controls=root.querySelector('.client-carousel-controls'),toggle=root.querySelector('.client-autoplay');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');let visible=false,hover=false,focused=false,paused=false,timer=0;
+ const max=()=>Math.max(0,track.scrollWidth-track.clientWidth);
+ function schedule(){clearTimeout(timer);if(visible&&!hover&&!focused&&!paused&&!document.hidden&&!reduced.matches&&max()>2)timer=setTimeout(()=>{move(1);schedule();},4500);}
+ function sync(){controls.hidden=max()<2;toggle.hidden=max()<2||reduced.matches;schedule();}
+ function move(direction){const step=track.querySelector('figure').getBoundingClientRect().width;let target=track.scrollLeft+direction*step;if(direction>0&&track.scrollLeft>=max()-2)target=0;if(direction<0&&track.scrollLeft<=2)target=max();track.scrollTo({left:Math.max(0,Math.min(max(),target)),behavior:reduced.matches?'instant':'smooth'});}
+ controls.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{move(Number(button.dataset.logoDirection));schedule();}));
+ toggle.addEventListener('click',()=>{paused=!paused;toggle.setAttribute('aria-pressed',String(paused));toggle.setAttribute('aria-label',paused?'Reanudar avance automático de logos':'Pausar avance automático de logos');toggle.textContent=paused?'▷':'Ⅱ';schedule();});
+ root.addEventListener('mouseenter',()=>{hover=true;schedule();});root.addEventListener('mouseleave',()=>{hover=false;schedule();});root.addEventListener('focusin',()=>{focused=true;schedule();});root.addEventListener('focusout',()=>{setTimeout(()=>{focused=root.contains(document.activeElement);schedule();},0);});
+ track.addEventListener('touchstart',()=>{hover=true;schedule();},{passive:true});track.addEventListener('touchend',()=>{hover=false;schedule();},{passive:true});track.addEventListener('touchcancel',()=>{hover=false;schedule();},{passive:true});
+ track.addEventListener('keydown',event=>{if(event.altKey||event.ctrlKey||event.metaKey||event.shiftKey)return;if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();move(event.key==='ArrowRight'?1:-1);}else if(event.key==='Home'||event.key==='End'){event.preventDefault();track.scrollTo({left:event.key==='Home'?0:max(),behavior:reduced.matches?'instant':'smooth'});}});
+ new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;schedule();},{threshold:.5}).observe(root);new ResizeObserver(sync).observe(track);document.addEventListener('visibilitychange',schedule);reduced.addEventListener('change',sync);sync();
 });

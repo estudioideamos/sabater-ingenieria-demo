@@ -978,3 +978,16 @@ body:has(.hero) .service-gallery>.section-note{font-size:13px;line-height:1.9;ma
 @media(max-width:1000px){body:has(.hero) .service-gallery .client-carousel .logos figure{flex-basis:calc(100% / 3.35)}}
 @media(max-width:760px){body:has(.detail-hero) .service-gallery{padding-top:46px;padding-bottom:44px}body:has(.detail-hero) .service-gallery>.section-heading{display:block;margin-bottom:24px}body:has(.detail-hero) .service-gallery .section-heading h2{font-size:38px;margin-bottom:22px}body:has(.hero) .service-gallery .client-carousel .logos figure{flex-basis:calc(100% / 2.2);min-height:112px;padding:18px 12px}body:has(.hero) .service-gallery .client-carousel .logo-stage{height:68px}.client-carousel-bar>span{font-size:8px}body:has(.hero) .service-gallery>.section-note{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.client-carousel-controls button{transition:none}}
+
+/* Six complete logos with lateral controls and no visible scrollbar. */
+.client-carousel{position:relative}
+.client-carousel-controls{position:absolute;top:60px;left:0;right:0;height:138px;align-items:center;justify-content:space-between;pointer-events:none;z-index:2}
+.client-carousel-controls button{pointer-events:auto;background:#e2ebee}
+body:has(.hero) .service-gallery .client-carousel .logos{margin:0 50px;width:calc(100% - 100px);padding:0;border-bottom:0;scrollbar-width:none}
+.client-carousel .logos::-webkit-scrollbar{display:none;width:0;height:0}
+body:has(.hero) .service-gallery .client-carousel .logos figure{flex:0 0 calc(100% / 6);padding:22px 12px}
+.client-carousel{border-bottom:1px solid #315a732a}
+.client-autoplay{width:36px;height:36px;border:1px solid #315a7333;border-radius:50%;background:transparent;color:#315a73;font-size:14px;display:grid;place-items:center}
+.client-autoplay[hidden]{display:none}
+@media(max-width:1000px){body:has(.hero) .service-gallery .client-carousel .logos figure{flex-basis:25%}}
+@media(max-width:760px){.client-carousel-controls{height:112px}body:has(.hero) .service-gallery .client-carousel .logos{margin:0 38px;width:calc(100% - 76px)}body:has(.hero) .service-gallery .client-carousel .logos figure{flex-basis:50%;padding:18px 8px}.client-carousel-controls button{width:34px;height:44px;border-color:transparent;background:transparent}.client-autoplay{width:32px;height:32px}}
