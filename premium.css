@@ -987,21 +987,21 @@ body:has(.hero) .service-gallery .client-carousel .logos{margin:0 50px;width:cal
 .client-carousel .logos::-webkit-scrollbar{display:none;width:0;height:0}
 body:has(.hero) .service-gallery .client-carousel .logos figure{flex:0 0 calc(100% / 6);padding:22px 12px}
 .client-carousel{border-bottom:1px solid #315a732a}
-.client-autoplay{width:36px;height:36px;border:1px solid #315a7333;border-radius:50%;background:transparent;color:#315a73;font-size:14px;display:grid;place-items:center}
-.client-autoplay[hidden]{display:none}
+
+
 @media(max-width:1000px){body:has(.hero) .service-gallery .client-carousel .logos figure{flex-basis:25%}}
-@media(max-width:760px){.client-carousel-controls{height:112px}body:has(.hero) .service-gallery .client-carousel .logos{margin:0 38px;width:calc(100% - 76px)}body:has(.hero) .service-gallery .client-carousel .logos figure{flex-basis:50%;padding:18px 8px}.client-carousel-controls button{width:34px;height:44px;border-color:transparent;background:transparent}.client-autoplay{width:32px;height:32px}}
+@media(max-width:760px){.client-carousel-controls{height:112px}body:has(.hero) .service-gallery .client-carousel .logos{margin:0 38px;width:calc(100% - 76px)}body:has(.hero) .service-gallery .client-carousel .logos figure{flex-basis:50%;padding:18px 8px}.client-carousel-controls button{width:34px;height:44px;border-color:transparent;background:transparent}}
 
 /* Compact evidence ribbon, optically balanced marks and vector playback control. */
 .client-carousel-bar{min-height:48px}
 .client-carousel-controls{top:48px;height:116px}
 body:has(.hero) .service-gallery .client-carousel .logos figure{min-height:116px;padding-top:14px;padding-bottom:14px}
-.client-autoplay{width:36px;height:36px;border-color:#315a733d}
-.client-autoplay:hover{background:#f5f8f8}
-.client-autoplay .autoplay-play{display:none}
-.client-autoplay[aria-pressed="true"] .autoplay-play{display:block}
-.client-autoplay[aria-pressed="true"] .autoplay-pause{display:none}
+
+
+
+
+
 .service-gallery .section-heading strong{font-weight:550;color:#203f4e}
 body:has(.hero) .service-gallery>.section-note{font-size:14px;color:#496370;line-height:1.85;margin-top:20px;max-width:1100px}
 .sector-label{display:block;font:9px/1.5 'Geist Mono',monospace;text-transform:uppercase;letter-spacing:.12em;color:#315a73;margin-bottom:8px}
-@media(max-width:760px){.client-carousel-controls{height:102px}body:has(.hero) .service-gallery .client-carousel .logos figure{min-height:102px;padding-top:12px;padding-bottom:12px}body:has(.hero) .service-gallery>.section-note{font-size:13px}.client-autoplay{width:32px;height:32px}}
+@media(max-width:760px){.client-carousel-controls{height:102px}body:has(.hero) .service-gallery .client-carousel .logos figure{min-height:102px;padding-top:12px;padding-bottom:12px}body:has(.hero) .service-gallery>.section-note{font-size:13px}}

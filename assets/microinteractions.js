@@ -64,14 +64,13 @@ document.querySelectorAll('.method-composition').forEach(root=>{
 
 // Autoplay advances one logo at a time; interaction, hidden tabs and reduced motion pause it.
 document.querySelectorAll('.client-carousel').forEach(root=>{
- const track=root.querySelector('.logos'),controls=root.querySelector('.client-carousel-controls'),toggle=root.querySelector('.client-autoplay');
- const reduced=matchMedia('(prefers-reduced-motion: reduce)');let visible=false,hover=false,focused=false,paused=false,timer=0;
+ const track=root.querySelector('.logos'),controls=root.querySelector('.client-carousel-controls');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');let visible=false,hover=false,focused=false,timer=0;
  const max=()=>Math.max(0,track.scrollWidth-track.clientWidth);
- function schedule(){clearTimeout(timer);if(visible&&!hover&&!focused&&!paused&&!document.hidden&&!reduced.matches&&max()>2)timer=setTimeout(()=>{move(1);schedule();},4500);}
- function sync(){controls.hidden=max()<2;toggle.hidden=max()<2||reduced.matches;schedule();}
+ function schedule(){clearTimeout(timer);if(visible&&!hover&&!focused&&!document.hidden&&!reduced.matches&&max()>2)timer=setTimeout(()=>{move(1);schedule();},4500);}
+ function sync(){controls.hidden=max()<2;schedule();}
  function move(direction){const step=track.querySelector('figure').getBoundingClientRect().width;let target=track.scrollLeft+direction*step;if(direction>0&&track.scrollLeft>=max()-2)target=0;if(direction<0&&track.scrollLeft<=2)target=max();track.scrollTo({left:Math.max(0,Math.min(max(),target)),behavior:reduced.matches?'instant':'smooth'});}
  controls.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{move(Number(button.dataset.logoDirection));schedule();}));
- toggle.addEventListener('click',()=>{paused=!paused;toggle.setAttribute('aria-pressed',String(paused));toggle.setAttribute('aria-label',paused?'Reanudar avance automático de logos':'Pausar avance automático de logos');schedule();});
  root.addEventListener('mouseenter',()=>{hover=true;schedule();});root.addEventListener('mouseleave',()=>{hover=false;schedule();});root.addEventListener('focusin',()=>{focused=true;schedule();});root.addEventListener('focusout',()=>{setTimeout(()=>{focused=root.contains(document.activeElement);schedule();},0);});
  track.addEventListener('touchstart',()=>{hover=true;schedule();},{passive:true});track.addEventListener('touchend',()=>{hover=false;schedule();},{passive:true});track.addEventListener('touchcancel',()=>{hover=false;schedule();},{passive:true});
  track.addEventListener('keydown',event=>{if(event.altKey||event.ctrlKey||event.metaKey||event.shiftKey)return;if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();move(event.key==='ArrowRight'?1:-1);}else if(event.key==='Home'||event.key==='End'){event.preventDefault();track.scrollTo({left:event.key==='Home'?0:max(),behavior:reduced.matches?'instant':'smooth'});}});
