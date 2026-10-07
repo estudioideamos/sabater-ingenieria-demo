@@ -4,8 +4,24 @@ function closeServices(){servicesToggle.setAttribute('aria-expanded','false');se
 servicesToggle.addEventListener('click',()=>{const open=servicesToggle.getAttribute('aria-expanded')!=='true';servicesToggle.setAttribute('aria-expanded',String(open));servicesSubmenu.hidden=!open;});
 document.addEventListener('click',e=>{if(!servicesGroup.contains(e.target))closeServices();});
 servicesGroup.addEventListener('focusout',e=>{if(!servicesGroup.contains(e.relatedTarget))closeServices();});
-function closeMenu(){closeServices();nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Menú: abrir navegación');}
-menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Menú: cerrar navegación':'Menú: abrir navegación');});
+const mobileMenu=matchMedia('(max-width:1100px)');
+const menuBackground=[...document.querySelectorAll('main,footer,.floating-contact')];
+function setMenu(open){
+ nav.classList.toggle('open',open);document.body.classList.toggle('menu-open',open);document.documentElement.classList.toggle('menu-open',open);
+ menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');
+ menuBackground.forEach(el=>el.inert=open);
+ if(!open)closeServices();
+}
+function closeMenu(){setMenu(false);}
+menu.addEventListener('click',()=>setMenu(menu.getAttribute('aria-expanded')!=='true'));
+mobileMenu.addEventListener('change',()=>{if(!mobileMenu.matches)closeMenu();});
+document.addEventListener('keydown',e=>{
+ if(e.key!=='Tab'||!document.body.classList.contains('menu-open'))return;
+ const controls=[...document.querySelector('header').querySelectorAll('a,button')].filter(el=>el.getClientRects().length&&!el.closest('[hidden]'));
+ const first=controls[0],last=controls[controls.length-1];
+ if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+ else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!servicesSubmenu.hidden){closeServices();servicesToggle.focus();}else if(nav.classList.contains('open')){closeMenu();menu.focus();}}});
 const dialog=document.querySelector('#pending-dialog');document.querySelectorAll('[data-pending]').forEach(b=>b.addEventListener('click',()=>{document.querySelector('#pending-title').textContent=b.dataset.pending;dialog.showModal();}));
