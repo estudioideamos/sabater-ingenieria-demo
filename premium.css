@@ -921,3 +921,13 @@ body:has(.detail-hero) .method-copy .method-result{border-top:1px solid #a6c9da2
 @media(max-width:760px){body:has(.detail-hero) .what{padding-bottom:28px}.what>.section-heading{gap:22px;margin-bottom:28px}.what>.section-heading>p{font-size:15px}.what .sequence{grid-template-columns:1fr;gap:22px}.what .sequence figcaption{padding:21px 22px 24px}.what .sequence h3{font-size:25px}body:has(.detail-hero) .method-editorial{padding-top:28px;padding-bottom:44px}body:has(.detail-hero) .method-composition{display:flex;flex-direction:column}body:has(.detail-hero) .method-gallery{width:100%;height:auto;aspect-ratio:1.8;min-height:0}body:has(.detail-hero) .method-stages{padding:8px 18px 14px}body:has(.detail-hero) .method-stage button,body:has(.detail-hero) .method-stage.is-active button{font-size:20px;gap:10px;padding:18px 0}body:has(.detail-hero) .method-copy{padding-left:0;padding-right:0}.method-number{flex-basis:23px}.scope-technical-note{font-size:12px}}
 
 .what .sequence figcaption{display:block}
+
+/* The home statement remains in view while its supporting reasons scroll. */
+.home-hero~.why{overflow:visible}
+.why-statement>.eyebrow{margin:0 0 30px;color:#aac3cf}
+@media(min-width:1001px) and (min-height:540px){
+ .why-layout>.why-statement{position:sticky;top:120px;align-self:start}
+ .why-layout>.why-grid{padding-top:45px}
+ .why-statement h2.motion-reveal{transform:none;translate:none}
+}
+@media(max-width:1000px){.why-statement>.eyebrow{margin-bottom:24px}}
