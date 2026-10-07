@@ -1,0 +1,52 @@
+/* Native shared-image navigation: unsupported browsers keep ordinary links. */
+@view-transition{navigation:auto}
+::view-transition-group(*){animation-duration:.55s;animation-timing-function:cubic-bezier(.22,.7,.2,1)}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}
+@media(prefers-reduced-motion:no-preference){
+ [data-specialty="industrial"] .card-image,.hero-image[data-specialty="industrial"]{view-transition-name:service-industrial}
+ [data-specialty="arquitectonica"] .card-image,.hero-image[data-specialty="arquitectonica"]{view-transition-name:service-arquitectonica}
+ [data-specialty="legal"] .card-image,.hero-image[data-specialty="legal"]{view-transition-name:service-legal}
+ [data-specialty="predictivo"] .card-image,.hero-image[data-specialty="predictivo"]{view-transition-name:service-predictivo}
+}
+@media(prefers-reduced-motion:reduce){@view-transition{navigation:none}::view-transition-group(*){animation-duration:0s}}
+.diagnostic{background:#e1ebee;color:#162831}
+.diagnostic .section-heading{align-items:start;margin-bottom:38px}
+.diagnostic .section-heading h2{max-width:650px}.diagnostic .section-heading p{max-width:410px}
+.diagnostic-workbench{--treatment:0;display:grid;grid-template-columns:1.55fr 1fr;border:1px solid #426575;border-radius:20px;overflow:hidden;background:#0d202b;color:#e8f0f1}
+.diagnostic-map{position:relative;min-width:0;background:radial-gradient(ellipse at 45% 35%,#24485a77,transparent 65%),#0c1c27}
+.diagnostic-map-label{display:flex;justify-content:space-between;gap:20px;padding:24px 26px 0;color:#a2c2d0;font:9px 'Geist Mono',monospace;letter-spacing:.08em}
+.plant-plan{display:block;width:100%;height:auto;margin:8px 0 0}
+.plant-route{opacity:calc(1 - var(--treatment)*.6)}
+.plant-waves path:last-child{opacity:calc(1 - var(--treatment)*.75)}
+.plant-barrier{opacity:var(--treatment)}
+.diagnostic-hotspots button{position:absolute;z-index:2;top:49%;left:26%;transform:translate(-50%,-50%);display:grid;place-items:center;width:44px;height:44px;border:1px solid #adcbd7;border-radius:50%;background:#112b39;color:#dcebf1;font:12px 'Geist Mono',monospace;cursor:pointer;transition:background .25s,box-shadow .25s}
+.diagnostic-hotspots button:nth-child(2){left:50%;top:62%}.diagnostic-hotspots button:nth-child(3){left:80%;top:54%}
+.diagnostic-hotspots button[aria-pressed=true]{background:#d9e9ee;color:#122630;box-shadow:0 0 0 7px #b5d6e71c}
+.diagnostic-hotspots button:focus-visible,.diagnostic-comparison input:focus-visible{outline:2px solid #f1bf91;outline-offset:5px}
+.diagnostic-readout{display:flex;flex-direction:column;justify-content:center;gap:24px;padding:36px;border-left:1px solid #93b1c62a;background:linear-gradient(150deg,#1b3542,#112630)}
+.diagnostic-readout article:not([hidden]){animation:diagnostic-enter .35s ease both}
+.diagnostic-step{font:10px 'Geist Mono',monospace;letter-spacing:.1em;color:#a9c9d7}
+.diagnostic-readout h3{font-size:clamp(25px,2.6vw,36px);line-height:1.12;margin:25px 0 18px;letter-spacing:-.04em}
+.diagnostic-readout p{font-size:15px;line-height:1.85;color:#c0d3dd;margin:0;min-height:140px}
+.diagnostic-evidence{border-top:1px solid #9dbdc32d;margin-top:28px;padding-top:18px;font-size:12px;color:#cce1e9;line-height:1.7}
+.diagnostic-evidence span{display:block;font:9px 'Geist Mono',monospace;letter-spacing:.08em;color:#8cb1c1;margin-bottom:8px}
+.diagnostic-readout .text-link{font-size:12px;color:#cde3ea;align-self:start}
+.diagnostic-comparison{padding:4px 28px 24px}.diagnostic-comparison label{display:block;color:#c4dce5;font-size:12px;margin-bottom:12px}
+.diagnostic-comparison input{display:block;width:100%;min-height:32px;accent-color:#b4d6df;cursor:ew-resize;margin:0}
+.diagnostic-comparison>div{display:flex;justify-content:space-between;gap:16px;font-size:10px;color:#9ebcc9;margin-top:4px}
+.diagnostic.in-view .plant-route{animation:plant-flow 3s linear infinite}
+.diagnostic-workbench[data-point="1"] .plant-route{stroke:#edc79e;stroke-width:3}
+.diagnostic-workbench[data-point="2"] .plant-waves{stroke:#cae4ec}
+@keyframes plant-flow{to{stroke-dashoffset:-56}}
+@keyframes diagnostic-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.method-gallery{position:relative}
+.method-annotation{position:absolute;inset:auto 22px 22px;z-index:3;pointer-events:none;padding:16px 19px;background:#0b202eee;border:1px solid #a9c6d83d;border-left:2px solid #b8d5e1;border-radius:3px 12px 12px 3px;color:#e1edf1;max-width:440px;box-shadow:0 8px 30px #0002}
+.method-annotation p{font-size:13px;line-height:1.55;margin:0;animation:diagnostic-enter .35s ease}
+.method-annotation span{display:block;margin-bottom:7px;font:9px 'Geist Mono',monospace;letter-spacing:.12em;color:#a0c1d0}
+.method-gallery:after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:#b0d1de;transform:scaleX(var(--method-progress,.25));transform-origin:left;transition:transform .5s ease;z-index:4}
+@media(hover:hover) and (pointer:fine){.diagnostic-hotspots button:hover{box-shadow:0 0 0 9px #b5d6e715}.method-composition{transition:border-color .3s,box-shadow .3s}.method-composition:hover{box-shadow:0 18px 50px #0f293215}}
+@media(max-width:900px){.diagnostic-workbench{grid-template-columns:1fr}.diagnostic-readout{border-left:0;border-top:1px solid #93b1c62a;padding:26px}.diagnostic-readout p{min-height:0}.diagnostic-readout h3{margin-top:18px}.diagnostic-readout{min-height:335px}.diagnostic-evidence{margin-top:20px}}
+@media(max-width:760px){.diagnostic-map-label{padding:20px 18px 0;font-size:8px}.diagnostic-map-label span:last-child{display:none}.diagnostic-hotspots button{width:44px;height:44px;top:45%}.diagnostic-hotspots button:nth-child(2){top:56%}.diagnostic-hotspots button:nth-child(3){top:49%}.diagnostic-comparison{padding:4px 18px 20px}.diagnostic-readout{padding:25px 22px;min-height:365px}.diagnostic-readout h3{font-size:29px}.diagnostic-readout p{font-size:14px}.method-annotation{inset:auto 14px 14px;padding:11px 13px;max-width:none}.method-annotation p{font-size:12px}.method-annotation span{font-size:8px;margin-bottom:5px}}
+@media(prefers-reduced-motion:reduce){.diagnostic.in-view .plant-route,.diagnostic-readout article:not([hidden]),.method-annotation p{animation:none}.diagnostic-hotspots button,.method-gallery:after{transition:none}}
+
+.diagnostic-illustration{position:relative}.diagnostic-hotspots button{top:57%;left:25%}.diagnostic-hotspots button:nth-child(2){top:80%;left:50%}.diagnostic-hotspots button:nth-child(3){top:68%;left:80%}

@@ -1,0 +1,26 @@
+<section class="section diagnostic" id="diagnostico" aria-labelledby="diagnostic-title">
+<div class="eyebrow">LECTURA DE UNA PLANTA · MODELO CONCEPTUAL</div><div class="section-heading"><h2 id="diagnostic-title">Cada señal.<br><em>Un camino por entender.</em></h2><p>Explorá cómo una fuente puede afectar su entorno y dónde empieza una decisión técnica.</p></div>
+<div class="diagnostic-workbench" data-diagnostic data-point="0">
+<div class="diagnostic-map"><div class="diagnostic-map-label"><span>FUENTE / TRANSMISIÓN / ENTORNO</span><span>VISTA CONCEPTUAL</span></div>
+<div class="diagnostic-illustration"><svg class="plant-plan" viewBox="0 0 800 510" fill="none" aria-hidden="true" focusable="false">
+<defs><pattern id="plant-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#a8ccda" stroke-opacity=".09"/></pattern><linearGradient id="plant-metal" x2="1" y2="1"><stop stop-color="#7b9bab"/><stop offset="1" stop-color="#203a48"/></linearGradient></defs>
+<path fill="url(#plant-grid)" d="M0 0h800v510H0z"/><path d="m52 346 344-188 353 165-344 170Z" fill="#1b3542" stroke="#5e8293"/><path d="m52 346 353 147v-23L52 323m353 170 344-170v-22" stroke="#8fadb9" stroke-opacity=".4"/>
+<g stroke="#7fa3b5" stroke-width="1.3"><path d="M141 302V177l169-85 220 100v120l-169 88Z" fill="#18313e"/><path d="m141 177 220 99 169-84-220-100Z" fill="#2c4a59"/><path d="M361 276v124m-220-98 220 98 169-88"/><path d="m171 189 168 75m-168-57 168 75m-168-57 168 75m41-55 135-67m-135 89 135-67" opacity=".4"/>
+<path d="M245 130V69l26-13 25 12v61l-26 13Z" fill="url(#plant-metal)"/><path d="m245 69 25 12 26-13m-26 13v61"/><path d="M298 108V49l26-13 25 12v60l-25 13Z" fill="url(#plant-metal)"/><path d="m298 49 26 12 25-13m-25 13v60"/>
+<path d="m165 322 55-27 99 46-54 29Z" fill="#3c5e6d"/><path d="M176 310v-42l45-22 85 39v44l-43 23Z" fill="url(#plant-metal)"/><ellipse cx="198" cy="290" rx="14" ry="23" transform="rotate(-25 198 290)" fill="#0c202b"/><path d="m226 257 66 30m-65-20 65 30m-65-20 65 30m-65-20 65 30"/><path d="m198 291-36-16" stroke-width="9"/>
+<path d="m572 331 73-35 66 31v66l-73 37-66-32Z" fill="#274452"/><path d="m572 331 66 32 73-36m-73 36v67"/><path d="M652 365v38m15-46v38m15-45v38" stroke-width="6"/>
+</g>
+<path class="plant-route" d="M237 334 403 410 599 365" stroke="#bcdce7" stroke-width="2" stroke-dasharray="5 9"/>
+<g class="plant-waves" stroke="#e1b383" stroke-width="2"><path d="M130 290q-22-25 0-50m-15 59q-32-33 0-70m-15 78q-39-41 0-86"/><path d="M537 339q-20 19-5 39m-14-49q-29 28-9 57"/></g>
+<path class="plant-barrier" d="m491 351 61-30v70l-61 30Z" fill="#93cbd4" fill-opacity=".5" stroke="#b5e1e6" stroke-width="2"/>
+<g fill="#9bb9c6" font-size="11" font-family="monospace"><text x="56" y="457">01 / EQUIPOS</text><text x="318" y="465">02 / ESTRUCTURA</text><text x="587" y="470">03 / ENTORNO</text></g>
+</svg>
+<div class="diagnostic-hotspots" hidden><button type="button" data-point="0" aria-pressed="true" aria-controls="diagnostic-panel-0" aria-label="Explorar la fuente de ruido">01</button><button type="button" data-point="1" aria-pressed="false" aria-controls="diagnostic-panel-1" aria-label="Explorar el camino de transmisión">02</button><button type="button" data-point="2" aria-pressed="false" aria-controls="diagnostic-panel-2" aria-label="Explorar el entorno receptor">03</button></div>
+</div><div class="diagnostic-comparison" hidden><label for="diagnostic-treatment">Explorá una intervención conceptual</label><input id="diagnostic-treatment" type="range" min="0" max="100" value="0" aria-valuetext="Sin intervención representada"><div><span>Sin intervención</span><span>Con estrategia de control</span></div></div>
+</div>
+<div class="diagnostic-readout">
+<article id="diagnostic-panel-0"><span class="diagnostic-step">01 / IDENTIFICAR</span><h3>Encontrar la fuente.</h3><p>Un equipo puede transmitir energía al aire y a sus apoyos. Medimos para distinguir las fuentes dominantes y las condiciones en las que aparecen.</p><div class="diagnostic-evidence"><span>QUÉ OBSERVAMOS</span>Equipos · frecuencias · operación</div></article>
+<article id="diagnostic-panel-1"><span class="diagnostic-step">02 / INTERPRETAR</span><h3>Seguir el camino.</h3><p>El ruido y las vibraciones pueden propagarse por el aire y por la estructura. Entender ese recorrido permite evaluar dónde intervenir.</p><div class="diagnostic-evidence"><span>QUÉ ANALIZAMOS</span>Apoyos · cerramientos · transmisión</div></article>
+<article id="diagnostic-panel-2"><span class="diagnostic-step">03 / DECIDIR</span><h3>Evaluar el entorno.</h3><p>Relacionamos las fuentes con los sectores y receptores afectados. A partir del diagnóstico definimos alternativas y prioridades de intervención.</p><div class="diagnostic-evidence"><span>QUÉ DEFINIMOS</span>Objetivos · alternativas · prioridades</div></article>
+<a class="text-link" href="acustica-industrial/">Explorar acústica industrial ↗</a>
+</div></div><p class="section-note">Representación ilustrativa, sin escala ni valores de atenuación. Cada solución requiere mediciones y dimensionamiento específicos.</p></section>

@@ -47,8 +47,9 @@
 // Manual method navigation, with native keyboard focus and readable HTML fallback.
 document.querySelectorAll('.method-composition').forEach(root=>{
  const stages=[...root.querySelectorAll('.method-stage')],buttons=stages.map(s=>s.querySelector('button')),photos=[...root.querySelectorAll('.method-photo')];
+ const notes=[...root.querySelectorAll('[data-method-note]')];
  let active=0;
- function select(index){active=index;stages.forEach((stage,i)=>{const selected=i===index;stage.classList.toggle('is-active',selected);buttons[i].setAttribute('aria-expanded',String(selected));buttons[i].setAttribute('aria-disabled',String(selected));stage.querySelector('.method-copy').hidden=!selected;if(index>=0){photos[i].classList.toggle('is-active',selected);photos[i].setAttribute('aria-hidden',String(!selected));}});}
+ function select(index){notes.forEach((note,i)=>note.hidden=i!==index);root.style.setProperty('--method-progress',String((index+1)/stages.length));active=index;stages.forEach((stage,i)=>{const selected=i===index;stage.classList.toggle('is-active',selected);buttons[i].setAttribute('aria-expanded',String(selected));buttons[i].setAttribute('aria-disabled',String(selected));stage.querySelector('.method-copy').hidden=!selected;if(index>=0){photos[i].classList.toggle('is-active',selected);photos[i].setAttribute('aria-hidden',String(!selected));}});}
  root.classList.add('method-enhanced');select(0);
  // Reserve the tallest explanation at this width so selecting a step does not move the next section.
  if(document.querySelector('.detail-hero')){

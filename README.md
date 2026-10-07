@@ -52,3 +52,10 @@ Ver `SECURITY.md` para las protecciones aplicadas y las tareas específicas del 
 ## Verificación y artefacto público
 
 Ejecutar `npm run build`, `npm run check`, `npm run check:security`, `npm audit --audit-level=low` y `npm run prepare:site`. Previsualizar `_site/` para comprobar lo que se publica. El empaquetador sigue recursos locales referenciados; no publica fuentes de compilación, originales sin uso, dependencias de desarrollo ni configuración interna.
+
+## Experiencias interactivas
+
+- La home incorpora una planta vectorial conceptual con tres puntos de lectura, botones de teclado y comparación ilustrativa de intervención. No muestra niveles medidos ni predicciones de atenuación. Sin JavaScript conserva las tres explicaciones.
+- Las cuatro tarjetas de servicios comparten nombre de transición con sus portadas; navegación nativa sin interceptar enlaces, con alternativa normal en navegadores sin soporte y movimiento reducido. La declaración crítica se incluye en head antes del CSS para estar disponible al primer render. Referencia: https://developer.chrome.com/docs/web-platform/view-transitions/cross-document
+- El método en home y los cuatro servicios sincroniza fotografía, anotación y progreso con la etapa seleccionada.
+- Fuentes: assets/diagnostic.inc, assets/experience.css y assets/experience.js. El JS se minifica en build y la animación del diagnóstico se detiene fuera de vista.
