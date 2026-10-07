@@ -48,7 +48,15 @@
 document.querySelectorAll('.method-composition').forEach(root=>{
  const stages=[...root.querySelectorAll('.method-stage')],buttons=stages.map(s=>s.querySelector('button')),photos=[...root.querySelectorAll('.method-photo')];
  let active=0;
- function select(index){active=index;stages.forEach((stage,i)=>{const selected=i===index;stage.classList.toggle('is-active',selected);buttons[i].setAttribute('aria-expanded',String(selected));stage.querySelector('.method-copy').hidden=!selected;photos[i].classList.toggle('is-active',selected);photos[i].setAttribute('aria-hidden',String(!selected));});}
+ function select(index){active=index;stages.forEach((stage,i)=>{const selected=i===index;stage.classList.toggle('is-active',selected);buttons[i].setAttribute('aria-expanded',String(selected));stage.querySelector('.method-copy').hidden=!selected;if(index>=0){photos[i].classList.toggle('is-active',selected);photos[i].setAttribute('aria-hidden',String(!selected));}});}
  root.classList.add('method-enhanced');select(0);
- buttons.forEach((button,i)=>{button.addEventListener('click',()=>select(i));button.addEventListener('keydown',e=>{let next;if(e.key==='ArrowDown')next=(i+1)%buttons.length;else if(e.key==='ArrowUp')next=(i+buttons.length-1)%buttons.length;else if(e.key==='Home')next=0;else if(e.key==='End')next=buttons.length-1;else return;e.preventDefault();buttons[next].focus();select(next);});});
+ // Reserve the tallest explanation at this width so selecting a step does not move the next section.
+ if(document.querySelector('.detail-hero')){
+  const copies=stages.map(stage=>stage.querySelector('.method-copy'));let lastWidth=0;
+  function measure(){root.style.removeProperty('--method-copy-height');copies.forEach(copy=>copy.hidden=false);const height=Math.max(...copies.map(copy=>copy.getBoundingClientRect().height));root.style.setProperty('--method-copy-height',Math.ceil(height)+'px');const saved=active;select(saved<0?0:saved);const panel=root.querySelector('.method-stages');panel.style.minHeight='0px';panel.style.minHeight=Math.ceil(panel.getBoundingClientRect().height)+'px';select(saved);}
+  new ResizeObserver(entries=>{const width=Math.round(entries[0].contentRect.width);if(width!==lastWidth){lastWidth=width;measure();}}).observe(root.querySelector('.method-stages'));
+  document.fonts.ready.then(measure);
+ }
+
+ buttons.forEach((button,i)=>{button.addEventListener('click',()=>select(document.querySelector('.detail-hero')&&active===i?-1:i));button.addEventListener('keydown',e=>{let next;if(e.key==='ArrowDown')next=(i+1)%buttons.length;else if(e.key==='ArrowUp')next=(i+buttons.length-1)%buttons.length;else if(e.key==='Home')next=0;else if(e.key==='End')next=buttons.length-1;else return;e.preventDefault();buttons[next].focus();select(next);});});
 });
