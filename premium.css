@@ -621,35 +621,35 @@ body:has(.home-hero) .experience-gallery .section-heading>p{font-size:15px;line-
 body:has(.home-hero) .experience-gallery .brand-collection-heading{padding:16px 0 18px;border-top:1px solid #315a7330}
 body:has(.home-hero) .experience-gallery .brand-collection-heading>span:first-child{font-size:9px;letter-spacing:.07em}
 body:has(.home-hero) .experience-gallery .brand-collection-heading>span:last-child{font-size:12px;color:#4b6470}
-body:has(.home-hero) .experience-gallery .logos{grid-template-columns:repeat(6,minmax(0,1fr));gap:0;background:none;border:0;border-bottom:1px solid #315a7325;overflow:visible}
-body:has(.home-hero) .experience-gallery .logos figure{display:flex;min-height:132px;padding:22px 18px;background:none;border:0;border-top:1px solid #315a7325;box-shadow:none;border-radius:0;opacity:1;transition:none}
-body:has(.home-hero) .experience-gallery .logos figure:before,body:has(.home-hero) .experience-gallery .logos figure:after{display:none;content:none}
-body:has(.home-hero) .experience-gallery .logo-stage{height:78px;width:100%;transform:none;transition:none}
-body:has(.home-hero) .experience-gallery .logo-mark{width:min(var(--mark-width),90%)}
-body:has(.home-hero) .experience-gallery .logos .logo-mark img{opacity:.88;filter:grayscale(1);transition:none}
-body:has(.home-hero) .experience-gallery .logos .logo-dark-tile .logo-mark img{filter:brightness(0);opacity:.8}
-body:has(.home-hero) .experience-gallery .section-note{font-size:12px;line-height:1.8;margin-top:20px;color:#4b6470;max-width:100%}
-@media(max-width:1000px){body:has(.home-hero) .experience-gallery .logos{grid-template-columns:repeat(4,minmax(0,1fr))}body:has(.home-hero) .experience-gallery>.section-heading{gap:30px}}
-@media(max-width:760px){body:has(.home-hero) .experience-gallery{padding-top:44px;padding-bottom:42px}body:has(.home-hero) .experience-gallery>.section-heading{display:block;margin-bottom:25px}body:has(.home-hero) .experience-gallery .section-heading h2{font-size:clamp(35px,8vw,46px);margin-bottom:20px}body:has(.home-hero) .experience-gallery .section-heading>p{font-size:14px}body:has(.home-hero) .experience-gallery .brand-collection-heading{display:block}body:has(.home-hero) .experience-gallery .brand-collection-heading>span:last-child{display:none}body:has(.home-hero) .experience-gallery .logos{grid-template-columns:repeat(3,minmax(0,1fr))}body:has(.home-hero) .experience-gallery .logos figure{min-height:106px;padding:16px 10px}body:has(.home-hero) .experience-gallery .logo-stage{height:68px}body:has(.home-hero) .experience-gallery .logo-mark{width:min(calc(var(--mark-width)*.8),94%)}}
+body:has(.hero) .experience-gallery .logos{grid-template-columns:repeat(6,minmax(0,1fr));gap:0;background:none;border:0;border-bottom:1px solid #315a7325;overflow:visible}
+body:has(.hero) .experience-gallery .logos figure{display:flex;min-height:132px;padding:22px 18px;background:none;border:0;border-top:1px solid #315a7325;box-shadow:none;border-radius:0;opacity:1;transition:none}
+body:has(.hero) .experience-gallery .logos figure:before,body:has(.hero) .experience-gallery .logos figure:after{display:none;content:none}
+body:has(.hero) .experience-gallery .logo-stage{height:78px;width:100%;transform:none;transition:none}
+body:has(.hero) .experience-gallery .logo-mark{width:min(var(--mark-width),90%)}
+body:has(.hero) .experience-gallery .logos .logo-mark img{opacity:.88;filter:grayscale(1);transition:none}
+body:has(.hero) .experience-gallery .logos .logo-dark-tile .logo-mark img{filter:brightness(0);opacity:.8}
+body:has(.hero) .experience-gallery .section-note{font-size:12px;line-height:1.8;margin-top:20px;color:#4b6470;max-width:100%}
+@media(max-width:1000px){body:has(.hero) .experience-gallery .logos{grid-template-columns:repeat(4,minmax(0,1fr))}body:has(.hero) .experience-gallery>.section-heading{gap:30px}}
+@media(max-width:760px){body:has(.hero) .experience-gallery{padding-top:44px;padding-bottom:42px}body:has(.hero) .experience-gallery>.section-heading{display:block;margin-bottom:25px}body:has(.hero) .experience-gallery .section-heading h2{font-size:clamp(35px,8vw,46px);margin-bottom:20px}body:has(.hero) .experience-gallery .section-heading>p{font-size:14px}body:has(.hero) .experience-gallery .brand-collection-heading{display:block}body:has(.hero) .experience-gallery .brand-collection-heading>span:last-child{display:none}body:has(.hero) .experience-gallery .logos{grid-template-columns:repeat(3,minmax(0,1fr))}body:has(.hero) .experience-gallery .logos figure{min-height:106px;padding:16px 10px}body:has(.hero) .experience-gallery .logo-stage{height:68px}body:has(.hero) .experience-gallery .logo-mark{width:min(calc(var(--mark-width)*.8),94%)}}
 
 /* Final balance of the home client marks, without duplicate headings. */
 body:has(.home-hero) #experiencia{scroll-margin-top:8px}
-body:has(.home-hero) .experience-gallery>.section-heading{margin-bottom:28px}
-body:has(.home-hero) .experience-gallery .section-heading strong{color:#263f4c;font-weight:600}
-body:has(.home-hero) .experience-gallery .logos{border-bottom:0}
-body:has(.home-hero) .experience-gallery .logos figure{border-top:0}
-body:has(.home-hero) .experience-gallery .logos figure:nth-child(n+7){border-top:1px solid #315a731d}
-body:has(.home-hero) .experience-gallery .logos .logo-mark img{filter:grayscale(1) contrast(1.35);opacity:.94}
-body:has(.home-hero) .experience-gallery .logos .logo-dark-tile .logo-mark img{filter:brightness(0);opacity:.76}
+body:has(.hero) .experience-gallery>.section-heading{margin-bottom:28px}
+body:has(.hero) .experience-gallery .section-heading strong{color:#263f4c;font-weight:600}
+body:has(.hero) .experience-gallery .logos{border-bottom:0}
+body:has(.hero) .experience-gallery .logos figure{border-top:0}
+body:has(.hero) .experience-gallery .logos figure:nth-child(n+7){border-top:1px solid #315a731d}
+body:has(.hero) .experience-gallery .logos .logo-mark img{filter:grayscale(1) contrast(1.35);opacity:.94}
+body:has(.hero) .experience-gallery .logos .logo-dark-tile .logo-mark img{filter:brightness(0);opacity:.76}
 body:has(.home-hero) .experience-gallery .logos figure:nth-child(4) .logo-mark{width:79%}
 body:has(.home-hero) .experience-gallery .logos figure:nth-child(5) .logo-mark{width:64%}
 body:has(.home-hero) .experience-gallery .logos figure:nth-child(9) .logo-mark{width:96%}
 body:has(.home-hero) .experience-gallery .logos figure:nth-child(10) .logo-mark{width:98%}
-body:has(.home-hero) .experience-gallery .logos.motion-reveal{transition:opacity .45s ease,translate .45s ease}
-body:has(.home-hero) .experience-gallery .logos.motion-reveal.awaiting{translate:0 8px}
-@media(max-width:1000px){body:has(.home-hero) .experience-gallery .logos figure:nth-child(n+5){border-top:1px solid #315a731d}}
-@media(max-width:760px){body:has(.home-hero) #experiencia{scroll-margin-top:8px}body:has(.home-hero) .experience-gallery .logos figure:nth-child(n+4){border-top:1px solid #315a731d}}
-@media(prefers-reduced-motion:reduce){body:has(.home-hero) .experience-gallery .logos.motion-reveal{transition:none;translate:none}}
+body:has(.hero) .experience-gallery .logos.motion-reveal{transition:opacity .45s ease,translate .45s ease}
+body:has(.hero) .experience-gallery .logos.motion-reveal.awaiting{translate:0 8px}
+@media(max-width:1000px){body:has(.hero) .experience-gallery .logos figure:nth-child(n+5){border-top:1px solid #315a731d}}
+@media(max-width:760px){body:has(.home-hero) #experiencia{scroll-margin-top:8px}body:has(.hero) .experience-gallery .logos figure:nth-child(n+4){border-top:1px solid #315a731d}}
+@media(prefers-reduced-motion:reduce){body:has(.hero) .experience-gallery .logos.motion-reveal{transition:none;translate:none}}
 
 /* Readable sector list, with the same restrained editorial finish. */
 body:has(.home-hero) .experience-gallery .section-note{font-size:14px;line-height:1.85;color:#405a68;margin-top:23px;max-width:1050px;text-wrap:pretty}
@@ -774,7 +774,7 @@ body:has(.detail-hero) .problems{background:radial-gradient(ellipse at 0% 0%,#29
 .problems .problem-grid article{border-color:#8dacba40;padding:28px 0;transition:border-color .3s}
 .problems .problem-grid article:hover{padding:28px 0;background:transparent;border-color:#a8c9da}
 .problems .problem-grid h3{font-size:24px;line-height:1.25;max-width:340px}
-.problems .pullquote{font-family:var(--serif);font-style:italic;font-size:clamp(25px,2.6vw,36px);max-width:850px;line-height:1.4;margin-top:32px}
+.problems .pullquote{font-family:Georgia,serif;font-style:italic;font-size:clamp(25px,2.6vw,36px);max-width:850px;line-height:1.4;margin-top:32px}
 body:has(.detail-hero) .what{background:#f5f2eb}
 .what .sequence{gap:24px}
 .what .sequence figure{overflow:hidden;border:1px solid #315a7320;border-radius:13px;background:#e5edf0;box-shadow:0 10px 24px #10293609}
@@ -795,3 +795,19 @@ body:has(.detail-hero) .closing p{max-width:590px;font-size:16px;line-height:1.7
 @media(prefers-reduced-motion:reduce){.what .sequence img,.problems .problem-grid article{transition:none}}
 
 .services-toggle[data-active="true"]{background:#b8d4df12;box-shadow:inset 0 -1px #abcbd680;color:#d6e9f0;border-radius:12px}
+body:has(.hero) .experience-gallery .logos{display:grid}body:has(.detail-hero) .experience-gallery .brand-collection-heading{display:none}
+
+body:has(.hero) .experience-gallery .logos figure:hover{background:transparent;box-shadow:none}body:has(.hero) .experience-gallery .logos figure:hover .logo-stage{transform:none}body:has(.hero) .experience-gallery .logos figure:hover .logo-mark img{filter:grayscale(1) contrast(1.35);opacity:.94}body:has(.hero) .experience-gallery .logos .logo-dark-tile:hover .logo-mark img{filter:brightness(0);opacity:.76}
+
+/* Shared finish across the full site. */
+.hero .hero-film{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% center;opacity:0;transition:opacity .45s;filter:saturate(.78)}
+.hero .hero-film.is-playing{opacity:1}
+.blog-card-photo{box-shadow:0 10px 28px #10293610}
+.article-cta{background:radial-gradient(ellipse at 100% 0%,#34596a66,transparent 65%),#152d39;border:1px solid #527284;border-radius:18px;box-shadow:0 18px 38px #10293612}
+.article-takeaway{border-radius:0 12px 12px 0}
+.article-heading h1,.blog-card h3{text-wrap:balance}
+.blog-back{min-height:44px;align-content:center}
+.article-toc a[aria-current="location"]{color:#193440;border-left:2px solid #315e74;padding-left:12px;background:#e3ebee88}
+:where(a,button,input,select,textarea,summary):focus-visible{outline:2px solid #82afc3;outline-offset:5px}
+@media(max-width:999px){.hero .hero-film{display:none}}
+@media(prefers-reduced-motion:reduce){.hero .hero-film{display:none}.blog-card-photo img{transition:none;transform:none!important}}

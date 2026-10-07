@@ -128,3 +128,6 @@ if('IntersectionObserver' in window){const techVisibility=new IntersectionObserv
  new IntersectionObserver(es=>{visible=es[0].isIntersecting;sync();},{threshold:.05}).observe(video.closest('.hero'));
  reduced.addEventListener('change',sync);desktop.addEventListener('change',sync);connection?.addEventListener('change',sync);document.addEventListener('visibilitychange',sync);
 })();
+
+// Keep article navigation anchored to the section being read.
+(()=>{const links=[...document.querySelectorAll('.article-toc a[href^="#"]')];if(!links.length)return;const sections=links.map(a=>document.querySelector(a.hash));let queued=false;function update(){queued=false;let current=-1;sections.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<=170)current=i});links.forEach((a,i)=>{if(i===current)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')})}addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});update()})();
