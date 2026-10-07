@@ -3,6 +3,7 @@ import {refineFinishes} from './material-finishes.js';
 // SABATER — purpose-built mechanical study. Illustrative, not a numerical simulation.
 const root=document.querySelector('.vibration-lab');
 if(root){
+ const mobileLayout=matchMedia('(max-width: 760px)'),viewControls=root.querySelector('.lab-view-controls');const syncControls=()=>viewControls.open=!mobileLayout.matches;syncControls();mobileLayout.addEventListener('change',syncControls);
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');let mode=0,api=null;
  const copy=[['La vibración llega a la estructura.','Las fuerzas dinámicas de una máquina pueden viajar a través de sus apoyos y excitar la estructura que la sostiene.'],['El aislamiento puede reducir la transmisión.','Los apoyos elásticos pueden reducir la transmisión cuando se seleccionan según la masa, las frecuencias de excitación y las condiciones de instalación.'],['Cada parte tiene una función.','Explorá el rodamiento, el bobinado y el acople del motor, además de sus apoyos y estructura. El diagnóstico permite identificar dónde se origina la vibración y cómo se transmite.']];
  root.querySelectorAll('[data-lab-mode]').forEach(b=>b.addEventListener('click',()=>{mode=Number(b.dataset.labMode);root.querySelector('.lab-stage').dataset.mode=mode;root.querySelectorAll('[data-lab-mode]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));root.querySelector('.lab-explanation h3').textContent=copy[mode][0];root.querySelector('.lab-explanation p').textContent=copy[mode][1];root.querySelector('.lab-spectrum>span').textContent=mode===1?'Transmisión reducida · esquema conceptual':'Transmisión a la estructura';root.querySelector('[data-anchor="mount"] b').textContent=mode?'Apoyos elásticos':'Camino de transmisión';api?.refresh(true);}));
@@ -58,14 +59,14 @@ if(root){
  const labels=[...root.querySelectorAll('[data-anchor]')],v=new T.Vector3();
  function size(){const w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h,false);composer?.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();refresh();}
  function render(dt=0){const priorExplode=explode;time+=dt;const smooth=1-Math.exp(-dt*6);yaw+=(targetYaw-yaw)*(dt?smooth:1);pitch+=(targetPitch-pitch)*(dt?smooth:1);explode+=((mode===2?1:0)-explode)*(reduced.matches?1:smooth);isolate+=((mode===1?1:0)-isolate)*(reduced.matches?1:smooth);
- detail+=(targetDetail-detail)*(reduced.matches?1:smooth);const radius=((host.clientWidth<700?10.4:8.2)+explode*2.4)*(1-detail*.25);camera.position.set(Math.sin(yaw)*radius,1.55+Math.sin(pitch)*radius,Math.cos(yaw)*radius);camera.lookAt(.25+explode*.25+detail*.15,1.18+explode*.7+detail*.58,0);camera.updateMatrixWorld();
+ detail+=(targetDetail-detail)*(reduced.matches?1:smooth);const radius=((host.clientWidth<500?10.4:8.8)+explode*2.4)*(1-detail*.25);camera.position.set(Math.sin(yaw)*radius,1.55+Math.sin(pitch)*radius,Math.cos(yaw)*radius);camera.lookAt(.25+explode*.25+detail*.15,1.18+explode*.7+detail*.58,0);camera.updateMatrixWorld();
  articulate(explode);motor.position.y=1.02+explode*1.35;bed.position.y=explode*.5;mounts.position.y=explode*.2;
  if(!reduced.matches){motor.position.x=Math.sin(time*32)*.009*(1-explode);rotor.rotation.x=time*2.5;foundation.position.y=Math.sin(time*32)*.016*(1-isolate*.9)*(1-explode);}else{motor.position.x=0;foundation.position.y=0;}
  rigidMounts.forEach(m=>m.visible=mode===0);mounts.children.forEach(m=>{if(m.geometry.type==='TubeGeometry'){m.material=steel;m.visible=mode>0;}});
  waves.forEach((m,i)=>{const f=((time*.22+i/5)%1);m.scale.setScalar(1+f*4);m.material.opacity=(1-f)*.1*(1-isolate*.85)*(1-explode);m.material.color.set(isolate>.5?0x92cddd:0xc9956c);});
  const anchors=[[-.4,2.4+explode*1.35,.52],[1.65,.48+explode*.2,.85],[-1.9,.12,1.25]];
  const W=host.clientWidth,H=host.clientHeight;
- const positions=[[.29,.27],[.75,.58],[.27,.79]],lines=root.querySelectorAll('.lab-leaders line');
+ const positions=[[.18,.25],[.83,.58],[.18,.79]],lines=root.querySelectorAll('.lab-leaders line');
  anchors.forEach((a,i)=>{v.set(...a).project(camera);const label=labels[i],line=lines[i],show=mode===2||(mode===0?i!==1:i!==0);
  label.hidden=!show;line.style.display=show?'':'none';
  const x=W*positions[i][0],y=H*positions[i][1];label.style.left=`${x}px`;label.style.top=`${y}px`;
