@@ -50,7 +50,7 @@
  function makeLoop(track){const group=document.createElement('div');group.className='marquee-group';while(track.firstChild)group.append(track.firstChild);const duplicate=group.cloneNode(true);duplicate.setAttribute('aria-hidden','true');track.append(group,duplicate);}
  if(band){const track=band.querySelector('.precision-track');makeLoop(track);track.classList.add('is-marquee');}
  const frame=document.createElement('div');frame.className='marquee-frame';frame.setAttribute('aria-hidden','true');frame.innerHTML='<div class="expertise-marquee"><div class="marquee-line"><span>Acústica industrial</span><b>↗</b><span>Acústica arquitectónica</span><b>↗</b><span>Acústica legal</span><b>↗</b><span>Análisis de vibraciones</span><b>↗</b></div></div>';
- const services=document.querySelector('.services');const context=services||document.querySelector('.what');if(!services&&context){context.after(frame);makeLoop(frame.querySelector('.marquee-line'));}
+ const services=document.querySelector('.services');const context=services||document.querySelector('.what');
  if('IntersectionObserver'in window){const visibility=new IntersectionObserver(entries=>entries.forEach(e=>e.target.classList.toggle('in-view',e.isIntersecting)));document.querySelectorAll('.precision-band,.expertise-marquee').forEach(e=>visibility.observe(e));}
  document.querySelectorAll('.card-image').forEach(card=>{const cursor=document.createElement('span');cursor.className='card-cursor';cursor.setAttribute('aria-hidden','true');cursor.textContent='EXPLORAR ↗';card.append(cursor);card.addEventListener('pointermove',e=>{if(!fine.matches||reduced.matches)return;const r=card.getBoundingClientRect();card.style.setProperty('--cursor-x',`${e.clientX-r.left}px`);card.style.setProperty('--cursor-y',`${e.clientY-r.top}px`);card.classList.add('pointer-inside');});card.addEventListener('pointerleave',()=>card.classList.remove('pointer-inside'));});
  document.querySelectorAll('.button').forEach(button=>button.addEventListener('pointerdown',e=>{if(reduced.matches)return;const r=button.getBoundingClientRect();const ripple=document.createElement('span');ripple.className='button-ripple';ripple.setAttribute('aria-hidden','true');ripple.style.setProperty('--ripple-x',`${e.clientX-r.left}px`);ripple.style.setProperty('--ripple-y',`${e.clientY-r.top}px`);button.append(ripple);setTimeout(()=>ripple.remove(),700);}));
@@ -58,11 +58,11 @@
  // Mark only the section currently crossing the reading line; clear gaps and closing.
  const navigationSections=['inicio','nosotros','experiencia','conocimiento'].map(id=>document.getElementById(id)).filter(Boolean);
  let navigationFrame=0;
- function updateNavigation(){navigationFrame=0;const line=Math.min(innerHeight*.35,240);const current=navigationSections.find(el=>{const r=el.getBoundingClientRect();return r.top<=line&&r.bottom>line;});navLinks.forEach(a=>{a.dataset.active=String(!!current&&new URL(a.href).hash==='#'+current.id);});}
+ function updateNavigation(){navigationFrame=0;if(document.querySelector('.detail-hero')){navLinks.forEach(a=>a.dataset.active='false');const specialty=document.querySelector('.services-toggle');if(specialty)specialty.dataset.active='true';return;}const line=Math.min(innerHeight*.35,240);const current=navigationSections.find(el=>{const r=el.getBoundingClientRect();return r.top<=line&&r.bottom>line;});navLinks.forEach(a=>{a.dataset.active=String(!!current&&new URL(a.href).hash==='#'+current.id);});}
  function queueNavigation(){if(!navigationFrame)navigationFrame=requestAnimationFrame(updateNavigation);}
  addEventListener('scroll',queueNavigation,{passive:true});addEventListener('resize',queueNavigation,{passive:true});updateNavigation();
  const floatingContact=document.querySelector('.floating-contact');
- const inlineContacts=[...document.querySelectorAll('.closing-home .text-button,.contact-whatsapp')];
+ const inlineContacts=[...document.querySelectorAll('.closing-editorial .text-button,.contact-whatsapp')];
  if(floatingContact&&inlineContacts.length&&'IntersectionObserver'in window){
   const visibleContacts=new Set();
   const syncContact=()=>{floatingContact.hidden=visibleContacts.size>0&&document.activeElement!==floatingContact;};
@@ -113,21 +113,18 @@ if('IntersectionObserver' in window){const techVisibility=new IntersectionObserv
 
 // Decorative hero film is opt-in by device capability; still image is always present.
 (()=>{
- const video=document.querySelector('.hero-film'),button=document.querySelector('.hero-film-toggle');if(!video||!button)return;
+ const video=document.querySelector('.hero-film');if(!video)return;
  const reduced=matchMedia('(prefers-reduced-motion: reduce)'),desktop=matchMedia('(min-width: 1000px)');
- let visible=true,userPaused=false,loaded=false,ready=false;
+ let visible=true,loaded=false,ready=false;
  const connection=navigator.connection;
  const eligible=()=>desktop.matches&&!reduced.matches&&!connection?.saveData&&!['slow-2g','2g','3g'].includes(connection?.effectiveType);
- function label(){button.textContent=video.paused?'Reproducir video ▷':'Pausar video Ⅱ';button.setAttribute('aria-label',video.paused?'Reproducir video de fondo':'Pausar video de fondo');}
  function sync(){
-  if(!eligible()){video.pause();video.classList.remove('is-playing');button.hidden=true;return;}
+  if(!eligible()){video.pause();video.classList.remove('is-playing');return;}
   if(!loaded&&visible){loaded=true;video.src=video.dataset.src;video.load();}
-  button.hidden=!ready;
-  if(ready&&visible&&!document.hidden&&!userPaused){video.play().then(()=>{video.classList.add('is-playing');label();}).catch(()=>{video.classList.remove('is-playing');label();});}
-  else{video.pause();label();}
+  if(ready&&visible&&!document.hidden){video.play().then(()=>{video.classList.add('is-playing');}).catch(()=>{video.classList.remove('is-playing');});}
+  else{video.pause();}
  }
- video.addEventListener('canplay',()=>{ready=true;sync();});video.addEventListener('error',()=>{ready=false;button.hidden=true;video.classList.remove('is-playing');});
- button.addEventListener('click',()=>{userPaused=!video.paused;sync();});
+ video.addEventListener('canplay',()=>{ready=true;sync();});video.addEventListener('error',()=>{ready=false;video.classList.remove('is-playing');});
  new IntersectionObserver(es=>{visible=es[0].isIntersecting;sync();},{threshold:.05}).observe(video.closest('.hero'));
  reduced.addEventListener('change',sync);desktop.addEventListener('change',sync);connection?.addEventListener('change',sync);document.addEventListener('visibilitychange',sync);
 })();

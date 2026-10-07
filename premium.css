@@ -596,21 +596,21 @@ body:has(.home-hero) .knowledge{background:#e3ebee;border-top:1px solid #315a731
 body:has(.home-hero) .knowledge:before,body:has(.home-hero) .knowledge:after{display:none}
 body:has(.home-hero) .knowledge .section-heading>p,body:has(.home-hero) .knowledge-grid>a>span:first-child{color:#465f6c}
 body:has(.home-hero) .knowledge-grid>a{border-top-color:#315a7340}
-body:has(.home-hero) .contact{background:#f5f2eb;color:#1c303a;border-top:1px solid #315a7320}
-body:has(.home-hero) .contact>div>.eyebrow,body:has(.home-hero) .contact>div>.eyebrow>span{color:#315a73}
-body:has(.home-hero) .contact>div>h2{color:#1c303a}
-body:has(.home-hero) .contact>div>h2 em{color:#315a73}
-body:has(.home-hero) .contact>div>p{color:#4c626c}
-body:has(.home-hero) .contact .contact-directory,body:has(.home-hero) .contact .contact-channel{border-color:#315a7330}
-body:has(.home-hero) .contact .channel-copy strong{color:#1c303a}
-body:has(.home-hero) .contact .channel-copy small,body:has(.home-hero) .contact .channel-icon,body:has(.home-hero) .contact .channel-arrow,body:has(.home-hero) .contact .reach-icon .tech-icon{color:#315a73}
-body:has(.home-hero) .contact .channel-arrow{border-color:#315a7340}
-body:has(.home-hero) .contact-channel:hover .channel-arrow{color:#f5f2eb}
-body:has(.home-hero) .contact .contact-reach{color:#314f5e}
-body:has(.home-hero) .contact .contact-reach p{color:#536b77}
-body:has(.home-hero) .contact .contact-links a,body:has(.home-hero) .contact .contact-links button{color:#315a73;border-color:#315a7335;background:transparent}
-body:has(.home-hero) .contact .contact-links a:hover,body:has(.home-hero) .contact .contact-links button:hover{background:#e3ebee;border-color:#315a7380}
-body:has(.home-hero) .contact form{background:#172c37;color:#f5f2eb;border-color:#315a7340;box-shadow:0 14px 35px #172c3712}
+body:has(.hero) .contact{background:#f5f2eb;color:#1c303a;border-top:1px solid #315a7320}
+body:has(.hero) .contact>div>.eyebrow,body:has(.hero) .contact>div>.eyebrow>span{color:#315a73}
+body:has(.hero) .contact>div>h2{color:#1c303a}
+body:has(.hero) .contact>div>h2 em{color:#315a73}
+body:has(.hero) .contact>div>p{color:#4c626c}
+body:has(.hero) .contact .contact-directory,body:has(.hero) .contact .contact-channel{border-color:#315a7330}
+body:has(.hero) .contact .channel-copy strong{color:#1c303a}
+body:has(.hero) .contact .channel-copy small,body:has(.hero) .contact .channel-icon,body:has(.hero) .contact .channel-arrow,body:has(.hero) .contact .reach-icon .tech-icon{color:#315a73}
+body:has(.hero) .contact .channel-arrow{border-color:#315a7340}
+body:has(.hero) .contact-channel:hover .channel-arrow{color:#f5f2eb}
+body:has(.hero) .contact .contact-reach{color:#314f5e}
+body:has(.hero) .contact .contact-reach p{color:#536b77}
+body:has(.hero) .contact .contact-links a,body:has(.hero) .contact .contact-links button{color:#315a73;border-color:#315a7335;background:transparent}
+body:has(.hero) .contact .contact-links a:hover,body:has(.hero) .contact .contact-links button:hover{background:#e3ebee;border-color:#315a7380}
+body:has(.hero) .contact form{background:#172c37;color:#f5f2eb;border-color:#315a7340;box-shadow:0 14px 35px #172c3712}
 
 /* Professional experience: a quiet, compact signature wall. */
 body:has(.home-hero) .experience-gallery{padding-top:64px;padding-bottom:58px}
@@ -739,10 +739,10 @@ body:has(.home-hero) .experience-gallery .section-note{font-size:14px;line-heigh
 @media(max-width:760px){.contact form{padding-bottom:25px}.contact .contact-links .contact-whatsapp{font-size:14px}.contact-extra summary{min-height:50px}.contact-extra .form-grid{grid-template-columns:1fr}}
 
 /* Stronger contact composition with restrained brand detail. */
-.contact h2{font-size:clamp(42px,4.8vw,66px);letter-spacing:-.05em;line-height:1.03}.contact h2 em{display:inline-block}.contact-intro .eyebrow:before{content:'';display:block;width:26px;height:2px;background:currentColor}.contact form{position:relative;overflow:hidden;border-radius:20px;border:1px solid #527284;box-shadow:0 25px 60px #0b243322}.contact form:before{content:'';position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#b1d0df,#628ba0 65%,transparent)}body:has(.home-hero) .contact form{background:radial-gradient(ellipse at 100% 0%,#34596a66,transparent 55%),#152d39;box-shadow:0 25px 55px #142c3920}.contact form h3{font-size:clamp(27px,2.5vw,34px);max-width:430px;line-height:1.12}.contact form .button{font-size:14px}.contact .contact-links{display:block}.contact .contact-links .contact-whatsapp{background:#1c3c48;color:#f5f2eb;border:1px solid #426675;padding:19px 20px;box-shadow:0 10px 24px #142c3910}.contact .contact-links .contact-whatsapp:hover{background:#284d5b;color:#fff}.contact-whatsapp .social-icon{color:#b8dace}.contact .contact-networks{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px}.contact-networks>span{font:10px var(--technical);letter-spacing:.12em;color:#547080;margin-right:3px}.contact .contact-networks button{background:transparent;border:0;border-radius:0;border-bottom:1px solid #8ca9b44d;padding:9px 0;margin-right:10px;min-height:44px}.contact .contact-networks button:hover{background:transparent;border-color:currentColor}.contact .channel-arrow{background:#94b7ca0d}.contact .contact-channel:hover{padding-left:0;padding-right:0}.contact .channel-copy small{letter-spacing:.12em}.contact .contact-reach{padding:21px 0}.contact .contact-directory{border-top:1px solid #315a7340}
+.contact h2{font-size:clamp(42px,4.8vw,66px);letter-spacing:-.05em;line-height:1.03}.contact h2 em{display:inline-block}.contact-intro .eyebrow:before{content:'';display:block;width:26px;height:2px;background:currentColor}.contact form{position:relative;overflow:hidden;border-radius:20px;border:1px solid #527284;box-shadow:0 25px 60px #0b243322}.contact form:before{content:'';position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,#b1d0df,#628ba0 65%,transparent)}body:has(.hero) .contact form{background:radial-gradient(ellipse at 100% 0%,#34596a66,transparent 55%),#152d39;box-shadow:0 25px 55px #142c3920}.contact form h3{font-size:clamp(27px,2.5vw,34px);max-width:430px;line-height:1.12}.contact form .button{font-size:14px}.contact .contact-links{display:block}.contact .contact-links .contact-whatsapp{background:#1c3c48;color:#f5f2eb;border:1px solid #426675;padding:19px 20px;box-shadow:0 10px 24px #142c3910}.contact .contact-links .contact-whatsapp:hover{background:#284d5b;color:#fff}.contact-whatsapp .social-icon{color:#b8dace}.contact .contact-networks{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px}.contact-networks>span{font:10px var(--technical);letter-spacing:.12em;color:#547080;margin-right:3px}.contact .contact-networks button{background:transparent;border:0;border-radius:0;border-bottom:1px solid #8ca9b44d;padding:9px 0;margin-right:10px;min-height:44px}.contact .contact-networks button:hover{background:transparent;border-color:currentColor}.contact .channel-arrow{background:#94b7ca0d}.contact .contact-channel:hover{padding-left:0;padding-right:0}.contact .channel-copy small{letter-spacing:.12em}.contact .contact-reach{padding:21px 0}.contact .contact-directory{border-top:1px solid #315a7340}
 @media(max-width:760px){.contact h2{font-size:clamp(40px,11vw,54px)}.contact form{border-radius:16px}.contact form h3{font-size:28px}.contact .contact-links .contact-whatsapp{padding:17px}.contact .contact-networks{gap:14px}.contact .contact-networks button{font-size:13px}.contact-intro .eyebrow:before{width:20px}}
 
-body:has(.home-hero) .contact .contact-links .contact-whatsapp{background:#1c3c48;color:#f5f2eb;border-color:#426675}body:has(.home-hero) .contact .contact-links .contact-whatsapp:hover{background:#284d5b;color:#fff}.contact .contact-extra summary{padding:12px 0;line-height:1.5}.contact .contact-extra summary:after{position:static;transform:none}
+body:has(.hero) .contact .contact-links .contact-whatsapp{background:#1c3c48;color:#f5f2eb;border-color:#426675}body:has(.hero) .contact .contact-links .contact-whatsapp:hover{background:#284d5b;color:#fff}.contact .contact-extra summary{padding:12px 0;line-height:1.5}.contact .contact-extra summary:after{position:static;transform:none}
 
 /* Compact footer with the wordmark as its final focal point. */
 .editorial-footer{padding-top:42px;padding-bottom:28px}.footer-kicker{font-size:10px;letter-spacing:.13em}.footer-up{display:inline-flex;justify-content:center;align-items:center;gap:12px;width:auto;height:44px;padding:0 15px;border-radius:24px;font-size:12px;letter-spacing:0;flex-shrink:0}.footer-up>span:last-child{font-size:22px}.footer-invitation{justify-content:flex-start;gap:25px;padding:24px 0 34px;font-size:clamp(30px,3.4vw,48px);line-height:1.15;letter-spacing:-.045em}.footer-invitation em{white-space:nowrap}.footer-invitation-arrow{font-size:1em;line-height:1}.footer-invitation:hover .footer-invitation-arrow{transform:translate(4px,-4px)}.footer-directory{padding:32px 0 34px;gap:30px}.footer-column{gap:7px}.footer-column h3{font-size:11px;letter-spacing:.11em;margin-bottom:10px}.footer-column a{font-size:14px;line-height:1.6;padding:4px 0}.footer-statement p{font-size:14px;line-height:1.75;margin-top:20px}.footer-direct>a:first-of-type{font-size:19px}.editorial-footer .footer-signature.footer-signature-brand{padding:28px 0;transition:none}.editorial-footer .footer-signature.footer-signature-brand:hover{color:inherit}.editorial-footer .footer-bottom{padding-top:20px;padding-right:64px;font-size:12px;gap:20px}.editorial-footer .studio-credit{font-size:12px;min-height:40px}.footer-wordmark img{animation:none;transform:none}
@@ -755,3 +755,43 @@ body:has(.home-hero) .contact .contact-links .contact-whatsapp{background:#1c3c4
 @media(max-width:760px){.home-hero~.services,.home-method,.home-hero~.about,.home-hero~.blog-home{padding-top:52px;padding-bottom:52px}.home-hero~.experience-gallery,.home-hero~.why{padding-top:50px;padding-bottom:50px}.home-method>.section-heading{margin-bottom:25px}.home-method>.section-note{font-size:13px}.hero-film{display:none}}
 @media(prefers-reduced-motion:reduce){.home-hero .hero-film{display:none}.hero-film-toggle{display:none}.service-card .card-image>img,.service-card .card-copy h3,.service-card .card-link>span{transition:none}}
 .home-hero .hero-bottom{z-index:4}.hero-film-toggle{position:relative;z-index:1}
+
+/* Specialty pages: the same cinematic, editorial language as the home. */
+body:has(.detail-hero) .section{padding-top:76px;padding-bottom:76px}
+.detail-hero{min-height:690px;background:#0b1922}
+.detail-hero .hero-content{max-width:1050px;padding-top:48px;padding-bottom:125px}
+.detail-hero h1{font-size:clamp(48px,5.3vw,76px);line-height:1.05;letter-spacing:-.055em;max-width:820px;text-wrap:balance}
+.detail-hero .hero-content>p{max-width:570px;font-size:18px;line-height:1.65}
+.detail-hero .hero-image img{filter:saturate(.75);object-position:68% center}
+.detail-hero:after{background:linear-gradient(90deg,#081620f5,#081620cf 35%,#08162030 78%),linear-gradient(0deg,#08162080,transparent 55%)}
+.detail-hero .breadcrumb{display:inline-flex;align-items:center;min-height:44px;margin-bottom:22px;color:#bed2dc}
+.detail-intro{grid-template-columns:1fr 1.8fr;gap:8%;background:#f5f2eb}
+.detail-intro p{font-size:clamp(19px,1.8vw,25px);line-height:1.65;max-width:800px}
+body:has(.detail-hero) .problems{background:radial-gradient(ellipse at 0% 0%,#294e6040,transparent 60%),#101d25;color:#f5f2eb}
+.problems .section-heading p,.problems .problem-grid p{color:#bfd0d9;font-size:15px;line-height:1.8}
+.problems .eyebrow,.problems .pullquote{color:#a8c9da}
+.problems .problem-grid{gap:0 36px}
+.problems .problem-grid article{border-color:#8dacba40;padding:28px 0;transition:border-color .3s}
+.problems .problem-grid article:hover{padding:28px 0;background:transparent;border-color:#a8c9da}
+.problems .problem-grid h3{font-size:24px;line-height:1.25;max-width:340px}
+.problems .pullquote{font-family:var(--serif);font-style:italic;font-size:clamp(25px,2.6vw,36px);max-width:850px;line-height:1.4;margin-top:32px}
+body:has(.detail-hero) .what{background:#f5f2eb}
+.what .sequence{gap:24px}
+.what .sequence figure{overflow:hidden;border:1px solid #315a7320;border-radius:13px;background:#e5edf0;box-shadow:0 10px 24px #10293609}
+.what .sequence img{display:block;border-radius:0;aspect-ratio:1.5;filter:saturate(.85);transition:filter .5s}
+.what .sequence figure:hover img{transform:none;filter:saturate(1)}
+.what .sequence figcaption{margin:0;padding:20px 22px;border:0;font-size:16px;line-height:1.5;color:#234351}
+body:has(.detail-hero) .method-editorial{background:#f5f2eb;color:#182b34;border-top:1px solid #315a7320}
+body:has(.detail-hero) .method-editorial .section-heading>p,body:has(.detail-hero) .method-editorial>.section-note{color:#526d7b}
+body:has(.detail-hero) .method-composition{box-shadow:0 18px 42px #112a3915}
+body:has(.detail-hero) .experience{background:#e2ebee}
+body:has(.detail-hero) .faq{background:#f5f2eb}
+body:has(.detail-hero) .closing-editorial{min-height:480px;padding:70px 6%;text-align:left}
+body:has(.detail-hero) .closing-content{max-width:850px;margin:0}
+body:has(.detail-hero) .closing h2{font-size:clamp(38px,4.2vw,60px);line-height:1.1;max-width:850px;text-wrap:balance}
+body:has(.detail-hero) .closing p{max-width:590px;font-size:16px;line-height:1.75}
+@media(min-width:1000px){.faq-intro{position:sticky;top:125px;align-self:start}}
+@media(max-width:760px){body:has(.detail-hero) .section{padding-top:52px;padding-bottom:52px}.detail-hero{min-height:780px}.detail-hero .hero-content{padding-top:25px;padding-bottom:145px}.detail-hero h1{font-size:clamp(39px,10vw,58px);overflow-wrap:normal;hyphens:auto}.detail-hero .hero-content>p{font-size:16px;line-height:1.7}.detail-hero:after{background:linear-gradient(180deg,#081620 0%,#081620f2 30%,#08162090 64%,#08162030 80%,#081620b0)}.detail-intro{grid-template-columns:1fr;gap:0}.detail-intro p{font-size:19px}.problems .problem-grid{grid-template-columns:1fr}.problems .problem-grid article,.problems .problem-grid article:hover{padding:24px 0}.what .sequence{gap:22px}.what .sequence figcaption{padding:17px 20px;font-size:15px}body:has(.detail-hero) .closing-editorial{min-height:0;padding:52px 6%}body:has(.detail-hero) .closing h2{font-size:clamp(33px,8.7vw,44px)}body:has(.detail-hero) .closing p{font-size:15px}.detail-hero .hero-bottom{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.what .sequence img,.problems .problem-grid article{transition:none}}
+
+.services-toggle[data-active="true"]{background:#b8d4df12;box-shadow:inset 0 -1px #abcbd680;color:#d6e9f0;border-radius:12px}
