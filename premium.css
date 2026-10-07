@@ -678,3 +678,25 @@ body:has(.home-hero) .experience-gallery .section-note{font-size:14px;line-heigh
 @media(max-width:1100px){.method-stages{padding:18px 24px}.method-stage{padding-left:15px}.method-gallery{min-height:460px}.method-stage h3{font-size:22px}.method-copy{padding-right:0}.method-copy p{font-size:14px}}
 @media(max-width:760px){.method-editorial>.section-heading{display:block;margin-bottom:25px}.method-editorial>.section-heading>p{max-width:440px;margin-top:14px}.method-composition{grid-template-columns:1fr;border-radius:14px}.method-gallery{min-height:0;aspect-ratio:1.5}.method-stages{padding:8px 20px 12px}.method-stage h3{font-size:21px}.method-stage button{padding:20px 0;min-height:67px}.method-copy{padding-bottom:22px}.method-copy p{font-size:14px}.method-stage:before{top:20px;bottom:22px}.method-editorial .section-note{margin-top:20px;padding-right:25px}}
 @media(prefers-reduced-motion:reduce){.method-stage button:after{transition:none;transform:none!important}}
+
+/* Cinematic method: photograph and narrative share one continuous surface. */
+.method-composition{position:relative;isolation:isolate;grid-template-columns:1.05fr 1fr;min-height:510px;border:1px solid #acc7d32a;background:#0b1821;border-radius:18px;box-shadow:0 20px 45px #10233118;overflow:hidden}
+.method-gallery{position:absolute;inset:0 auto 0 0;width:65%;height:100%;min-height:0;z-index:-2;background:#0b1821}
+.method-gallery .method-photo{object-position:42% center;transition:opacity .55s ease,transform .9s cubic-bezier(.2,.7,.2,1);transform:scale(1.025)}
+.method-gallery .method-photo.is-active{transform:scale(1)}
+.method-composition:before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,transparent 24%,#0b182112 38%,#0b1821d9 54%,#0b1821 67%),linear-gradient(0deg,#07131c55,transparent 30%)}
+.method-stages{grid-column:2;background:none;padding:34px 34px 34px 10px;min-height:510px;justify-content:center}
+.method-stage{border-top:1px solid #b5d2dc26;padding-left:22px}
+.method-stage:before{background:#a9ccdb;top:26px;bottom:26px;box-shadow:0 0 15px #96d0e740}
+.method-stage h3{font-size:22px;letter-spacing:-.035em}
+.method-stage button{color:#b4c6cf;padding:23px 0;min-height:73px;transition:color .25s}
+.method-stage button:after{content:'↗';font-size:19px;color:#91b6c8}
+.method-stage.is-active button{color:#f5f2eb;font-size:clamp(26px,2.35vw,35px);line-height:1.15;padding-bottom:18px}
+.method-stage.is-active button:after{content:'•';font-size:15px;color:#badbe8}
+.method-copy{padding:0 20px 27px 0}
+.method-copy p{font-size:15px;line-height:1.85;color:#c0d0d8}
+.method-stage button:focus-visible{outline-color:#a4cddd}
+@media(hover:hover){.method-stage:not(.is-active) button:hover{color:#fff}.method-stage:not(.is-active) button:hover:after{transform:translate(2px,-2px)}}
+@media(max-width:1100px){.method-composition{grid-template-columns:.85fr 1fr}.method-stages{padding:24px 26px 24px 0;min-height:490px}.method-stage{padding-left:18px}.method-stage h3{font-size:20px}.method-stage.is-active button{font-size:27px}.method-copy p{font-size:14px}.method-gallery{width:67%}.method-composition:before{background:linear-gradient(90deg,transparent 15%,#0b18213b 33%,#0b1821f5 53%,#0b1821 69%)}}
+@media(max-width:760px){.method-composition{display:flex;flex-direction:column;min-height:0}.method-gallery{position:relative;inset:auto;z-index:auto;width:100%;height:auto;aspect-ratio:1.65}.method-gallery:after{content:'';position:absolute;inset:auto 0 0;height:65px;background:linear-gradient(transparent,#0b1821);pointer-events:none}.method-composition:before{display:none}.method-stages{min-height:0;padding:0 22px 15px;background:#0b1821}.method-stage button{min-height:65px;padding:20px 0}.method-stage.is-active button{font-size:26px}.method-stage h3{font-size:20px}.method-stage:before{top:21px;bottom:22px}.method-copy{padding:0 4px 23px 0}.method-copy p{font-size:14px}.method-gallery .method-photo{object-position:center}}
+@media(prefers-reduced-motion:reduce){.method-gallery .method-photo{transform:none;transition:none}}
