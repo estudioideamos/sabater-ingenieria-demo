@@ -17,7 +17,7 @@
     if(pointerHeld||reduced.matches||!desktop.matches||locked()||Math.abs(scrollY-lastWritten)>.5){stop();return;}
     const dt=Math.min(64,now-lastTime);lastTime=now;
     target=Math.max(0,Math.min(target,document.documentElement.scrollHeight-innerHeight));
-    current+=(target-current)*(1-Math.exp(-dt/200));
+    current+=(target-current)*(1-Math.exp(-dt/240));
     const done=Math.abs(target-current)<.5;
     if(done)current=target;
     scrollTo({top:current,left:scrollX,behavior:'instant'});lastWritten=scrollY;
@@ -25,12 +25,12 @@
     if(done)direction=0;
   }
   addEventListener('wheel',event=>{
-    const precise=event.deltaMode===0&&(Math.abs(event.deltaY)<50||event.deltaY%1!==0||event.deltaX!==0);
-    if(pointerHeld||precise||!event.cancelable||event.defaultPrevented||reduced.matches||!desktop.matches||event.ctrlKey||event.metaKey||event.shiftKey||Math.abs(event.deltaX)>Math.abs(event.deltaY)||!event.deltaY||locked()||nativeTarget(event)){stop();return;}
-    const delta=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?innerHeight:1)*.78;
+    // Small vertical deltas also come from physical wheels; never bypass easing by magnitude.
+    if(pointerHeld||!event.cancelable||event.defaultPrevented||reduced.matches||!desktop.matches||event.ctrlKey||event.metaKey||event.shiftKey||Math.abs(event.deltaX)>Math.abs(event.deltaY)||!event.deltaY||locked()||nativeTarget(event)){stop();return;}
+    const delta=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?innerHeight:1)*.55;
     const nextDirection=Math.sign(delta);
     if(!frame||Math.abs(scrollY-lastWritten)>.5||nextDirection!==direction){target=current=scrollY;}
-    target=Math.max(0,Math.min(target+delta,document.documentElement.scrollHeight-innerHeight));
+    target=Math.max(0,Math.min(current+Math.max(-480,Math.min(480,target-current+delta)),document.documentElement.scrollHeight-innerHeight));
     if(!frame&&Math.abs(target-scrollY)<.5)return;
     event.preventDefault();direction=nextDirection;
     if(!frame){lastTime=performance.now();lastWritten=scrollY;frame=requestAnimationFrame(tick);}
