@@ -25,3 +25,32 @@
 @media(min-width:761px){.lab-stage{height:clamp(420px,67svh,520px)}}
 
 .lab-detail{position:absolute;z-index:4;right:6%;top:55px;display:flex;align-items:center;gap:18px;min-height:44px;padding:8px 16px;border:1px solid #acc7d34d;border-radius:24px;background:#10212ae6;color:#dbe8ee;font-size:12px;cursor:pointer}.lab-detail:hover,.lab-detail[aria-pressed="true"]{background:#dbe8ee;color:#10212a}.lab-detail span{font-size:19px}.lab-stage[data-detail="true"] .lab-annotations{opacity:0}@media(max-width:760px){.lab-detail{right:5%;top:8px;min-height:40px;padding:6px 12px;font-size:11px;gap:8px}.lab-detail span{font-size:16px}}
+
+/* Clear stage, perimeter callouts and a dedicated control deck. */
+.vibration-lab{padding-top:64px;background:#09141c}
+.lab-heading{grid-template-columns:1.3fr 1fr;align-items:center;gap:8%}
+.lab-heading h2{font-size:clamp(44px,4.5vw,66px);line-height:1.02}
+.lab-heading .eyebrow{margin-bottom:18px}
+.lab-heading-copy{padding-left:24px}.lab-heading-copy strong{font-size:21px}.lab-heading-copy p{max-width:430px}
+.lab-stage{height:clamp(370px,48vw,440px);margin-top:24px;background:#09141c}
+.lab-viewport,.lab-fallback,.lab-annotations{inset:0}
+.lab-leaders{position:absolute;width:100%;height:100%;overflow:visible}.lab-leaders line{stroke:#9dbdcd;stroke-width:1;opacity:.42}
+.lab-annotations>span{background:#0d1e27e8;border:1px solid #b6d5e52b;padding:10px 14px;border-radius:5px;box-shadow:none}
+.lab-annotations b{margin:0;font-size:12px}.lab-annotations>span:after{display:none}
+.lab-toolbar{margin:0 6%;padding:20px 0;display:flex;justify-content:space-between;gap:22px;align-items:center;border-top:1px solid #adc5d02b}
+.lab-toolbar .lab-modes{flex:1;max-width:660px;gap:5px;padding:5px;border:1px solid #a6c5d027;background:#132630;border-radius:12px;align-items:stretch}
+.lab-toolbar .lab-modes button{min-height:52px;text-align:center;padding:12px 14px;border:0;border-radius:7px;font-size:13px}
+.lab-view-tools{display:flex;align-items:center;gap:20px}.lab-toolbar .lab-orbit,.lab-toolbar .lab-detail{position:static;flex-shrink:0}
+.lab-toolbar .lab-orbit span{display:none}.lab-toolbar .lab-orbit{gap:6px}.lab-toolbar .lab-detail{background:transparent;padding:8px 13px;gap:8px}
+.lab-console{background:#0f202a;padding:26px 6%}.lab-explanation{grid-template-columns:1fr 1.6fr;gap:8%}.lab-explanation h3{font-size:25px}
+.vibration-lab>.lab-spectrum{position:relative;right:auto;bottom:auto;width:auto;padding:15px 6%;display:flex;align-items:center;gap:24px;background:#0f202a}
+.lab-spectrum svg{width:185px;height:28px;margin:0}.lab-spectrum small{margin-left:auto}.lab-spectrum>span{font-size:12px}
+.vibration-lab:has(.lab-stage[data-mode="1"]) .lab-spectrum path{transform:scaleY(.22);stroke:#9ad0dd}
+.vibration-lab:has(.lab-stage[data-mode="2"])>.lab-spectrum{display:none}
+.lab-footnote{background:#0f202a}
+@media(max-width:1050px){.lab-view-tools{gap:10px}.lab-toolbar .lab-modes button{padding:10px 8px}.lab-toolbar{gap:12px}.lab-toolbar .lab-orbit button{width:40px;height:40px}}
+@media(max-width:760px){
+.vibration-lab{padding-top:42px}.lab-heading{display:block}.lab-heading h2{font-size:clamp(42px,11vw,62px)}.lab-heading-copy{margin-top:24px}.lab-heading-copy strong{font-size:19px}.lab-stage{height:340px;margin-top:18px}
+.lab-toolbar{margin:0 5%;flex-direction:column;align-items:stretch;padding:14px 0;gap:14px}.lab-toolbar .lab-modes{width:100%;max-width:none;box-sizing:border-box}.lab-toolbar .lab-modes button{min-height:60px;font-size:12px;padding:10px 6px}.lab-view-tools{justify-content:space-between}.lab-toolbar .lab-orbit button{width:44px;height:44px}.lab-toolbar .lab-detail{min-height:44px;font-size:12px}
+.lab-explanation{display:block}.lab-explanation h3{margin-bottom:12px}.lab-explanation p{min-height:0}.vibration-lab>.lab-spectrum{flex-wrap:wrap;gap:8px 16px;padding:16px 6%}.lab-spectrum svg{width:130px}.lab-spectrum small{margin:0;width:100%;font-size:11px}.lab-footnote{padding-right:22%}
+}

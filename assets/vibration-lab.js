@@ -11,14 +11,14 @@ if(root){
  const host=root.querySelector('.lab-viewport'),stage=root.querySelector('.lab-stage');
  const renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:innerWidth>760?'high-performance':'low-power'});renderer.setPixelRatio(Math.min(devicePixelRatio,innerWidth>760?1.75:1.25));renderer.shadowMap.enabled=true;renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;renderer.shadowMap.type=T.VSMShadowMap;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;host.append(renderer.domElement);
  let composer=null,expensiveFrames=0;
- const scene=new T.Scene(),camera=new T.PerspectiveCamera(34,1,.1,80);scene.background=new T.Color(0x09141c);scene.fog=new T.Fog(0x09141c,10,26);
+ const scene=new T.Scene(),camera=new T.PerspectiveCamera(34,1,.1,80);scene.background=new T.Color(0x09141c);scene.fog=new T.Fog(0x09141c,7,19);
  // Large softbox panels create real reflections on the machined metal surfaces.
  const envScene=new T.Scene();envScene.background=new T.Color(0x34434c);
  for(const [x,y,z,w,h,c] of [[0,6,1,6,1.8,0xffffff],[-4,2,3,1.3,5,0xc2ddf1],[3,2,-4,1.1,5,0xffffff],[4,1,3,.5,3,0xf2dac5]]){const p=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color:c,side:T.DoubleSide}));p.position.set(x,y,z);p.lookAt(0,1,0);envScene.add(p);}
- const pmrem=new T.PMREMGenerator(renderer),env=pmrem.fromScene(envScene,.05);scene.environment=env.texture;scene.environmentIntensity=1.25;pmrem.dispose();
+ const pmrem=new T.PMREMGenerator(renderer),env=pmrem.fromScene(envScene,.05);scene.environment=env.texture;scene.environmentIntensity=.85;pmrem.dispose();
  scene.add(new T.HemisphereLight(0xd9edf8,0x0d1720,.45));
  const key=new T.DirectionalLight(0xf4f6f7,1.5);key.position.set(-3,5,6);key.castShadow=true;key.shadow.mapSize.set(innerWidth>760?2048:1024,innerWidth>760?2048:1024);key.shadow.normalBias=.025;key.shadow.radius=5;key.shadow.blurSamples=8;Object.assign(key.shadow.camera,{left:-6,right:6,top:6,bottom:-6});key.shadow.bias=-.001;scene.add(key);
- const rim=new T.DirectionalLight(0xc9e6f3,2.8);rim.position.set(2,3,-5);scene.add(rim);const warm=new T.PointLight(0xf2d4b6,5,15);warm.position.set(5,3,2);scene.add(warm);const fill=new T.DirectionalLight(0xb8d1df,1.1);fill.position.set(0,3,6);scene.add(fill);
+ const rim=new T.DirectionalLight(0xc9e6f3,1.5);rim.position.set(2,3,-5);scene.add(rim);const warm=new T.PointLight(0xf2d4b6,5,15);warm.position.set(5,3,2);scene.add(warm);const fill=new T.DirectionalLight(0xb8d1df,1.1);fill.position.set(0,3,6);scene.add(fill);
  const steel=new T.MeshStandardMaterial({color:0xb0b5b6,metalness:.94,roughness:.28}),paint=new T.MeshStandardMaterial({color:0x34474f,metalness:.2,roughness:.37}),dark=new T.MeshStandardMaterial({color:0x101b24,metalness:.6,roughness:.44}),rubber=new T.MeshStandardMaterial({color:0x10161a,metalness:.05,roughness:.8}),copper=new T.MeshStandardMaterial({color:0xb78a60,metalness:.85,roughness:.26}),blue=new T.MeshStandardMaterial({color:0x86cbdc,metalness:.55,roughness:.22,emissive:0x416a7b,emissiveIntensity:.4});
  // Subtle procedural cast-metal grain; no downloaded texture or enlarged image.
  const grainCanvas=document.createElement('canvas');grainCanvas.width=128;grainCanvas.height=128;const gc=grainCanvas.getContext('2d'),gd=gc.createImageData(128,128);let seed=17;for(let i=0;i<gd.data.length;i+=4){seed=(seed*16807)%2147483647;const n=105+seed%45;gd.data[i]=gd.data[i+1]=gd.data[i+2]=n;gd.data[i+3]=255;}gc.putImageData(gd,0,0);const grain=new T.CanvasTexture(grainCanvas);grain.wrapS=grain.wrapT=T.RepeatWrapping;grain.repeat.set(6,6);paint.bumpMap=grain;paint.bumpScale=.018;paint.roughnessMap=grain;paint.roughness=.85;
@@ -27,7 +27,7 @@ if(root){
  refineFinishes(T,{steel,paint,rubber});
  paint.color.set(0x20333f);paint.metalness=.3;paint.roughness=.48;paint.bumpScale=.007;
  steel.color.set(0xd1d7da);steel.roughness=.38;
- const machined=steel.clone();machined.roughness=.21;machined.envMapIntensity=1.3;
+ const machined=steel.clone();machined.roughness=.32;machined.envMapIntensity=.9;
 
  const concreteCanvas=document.createElement('canvas');concreteCanvas.width=256;concreteCanvas.height=256;const cc=concreteCanvas.getContext('2d'),cd=cc.createImageData(256,256);for(let i=0;i<cd.data.length;i+=4){seed=(seed*16807)%2147483647;const v=88+seed%62;cd.data[i]=v;cd.data[i+1]=v+5;cd.data[i+2]=v+9;cd.data[i+3]=255;}cc.putImageData(cd,0,0);for(let i=0;i<180;i++){seed=(seed*16807)%2147483647;cc.fillStyle='rgba(35,45,50,.25)';cc.beginPath();cc.arc(seed%256,(seed>>8)%256,.3+(seed%9)/10,0,Math.PI*2);cc.fill();}const concreteMap=new T.CanvasTexture(concreteCanvas);concreteMap.wrapS=concreteMap.wrapT=T.RepeatWrapping;concreteMap.repeat.set(3,2);concreteMap.colorSpace=T.SRGBColorSpace;const concrete=new T.MeshStandardMaterial({color:0x899299,map:concreteMap,bumpMap:concreteMap,bumpScale:.025,roughness:.93,metalness:.02});
  function mesh(geo,mat,parent,x=0,y=0,z=0){const m=new T.Mesh(geo,mat);m.position.set(x,y,z);m.castShadow=true;m.receiveShadow=true;parent.add(m);return m;}
@@ -50,7 +50,7 @@ if(root){
  for(const x of [-2.27,2.27])for(const z of [-1.1,1.1]){cyl(.095,.022,steel,foundation,x,.143,z,'y');cyl(.056,.065,steel,foundation,x,.176,z,'y',6);}
  const {motor,rotor,articulate}=createIndustrialMotor(T,{paint,steel,dark,rubber,copper});assembly.add(motor);
  const shadowCanvas=document.createElement('canvas');shadowCanvas.width=128;shadowCanvas.height=128;const sc=shadowCanvas.getContext('2d'),sg=sc.createRadialGradient(64,64,15,64,64,64);sg.addColorStop(0,'rgba(0,0,0,.65)');sg.addColorStop(.5,'rgba(0,0,0,.3)');sg.addColorStop(1,'rgba(0,0,0,0)');sc.fillStyle=sg;sc.fillRect(0,0,128,128);const contactShadow=mesh(new T.PlaneGeometry(8,5),new T.MeshBasicMaterial({map:new T.CanvasTexture(shadowCanvas),transparent:true,depthWrite:false}),scene,0,-.087,0);contactShadow.rotation.x=-Math.PI/2;contactShadow.castShadow=false;
- const floor=mesh(new T.PlaneGeometry(200,200),new T.MeshStandardMaterial({color:0x0c161d,roughness:.68,metalness:.1}),scene,0,-.1,0);floor.rotation.x=-Math.PI/2;
+ const floor=mesh(new T.PlaneGeometry(200,200),new T.MeshStandardMaterial({color:0x0c161d,roughness:1,metalness:0}),scene,0,-.1,0);floor.rotation.x=-Math.PI/2;
  const waves=[];for(let i=0;i<5;i++){const m=mesh(new T.RingGeometry(.99,1.007,100),new T.MeshBasicMaterial({color:0xc9956c,transparent:true,opacity:.2,side:T.DoubleSide,depthWrite:false}),scene,0,-.06,0);m.rotation.x=-Math.PI/2;waves.push(m);}
  const grid=new T.GridHelper(16,32,0x335366,0x203645);grid.position.y=-.08;grid.material.transparent=true;grid.material.opacity=.055;scene.add(grid);
  let detail=0,targetDetail=0;
@@ -58,17 +58,19 @@ if(root){
  const labels=[...root.querySelectorAll('[data-anchor]')],v=new T.Vector3();
  function size(){const w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h,false);composer?.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();refresh();}
  function render(dt=0){const priorExplode=explode;time+=dt;const smooth=1-Math.exp(-dt*6);yaw+=(targetYaw-yaw)*(dt?smooth:1);pitch+=(targetPitch-pitch)*(dt?smooth:1);explode+=((mode===2?1:0)-explode)*(reduced.matches?1:smooth);isolate+=((mode===1?1:0)-isolate)*(reduced.matches?1:smooth);
- detail+=(targetDetail-detail)*(reduced.matches?1:smooth);const radius=((host.clientWidth<700?9.4:7.2)+explode*2.4)*(1-detail*.25);camera.position.set(Math.sin(yaw)*radius,1.55+Math.sin(pitch)*radius,Math.cos(yaw)*radius);camera.lookAt(.25+explode*.25+detail*.15,1.45+explode*.7+detail*.58,0);camera.updateMatrixWorld();
+ detail+=(targetDetail-detail)*(reduced.matches?1:smooth);const radius=((host.clientWidth<700?10.8:8.6)+explode*2.4)*(1-detail*.25);camera.position.set(Math.sin(yaw)*radius,1.55+Math.sin(pitch)*radius,Math.cos(yaw)*radius);camera.lookAt(.25+explode*.25+detail*.15,1.28+explode*.7+detail*.58,0);camera.updateMatrixWorld();
  articulate(explode);motor.position.y=1.02+explode*1.35;bed.position.y=explode*.5;mounts.position.y=explode*.2;
- if(!reduced.matches){motor.position.x=Math.sin(time*32)*.009*(1-explode);rotor.rotation.x=time*2.5;foundation.position.y=Math.sin(time*32)*.008*(1-isolate*.86)*(1-explode);}else{motor.position.x=0;foundation.position.y=0;}
+ if(!reduced.matches){motor.position.x=Math.sin(time*32)*.009*(1-explode);rotor.rotation.x=time*2.5;foundation.position.y=Math.sin(time*32)*.016*(1-isolate*.9)*(1-explode);}else{motor.position.x=0;foundation.position.y=0;}
  rigidMounts.forEach(m=>m.visible=mode===0);mounts.children.forEach(m=>{if(m.geometry.type==='TubeGeometry'){m.material=steel;m.visible=mode>0;}});
  waves.forEach((m,i)=>{const f=((time*.22+i/5)%1);m.scale.setScalar(1+f*4);m.material.opacity=(1-f)*.1*(1-isolate*.85)*(1-explode);m.material.color.set(isolate>.5?0x92cddd:0xc9956c);});
  const anchors=[[-.4,3.25+explode*1.35,0],[1.7,.95+explode*.2,1],[-2.6,.3,1.3]];
- const W=host.clientWidth,H=host.clientHeight,placed=[];
- anchors.forEach((a,i)=>{v.set(...a).project(camera);const label=labels[i],w=label.offsetWidth,h=label.offsetHeight,ax=(v.x*.5+.5)*W,ay=(-v.y*.5+.5)*H;
- let x=Math.max(w/2+12,Math.min(W-w/2-12,ax+(i===1?48:i===2?-48:0))),y=Math.max(h+40,Math.min(H-10,ay));
- for(let attempt=0;attempt<8;attempt++){const hit=placed.find(p=>Math.abs(x-p.x)<(w+p.w)/2+12&&Math.abs((y-h/2)-(p.y-p.h/2))<(h+p.h)/2+12);if(!hit)break;y=hit.y+ h+12;if(y>H-10)y=hit.y-hit.h-12;}
- placed.push({x,y,w,h});label.style.left=`${x}px`;label.style.top=`${y}px`;
+ const W=host.clientWidth,H=host.clientHeight;
+ const positions=[[.19,.27],[.81,.58],[.19,.79]],lines=root.querySelectorAll('.lab-leaders line');
+ anchors.forEach((a,i)=>{v.set(...a).project(camera);const label=labels[i],line=lines[i],show=mode===2||(mode===0?i!==1:i!==0);
+ label.hidden=!show;line.style.display=show?'':'none';
+ const x=W*positions[i][0],y=H*positions[i][1];label.style.left=`${x}px`;label.style.top=`${y}px`;
+ line.setAttribute('x1',x+(i===1?-1:1)*label.offsetWidth/2);line.setAttribute('y1',y-label.offsetHeight/2);
+ line.setAttribute('x2',(v.x*.5+.5)*W);line.setAttribute('y2',(-v.y*.5+.5)*H);
  });
  if((Math.abs(explode-priorExplode)>.0005&&time-lastShadow>.12)||stage.dataset.renderedMode!==String(mode)){renderer.shadowMap.needsUpdate=true;lastShadow=time;}if(composer){const started=performance.now();composer.render();if(!reduced.matches&&performance.now()-started>50)expensiveFrames++;else expensiveFrames=Math.max(0,expensiveFrames-1);if(expensiveFrames>=8){for(const pass of composer.passes)pass.dispose?.();composer.dispose();composer=null;root.dataset.contactShading='basic';}}else renderer.render(scene,camera);stage.dataset.renderedMode=String(mode);
  }
