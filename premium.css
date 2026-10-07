@@ -944,3 +944,14 @@ body:has(.detail-hero) .method-copy .method-result{border-top:1px solid #a6c9da2
   .problems .problem-grid article h3{margin:0}
  }
 }
+
+/* One visible method step, with an explicit active state and a quiet image blend. */
+body:has(.detail-hero) .method-stages{justify-content:flex-start;padding:32px 34px}
+body:has(.detail-hero) .method-stage:before{display:block;left:-15px;top:20px;bottom:24px;width:2px;background:#a8cedf;opacity:0}
+body:has(.detail-hero) .method-stage.is-active:before{opacity:1}
+body:has(.detail-hero) .method-stage.is-active button{color:#f5f2eb;cursor:default}
+body:has(.detail-hero) .method-stage.is-active .method-number{color:#badfed}
+body:has(.detail-hero) .method-gallery:after{background:linear-gradient(90deg,transparent 78%,#0b1821 100%)}
+body:has(.detail-hero) .method-gallery .method-photo[src*="industrial-medir"]{object-position:60% center}
+@media(max-width:1000px){body:has(.detail-hero) .method-stages{padding:26px 24px}body:has(.detail-hero) .method-stage:before{left:-12px}}
+@media(max-width:760px){body:has(.detail-hero) .method-stages{padding:12px 22px 20px}body:has(.detail-hero) .method-gallery:after{background:linear-gradient(180deg,transparent 75%,#0b1821 100%)}body:has(.detail-hero) .method-gallery .method-photo[src*="industrial-medir"]{object-position:center}}
