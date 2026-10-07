@@ -14,3 +14,29 @@
  if('IntersectionObserver'in window)new IntersectionObserver(entries=>{section.classList.toggle('in-view',entries[0].isIntersecting&&!document.hidden);},{threshold:.1}).observe(section);
  document.addEventListener('visibilitychange',()=>{if(document.hidden)section.classList.remove('in-view');else{const rect=section.getBoundingClientRect();section.classList.toggle('in-view',rect.bottom>0&&rect.top<innerHeight);}});
 })();
+
+// Animate native disclosures in both directions, retaining keyboard and no-JS behavior.
+(()=>{
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ document.querySelectorAll('.faq details,.footer-fold,.contact-extra,.lab-view-controls').forEach(details=>{
+  const summary=details.querySelector(':scope > summary');if(!summary||!details.animate)return;
+  let animation=null,desired=details.open;
+  const clear=()=>{details.style.removeProperty('height');details.style.removeProperty('overflow');};
+  function settle(){if(!animation)return;const current=animation;animation=null;current.cancel();details.open=desired;clear();}
+  summary.addEventListener('click',event=>{
+   if(event.defaultPrevented||reduced.matches||(details.classList.contains('footer-fold')&&innerWidth>760))return;
+   event.preventDefault();
+   if(!animation)desired=details.open;
+   desired=!desired;
+   const start=details.getBoundingClientRect().height;
+   animation?.cancel();animation=null;clear();
+   details.open=desired;const end=details.getBoundingClientRect().height;details.open=true;
+   details.style.height=start+'px';details.style.overflow='hidden';
+   const next=details.animate([{height:start+'px'},{height:end+'px'}],{duration:280,easing:'cubic-bezier(.22,.7,.2,1)',fill:'both'});
+   animation=next;
+   next.finished.then(()=>{if(animation!==next)return;animation=null;details.open=desired;clear();next.cancel();}).catch(()=>{});
+  });
+  reduced.addEventListener('change',settle);
+  addEventListener('resize',()=>{if(!animation)return;animation.cancel();animation=null;clear();desired=details.open;},{passive:true});
+ });
+})();

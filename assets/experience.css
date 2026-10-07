@@ -53,3 +53,20 @@
 
 /* Realistic render with a lightweight interactive vector overlay. */
 .plant-render{display:block;width:100%;height:auto}.plant-overlay{position:absolute;inset:0;width:100%;height:100%;margin:0;pointer-events:none}.diagnostic-illustration{margin-top:12px;isolation:isolate}.plant-route{filter:drop-shadow(0 1px 2px #07131c);stroke:#e4f2f4}.plant-waves{filter:drop-shadow(0 1px 2px #07131c)}.diagnostic-hotspots button{background:#0a202de8;box-shadow:0 3px 14px #0005}.diagnostic-hotspots button[aria-pressed=true]{background:#e0edf1}.diagnostic-map{background:#0c1c27}
+
+/* A consistent edge highlight and tactile response across interactive surfaces. */
+:where(.service-card,.scope-card,.contact-channel,.footer-fold summary,.faq summary,.method-stage button,.client-carousel-controls button){transition:background-color .22s,border-color .22s,box-shadow .22s,color .22s}
+@media(hover:hover) and (pointer:fine){
+ .service-card:hover{box-shadow:inset 0 0 0 1px #8fb4c766,0 16px 38px #13293612}
+ .faq summary:hover,.footer-fold summary:hover{background-color:#8db6c310}
+ .method-stage button:hover{color:#e9f5f7;box-shadow:inset 2px 0 #a9cbd96b}
+ .home-method .method-stage button:hover{color:#254f62}
+ .contact-channel:hover{box-shadow:inset 0 0 0 1px #87b3c633}
+}
+@media(hover:none){
+ .service-card:active,.contact-channel:active,.footer-fold-links a:active{background-color:#8eb6c321;box-shadow:inset 0 0 0 1px #a5cbd54d}
+ .faq summary:active,.footer-fold summary:active,.method-stage button:active{background-color:#8eb6c329}
+ .client-carousel-controls button:active,.diagnostic-hotspots button:active{box-shadow:0 0 0 6px #a6d1df30}
+ .footer-direct a:active,.text-link:active{opacity:.75}
+}
+@media(prefers-reduced-motion:reduce){:where(.service-card,.scope-card,.contact-channel,.footer-fold summary,.faq summary,.method-stage button,.client-carousel-controls button){transition:none}}
