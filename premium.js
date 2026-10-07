@@ -8,7 +8,7 @@
  const about=document.querySelector('.about');
  const closing=document.querySelector('.closing');
  let observer,frame=0;
- const revealTargets=[...document.querySelectorAll('.intro h2,.intro-text,.section-heading,.service-card,.why h2,.why-grid article,.steps article,.about-layout,.logos figure,.knowledge-grid a,.sequence figure,.faq-layout,.closing h2,.closing p,.contact>div,.contact form,.footer-signature')];
+ const revealTargets=[...document.querySelectorAll('.intro h2,.intro-text,.section-heading,.service-card,.why h2,.why-grid article,.steps article,.about-layout,.service-gallery .logos figure,.home-hero~.experience-gallery .logos,.knowledge-grid a,.sequence figure,.faq-layout,.closing h2,.closing p,.contact>div,.contact form,.footer-signature')];
  function revealAll(){revealTargets.forEach(el=>{el.classList.remove('awaiting');el.classList.add('is-visible');});}
  function configureMotion(){
   observer?.disconnect();

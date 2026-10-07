@@ -631,3 +631,22 @@ body:has(.home-hero) .experience-gallery .logos .logo-dark-tile .logo-mark img{f
 body:has(.home-hero) .experience-gallery .section-note{font-size:12px;line-height:1.8;margin-top:20px;color:#4b6470;max-width:100%}
 @media(max-width:1000px){body:has(.home-hero) .experience-gallery .logos{grid-template-columns:repeat(4,minmax(0,1fr))}body:has(.home-hero) .experience-gallery>.section-heading{gap:30px}}
 @media(max-width:760px){body:has(.home-hero) .experience-gallery{padding-top:44px;padding-bottom:42px}body:has(.home-hero) .experience-gallery>.section-heading{display:block;margin-bottom:25px}body:has(.home-hero) .experience-gallery .section-heading h2{font-size:clamp(35px,8vw,46px);margin-bottom:20px}body:has(.home-hero) .experience-gallery .section-heading>p{font-size:14px}body:has(.home-hero) .experience-gallery .brand-collection-heading{display:block}body:has(.home-hero) .experience-gallery .brand-collection-heading>span:last-child{display:none}body:has(.home-hero) .experience-gallery .logos{grid-template-columns:repeat(3,minmax(0,1fr))}body:has(.home-hero) .experience-gallery .logos figure{min-height:106px;padding:16px 10px}body:has(.home-hero) .experience-gallery .logo-stage{height:68px}body:has(.home-hero) .experience-gallery .logo-mark{width:min(calc(var(--mark-width)*.8),94%)}}
+
+/* Final balance of the home client marks, without duplicate headings. */
+body:has(.home-hero) #experiencia{scroll-margin-top:8px}
+body:has(.home-hero) .experience-gallery>.section-heading{margin-bottom:28px}
+body:has(.home-hero) .experience-gallery .section-heading strong{color:#263f4c;font-weight:600}
+body:has(.home-hero) .experience-gallery .logos{border-bottom:0}
+body:has(.home-hero) .experience-gallery .logos figure{border-top:0}
+body:has(.home-hero) .experience-gallery .logos figure:nth-child(n+7){border-top:1px solid #315a731d}
+body:has(.home-hero) .experience-gallery .logos .logo-mark img{filter:grayscale(1) contrast(1.35);opacity:.94}
+body:has(.home-hero) .experience-gallery .logos .logo-dark-tile .logo-mark img{filter:brightness(0);opacity:.76}
+body:has(.home-hero) .experience-gallery .logos figure:nth-child(4) .logo-mark{width:79%}
+body:has(.home-hero) .experience-gallery .logos figure:nth-child(5) .logo-mark{width:64%}
+body:has(.home-hero) .experience-gallery .logos figure:nth-child(9) .logo-mark{width:96%}
+body:has(.home-hero) .experience-gallery .logos figure:nth-child(10) .logo-mark{width:98%}
+body:has(.home-hero) .experience-gallery .logos.motion-reveal{transition:opacity .45s ease,translate .45s ease}
+body:has(.home-hero) .experience-gallery .logos.motion-reveal.awaiting{translate:0 8px}
+@media(max-width:1000px){body:has(.home-hero) .experience-gallery .logos figure:nth-child(n+5){border-top:1px solid #315a731d}}
+@media(max-width:760px){body:has(.home-hero) #experiencia{scroll-margin-top:8px}body:has(.home-hero) .experience-gallery .logos figure:nth-child(n+4){border-top:1px solid #315a731d}}
+@media(prefers-reduced-motion:reduce){body:has(.home-hero) .experience-gallery .logos.motion-reveal{transition:none;translate:none}}
