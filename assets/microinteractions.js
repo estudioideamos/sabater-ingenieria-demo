@@ -76,3 +76,9 @@ document.querySelectorAll('.client-carousel').forEach(root=>{
  track.addEventListener('keydown',event=>{if(event.altKey||event.ctrlKey||event.metaKey||event.shiftKey)return;if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();move(event.key==='ArrowRight'?1:-1);}else if(event.key==='Home'||event.key==='End'){event.preventDefault();track.scrollTo({left:event.key==='Home'?0:max(),behavior:reduced.matches?'instant':'smooth'});}});
  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;schedule();},{threshold:.5}).observe(root);new ResizeObserver(sync).observe(track);document.addEventListener('visibilitychange',schedule);reduced.addEventListener('change',sync);sync();
 });
+
+// Footer disclosures collapse only on narrow screens.
+(()=>{const mobile=matchMedia('(max-width:760px)');const folds=[...document.querySelectorAll('.footer-fold')];
+const sync=()=>folds.forEach(f=>{f.open=!mobile.matches;f.querySelector('summary').tabIndex=mobile.matches?0:-1;});
+folds.forEach(f=>f.querySelector('summary').addEventListener('click',e=>{if(!mobile.matches)e.preventDefault();}));
+mobile.addEventListener('change',sync);sync();})();

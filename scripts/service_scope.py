@@ -1,9 +1,9 @@
 from html import escape
 SCOPE={
  'industrial': ('Identificamos las fuentes y los caminos de transmisión del ruido para evaluar alternativas antes de invertir y definir medidas de control técnicamente justificadas.',[
- ('Diagnóstico acústico','Mediciones de ruido y vibraciones para identificar fuentes, niveles y caminos de transmisión.'),
- ('Análisis y modelado','Evaluación del comportamiento acústico y comparación de alternativas de intervención.'),
- ('Diseño de mitigación','Aislamiento, encapsulados, barreras, silenciadores y tratamientos específicos según cada caso.')]),
+ ('Diagnóstico acústico','Caracterización de fuentes, niveles de ruido y caminos de transmisión.'),
+ ('Análisis y modelado','Evaluación acústica y comparación técnica de alternativas de intervención.'),
+ ('Diseño de mitigación','Criterios de control y recomendaciones de aislamiento, barreras o tratamientos según cada caso.')]),
  'arquitectonica': ('Integramos el confort y el aislamiento acústico al diseño, evaluando alternativas antes de ejecutar la obra y ajustando cada solución al uso del espacio.',[
  ('Evaluación del proyecto','Análisis de los usos, la privacidad y las necesidades acústicas de cada ambiente.'),
  ('Modelado acústico','Evaluación de la reverberación, el aislamiento y el comportamiento sonoro del espacio.'),
@@ -13,7 +13,7 @@ SCOPE={
  ('Evaluación técnica y normativa','Análisis de ruidos molestos, impacto acústico y criterios de evaluación según cada caso.'),
  ('Informes y pericias','Documentación para pericias en acústica, inscripciones RAC, evaluaciones de impacto e informes según IRAM 4062.')]),
  'predictivo': ('Analizamos las vibraciones de equipos rotativos para conocer su condición, detectar indicadores tempranos de falla y orientar las decisiones de mantenimiento.',[
- ('Medición de vibraciones','Registro de señales y niveles en condiciones representativas de operación.'),
+ ('Medición de vibraciones','Registro de señales y niveles que sirven como referencia para el seguimiento del equipo.'),
  ('Diagnóstico de condición','Evaluación de espectros, tendencias y posibles anomalías según el tipo de equipo.'),
  ('Criterios de mantenimiento','Recomendaciones para priorizar intervenciones, seguimiento o evaluaciones complementarias.')])
 }
@@ -31,4 +31,4 @@ def render_scope(service,image,prefix):
  if service['key'] in ['legal','predictivo']:
   extra=service['what'][2] if service['key']=='legal' else service['what'][1]+' '+service['what'][2]
   note='<p class="scope-technical-note">'+escape(extra)+'</p>'
- return '<section class="section what"><div class="eyebrow">QUÉ HACEMOS</div><div class="section-heading"><h2>'+escape(service['whatTitle'])+'</h2><p>'+escape(intro)+'</p></div><div class="sequence">'+figures+'</div>'+note+'</section>'
+ return '<section class="section what"><div class="eyebrow">QUÉ APORTAMOS A TU PROYECTO</div><div class="section-heading"><h2>'+escape(service['whatTitle'])+'</h2><p>'+escape(intro)+'</p></div><div class="sequence">'+figures+'</div>'+note+'</section>'

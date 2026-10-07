@@ -62,27 +62,27 @@
       "problems": [
         [
           "Reclamos de vecinos",
-          "Ruido generado por la operación que afecta el entorno, genera conflictos o compromete el cumplimiento normativo."
+          "Ruido de la operación que afecta el entorno y puede generar conflictos o incumplimientos."
         ],
         [
           "Exposición dentro de planta",
-          "Sectores o trabajadores expuestos a niveles elevados de ruido que requieren identificar las fuentes dominantes y reducir su incidencia."
+          "Niveles elevados de ruido: necesitamos identificar las fuentes dominantes y reducir su incidencia."
         ],
         [
           "Nuevos equipos o ampliaciones",
-          "Cambios de proceso o incorporación de maquinaria que pueden modificar las condiciones acústicas y conviene evaluar antes de su puesta en marcha."
+          "Cambios de proceso o maquinaria que conviene evaluar antes de su puesta en marcha."
         ],
         [
           "Múltiples fuentes de ruido",
-          "Procesos donde intervienen varios equipos simultáneamente y no resulta evidente qué fuente tiene mayor impacto."
+          "Varios equipos operando a la vez: no es evidente qué fuente tiene mayor impacto."
         ],
         [
           "Soluciones que no funcionaron",
-          "Encapsulados, barreras, silenciadores u otras medidas implementadas que no alcanzaron la reducción esperada."
+          "Barreras, encapsulados u otras medidas que no alcanzaron la reducción esperada."
         ],
         [
           "Priorización de inversiones",
-          "Necesidad de comparar alternativas y definir dónde intervenir primero para obtener el mayor impacto técnico."
+          "Comparar alternativas y definir dónde intervenir primero para orientar la inversión."
         ]
       ],
       "problemEnd": "El primer paso no es elegir una solución: es entender correctamente el problema.",
@@ -173,27 +173,27 @@
       "problems": [
         [
           "Falta de privacidad entre ambientes",
-          "Conversaciones, reuniones o actividades que se transmiten entre espacios y afectan la confidencialidad o el confort."
+          "Sonidos entre ambientes que afectan la confidencialidad o el confort."
         ],
         [
           "Exceso de reverberación",
-          "Espacios donde el sonido persiste demasiado tiempo, generando ruido, fatiga y dificultades para comprender la palabra."
+          "Sonido persistente que provoca fatiga y dificultades para comprender la palabra."
         ],
         [
           "Aislamiento insuficiente",
-          "Tabiques, fachadas, entrepisos o cerramientos que no alcanzan el nivel de aislación requerido para el uso previsto."
+          "Cerramientos que no alcanzan el nivel de aislación requerido para el uso previsto."
         ],
         [
           "Ruido de instalaciones",
-          "Sistemas de climatización, sanitarios, equipos y otras instalaciones que afectan el confort acústico del espacio."
+          "Climatización, equipos e instalaciones que afectan el confort acústico del espacio."
         ],
         [
           "Definiciones constructivas sin validación acústica",
-          "Alternativas de materiales o sistemas constructivos que necesitan ser evaluadas antes de incorporarse al proyecto."
+          "Materiales y sistemas que deben evaluarse antes de incorporarse al proyecto."
         ],
         [
           "Problemas detectados después de obra",
-          "Espacios terminados que no alcanzan los objetivos esperados y requieren diagnóstico y corrección."
+          "Espacios terminados que requieren diagnóstico y corrección para alcanzar el resultado previsto."
         ]
       ],
       "problemEnd": "La acústica es más fácil de resolver cuando forma parte del proyecto desde el principio.",
@@ -284,27 +284,27 @@
       "problems": [
         [
           "Reclamos por ruidos molestos",
-          "Conflictos entre actividades, comercios, industrias o viviendas donde es necesario evaluar objetivamente los niveles de ruido y su impacto."
+          "Conflictos por ruido que requieren evaluar objetivamente sus niveles e impacto."
         ],
         [
           "Pericias en acústica",
-          "Casos judiciales o extrajudiciales que requieren mediciones, análisis e informes técnicos para respaldar una posición o esclarecer una situación."
+          "Casos judiciales o extrajudiciales que necesitan mediciones, análisis e informes técnicos."
         ],
         [
           "Inscripción RAC",
-          "Actividades alcanzadas por requerimientos de la Ciudad de Buenos Aires que necesitan evaluación acústica y documentación técnica para avanzar con su inscripción."
+          "Actividades alcanzadas por requisitos de CABA que necesitan evaluación acústica y documentación técnica."
         ],
         [
           "Evaluación de Impacto Acústico",
-          "Proyectos o actividades que requieren analizar su incidencia sonora y documentar técnicamente las condiciones existentes o proyectadas."
+          "Proyectos o actividades que requieren analizar su incidencia sonora y documentar sus condiciones."
         ],
         [
           "Evaluaciones según IRAM 4062",
-          "Situaciones en las que es necesario determinar la existencia de ruidos molestos mediante criterios normalizados de medición y evaluación."
+          "Evaluación de ruidos molestos mediante criterios normalizados de medición y análisis."
         ],
         [
           "Observaciones, intimaciones o requerimientos técnicos",
-          "Casos donde una autoridad, un profesional o una contraparte solicita documentación, mediciones o una respuesta técnica frente a una situación acústica."
+          "Requerimientos de autoridades o profesionales que necesitan una respuesta técnica documentada."
         ]
       ],
       "problemEnd": "Cuando una medición puede respaldar un trámite, un reclamo o una decisión legal, el rigor técnico deja de ser un detalle.",
@@ -387,27 +387,27 @@
       "problems": [
         [
           "Desbalanceo",
-          "Cambios en la distribución de masa de un componente rotativo que generan vibraciones anormales y pueden acelerar el desgaste del equipo."
+          "Distribución de masa irregular que genera vibraciones anormales y acelera el desgaste."
         ],
         [
           "Desalineación",
-          "Problemas de alineación entre ejes o componentes acoplados que producen esfuerzos adicionales y aumentan el riesgo de falla."
+          "Problemas entre ejes que generan esfuerzos adicionales y aumentan el riesgo de falla."
         ],
         [
           "Problemas en rodamientos",
-          "Indicadores asociados a desgaste, deterioro o defectos en rodamientos que pueden detectarse antes de una falla crítica."
+          "Señales de desgaste o deterioro que pueden detectarse antes de una falla crítica."
         ],
         [
           "Holguras mecánicas",
-          "Movimientos o juegos excesivos en componentes, soportes o fijaciones que alteran el comportamiento vibratorio del equipo."
+          "Juegos en componentes o fijaciones que alteran el comportamiento vibratorio del equipo."
         ],
         [
           "Resonancias o vibraciones anormales",
-          "Condiciones de funcionamiento donde determinados componentes o estructuras presentan niveles de vibración superiores a los esperados."
+          "Condiciones que producen niveles de vibración superiores a los esperados."
         ],
         [
           "Cambios de condición del equipo",
-          "Variaciones respecto de mediciones anteriores que permiten identificar una evolución desfavorable y priorizar una intervención."
+          "Cambios entre mediciones que permiten evaluar la evolución del equipo y priorizar una intervención."
         ]
       ],
       "problemEnd": "El objetivo no es esperar a que la máquina falle, sino detectar cuándo su condición empieza a cambiar.",
