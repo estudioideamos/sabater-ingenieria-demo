@@ -955,3 +955,26 @@ body:has(.detail-hero) .method-gallery:after{background:linear-gradient(90deg,tr
 body:has(.detail-hero) .method-gallery .method-photo[src*="industrial-medir"]{object-position:60% center}
 @media(max-width:1000px){body:has(.detail-hero) .method-stages{padding:26px 24px}body:has(.detail-hero) .method-stage:before{left:-12px}}
 @media(max-width:760px){body:has(.detail-hero) .method-stages{padding:12px 22px 20px}body:has(.detail-hero) .method-gallery:after{background:linear-gradient(180deg,transparent 75%,#0b1821 100%)}body:has(.detail-hero) .method-gallery .method-photo[src*="industrial-medir"]{object-position:center}}
+
+/* A manually navigable client ribbon: no incomplete rows or automatic movement. */
+body:has(.detail-hero) .service-gallery{padding-top:58px;padding-bottom:52px}
+body:has(.detail-hero) .service-gallery>.eyebrow{margin-bottom:28px}
+body:has(.detail-hero) .service-gallery>.section-heading{align-items:start;grid-template-columns:1.05fr 1fr;gap:9%;margin-bottom:32px}
+body:has(.detail-hero) .service-gallery .section-heading h2{font-size:clamp(36px,3.6vw,52px);line-height:1.1;margin:0}
+body:has(.detail-hero) .service-gallery .section-heading>div{padding-top:0;max-width:500px}
+body:has(.detail-hero) .service-gallery .section-heading p{padding:0;font-size:15px;line-height:1.8}
+.client-carousel{min-width:0}
+.client-carousel-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:60px;border-top:1px solid #315a732a}
+.client-carousel-bar>span{font:9px/1.5 'Geist Mono',monospace;letter-spacing:.1em;color:#4b6470}
+.client-carousel-controls{display:flex;gap:8px}
+.client-carousel-controls[hidden]{display:none}
+.client-carousel-controls button{width:44px;height:44px;border-radius:50%;border:1px solid #315a733d;background:transparent;color:#284f62;font-size:22px;transition:background .2s}
+.client-carousel-controls button:hover:not(:disabled){background:#f5f8f8}
+.client-carousel-controls button:disabled{opacity:.3;cursor:default}
+body:has(.hero) .service-gallery .client-carousel .logos{display:flex;flex-wrap:nowrap;gap:0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#7899aa55 transparent;border:0;border-bottom:1px solid #315a732a;padding:0 0 8px}
+body:has(.hero) .service-gallery .client-carousel .logos figure{flex:0 0 calc(100% / 5.35);min-width:0;min-height:138px;padding:22px 20px;border:0;scroll-snap-align:start}
+body:has(.hero) .service-gallery .client-carousel .logo-stage{height:80px}
+body:has(.hero) .service-gallery>.section-note{font-size:13px;line-height:1.9;margin-top:23px;max-width:1020px}
+@media(max-width:1000px){body:has(.hero) .service-gallery .client-carousel .logos figure{flex-basis:calc(100% / 3.35)}}
+@media(max-width:760px){body:has(.detail-hero) .service-gallery{padding-top:46px;padding-bottom:44px}body:has(.detail-hero) .service-gallery>.section-heading{display:block;margin-bottom:24px}body:has(.detail-hero) .service-gallery .section-heading h2{font-size:38px;margin-bottom:22px}body:has(.hero) .service-gallery .client-carousel .logos figure{flex-basis:calc(100% / 2.2);min-height:112px;padding:18px 12px}body:has(.hero) .service-gallery .client-carousel .logo-stage{height:68px}.client-carousel-bar>span{font-size:8px}body:has(.hero) .service-gallery>.section-note{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.client-carousel-controls button{transition:none}}
