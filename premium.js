@@ -67,12 +67,12 @@
  function queueNavigation(){if(!navigationFrame)navigationFrame=requestAnimationFrame(updateNavigation);}
  addEventListener('scroll',queueNavigation,{passive:true});addEventListener('resize',queueNavigation,{passive:true});updateNavigation();
  const floatingContact=document.querySelector('.floating-contact');
- const inlineContact=document.querySelector('.closing-home .text-button');
- if(floatingContact&&inlineContact&&'IntersectionObserver'in window){
-  let inlineVisible=false;
-  const syncContact=()=>{floatingContact.hidden=inlineVisible&&document.activeElement!==floatingContact;};
-  new IntersectionObserver(entries=>{inlineVisible=entries[0].intersectionRatio>=.99;syncContact();},{threshold:[0,.99,1],rootMargin:'-110px 0px -12px 0px'}).observe(inlineContact);
-  floatingContact.addEventListener('blur',syncContact);
+ const inlineContacts=[...document.querySelectorAll('.closing-home .text-button,.contact-whatsapp')];
+ if(floatingContact&&inlineContacts.length&&'IntersectionObserver'in window){
+  const visibleContacts=new Set();
+  const syncContact=()=>{floatingContact.hidden=visibleContacts.size>0&&document.activeElement!==floatingContact;};
+  const contactObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.intersectionRatio>=.99)visibleContacts.add(entry.target);else visibleContacts.delete(entry.target);});syncContact();},{threshold:[0,.99,1],rootMargin:'-110px 0px -12px 0px'});
+  inlineContacts.forEach(el=>contactObserver.observe(el));floatingContact.addEventListener('blur',syncContact);
  }
 
  const scene=document.querySelector('.visual-interlude');let frameId=0;
