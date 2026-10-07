@@ -931,3 +931,16 @@ body:has(.detail-hero) .method-copy .method-result{border-top:1px solid #a6c9da2
  .why-statement h2.motion-reveal{transform:none;translate:none}
 }
 @media(max-width:1000px){.why-statement>.eyebrow{margin-bottom:24px}}
+
+/* Shared rows follow the actual title height, without an empty reserved line. */
+.problems .problem-grid h3{min-height:0;margin-bottom:18px}
+.problems .problem-symbol{color:#bfd3dd}
+.problems .glyph-base{opacity:1}
+.problems .glyph-accent{color:#e2f6fc}
+@supports(grid-template-rows:subgrid){
+ @media(min-width:761px){
+  .problems .problem-grid article{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:18px;align-content:start}
+  .problems .problem-grid article .problem-symbol{margin-bottom:0}
+  .problems .problem-grid article h3{margin:0}
+ }
+}

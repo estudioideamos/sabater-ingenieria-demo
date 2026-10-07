@@ -23,6 +23,8 @@ def render_problems(service, title):
  key=service['key']
  cards=[]
  for i,(heading,copy) in enumerate(service['problems']):
+  if key=='industrial':
+   heading={'Exposición dentro de planta':'Exposición al ruido en planta','Nuevos equipos o ampliaciones':'Equipos nuevos y ampliaciones'}.get(heading,heading)
   phrase=EMPHASIS[key][i]
   assert phrase in copy, (key,phrase)
   copy=escape(copy).replace(escape(phrase), '<strong>'+escape(phrase)+'</strong>',1)
