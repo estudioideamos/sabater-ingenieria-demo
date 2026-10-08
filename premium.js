@@ -19,7 +19,7 @@ function vectorArrow(){return '<svg class="vector-arrow" width="20" height="20" 
   observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.remove('awaiting');entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}},{threshold:.08,rootMargin:'0px 0px -25px 0px'});
   revealTargets.forEach(el=>{if(!el.classList.contains('is-visible')){el.classList.add('motion-reveal','awaiting');if(el.matches('.logos figure,.why-grid article,.knowledge-grid a,.blog-card,.problem-grid article'))el.style.setProperty('--reveal-delay',`${[...el.parentNode.children].indexOf(el)%4*65}ms`);observer.observe(el);}});
  }
- if(!(reduced.matches)&&hero){
+ if(!(reduced.matches)&&hero&&!document.body.classList.contains('is-service')){
   const heading=document.querySelector('h1');
   const accessibleText=heading.textContent.replace(/\s+/g,' ').trim();
   heading.setAttribute('aria-label',accessibleText);
@@ -116,15 +116,16 @@ if('IntersectionObserver' in window){const techVisibility=new IntersectionObserv
 (()=>{
  const video=document.querySelector('.hero-film');if(!video)return;
  const reduced=matchMedia('(prefers-reduced-motion: reduce)'),desktop=matchMedia('(min-width: 1000px)');
- let visible=true,loaded=false,ready=false;
+ let visible=true,loaded=false,ready=false,startAllowed=false;
  const connection=navigator.connection;
  const eligible=()=>desktop.matches&&!reduced.matches&&!connection?.saveData&&!['slow-2g','2g','3g'].includes(connection?.effectiveType);
  function sync(){
   if(!eligible()){video.pause();video.classList.remove('is-playing');return;}
-  if(!loaded&&visible){loaded=true;video.src=video.dataset.src;video.load();}
+  if(!loaded&&visible&&startAllowed&&!document.hidden){loaded=true;video.src=video.dataset.src;video.load();}
   if(ready&&visible&&!document.hidden){video.play().then(()=>{video.classList.add('is-playing');}).catch(()=>{video.classList.remove('is-playing');});}
   else{video.pause();}
  }
+ const allowStart=()=>{const run=()=>{startAllowed=true;sync();};setTimeout(()=>{if('requestIdleCallback' in window)requestIdleCallback(run,{timeout:1500});else run();},1200);};if(document.readyState==='complete')allowStart();else addEventListener('load',allowStart,{once:true});
  video.addEventListener('canplay',()=>{ready=true;sync();});video.addEventListener('error',()=>{ready=false;video.classList.remove('is-playing');});
  new IntersectionObserver(es=>{visible=es[0].isIntersecting;sync();},{threshold:.05}).observe(video.closest('.hero'));
  reduced.addEventListener('change',sync);desktop.addEventListener('change',sync);connection?.addEventListener('change',sync);document.addEventListener('visibilitychange',sync);

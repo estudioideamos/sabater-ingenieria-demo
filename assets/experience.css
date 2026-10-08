@@ -1,14 +1,10 @@
-/* Native shared-image navigation: unsupported browsers keep ordinary links. */
+/* Whole-page crossfade keeps header, title and image in the same layer. */
 @view-transition{navigation:auto}
-::view-transition-group(*){animation-duration:.55s;animation-timing-function:cubic-bezier(.22,.7,.2,1)}
-::view-transition-old(root),::view-transition-new(root){animation-duration:.18s}
-@media(prefers-reduced-motion:no-preference){
- [data-specialty="industrial"] .card-image,.hero-image[data-specialty="industrial"]{view-transition-name:service-industrial}
- [data-specialty="arquitectonica"] .card-image,.hero-image[data-specialty="arquitectonica"]{view-transition-name:service-arquitectonica}
- [data-specialty="legal"] .card-image,.hero-image[data-specialty="legal"]{view-transition-name:service-legal}
- [data-specialty="predictivo"] .card-image,.hero-image[data-specialty="predictivo"]{view-transition-name:service-predictivo}
-}
-@media(prefers-reduced-motion:reduce){@view-transition{navigation:none}::view-transition-group(*){animation-duration:0s}}
+::view-transition-old(root){animation:page-fade-out .16s ease both}
+::view-transition-new(root){animation:page-fade-in .2s ease both}
+@keyframes page-fade-out{to{opacity:0}}
+@keyframes page-fade-in{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){@view-transition{navigation:none}::view-transition-old(root),::view-transition-new(root){animation:none}}
 .diagnostic{background:#e1ebee;color:#162831}
 .diagnostic .section-heading{align-items:start;margin-bottom:38px}
 .diagnostic .section-heading h2{max-width:650px}.diagnostic .section-heading p{max-width:410px}
@@ -99,3 +95,55 @@
 @keyframes diagnostic-wave{0%,100%{transform:scale(.96);stroke-opacity:.4}50%{transform:scale(1.05);stroke-opacity:1}}
 @media(max-width:760px){.ambient-light{animation-duration:26s;background:linear-gradient(115deg,transparent 25%,#8ac9e510 43%,#b4dfea22 50%,#8ac9e510 57%,transparent 75%)}.diagnostic.in-view .diagnostic-hotspots button[aria-pressed=true]:after{animation-duration:5s}}
 @media(prefers-reduced-motion:reduce){.ambient-light,.method-scan,.diagnostic-hotspots button:after{display:none!important}.plant-waves path{animation:none!important;transform:none!important}}
+
+/* Compact desktop diagnostic and balanced method columns. */
+@media(min-width:901px){
+ .diagnostic-workbench{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:start}
+ .diagnostic-readout{align-self:center;margin:28px 0;padding:28px 36px;gap:22px;border-left:0;background:none}
+ .diagnostic-readout p{min-height:0;line-height:1.75}
+ .diagnostic-readout h3{margin:16px 0}
+ .diagnostic-evidence{margin-top:24px;padding-top:18px}
+}
+@media(min-width:761px){
+ .method-editorial .method-composition{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);min-height:480px}
+ .method-editorial .method-composition:before{display:none}
+ .method-editorial .method-gallery{position:relative;inset:auto;grid-column:1;width:100%;height:auto;min-height:480px;z-index:0;aspect-ratio:auto}
+ .method-editorial .method-gallery .method-photo{object-position:center;transform:none}
+ .method-editorial .method-stages{grid-column:2;min-height:0;padding:28px 36px;justify-content:center}
+ .method-editorial .method-stage{padding-left:18px}
+ .method-editorial .method-stage button,.method-editorial .method-stage.is-active button{font-size:clamp(21px,1.8vw,27px);line-height:1.25;min-height:68px;padding:20px 0}
+ .method-editorial .method-copy{padding:0 0 22px}
+ .method-editorial .method-stage button:after{content:'';width:18px;height:18px;flex:0 0 18px;background:linear-gradient(#a9cddd,#a9cddd) center/12px 1px no-repeat,linear-gradient(#a9cddd,#a9cddd) center/1px 12px no-repeat;transform:none}
+ .method-editorial .method-stage.is-active button:after{background:linear-gradient(#a9cddd,#a9cddd) center/12px 1px no-repeat}
+}
+.instrument-ring[data-mode=article]:before,.instrument-ring[data-mode=service]:before{width:94px;height:94px;left:-47px;top:-47px;background:#11191df5;border-color:#ffffff25;box-shadow:0 8px 24px #0002}
+.instrument-ring[data-mode=article]>span,.instrument-ring[data-mode=service]>span{display:block;width:90px;left:0;color:#fff;font-size:12px;letter-spacing:0;font-weight:500;text-align:center}
+/* The service title is present immediately; navigation supplies the entrance. */
+.is-service .hero-content>*,.is-service .hero-bottom{animation:none!important}
+
+.experience-legal .section-heading{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:32px}
+.experience-legal .experience-metric{margin:28px 0 0}
+.experience-legal .experience-summary p{margin:0 0 18px;max-width:560px}
+.experience-legal .experience-fields{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;border-top:1px solid #315a7330;padding-top:26px}
+.experience-fields h3{font-size:20px;letter-spacing:-.03em;margin:0 0 10px}
+.experience-fields p{font-size:14px;line-height:1.7;color:#496574;margin:0}
+@media(max-width:760px){.experience-legal .section-heading{grid-template-columns:1fr;gap:26px}.experience-legal .experience-fields{grid-template-columns:1fr;gap:24px}.experience-legal .experience-metric{margin-top:22px}}
+
+@media(min-width:901px){
+ .diagnostic-workbench{grid-template-rows:auto 1fr auto}
+ .diagnostic-map{display:contents}
+ .diagnostic-map-label{grid-column:1;grid-row:1}
+ .diagnostic-illustration{grid-column:1;grid-row:2 / 4;align-self:center;margin:0}
+ .diagnostic-readout{grid-column:2;grid-row:1 / 3;align-self:center;margin:0;padding:32px 36px 24px}
+ .diagnostic-comparison{grid-column:2;grid-row:3;padding:0 36px 26px}
+ .experience-legal .section-note:empty{display:none}
+}
+
+/* Let the browser skip offscreen service sections while preserving measured sizes. */
+@supports(content-visibility:auto){
+ @media(max-width:900px){
+  .is-service main>.problems,.is-service main>.what,.is-service main>.process,.is-service main>.experience,.is-service main>.faq{content-visibility:auto;contain-intrinsic-size:auto 900px}
+  .is-service main>.problems{contain-intrinsic-size:auto 1800px}
+  .is-service main>.process{contain-intrinsic-size:auto 760px}
+ }
+}

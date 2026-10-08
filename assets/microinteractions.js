@@ -53,10 +53,12 @@ document.querySelectorAll('.method-composition').forEach(root=>{
  root.classList.add('method-enhanced');select(0);
  // Reserve the tallest explanation at this width so selecting a step does not move the next section.
  if(document.querySelector('.detail-hero')){
-  const copies=stages.map(stage=>stage.querySelector('.method-copy'));let lastWidth=0;
+  const copies=stages.map(stage=>stage.querySelector('.method-copy'));let lastWidth=0,nearby=false,pendingMeasure=0;
+  function scheduleMeasure(){if(!nearby||pendingMeasure)return;pendingMeasure=requestAnimationFrame(()=>{pendingMeasure=0;measure();});}
+  new IntersectionObserver(entries=>{nearby=entries[0].isIntersecting;if(nearby)scheduleMeasure();},{rootMargin:'200px'}).observe(root);
   function measure(){root.style.removeProperty('--method-copy-height');copies.forEach(copy=>copy.hidden=false);const height=Math.max(...copies.map(copy=>copy.getBoundingClientRect().height));root.style.setProperty('--method-copy-height',Math.ceil(height)+'px');const saved=active;select(saved<0?0:saved);const panel=root.querySelector('.method-stages');panel.style.minHeight='0px';panel.style.minHeight=Math.ceil(panel.getBoundingClientRect().height)+'px';select(saved);}
-  new ResizeObserver(entries=>{const width=Math.round(entries[0].contentRect.width);if(width!==lastWidth){lastWidth=width;measure();}}).observe(root.querySelector('.method-stages'));
-  document.fonts.ready.then(measure);
+  new ResizeObserver(entries=>{const width=Math.round(entries[0].contentRect.width);if(width!==lastWidth){lastWidth=width;scheduleMeasure();}}).observe(root.querySelector('.method-stages'));
+  document.fonts.ready.then(scheduleMeasure);
  }
 
  buttons.forEach((button,i)=>{button.addEventListener('click',()=>{if(active!==i)select(i);});button.addEventListener('keydown',e=>{let next;if(e.key==='ArrowDown')next=(i+1)%buttons.length;else if(e.key==='ArrowUp')next=(i+buttons.length-1)%buttons.length;else if(e.key==='Home')next=0;else if(e.key==='End')next=buttons.length-1;else return;e.preventDefault();buttons[next].focus();select(next);});});
