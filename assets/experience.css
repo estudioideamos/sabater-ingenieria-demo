@@ -139,11 +139,3 @@
  .experience-legal .section-note:empty{display:none}
 }
 
-/* Let the browser skip offscreen service sections while preserving measured sizes. */
-@supports(content-visibility:auto){
- @media(max-width:900px){
-  .is-service main>.problems,.is-service main>.what,.is-service main>.process,.is-service main>.experience,.is-service main>.faq{content-visibility:auto;contain-intrinsic-size:auto 900px}
-  .is-service main>.problems{contain-intrinsic-size:auto 1800px}
-  .is-service main>.process{contain-intrinsic-size:auto 760px}
- }
-}
