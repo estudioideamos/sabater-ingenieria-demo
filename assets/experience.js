@@ -53,3 +53,23 @@
  addEventListener('pointerup',()=>{drag=false;if(visible)context(document.elementFromPoint(x,y));},{passive:true});
  addEventListener('pointercancel',()=>{drag=false;hide();});document.documentElement.addEventListener('pointerleave',hide);document.addEventListener('keydown',hide);addEventListener('blur',()=>{drag=false;hide();});document.addEventListener('visibilitychange',()=>{if(document.hidden)hide();});addEventListener('scroll',()=>{if(visible)context(document.elementFromPoint(x,y));},{passive:true});fine.addEventListener('change',hide);reduce.addEventListener('change',hide);
 })();
+// Ambient light stays behind imagery; method scan runs once per selected stage.
+(()=>{
+ const reduced=matchMedia('(prefers-reduced-motion:reduce)'),mobile=matchMedia('(max-width:760px)');
+ const surfaces=[...document.querySelectorAll('.hero-image,.blog-masthead')];
+ const visible=new Set();
+ surfaces.forEach(host=>{const light=document.createElement('span');light.className='ambient-light';light.setAttribute('aria-hidden','true');host.append(light);host.classList.add('ambient-surface');});
+ function sync(){surfaces.forEach(host=>host.classList.toggle('ambient-running',visible.has(host)&&!document.hidden&&!reduced.matches));}
+ if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)visible.add(entry.target);else visible.delete(entry.target);});sync();});surfaces.forEach(host=>observer.observe(host));}
+ document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);
+ document.querySelectorAll('.method-composition').forEach(root=>{
+  const gallery=root.querySelector('.method-gallery');if(!gallery)return;
+  const scan=document.createElement('span');scan.className='method-scan';scan.setAttribute('aria-hidden','true');gallery.append(scan);
+  let selected=root.querySelector('.method-photo.is-active'),animation;
+  const stop=()=>{animation?.cancel();animation=null;};
+  new MutationObserver(()=>{const next=root.querySelector('.method-photo.is-active');if(next===selected)return;selected=next;stop();if(reduced.matches||document.hidden)return;
+   animation=scan.animate([{transform:'translate3d(-110%,0,0)',opacity:0},{opacity:mobile.matches?.2:.45,offset:.22},{opacity:mobile.matches?.2:.45,offset:.7},{transform:'translate3d(110%,0,0)',opacity:0}],{duration:mobile.matches?700:1100,easing:'cubic-bezier(.22,.65,.3,1)'});
+  }).observe(gallery,{subtree:true,attributes:true,attributeFilter:['class']});
+  reduced.addEventListener('change',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
+ });
+})();

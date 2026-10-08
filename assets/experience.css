@@ -83,3 +83,19 @@
 .instrument-ring[data-mode=compare]:after{content:"";position:absolute;left:-16px;top:-8px;width:32px;height:16px;background:center/contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 16' fill='none' stroke='%23e9f6fc' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 3 6 8l5 5M6 8h20M21 3l5 5-5 5'/%3E%3C/svg%3E")}
 @media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){html.instrument-cursor,html.instrument-cursor *{cursor:none!important}html.instrument-cursor input:not([type=range]),html.instrument-cursor textarea,html.instrument-cursor select,html.instrument-cursor [contenteditable=true]{cursor:auto!important}}
 @media(hover:none),(pointer:coarse),(prefers-reduced-motion:reduce){.instrument-dot,.instrument-ring{display:none!important}}
+/* Light and signal: restrained, isolated from text and controls. */
+.ambient-surface{overflow:hidden}.blog-masthead.ambient-surface{position:relative;isolation:isolate}.blog-masthead>.ambient-light{z-index:-1}
+.ambient-light{position:absolute;inset:-20%;pointer-events:none;opacity:0;background:linear-gradient(115deg,transparent 25%,#8ac9e51c 43%,#b4dfea38 50%,#8ac9e516 57%,transparent 75%);transform:translate3d(-20%,0,0);animation:ambient-reflection 18s ease-in-out infinite alternate;animation-play-state:paused}
+.ambient-running>.ambient-light{animation-play-state:running}
+@keyframes ambient-reflection{0%{transform:translate3d(-22%,-4%,0);opacity:.25}50%{opacity:.7}100%{transform:translate3d(22%,4%,0);opacity:.3}}
+.method-scan{position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;background:linear-gradient(90deg,transparent 46%,#a4d6e522 49%,#d7f2ffb3 50%,#a4d6e522 51%,transparent 58%)}
+.method-gallery{overflow:hidden}
+.diagnostic-hotspots button[aria-pressed=true]:after{content:"";position:absolute;inset:-2px;border:1px solid #b8dfea;border-radius:50%;pointer-events:none;opacity:0}
+@media(prefers-reduced-motion:no-preference){
+ .diagnostic.in-view .diagnostic-hotspots button[aria-pressed=true]:after{animation:diagnostic-pulse 3.8s ease-out infinite}
+ .diagnostic.in-view [data-point="0"] .plant-waves path:first-child,.diagnostic.in-view [data-point="2"] .plant-waves path:last-child{transform-box:fill-box;transform-origin:center;animation:diagnostic-wave 3.8s ease-in-out infinite}
+}
+@keyframes diagnostic-pulse{0%{transform:scale(1);opacity:.6}80%,100%{transform:scale(1.65);opacity:0}}
+@keyframes diagnostic-wave{0%,100%{transform:scale(.96);stroke-opacity:.4}50%{transform:scale(1.05);stroke-opacity:1}}
+@media(max-width:760px){.ambient-light{animation-duration:26s;background:linear-gradient(115deg,transparent 25%,#8ac9e510 43%,#b4dfea22 50%,#8ac9e510 57%,transparent 75%)}.diagnostic.in-view .diagnostic-hotspots button[aria-pressed=true]:after{animation-duration:5s}}
+@media(prefers-reduced-motion:reduce){.ambient-light,.method-scan,.diagnostic-hotspots button:after{display:none!important}.plant-waves path{animation:none!important;transform:none!important}}
