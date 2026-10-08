@@ -15,6 +15,9 @@ def problem_icon(key,index):
   out=circle(x,y,10,grad('badge'),'#95c6d7')
   shapes={'plus':f'M{x-4} {y}h8M{x} {y-4}v8','check':f'M{x-4} {y}l3 3 5-6','alert':f'M{x} {y-4}v5M{x} {y+4}v.2','cross':f'M{x-3} {y-3}l6 6M{x+3} {y-3}l-6 6'}
   return out+path(shapes[kind],stroke='#e0f4fa',w=1.6)
+ def house():
+  # Symmetric front gable; all depth edges share the same (10, -6) offset.
+  return path('M63 45 73 39V78L63 84Z',grad('side'),'#668fa3')+path('M25 45 44 26 63 45V84H25Z',grad('front'),'#91b7ca')+path('M44 22 54 16 77 39 67 45Z',grad('top'),'#abcddb')+path('M21 45 44 22 67 45 64 48 44 28 24 48Z',grad('steel'),'#bbd8e5')+rect(38,63,12,21,'#133140',1,'#86acbf')+path('M28 81V49M66 50V79',stroke='#7098ad',w=.7)
  def room():
   return path('M23 76 63 96 105 74 64 54Z',grad('floor'),'#698c9c')+path('M23 76V34L64 14V54Z',grad('side'),'#86afc2')+path('M64 14 105 34V74L64 54Z',grad('front'),'#a1c6d6')+path('M29 70V38L59 23M69 23 99 38V65',stroke='#b5d4df',w=.7)
  def motor(x=29,y=37):
@@ -58,7 +61,7 @@ def problem_icon(key,index):
   elif index==4:art=chart('wave')
   else:art=chart('trend')+badge(97,25,'alert')
  elif key=='legal':
-  if index==0:art=block(25,42,37,38,8)+path('M22 42 43 23 68 38 62 44 43 32 28 47Z',grad('steel'))+rect(38,60,12,20,'#133140')+waves(72,48,.75)+badge(91,83,'check')
+  if index==0:art=house()+waves(80,49,.6)+badge(91,83,'check')
   elif index==1:
    art=block(36,88,51,5,5)+rect(59,24,6,64,grad('steel'))+path('M31 35 95 28',stroke='#c6e0eb',w=3)+path('M33 35 20 60h26ZM92 29 79 54h26Z',stroke='#b4d5e4')+path('M20 60q13 15 26 0Z',grad('steel'))+path('M79 54q13 15 26 0Z',grad('steel'))+circle(62,22,6,grad('ball'))
   elif index==2:art=document()+badge(83,77,'check')
@@ -66,7 +69,7 @@ def problem_icon(key,index):
   elif index==4:art=document()+''.join(badge(83,y,'check') for y in [39,70])
   else:art=document()+badge(84,76,'alert')
  else:
-  if index==0:art=block(23,44,36,39,8)+path('M19 44 42 25 65 40 60 46 42 33 26 49Z',grad('steel'))+rect(36,64,12,19,'#142f3d')+waves(73,49,.85)
+  if index==0:art=house()+waves(80,49,.7)
   elif index==1:art=path('M48 82c0-14-20-15-20-37a28 28 0 0 1 56 0c0 19-18 24-18 40 0 12-16 19-23 10',grad('side'),'#b4d6e3',2)+path('M40 46c0-22 32-22 32-1 0 12-19 12-17 26M40 55q3 9 9 11',stroke='#d4e9f1',w=2)+waves(94,42,.5)
   elif index==2:art=motor()+badge(96,24,'plus')
   elif index==3:
