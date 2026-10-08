@@ -4,7 +4,7 @@ const banner='/*! Three.js 0.186.1 | MIT | see THREE-LICENSE.txt */';
 await build({entryPoints:['node_modules/three/build/three.module.js'],bundle:true,minify:true,format:'esm',outfile:'assets/vendor/three.module.min.js',banner:{js:banner}});
 await copyFile('node_modules/three/LICENSE','assets/vendor/THREE-LICENSE.txt');
 let css=(await readFile('assets/fonts/fonts.css','utf8')).replaceAll("url('geist","url('fonts/geist");
-for(const name of ['styles.css','premium.css','assets/vibration-lab.css','assets/experience.css'])css+='\n'+(await readFile(name,'utf8')).replaceAll("url('assets/","url('");
+for(const name of ['styles.css','premium.css','assets/vibration-lab.css','assets/experience.css','assets/editorial.css'])css+='\n'+(await readFile(name,'utf8')).replaceAll("url('assets/","url('");
 await writeFile('assets/site.min.css',(await transform(css,{loader:'css',minify:true,target:['chrome110','safari16','firefox115'],legalComments:'none'})).code);
 console.log('Built local CSS and pinned Three.js modules.');
 
