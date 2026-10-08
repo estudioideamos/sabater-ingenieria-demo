@@ -29,5 +29,5 @@ def render_problems(service, title):
   assert phrase in copy, (key,phrase)
   copy=escape(copy).replace(escape(phrase), '<strong>'+escape(phrase)+'</strong>',1)
   svg=problem_icon(key,i)
-  cards.append('<article><div class="problem-symbol">'+svg+'</div><h3>'+escape(heading)+'</h3><p>'+copy+'</p></article>')
+  cards.append('<article><div class="problem-symbol" data-lazy-diagram><template>'+svg+'</template></div><h3>'+escape(heading)+'</h3><p>'+copy+'</p></article>')
  return '<section class="section problems"><div class="eyebrow">PROBLEMAS QUE RESOLVEMOS</div><div class="section-heading"><h2>'+title+'</h2><p>'+INTRO[key]+'</p></div><div class="problem-grid">'+''.join(cards)+'</div><div class="problem-next"><div><h3>¿Reconocés alguna de estas situaciones?</h3><p>'+CLOSING[key]+'</p></div><a href="#contacto">Evaluemos tu caso <span aria-hidden="true">↗</span></a></div></section>'
