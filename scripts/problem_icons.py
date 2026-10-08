@@ -1,88 +1,79 @@
-"""Decorative technical illustrations, with a static base and animated accent."""
-def path(d): return '<path d="'+d+'"/>'
-def circle(x,y,r): return f'<circle cx="{x}" cy="{y}" r="{r}"/>'
-DOC=path('M18 9h21l9 9v36H18ZM39 9v11h9M25 28h16M25 35h10')
-ROOM=path('M12 52V16h40v36M32 16v36M12 52h40')
-MOTOR=path('M13 23h33v24H13ZM19 23v-7h18v7M46 29h8v12h-8M17 47v6M42 47v6M9 53h40M20 28v14M26 28v14M32 28v14')
-WAVE=path('M9 34h9l5-10 7 22 7-30 6 18h12')
-ICONS={
-'industrial':[
- (path('M10 49V28l12-9 12 9v21M17 49V37h10v12M7 49h32'),path('M41 24q12 9 0 18M46 18q19 15 0 30'),'ripple'),
- (path('M25 43c0-8-11-9-11-20a17 17 0 0 1 34 0c0 12-10 14-10 24s-7 13-14 10M26 24a6 6 0 0 1 12 0c0 5-8 7-8 13'),path('M50 18q9 9 0 18'),'ripple'),
- (MOTOR,path('M44 9h12M50 3v12'),'lift'),
- (circle(32,32,8)+path('M12 12l14 14M38 38l14 14M12 52l14-14M38 26l14-14'),circle(10,10,3)+circle(54,10,3)+circle(10,54,3)+circle(54,54,3),'pulse'),
- (path('M10 17h44v34H10ZM16 23h32M16 29h14M16 35h9'),path('M34 33l13 13M47 33 34 46'),'draw'),
- (path('M10 11v43h45M19 46V34M31 46V27M43 46V19'),path('M17 26 30 17 44 10M36 10h8v8'),'lift')],
-'arquitectonica':[
- (ROOM,path('M19 29q10 6 0 12M45 29q-10 6 0 12'),'ripple'),
- (path('M10 15v39h44V15M17 15h30'),path('M19 28q26-18 26 4t-26 4q26-18 26 4'),'ripple'),
- (path('M27 12v42M35 12v42M27 20h8M27 30h8M27 40h8M27 50h8'),path('M7 26h5l4 12 5-20M41 30h5l4 4h7'),'draw'),
- (path('M12 11h40v42H12ZM12 20h40M18 15h2M24 15h2')+circle(32,36,4),path('M32 23c10 0 13 9 4 10M45 37c0 10-10 13-11 3M30 49c-10 0-13-10-3-11M19 35c0-10 10-13 11-3'),'turn'),
- (path('M9 44 32 55 55 44M9 34 32 45 55 34M9 24 32 35 55 24 32 13Z'),path('M24 23l6 5 12-10'),'draw'),
- (ROOM,path('M39 39l15 15')+circle(34,34,9),'shift')],
-'legal':[
- (path('M10 48V26l12-9 12 9v22M17 48V36h10v12M8 48h29'),path('M43 19q14 12 0 25M40 46l4 4 9-10'),'ripple'),
- (path('M32 10v43M20 54h24M14 22h36M18 22 9 39h18ZM46 22 37 39h18Z'),circle(32,18,4)+path('M26 46h12'),'pulse'),
- (DOC,path('M28 44l6 6 14-14'),'draw'),
- (path('M10 51V32h11V21h12v30M33 30h13v21M7 51h45'),path('M43 14q13 9 7 23M38 19q8 6 4 15'),'ripple'),
- (path('M15 9h33v46H15M22 18h18M22 26h10M22 34h10M22 42h10'),path('M36 26l3 3 7-8M36 42l3 3 7-8'),'draw'),
- (DOC,path('M39 33 52 54H26ZM39 40v6')+circle(39,50,0.8),'pulse')],
-'predictivo':[
- (circle(32,32,21)+circle(32,32,5)+path('M32 11v5M32 48v5M11 32h5M48 32h5'),path('M32 17a15 15 0 0 1 15 15')+circle(42,22,3),'turn'),
- (path('M7 22h19v16H7M38 28h19v16H38M26 30h7M33 36h5'),path('M9 49h17M38 17h17M32 15v8M32 43v8'),'shift'),
- (circle(32,32,22)+circle(32,32,9),''.join(circle(x,y,3) for x,y in [(32,16),(46,24),(46,40),(32,48),(18,40),(18,24)]),'turn'),
- (path('M10 45h44v8H10M15 45V21h34v24M22 21v-7h20v7'),path('M25 28h14v10H25ZM7 33h5M52 33h5'),'shift'),
- (path('M8 52h48M12 12v40'),WAVE,'draw'),
- (path('M9 12v42h46M17 45h35M17 34h35M17 23h35'),path('M17 43 25 36 33 38 42 25 52 16')+circle(52,16,3),'draw')]
-}
-
-# Fine construction details are unique to each situation, rather than stock symbols.
-DETAILS={
- 'industrial':[
-  'M13 30h18M21 23v5M12 52h23M19 33h6M39 48h16M41 51h11',
-  'M19 22c0-8 7-13 14-11M21 30q2 5 7 7M28 46q0 5-4 5M10 48h6M13 45v6',
-  'M11 25v20M17 49h24M21 18h13M37 28v14M41 28v14M49 32h3M49 38h3M8 57h45',
-  'M7 19v8M7 37v8M57 19v8M57 37v8M22 7h20M22 57h20M29 32h6M32 29v6',
-  'M14 20h36M16 41h10M16 45h7M13 54h38M30 25h17M31 29h16',
-  'M16 50h35M19 38h3M31 31h3M43 23h3M15 16h6M15 12h6M55 26v22'
- ],
- 'arquitectonica':[
-  'M12 20h15M37 20h15M12 49h15M37 49h15M29 16v36M35 16v36M17 44h6M41 44h6',
-  'M14 19h36M14 50h36M14 19v31M50 19v31M22 15v4M32 15v4M42 15v4',
-  'M29 15l4 4M29 23l4 4M29 33l4 4M29 43l4 4M23 56h16M23 9h16',
-  'M17 47h30M17 50h30M47 24v17M16 24v17M28 15h17',
-  'M16 27v7M23 31v7M41 31v7M48 27v7M16 38v7M23 42v7M41 42v7M48 38v7',
-  'M16 20h12M16 24h7M16 46h10M39 19h9M39 23h9M30 32h8M34 28v8'
- ],
- 'legal':[
-  'M13 29h18M21 23v4M12 52h21M39 10h15M39 13h11M17 32h10',
-  'M9 39q9 10 18 0M37 39q9 10 18 0M29 27v17M24 57h16M18 18h8M38 18h8',
-  'M22 14h12M22 18h12M25 39h5M23 54h19M51 24v8M51 47v7',
-  'M14 36h3M14 42h3M25 26h4M25 32h4M25 38h4M38 35h4M38 41h4M10 55h40',
-  'M12 12H9v46h33M20 50h21M22 22h8M22 30h8M22 38h8M22 46h8',
-  'M23 14h11M23 18h11M25 25h15M23 54h18M52 19v9M49 24h6'
- ],
- 'predictivo':[
-  'M22 15l2 4M42 15l-2 4M15 22l4 2M15 42l4-2M22 49l2-4M42 49l-2-4M49 42l-4-2M23 32h4M32 37v7',
-  'M11 25v10M15 25v10M19 25v10M42 31v10M46 31v10M50 31v10M5 42h19M40 48h19M30 25v15M35 25v15',
-  'M32 7v3M32 54v3M7 32h3M54 32h3M17 17l3 3M44 44l3 3M17 47l3-3M44 20l3-3',
-  'M13 49h7M44 49h7M19 24v16M45 24v16M26 17h12M29 31h6M29 35h6M20 56h24',
-  'M16 18h37M16 28h37M16 38h37M16 48h37M22 15v34M34 15v34M46 15v34',
-  'M20 17v31M30 17v31M40 17v31M50 17v31M13 58h42'
- ]
-}
-# Architectural sound paths are drawn as clear, physical situations.
-ICONS['arquitectonica'][0]=(ROOM,path('M17 28q7 6 0 12M21 25q10 9 0 18M43 29q-6 5 0 10M47 25q-10 9 0 18'),'ripple')
-ICONS['arquitectonica'][1]=(path('M10 15v39h44V15M10 15h44'),path('M20 39 43 24 43 43 23 24M18 39h5M39 24h4v4'),'draw')
-ICONS['arquitectonica'][3]=(path('M12 11h40v42H12ZM12 20h40M18 15h2M24 15h2')+circle(32,34,12)+circle(32,34,3),path('M32 31q-9-12-11-2l8 6M35 34q14-4 7-11l-10 8M32 37q-3 14 6 10l-3-13M29 34q-13 5-6 11l9-8'),'turn')
+"""SABATER dimensional technical miniatures. Inline SVG, no image requests."""
+import math
 
 def problem_icon(key,index):
- base,accent,motion=ICONS[key][index]
- # A restrained tinted surface gives the line work depth, without raster assets.
- surface={
-  'industrial':'M12 48 32 56 54 46 34 39Z',
-  'arquitectonica':'M12 16h40v36H12Z',
-  'legal':'M18 9h21l9 9v36H18Z',
-  'predictivo':'M10 45 32 53 54 45 32 38Z'
- }[key]
- return '<svg class="problem-glyph premium-glyph motion-'+motion+'" viewBox="0 0 80 80" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><g transform="translate(8 8)"><path class="glyph-surface" d="'+surface+'"/><g class="glyph-detail">'+path(DETAILS[key][index])+'</g><g class="glyph-base">'+base+'</g><g class="glyph-accent">'+accent+'</g></g><path class="glyph-registration" d="M5 16V9h7M68 71h7v-7"/><circle class="glyph-pin" cx="72" cy="9" r="1.5"/></svg>'
+ uid=f'pi-{key}-{index}'
+ def grad(n):return f'url(#{uid}-{n})'
+ def path(d,fill='none',stroke='#a4cbd9',w=1):return f'<path d="{d}" fill="{fill}" stroke="{stroke}" stroke-width="{w}" stroke-linecap="round" stroke-linejoin="round"/>'
+ def circle(x,y,r,fill,stroke='none',w=1):return f'<circle cx="{x}" cy="{y}" r="{r}" fill="{fill}" stroke="{stroke}" stroke-width="{w}"/>'
+ def rect(x,y,w,h,fill,rx=2,stroke='#638b9e'):return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" fill="{fill}" stroke="{stroke}" stroke-width="1"/>'
+ def block(x,y,w,h,d=9):
+  return path(f'M{x} {y}l{d} {-d*.55}h{w}l{-d} {d*.55}Z',grad('top'),'#a0c3d2')+path(f'M{x+w} {y}l{d} {-d*.55}v{h}l{-d} {d*.55}Z',grad('side'),'#527588')+rect(x,y,w,h,grad('front'),1)
+ def waves(x,y,scale=1):
+  return f'<g transform="translate({x} {y}) scale({scale})" class="mini-signal">'+''.join(path(f'M{r*.4} {-r}Q{r*1.45} 0 {r*.4} {r}',stroke='#b7e2ed',w=1.6 if r==7 else 1.1) for r in [7,13,19])+'</g>'
+ def badge(x,y,kind):
+  out=circle(x,y,10,grad('badge'),'#95c6d7')
+  shapes={'plus':f'M{x-4} {y}h8M{x} {y-4}v8','check':f'M{x-4} {y}l3 3 5-6','alert':f'M{x} {y-4}v5M{x} {y+4}v.2','cross':f'M{x-3} {y-3}l6 6M{x+3} {y-3}l-6 6'}
+  return out+path(shapes[kind],stroke='#e0f4fa',w=1.6)
+ def room():
+  return path('M23 76 63 96 105 74 64 54Z',grad('floor'),'#698c9c')+path('M23 76V34L64 14V54Z',grad('side'),'#86afc2')+path('M64 14 105 34V74L64 54Z',grad('front'),'#a1c6d6')+path('M29 70V38L59 23M69 23 99 38V65',stroke='#b5d4df',w=.7)
+ def motor(x=29,y=37):
+  out=block(x+6,y+36,54,6,7)+block(x+5,y,48,36,10)+rect(x+20,y-8,19,8,grad('top'))
+  out+=''.join(path(f'M{x+i} {y+5}v25',stroke='#a4c5d5',w=1.5) for i in [14,20,26,32,38,44])
+  out+=f'<ellipse cx="{x+7}" cy="{y+18}" rx="13" ry="19" fill="{grad("steel")}" stroke="#a9cbd9"/>'
+  out+=f'<ellipse cx="{x+7}" cy="{y+18}" rx="8" ry="12" fill="#173545" stroke="#6e96aa"/>'
+  out+=rect(x-8,y+14,19,8,grad('steel'),2)+path(f'M{x-4} {y+15}h11',stroke='#d9edf5')
+  return out
+ def document():
+  return path('M39 17 88 21 91 88 40 84Z','#0a1c28','#486a7e')+path('M33 12H76L88 24V84H33Z',grad('paper'),'#b3d5e2')+path('M76 12V25H88',grad('top'),'#7598ab')+rect(42,23,19,4,'#42697d',1,'none')+''.join(path(f'M42 {y}h{w}',stroke='#618699',w=2) for y,w in [(36,34),(43,28),(50,34),(57,21),(69,15)])
+ def chart(kind):
+  out=block(23,24,76,58,6)+rect(29,30,64,44,'#102b3b',2,'#6a93a8')
+  out+=''.join(path(f'M33 {y}h55',stroke='#41697c',w=.6) for y in [40,50,60])+''.join(path(f'M{x} 35v33',stroke='#41697c',w=.6) for x in [44,58,72,86])
+  d='M34 60 43 57 52 59 61 49 70 52 79 38 87 35' if kind=='trend' else 'M33 53h6l4-7 5 14 6-25 6 32 6-20 5 9 5-5h11'
+  return out+path(d,stroke='#d1e9ec',w=1.8)+path('M44 88h36M57 82v6M67 82v6',stroke='#85aabd',w=2)
+ def bearing():
+  out=circle(62,51,34,grad('steel'),'#adcddb')+circle(62,51,29,'#173443','#537c90')+circle(62,51,14,grad('steel'),'#afcfdd')+circle(62,51,9,'#0c2230','#628b9f')
+  for i in range(9):
+   a=i*math.tau/9;out+=circle(round(62+22*math.cos(a),2),round(51+22*math.sin(a),2),5.5,grad('ball'),'#9bbfce',.6)
+  return out+path('M40 20q22-12 43 7',stroke='#deedf3',w=.7)
+ art=''
+ if key=='arquitectonica':
+  if index==0:art=room()+path('M59 32 67 28V77L59 81Z',grad('steel'),'#a4cadb')+waves(36,53,.65)+waves(80,54,.55)
+  elif index==1:art=room()+circle(45,70,4,grad('ball'))+path('M45 68 91 43 40 41 89 70 66 81',stroke='#c1e0e9',w=1.5)+path('M85 42l6 1-3 6M84 68l5 2-4 5',stroke='#c1e0e9',w=1.5)
+  elif index==2:
+   art=path('M44 20 64 12 83 23 63 32Z',grad('top'))+path('M44 20V85L63 96V32Z',grad('front'))+path('M63 32 83 23V85L63 96Z',grad('side'))+''.join(path(f'M48 {y}l11 6',stroke='#91b6c9',w=2) for y in range(30,85,8))+waves(16,53,.7)+waves(89,53,.4)
+  elif index==3:
+   art=block(28,25,65,60,9)+circle(60,54,23,'#102733','#9dbfce')+circle(60,54,18,grad('side'),'#527d94')
+   for a in [0,90,180,270]:art+=f'<g transform="rotate({a} 60 54)">'+path('M60 54Q41 39 54 36Q67 32 64 48Z',grad('steel'),'#a6c9d8')+'</g>'
+   art+=circle(60,54,5,grad('ball'))+''.join(path(f'M38 {y}h45',stroke='#7198ad',w=.8) for y in [78,81])
+  elif index==4:
+   for y in [66,49,32]:art+=path(f'M24 {y} 62 {y-18} 103 {y} 65 {y+20}Z',grad('top'),'#a1c4d3')+path(f'M24 {y}v7l41 20 38-20v-7L65 {y+20}Z',grad('side'),'#5e879c')
+   art+=badge(99,24,'check')
+  else:art=room()+circle(71,62,18,grad('glass'),'#d0e6ef',2)+path('M84 75 102 93',stroke='#a4c9db',w=6)+path('M62 61h18M71 52v18',stroke='#d0e6ef',w=1)
+ elif key=='predictivo':
+  if index==0:art=bearing()+circle(77,34,7,'#c4a27a','#e6d3b6')+path('M98 27q12 26-3 48',stroke='#b9dce9',w=1.3)
+  elif index==1:art=block(15,34,32,29,6)+block(76,43,31,29,6)+rect(43,45,15,9,grad('steel'))+rect(63,53,15,9,grad('steel'))+path('M59 30v45M13 81h97',stroke='#8eb1c4')+path('M55 35h8M55 70h8',stroke='#d5e9f0',w=2)
+  elif index==2:art=bearing()+badge(95,83,'alert')
+  elif index==3:art=motor()+path('M33 88h54M43 81v11M77 81v11',stroke='#c8e2ec',w=2)+circle(43,91,3,grad('steel'))+circle(77,91,3,grad('steel'))+path('M15 40v27M11 45v17',stroke='#acd2e1')
+  elif index==4:art=chart('wave')
+  else:art=chart('trend')+badge(97,25,'alert')
+ elif key=='legal':
+  if index==0:art=block(25,42,37,38,8)+path('M22 42 43 23 68 38 62 44 43 32 28 47Z',grad('steel'))+rect(38,60,12,20,'#133140')+waves(72,48,.75)+badge(91,83,'check')
+  elif index==1:
+   art=block(36,88,51,5,5)+rect(59,24,6,64,grad('steel'))+path('M31 35 95 28',stroke='#c6e0eb',w=3)+path('M33 35 20 60h26ZM92 29 79 54h26Z',stroke='#b4d5e4')+path('M20 60q13 15 26 0Z',grad('steel'))+path('M79 54q13 15 26 0Z',grad('steel'))+circle(62,22,6,grad('ball'))
+  elif index==2:art=document()+badge(83,77,'check')
+  elif index==3:art=block(18,46,25,39,6)+block(48,29,27,56,6)+block(81,53,20,32,6)+''.join(rect(x,y,4,6,'#9abcc9',0,'none') for x,y in [(24,54),(33,54),(24,66),(54,39),(64,39),(54,52),(64,52),(87,62)])+waves(84,29,.5)
+  elif index==4:art=document()+''.join(badge(83,y,'check') for y in [39,70])
+  else:art=document()+badge(84,76,'alert')
+ else:
+  if index==0:art=block(23,44,36,39,8)+path('M19 44 42 25 65 40 60 46 42 33 26 49Z',grad('steel'))+rect(36,64,12,19,'#142f3d')+waves(73,49,.85)
+  elif index==1:art=path('M48 82c0-14-20-15-20-37a28 28 0 0 1 56 0c0 19-18 24-18 40 0 12-16 19-23 10',grad('side'),'#b4d6e3',2)+path('M40 46c0-22 32-22 32-1 0 12-19 12-17 26M40 55q3 9 9 11',stroke='#d4e9f1',w=2)+waves(94,42,.5)
+  elif index==2:art=motor()+badge(96,24,'plus')
+  elif index==3:
+   art=path('M29 34 65 57 100 32M65 57 33 87M65 57 99 87',stroke='#91b8ca',w=1.5)
+   for x,y in [(19,20),(87,18),(20,74),(87,74)]:art+=block(x,y,18,14,4)
+   art+=circle(65,57,11,grad('steel'),'#bedbe7')+circle(65,57,5,'#163342')
+  elif index==4:art=block(25,28,65,57,9)+rect(32,36,50,40,'#122b39')+''.join(path(f'M38 {y}h37',stroke='#789bac') for y in [43,49,55])+badge(91,75,'cross')
+  else:art=chart('trend')+badge(96,76,'check')
+ defs=f'''<defs><linearGradient id="{uid}-front" x2=".8" y2="1"><stop stop-color="#7199ad"/><stop offset=".45" stop-color="#3a6075"/><stop offset="1" stop-color="#223e50"/></linearGradient><linearGradient id="{uid}-side" x2="1" y2=".8"><stop stop-color="#36596c"/><stop offset="1" stop-color="#142b3c"/></linearGradient><linearGradient id="{uid}-top" x2=".7" y2="1"><stop stop-color="#c1d9e3"/><stop offset="1" stop-color="#668ca2"/></linearGradient><linearGradient id="{uid}-steel" x2="1" y2=".5"><stop stop-color="#668a9e"/><stop offset=".3" stop-color="#d7e6ed"/><stop offset=".55" stop-color="#86a9bc"/><stop offset="1" stop-color="#385c74"/></linearGradient><radialGradient id="{uid}-ball" cx=".3" cy=".25"><stop stop-color="#e0f0f5"/><stop offset=".5" stop-color="#91b1c1"/><stop offset="1" stop-color="#395e74"/></radialGradient><linearGradient id="{uid}-paper" x2=".7" y2="1"><stop stop-color="#d1e2e9"/><stop offset="1" stop-color="#86a9bd"/></linearGradient><linearGradient id="{uid}-floor" x2="0" y2="1"><stop stop-color="#567b90"/><stop offset="1" stop-color="#1e3a4b"/></linearGradient><linearGradient id="{uid}-badge" x2="1" y2="1"><stop stop-color="#4c8298"/><stop offset="1" stop-color="#23495e"/></linearGradient><radialGradient id="{uid}-glass"><stop stop-color="#9bd5e1" stop-opacity=".12"/><stop offset="1" stop-color="#aadce7" stop-opacity=".3"/></radialGradient></defs>'''
+ return f'<svg class="problem-glyph dimensional-glyph" viewBox="0 0 128 112" width="128" height="112" fill="none" aria-hidden="true" focusable="false">'+defs+'<ellipse cx="64" cy="98" rx="44" ry="6" fill="#05121e" opacity=".4"/><g class="miniature-object">'+art+'</g></svg>'

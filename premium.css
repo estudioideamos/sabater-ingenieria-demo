@@ -1244,3 +1244,10 @@ body.has-hero .service-gallery .client-carousel.continuous-logos .logos{scroll-s
 .problems .premium-glyph .glyph-registration{stroke:#698b9c;stroke-width:.75;opacity:.5}
 .problems .premium-glyph .glyph-pin{stroke:none;fill:#a7cedd;opacity:.65}
 @media(max-width:760px){.problems .problem-symbol{width:80px;height:80px;border-radius:18px}.problems .premium-glyph{width:72px;height:72px}}
+/* Dimensional miniatures replace the former line-icon tiles entirely. */
+.problems .problem-symbol{width:132px;height:116px;border:0;border-radius:0;background:none;box-shadow:none;margin-bottom:22px;padding:0;display:flex;align-items:center;justify-content:flex-start}
+.problems .problem-symbol:before,.problems .problem-symbol:after{display:none}
+.problems .dimensional-glyph{display:block;width:128px;height:112px;max-width:none;overflow:visible;filter:drop-shadow(0 7px 7px #030d1626)}
+.problems .dimensional-glyph .miniature-object{transition:transform .35s ease;transform-origin:64px 95px}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.problem-grid article:hover .miniature-object{transform:translateY(-2px)}}
+@media(max-width:760px){.problems .problem-symbol{width:120px;height:108px;margin-bottom:18px}.problems .dimensional-glyph{width:120px;height:105px}}
