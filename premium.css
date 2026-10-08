@@ -1232,3 +1232,15 @@ body.is-service .closing-editorial>img{object-position:center}
 
 /* Continuous logo motion uses fractional positions, without snap or smooth-scroll resets. */
 body.has-hero .service-gallery .client-carousel.continuous-logos .logos{scroll-snap-type:none;scroll-behavior:auto}
+
+/* Bespoke technical pictograms: consistent precision and subtle material depth. */
+.problems .problem-symbol{width:88px;height:88px;border-radius:20px;background:linear-gradient(145deg,#33566566,#142b3655);border:1px solid #799bab45;box-shadow:inset 0 1px 0 #c1dfeb14,0 8px 22px #020c1515;color:#bdd5df}
+.problems .problem-symbol:after{display:none}
+.problems .premium-glyph{width:78px;height:78px;overflow:visible;filter:drop-shadow(0 2px 2px #0002)}
+.problems .premium-glyph .glyph-surface{fill:#9bbdce0d;stroke:none}
+.problems .premium-glyph .glyph-detail{stroke:#779caf;stroke-width:.8;opacity:.8}
+.problems .premium-glyph .glyph-base{stroke:#b6cdd8;opacity:1}
+.problems .premium-glyph .glyph-accent{stroke:#e0f2f8;color:#e0f2f8;stroke-width:1.65}
+.problems .premium-glyph .glyph-registration{stroke:#698b9c;stroke-width:.75;opacity:.5}
+.problems .premium-glyph .glyph-pin{stroke:none;fill:#a7cedd;opacity:.65}
+@media(max-width:760px){.problems .problem-symbol{width:80px;height:80px;border-radius:18px}.problems .premium-glyph{width:72px;height:72px}}

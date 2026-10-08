@@ -36,6 +36,53 @@ ICONS={
  (path('M9 12v42h46M17 45h35M17 34h35M17 23h35'),path('M17 43 25 36 33 38 42 25 52 16')+circle(52,16,3),'draw')]
 }
 
+# Fine construction details are unique to each situation, rather than stock symbols.
+DETAILS={
+ 'industrial':[
+  'M13 30h18M21 23v5M12 52h23M19 33h6M39 48h16M41 51h11',
+  'M19 22c0-8 7-13 14-11M21 30q2 5 7 7M28 46q0 5-4 5M10 48h6M13 45v6',
+  'M11 25v20M17 49h24M21 18h13M37 28v14M41 28v14M49 32h3M49 38h3M8 57h45',
+  'M7 19v8M7 37v8M57 19v8M57 37v8M22 7h20M22 57h20M29 32h6M32 29v6',
+  'M14 20h36M16 41h10M16 45h7M13 54h38M30 25h17M31 29h16',
+  'M16 50h35M19 38h3M31 31h3M43 23h3M15 16h6M15 12h6M55 26v22'
+ ],
+ 'arquitectonica':[
+  'M12 20h15M37 20h15M12 49h15M37 49h15M29 16v36M35 16v36M17 44h6M41 44h6',
+  'M14 19h36M14 50h36M14 19v31M50 19v31M22 15v4M32 15v4M42 15v4',
+  'M29 15l4 4M29 23l4 4M29 33l4 4M29 43l4 4M23 56h16M23 9h16',
+  'M17 47h30M17 50h30M47 24v17M16 24v17M28 15h17',
+  'M16 27v7M23 31v7M41 31v7M48 27v7M16 38v7M23 42v7M41 42v7M48 38v7',
+  'M16 20h12M16 24h7M16 46h10M39 19h9M39 23h9M30 32h8M34 28v8'
+ ],
+ 'legal':[
+  'M13 29h18M21 23v4M12 52h21M39 10h15M39 13h11M17 32h10',
+  'M9 39q9 10 18 0M37 39q9 10 18 0M29 27v17M24 57h16M18 18h8M38 18h8',
+  'M22 14h12M22 18h12M25 39h5M23 54h19M51 24v8M51 47v7',
+  'M14 36h3M14 42h3M25 26h4M25 32h4M25 38h4M38 35h4M38 41h4M10 55h40',
+  'M12 12H9v46h33M20 50h21M22 22h8M22 30h8M22 38h8M22 46h8',
+  'M23 14h11M23 18h11M25 25h15M23 54h18M52 19v9M49 24h6'
+ ],
+ 'predictivo':[
+  'M22 15l2 4M42 15l-2 4M15 22l4 2M15 42l4-2M22 49l2-4M42 49l-2-4M49 42l-4-2M23 32h4M32 37v7',
+  'M11 25v10M15 25v10M19 25v10M42 31v10M46 31v10M50 31v10M5 42h19M40 48h19M30 25v15M35 25v15',
+  'M32 7v3M32 54v3M7 32h3M54 32h3M17 17l3 3M44 44l3 3M17 47l3-3M44 20l3-3',
+  'M13 49h7M44 49h7M19 24v16M45 24v16M26 17h12M29 31h6M29 35h6M20 56h24',
+  'M16 18h37M16 28h37M16 38h37M16 48h37M22 15v34M34 15v34M46 15v34',
+  'M20 17v31M30 17v31M40 17v31M50 17v31M13 58h42'
+ ]
+}
+# Architectural sound paths are drawn as clear, physical situations.
+ICONS['arquitectonica'][0]=(ROOM,path('M17 28q7 6 0 12M21 25q10 9 0 18M43 29q-6 5 0 10M47 25q-10 9 0 18'),'ripple')
+ICONS['arquitectonica'][1]=(path('M10 15v39h44V15M10 15h44'),path('M20 39 43 24 43 43 23 24M18 39h5M39 24h4v4'),'draw')
+ICONS['arquitectonica'][3]=(path('M12 11h40v42H12ZM12 20h40M18 15h2M24 15h2')+circle(32,34,12)+circle(32,34,3),path('M32 31q-9-12-11-2l8 6M35 34q14-4 7-11l-10 8M32 37q-3 14 6 10l-3-13M29 34q-13 5-6 11l9-8'),'turn')
+
 def problem_icon(key,index):
  base,accent,motion=ICONS[key][index]
- return '<svg class="problem-glyph motion-'+motion+'" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><g class="glyph-base">'+base+'</g><g class="glyph-accent">'+accent+'</g></svg>'
+ # A restrained tinted surface gives the line work depth, without raster assets.
+ surface={
+  'industrial':'M12 48 32 56 54 46 34 39Z',
+  'arquitectonica':'M12 16h40v36H12Z',
+  'legal':'M18 9h21l9 9v36H18Z',
+  'predictivo':'M10 45 32 53 54 45 32 38Z'
+ }[key]
+ return '<svg class="problem-glyph premium-glyph motion-'+motion+'" viewBox="0 0 80 80" width="80" height="80" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><g transform="translate(8 8)"><path class="glyph-surface" d="'+surface+'"/><g class="glyph-detail">'+path(DETAILS[key][index])+'</g><g class="glyph-base">'+base+'</g><g class="glyph-accent">'+accent+'</g></g><path class="glyph-registration" d="M5 16V9h7M68 71h7v-7"/><circle class="glyph-pin" cx="72" cy="9" r="1.5"/></svg>'
