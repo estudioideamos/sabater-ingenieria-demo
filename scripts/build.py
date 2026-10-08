@@ -59,7 +59,7 @@ def process(steps,end='Cada proyecto se aborda con un proceso claro, trazable y 
  if specialty:
   keys=[specialty+'-editorial-card',specialty+'-analizar',specialty+'-decidir']
   descriptions=['Relevamiento y mediciones en el contexto del servicio','Análisis técnico de las condiciones del proyecto','Evaluación de alternativas para orientar la solución']
-  replacements=''.join(image(k,descriptions[j],b).replace('<img ',f'<img class="method-photo{ " is-active" if j==0 else ""}" aria-hidden="{str(j!=0).lower()}" ').replace('29vw','75vw') for j,k in enumerate(keys))
+  replacements=''.join(image(k,descriptions[j],b).replace('<img ',f'<img class="method-photo{ " is-active" if j==0 else ""}" aria-hidden="{str(j!=0).lower()}" ').replace('29vw','75vw').replace('44vw','75vw') for j,k in enumerate(keys))
   visuals=replacements+visuals[visuals.rfind('<img '):]
  notes=RESULTS[specialty] if specialty else ['Comprender el contexto y definir el alcance.','Interpretar mediciones y reconocer patrones.','Comparar alternativas con criterio técnico.','Documentar una decisión fundamentada.']
  visuals+='<div class="method-annotation" aria-live="polite">'+''.join(f'<p data-method-note="{j}"'+(' hidden' if j else '')+f'><span>{j+1:02d} / LECTURA TÉCNICA</span>{esc(note)}</p>' for j,note in enumerate(notes))+'</div>'
