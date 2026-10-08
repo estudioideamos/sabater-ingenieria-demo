@@ -80,7 +80,7 @@ document.querySelectorAll('.client-carousel').forEach(root=>{
   if(visible&&!document.hidden&&!touch&&(automatic||Math.abs(remaining)>.2))frame=requestAnimationFrame(run);else last=0;
  }
  function schedule(){cancelAnimationFrame(frame);frame=0;last=0;if(visible&&!document.hidden&&!touch)frame=requestAnimationFrame(run);}
- function measure(){const previous=cycle;cycle=clones[0].getBoundingClientRect().left-originals[0].getBoundingClientRect().left;position=wrap(previous?position/previous*cycle:track.scrollLeft);track.scrollLeft=position;controls.hidden=cycle<=track.clientWidth;schedule();}
+ function measure(){if(!visible)return;const previous=cycle;cycle=clones[0].getBoundingClientRect().left-originals[0].getBoundingClientRect().left;position=wrap(previous?position/previous*cycle:track.scrollLeft);track.scrollLeft=position;controls.hidden=cycle<=track.clientWidth;schedule();}
  function move(direction){const step=originals[1].getBoundingClientRect().left-originals[0].getBoundingClientRect().left;if(reduced.matches){position=wrap(track.scrollLeft+direction*step);track.scrollLeft=position;}else{remaining+=direction*step;schedule();}}
  controls.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>move(Number(button.dataset.logoDirection))));
  root.addEventListener('focusin',()=>{focused=!!root.querySelector(':focus-visible');schedule();});root.addEventListener('focusout',()=>setTimeout(()=>{focused=!!root.querySelector(':focus-visible');schedule();},0));
@@ -88,7 +88,7 @@ document.querySelectorAll('.client-carousel').forEach(root=>{
  const release=()=>{if(!touch)return;touch=false;position=wrap(track.scrollLeft);schedule();};addEventListener('pointerup',release,{passive:true});addEventListener('pointercancel',release,{passive:true});
  track.addEventListener('scroll',()=>{if(touch||reduced.matches)position=wrap(track.scrollLeft);},{passive:true});
  track.addEventListener('keydown',event=>{if(event.altKey||event.ctrlKey||event.metaKey)return;if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();move(event.key==='ArrowRight'?1:-1);}else if(event.key==='Home'||event.key==='End'){event.preventDefault();remaining=0;position=event.key==='Home'?0:Math.max(0,cycle-track.clientWidth);track.scrollLeft=position;}});
- new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;schedule();},{threshold:.1}).observe(root);new ResizeObserver(measure).observe(track);document.addEventListener('visibilitychange',schedule);reduced.addEventListener('change',()=>{remaining=0;position=wrap(track.scrollLeft);schedule();});measure();
+ new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible)measure();else schedule();},{threshold:.1}).observe(root);new ResizeObserver(measure).observe(track);document.addEventListener('visibilitychange',schedule);reduced.addEventListener('change',()=>{remaining=0;position=wrap(track.scrollLeft);schedule();});measure();
 });
 
 // Footer disclosures collapse only on narrow screens.
