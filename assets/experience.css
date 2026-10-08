@@ -139,3 +139,17 @@
  .experience-legal .section-note:empty{display:none}
 }
 
+
+/* Keep action rows aligned and give interactive copy a safe inset. */
+.method-editorial .method-stage button:hover{box-shadow:none}
+.method-editorial .method-stage:hover:before{opacity:.55}
+.method-editorial .method-stage.is-active:before{opacity:1}
+.services .service-card .card-copy{padding:20px 20px 6px}
+.services .service-card .card-link{padding:8px 0 12px;gap:20px}
+.service-hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:20px;margin-top:32px}
+.detail-hero .service-hero-actions>.button{margin:0;min-height:58px;vertical-align:middle;transform:none}
+.detail-hero .service-hero-actions>.text-link{display:inline-flex;align-items:center;gap:12px;min-height:58px;margin:0;padding:0;border:0;vertical-align:middle}
+.service-hero-actions .secondary-icon,.service-hero-actions .button-icon{width:44px;height:44px;flex:0 0 44px;display:inline-flex;align-items:center;justify-content:center;transform:none}
+.service-hero-actions .text-link:hover .secondary-icon{transform:none}
+.diagnostic-comparison input[data-pointer-focus]:focus{outline:none;box-shadow:none}
+@media(max-width:760px){.service-hero-actions{gap:14px;margin-top:26px}.services .service-card .card-copy{padding:18px 16px 6px}}

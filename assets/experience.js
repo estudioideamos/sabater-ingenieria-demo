@@ -73,3 +73,10 @@
   reduced.addEventListener('change',stop);document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
  });
 })();
+
+// Range controls retain keyboard focus without drawing a rectangle on pointer drag.
+document.querySelectorAll('.diagnostic-comparison input[type=range]').forEach(input=>{
+ input.addEventListener('pointerdown',()=>input.setAttribute('data-pointer-focus',''));
+ input.addEventListener('keydown',()=>input.removeAttribute('data-pointer-focus'));
+ input.addEventListener('blur',()=>input.removeAttribute('data-pointer-focus'));
+});
