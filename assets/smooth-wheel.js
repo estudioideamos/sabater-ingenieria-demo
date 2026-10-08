@@ -2,8 +2,8 @@
 (()=>{
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   const desktop=matchMedia('(hover: hover) and (pointer: fine)');
-  let frame=0,target=scrollY,current=scrollY,lastTime=0,lastWritten=scrollY,direction=0,pointerHeld=false;
-  const stop=()=>{cancelAnimationFrame(frame);frame=0;target=current=scrollY;direction=0;};
+  let frame=0,target=0,current=0,lastTime=0,lastWritten=0,direction=0,pointerHeld=false;
+  const stop=()=>{if(!frame)return;cancelAnimationFrame(frame);frame=0;target=current=scrollY;direction=0;};
   const locked=()=>document.querySelector('dialog[open],nav.open') || [document.documentElement,document.body].some(el=>/hidden|clip/.test(getComputedStyle(el).overflowY));
   function nativeTarget(event){
     for(const el of event.composedPath()){
