@@ -80,3 +80,10 @@ document.querySelectorAll('.diagnostic-comparison input[type=range]').forEach(in
  input.addEventListener('keydown',()=>input.removeAttribute('data-pointer-focus'));
  input.addEventListener('blur',()=>input.removeAttribute('data-pointer-focus'));
 });
+
+// Keep detailed decorative diagrams inert until their reserved slot approaches view.
+(()=>{const slots=document.querySelectorAll('[data-lazy-diagram]');if(!slots.length)return;
+ const render=slot=>{const template=slot.querySelector('template');if(template)template.replaceWith(template.content.cloneNode(true));};
+ if(!('IntersectionObserver' in window)){slots.forEach(render);return;}
+ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){render(entry.target);observer.unobserve(entry.target);}}),{rootMargin:'200px'});slots.forEach(slot=>observer.observe(slot));
+})();

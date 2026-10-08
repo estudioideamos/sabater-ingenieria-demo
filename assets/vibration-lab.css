@@ -43,3 +43,11 @@
 @media(prefers-reduced-motion:reduce){.lab-fallback{transition:none}}
 
 .vibration-lab:not(.lab-ready) .lab-modes{visibility:hidden}
+
+/* Loading stays within the model and never captures scrolling or pointer input. */
+.lab-loading-indicator{position:absolute;z-index:4;left:50%;bottom:24px;transform:translateX(-50%);display:none;align-items:center;gap:12px;max-width:calc(100% - 32px);padding:13px 18px;border:1px solid rgba(168,204,218,.28);border-radius:40px;background:#10232ef2;color:#e3eef1;font-size:13px;line-height:1.4;white-space:nowrap;pointer-events:none;box-shadow:0 8px 24px #0003}
+.lab-loading .lab-loading-indicator{display:flex}
+.lab-loading-ring{width:18px;height:18px;flex:none;border:1.5px solid #a8ccda40;border-top-color:#c3e4ef;border-radius:50%;animation:lab-loading-spin 1s linear infinite}
+.vibration-lab:not(.lab-ready) .lab-instruction{visibility:hidden}
+@keyframes lab-loading-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.lab-loading-ring{animation:none}}

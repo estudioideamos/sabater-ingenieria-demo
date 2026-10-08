@@ -9,7 +9,7 @@ function vectorArrow(){return '<svg class="vector-arrow" width="20" height="20" 
  const about=document.querySelector('.about');
  const closing=document.querySelector('.closing');
  let observer,frame=0;
- const revealTargets=[...document.querySelectorAll('.intro h2,.intro-text,.section-heading,.service-card,.why h2,.why-grid article,.steps article,.about-layout,.service-gallery .logos figure,.home-hero~.experience-gallery .logos,.knowledge-grid a,.blog-card,.sequence figure,.problem-grid article,.problem-next,.faq-layout,.closing h2,.closing p,.contact>div,.contact form')];
+ const revealTargets=[...document.querySelectorAll('.intro h2,.intro-text,.section-heading,.service-card,.why h2,.why-grid article,.steps article,.about-layout,.service-gallery .logos:not(#client-logo-track) figure,.home-hero~.experience-gallery .logos,.knowledge-grid a,.blog-card,.sequence figure,.problem-grid article,.problem-next,.faq-layout,.closing h2,.closing p,.contact>div,.contact form')];
  function revealAll(){revealTargets.forEach(el=>{el.classList.remove('awaiting');el.classList.add('is-visible');});}
  function configureMotion(){
   observer?.disconnect();
