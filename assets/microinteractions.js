@@ -39,9 +39,10 @@
  if(!section||!('IntersectionObserver' in window))return;
  const pulse=section.querySelector('.sensor-pulse'),img=section.querySelector('img');
  if(!pulse||!img)return;
- function place(){const scale=Math.max(section.clientWidth/1983,section.clientHeight/793);pulse.style.left=(section.clientWidth-1983*scale+1983*.625*scale)+'px';pulse.style.top=((section.clientHeight-793*scale)/2+793*.245*scale)+'px';}
- new ResizeObserver(place).observe(section);place();
- const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){section.classList.add('sensor-entered');observer.disconnect();}},{threshold:.45});observer.observe(section);
+ let nearby=false;
+ function place(){if(!nearby)return;const width=section.clientWidth,height=section.clientHeight;const scale=Math.max(width/1983,height/793);pulse.style.left=(width-1983*scale+1983*.625*scale)+'px';pulse.style.top=((height-793*scale)/2+793*.245*scale)+'px';}
+ new ResizeObserver(place).observe(section);
+ const observer=new IntersectionObserver(entries=>{nearby=entries[0].isIntersecting;if(nearby){place();section.classList.add('sensor-entered');}},{rootMargin:'150px'});observer.observe(section);
 })();
 
 // Manual method navigation, with native keyboard focus and readable HTML fallback.
@@ -70,17 +71,18 @@ document.querySelectorAll('.client-carousel').forEach(root=>{
  const track=root.querySelector('.logos'),controls=root.querySelector('.client-carousel-controls');
  const originals=[...track.querySelectorAll('figure')];if(originals.length<2)return;
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- const clones=originals.map(item=>{const clone=item.cloneNode(true);clone.setAttribute('aria-hidden','true');clone.inert=true;clone.dataset.loopClone='';clone.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));clone.removeAttribute('id');track.append(clone);return clone;});
+ let clones=[];function prepare(){if(clones.length)return;originals.forEach(item=>item.querySelectorAll("img").forEach(img=>{img.loading="eager";}));const fragment=document.createDocumentFragment();clones=originals.map(item=>{const clone=item.cloneNode(true);clone.setAttribute('aria-hidden','true');clone.inert=true;clone.dataset.loopClone='';clone.querySelectorAll('[id]').forEach(el=>el.removeAttribute('id'));clone.removeAttribute('id');fragment.append(clone);return clone;});track.append(fragment);}
  root.classList.add('continuous-logos');
  let visible=false,touch=false,focused=false,frame=0,last=0,position=0,cycle=0,remaining=0;
  const wrap=n=>cycle?((n%cycle)+cycle)%cycle:0;
  function run(now){frame=0;const dt=last?Math.min((now-last)/1000,.05):0;last=now;
   const automatic=!reduced.matches&&!touch&&!focused;
-  if(automatic||Math.abs(remaining)>.2){const step=remaining*(1-Math.exp(-dt*9));remaining-=step;position=wrap(position+step+(automatic?(innerWidth<=760?20:24)*dt:0));track.scrollLeft=position;}
+  const autoDirection=root.dataset.autoDirection==="-1"?-1:1;
+  if(automatic||Math.abs(remaining)>.2){const step=remaining*(1-Math.exp(-dt*9));remaining-=step;position=wrap(position+step+(automatic?(innerWidth<=760?20:24)*dt*autoDirection:0));track.scrollLeft=position;}
   if(visible&&!document.hidden&&!touch&&(automatic||Math.abs(remaining)>.2))frame=requestAnimationFrame(run);else last=0;
  }
  function schedule(){cancelAnimationFrame(frame);frame=0;last=0;if(visible&&!document.hidden&&!touch)frame=requestAnimationFrame(run);}
- function measure(){if(!visible)return;const previous=cycle;cycle=clones[0].getBoundingClientRect().left-originals[0].getBoundingClientRect().left;position=wrap(previous?position/previous*cycle:track.scrollLeft);track.scrollLeft=position;controls.hidden=cycle<=track.clientWidth;schedule();}
+ function measure(){if(!visible||!clones.length)return;const previous=cycle;cycle=clones[0].getBoundingClientRect().left-originals[0].getBoundingClientRect().left;position=wrap(previous?position/previous*cycle:track.scrollLeft);track.scrollLeft=position;controls.hidden=cycle<=track.clientWidth;schedule();}
  function move(direction){const step=originals[1].getBoundingClientRect().left-originals[0].getBoundingClientRect().left;if(reduced.matches){position=wrap(track.scrollLeft+direction*step);track.scrollLeft=position;}else{remaining+=direction*step;schedule();}}
  controls.querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>move(Number(button.dataset.logoDirection))));
  root.addEventListener('focusin',()=>{focused=!!root.querySelector(':focus-visible');schedule();});root.addEventListener('focusout',()=>setTimeout(()=>{focused=!!root.querySelector(':focus-visible');schedule();},0));
@@ -88,7 +90,7 @@ document.querySelectorAll('.client-carousel').forEach(root=>{
  const release=()=>{if(!touch)return;touch=false;position=wrap(track.scrollLeft);schedule();};addEventListener('pointerup',release,{passive:true});addEventListener('pointercancel',release,{passive:true});
  track.addEventListener('scroll',()=>{if(touch||reduced.matches)position=wrap(track.scrollLeft);},{passive:true});
  track.addEventListener('keydown',event=>{if(event.altKey||event.ctrlKey||event.metaKey)return;if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();move(event.key==='ArrowRight'?1:-1);}else if(event.key==='Home'||event.key==='End'){event.preventDefault();remaining=0;position=event.key==='Home'?0:Math.max(0,cycle-track.clientWidth);track.scrollLeft=position;}});
- new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible)measure();else schedule();},{threshold:.1}).observe(root);new ResizeObserver(measure).observe(track);document.addEventListener('visibilitychange',schedule);reduced.addEventListener('change',()=>{remaining=0;position=wrap(track.scrollLeft);schedule();});measure();
+ new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible){prepare();requestAnimationFrame(measure);}else schedule();},{threshold:.1}).observe(root);new ResizeObserver(measure).observe(track);document.addEventListener('visibilitychange',schedule);reduced.addEventListener('change',()=>{remaining=0;position=wrap(track.scrollLeft);schedule();});measure();
 });
 
 // Footer disclosures collapse only on narrow screens.

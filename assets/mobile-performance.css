@@ -1,0 +1,3 @@
+
+/* Mobile layout boundaries: retain natural height and visible overflow. */
+@media(max-width:760px){main>section{contain:layout style}}

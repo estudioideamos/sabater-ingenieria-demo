@@ -1,0 +1,13 @@
+
+/* Offscreen home sections keep an estimated natural space until rendered. */
+@media(max-width:760px){
+body.is-home main>section:nth-child(3){content-visibility:auto;contain-intrinsic-block-size:auto 673px}
+body.is-home main>section:nth-child(4){content-visibility:auto;contain-intrinsic-block-size:auto 961px}
+body.is-home main>section:nth-child(5){content-visibility:auto;contain-intrinsic-block-size:auto 1121px}
+body.is-home main>section:nth-child(6){content-visibility:auto;contain-intrinsic-block-size:auto 981px}
+body.is-home main>section:nth-child(7){content-visibility:auto;contain-intrinsic-block-size:auto 1174px}
+body.is-home main>section:nth-child(8){content-visibility:auto;contain-intrinsic-block-size:auto 1035px}
+body.is-home main>section:nth-child(9){content-visibility:auto;contain-intrinsic-block-size:auto 1401px}
+body.is-home main>section:nth-child(10){content-visibility:auto;contain-intrinsic-block-size:auto 364px}
+body.is-home main>section:nth-child(11){content-visibility:auto;contain-intrinsic-block-size:auto 1491px}
+}

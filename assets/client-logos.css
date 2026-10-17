@@ -1,0 +1,22 @@
+/* Client groups supplied October 2026: one consistent layout on home and services. */
+body.has-hero .client-logo-carousel .logos{display:flex;flex-wrap:nowrap;align-items:center;gap:0;margin:0 50px;width:calc(100% - 100px);padding:0;border:0;overflow-x:auto;overflow-y:hidden;scroll-snap-type:none;scroll-behavior:auto;overscroll-behavior-x:contain;scrollbar-width:none}
+body.has-hero .client-logo-carousel .logos figure{box-sizing:border-box;flex:0 0 calc(100% / 6);min-width:0;width:auto;height:116px;min-height:116px;margin:0;padding:14px 12px;display:flex;align-items:center;justify-content:center;border:0;background:none;translate:none!important;transform:none!important;animation:none!important}
+body.has-hero .client-logo-carousel .logos figure .logo-stage{display:grid;place-items:center;height:80px;width:100%;transform:none}
+body.has-hero .client-logo-carousel .logos figure:nth-child(n) .logo-mark{width:min(var(--mark-width),100%)}
+body.has-hero .client-logo-carousel .logos figure .logo-mark img{filter:grayscale(1);opacity:.88}
+body.has-hero .client-logo-carousel .logos .logo-dark-tile .logo-mark img{filter:brightness(0);opacity:.8}
+.client-logo-carousel+.client-logo-carousel{margin-top:20px}
+.client-logo-carousel .client-carousel-bar{min-height:48px}
+.client-logo-carousel .client-carousel-controls{top:48px;height:116px}
+.client-logo-carousel .logos:focus-visible{outline:2px solid #315a73;outline-offset:3px}
+@media(max-width:1000px){body.has-hero .client-logo-carousel .logos figure{flex-basis:25%}}
+@media(max-width:760px){
+ body.has-hero .client-logo-carousel .logos{margin:0 38px;width:calc(100% - 76px)}
+ body.has-hero .client-logo-carousel .logos figure{flex-basis:50%;height:102px;min-height:102px;padding:12px 8px}
+ body.has-hero .client-logo-carousel .logos figure .logo-stage{height:68px}
+ body.has-hero .client-logo-carousel .logos figure:nth-child(n) .logo-mark{width:min(calc(var(--mark-width)*.8),100%)}
+ .client-logo-carousel .client-carousel-controls{height:102px}
+ .client-logo-carousel+.client-logo-carousel{margin-top:12px}
+}
+
+body.has-hero .client-logo-carousel .logos figure:nth-child(n){border:0!important}
