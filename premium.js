@@ -64,10 +64,18 @@ function vectorArrow(){return '<svg class="vector-arrow" width="20" height="20" 
  const navLinks=document.querySelector('.blog-article,.blog-archive')?[]:[...document.querySelectorAll('nav>a[href*="#"]')];
  // Mark only the section currently crossing the reading line; clear gaps and closing.
  const navigationSections=['inicio','nosotros','experiencia','conocimiento'].map(id=>document.getElementById(id)).filter(Boolean);
- let navigationFrame=0;
- function updateNavigation(){navigationFrame=0;if(document.querySelector('.detail-hero')){navLinks.forEach(a=>a.dataset.active='false');const specialty=document.querySelector('.services-toggle');if(specialty)specialty.dataset.active='true';return;}const line=Math.min(innerHeight*.35,240);const current=window.scrollY===0?document.getElementById('inicio'):navigationSections.find(el=>{const r=el.getBoundingClientRect();return r.top<=line&&r.bottom>line;});navLinks.forEach(a=>{a.dataset.active=String(!!current&&new URL(a.href).hash==='#'+current.id);});}
- function queueNavigation(){if(!navigationFrame)navigationFrame=requestAnimationFrame(updateNavigation);}
- addEventListener('scroll',queueNavigation,{passive:true});addEventListener('resize',queueNavigation,{passive:true});updateNavigation();
+ // Observe a narrow viewport band instead of forcing section layout on every scroll.
+ const activeSections=new Set();let navigationObserver;
+ function paintNavigation(){const current=navigationSections.find(el=>activeSections.has(el));navLinks.forEach(a=>{const active=String(!!current&&new URL(a.href).hash==='#'+current.id);if(a.dataset.active!==active)a.dataset.active=active;});}
+ function observeNavigation(){
+  navigationObserver?.disconnect();activeSections.clear();
+  if(document.querySelector('.detail-hero')){navLinks.forEach(a=>a.dataset.active='false');const specialty=document.querySelector('.services-toggle');if(specialty)specialty.dataset.active='true';return;}
+  const line=Math.min(innerHeight*.35,240);
+  navigationObserver=new IntersectionObserver(entries=>{entries.forEach(e=>e.isIntersecting?activeSections.add(e.target):activeSections.delete(e.target));paintNavigation();},{rootMargin:`-${line}px 0px -${Math.max(0,innerHeight-line-1)}px 0px`});
+  navigationSections.forEach(el=>navigationObserver.observe(el));
+ }
+ observeNavigation();addEventListener('resize',observeNavigation,{passive:true});
+
  const floatingContact=document.querySelector('.floating-contact');
  const inlineContacts=[...document.querySelectorAll('.closing-editorial .text-button,.contact-whatsapp')];
  if(floatingContact&&inlineContacts.length&&'IntersectionObserver'in window){
@@ -127,7 +135,7 @@ if('IntersectionObserver' in window){const techVisibility=new IntersectionObserv
  const eligible=()=>desktop.matches&&!reduced.matches&&!connection?.saveData&&!['slow-2g','2g','3g'].includes(connection?.effectiveType);
  function sync(){
   if(!eligible()){video.pause();video.classList.remove('is-playing');return;}
-  if(!loaded&&visible&&startAllowed&&!document.hidden){loaded=true;video.src=video.dataset.src;video.load();}
+  if(!loaded&&visible&&startAllowed&&!document.hidden){loaded=true;video.src=video.dataset.src.replace(/-loop\.mp4(?:\?[^#]*)?$/, '-loop-efficient.mp4');video.load();}
   if(ready&&visible&&!document.hidden){video.play().then(()=>{video.classList.add('is-playing');}).catch(()=>{video.classList.remove('is-playing');});}
   else{video.pause();}
  }

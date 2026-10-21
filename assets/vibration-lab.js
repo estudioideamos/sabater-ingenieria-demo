@@ -1,5 +1,4 @@
-import {createIndustrialMotor} from './industrial-motor.js?v=2';
-import {refineFinishes} from './material-finishes.js';
+let createIndustrialMotor,refineFinishes;
 // SABATER — purpose-built mechanical study. Illustrative, not a numerical simulation.
 const root=document.querySelector('.vibration-lab');
 if(root){
@@ -13,7 +12,7 @@ if(root){
  let inView=false,starting=false,startTimer=0,lastScroll=performance.now();
  const markScroll=()=>{lastScroll=performance.now();if(inView&&!starting)queueStart();};
  const waitForQuiet=async()=>{while(document.hidden||performance.now()-lastScroll<220)await new Promise(resolve=>setTimeout(resolve,100));};
- async function startScene(){if(starting||!inView||document.hidden)return;starting=true;root.classList.add('lab-loading');await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));try{const T=await import('./vendor/three.module.min.js?v=186');await waitForQuiet();if(!inView){starting=false;root.classList.remove('lab-loading');return;}api=buildScene(T);await api.ready;root.classList.remove('lab-loading');root.classList.add('lab-ready');root.setAttribute('aria-busy','false');modeButtons.forEach(b=>b.disabled=false);}catch(e){showStatic();}finally{if(starting){observer.disconnect();removeEventListener('scroll',markScroll);document.removeEventListener('visibilitychange',queueStart);}}}
+ async function startScene(){if(starting||!inView||document.hidden)return;starting=true;root.classList.add('lab-loading');await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));try{const [T,motor,finishes]=await Promise.all([import('./vendor/three.module.min.js?v=186'),import('./industrial-motor.js?v=2'),import('./material-finishes.js')]);createIndustrialMotor=motor.createIndustrialMotor;refineFinishes=finishes.refineFinishes;await waitForQuiet();if(!inView){starting=false;root.classList.remove('lab-loading');return;}api=buildScene(T);await api.ready;root.classList.remove('lab-loading');root.classList.add('lab-ready');root.setAttribute('aria-busy','false');modeButtons.forEach(b=>b.disabled=false);}catch(e){showStatic();}finally{if(starting){observer.disconnect();removeEventListener('scroll',markScroll);document.removeEventListener('visibilitychange',queueStart);}}}
  function queueStart(){clearTimeout(startTimer);if(inView&&!starting)startTimer=setTimeout(startScene,240);}
  const observer=new IntersectionObserver(entries=>{inView=entries[0].intersectionRatio>=.12;queueStart();},{threshold:.12});observer.observe(root);addEventListener('scroll',markScroll,{passive:true});document.addEventListener('visibilitychange',queueStart);
 
